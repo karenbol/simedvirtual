@@ -57,8 +57,9 @@ namespace SIMEDVirtual
         private void expedientesMedicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_Exp_Biografia mem = new Frm_Exp_Biografia();
+            frm_ExpedienteMG mem = new frm_ExpedienteMG();
             mem.ShowDialog();
+            
         }
 
         private void Frm_Splash_FormClosed(object sender, FormClosedEventArgs e)

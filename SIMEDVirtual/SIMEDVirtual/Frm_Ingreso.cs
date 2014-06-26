@@ -54,8 +54,9 @@ namespace SIMEDVirtual
                 {
                     //si es medico lo lleva a los expedientes
                     MessageBox.Show("eres Medico");
-                    Frm_Exp_Biografia pr = new Frm_Exp_Biografia();
+                    frm_ExpedienteMG pr = new frm_ExpedienteMG();
                     pr.ShowDialog();
+                    
                 }
                 else
                 {

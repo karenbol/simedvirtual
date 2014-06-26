@@ -72,11 +72,11 @@
     <Compile Include="Frm_Anamnesis.Designer.cs">
       <DependentUpon>Frm_Anamnesis.cs</DependentUpon>
     </Compile>
-    <Compile Include="Frm_Exp_Biografia.cs">
+    <Compile Include="frm_ExpedienteMG.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Exp_Biografia.Designer.cs">
-      <DependentUpon>Frm_Exp_Biografia.cs</DependentUpon>
+    <Compile Include="frm_ExpedienteMG.Designer.cs">
+      <DependentUpon>frm_ExpedienteMG.cs</DependentUpon>
     </Compile>
     <Compile Include="Frm_Ingreso.cs">
       <SubType>Form</SubType>
@@ -124,8 +124,8 @@
     <EmbeddedResource Include="Frm_Anamnesis.resx">
       <DependentUpon>Frm_Anamnesis.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Frm_Exp_Biografia.resx">
-      <DependentUpon>Frm_Exp_Biografia.cs</DependentUpon>
+    <EmbeddedResource Include="frm_ExpedienteMG.resx">
+      <DependentUpon>frm_ExpedienteMG.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Ingreso.resx">
       <DependentUpon>Frm_Ingreso.cs</DependentUpon>
@@ -218,6 +218,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\doctorBig.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\upload.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

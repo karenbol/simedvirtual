@@ -288,7 +288,7 @@
             this.codigo.Location = new System.Drawing.Point(257, 303);
             this.codigo.Mask = "9999999";
             this.codigo.Name = "codigo";
-            this.codigo.Size = new System.Drawing.Size(142, 22);
+            this.codigo.Size = new System.Drawing.Size(147, 22);
             this.codigo.TabIndex = 6;
             // 
             // telefono1
