@@ -57,20 +57,22 @@
     <Compile Include="DA\AdministrativoDa.cs" />
     <Compile Include="DA\ClienteDA.cs" />
     <Compile Include="DA\Empresa.cs" />
+    <Compile Include="DA\ExpedienteDA.cs" />
     <Compile Include="DA\MedicoDa.cs" />
     <Compile Include="DA\Planes_EmpresarialesDA.cs" />
     <Compile Include="Entity\AdministrativoEntity.cs" />
     <Compile Include="Entity\ClienteEntity.cs" />
     <Compile Include="Entity\EmpresaEntity.cs" />
+    <Compile Include="Entity\ExpedienteEntity.cs" />
     <Compile Include="Entity\MedicoEntity.cs" />
     <Compile Include="DA\UsuarioDa.cs" />
     <Compile Include="Entity\Planes_Empresariales.cs" />
     <Compile Include="Entity\UsuarioEntity.cs" />
-    <Compile Include="Frm_Anamnesis.cs">
+    <Compile Include="frmVerExpediente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Frm_Anamnesis.Designer.cs">
-      <DependentUpon>Frm_Anamnesis.cs</DependentUpon>
+    <Compile Include="frmVerExpediente.Designer.cs">
+      <DependentUpon>frmVerExpediente.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_ExpedienteMG.cs">
       <SubType>Form</SubType>
@@ -115,14 +117,16 @@
       <DependentUpon>Frm_Splash.cs</DependentUpon>
     </Compile>
     <Compile Include="IT\AdministrativoIT.cs" />
+    <Compile Include="IT\ClienteIT.cs" />
     <Compile Include="IT\EmpresaIT.cs" />
+    <Compile Include="IT\ExpedienteIT.cs" />
     <Compile Include="IT\MedicoIT.cs" />
     <Compile Include="IT\Planes_EmpresarialIT.cs" />
     <Compile Include="IT\UsuarioIT.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Frm_Anamnesis.resx">
-      <DependentUpon>Frm_Anamnesis.cs</DependentUpon>
+    <EmbeddedResource Include="frmVerExpediente.resx">
+      <DependentUpon>frmVerExpediente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ExpedienteMG.resx">
       <DependentUpon>frm_ExpedienteMG.cs</DependentUpon>
@@ -224,6 +228,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\upload.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\1406020441_add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\1406021074_edit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\1406021224_plus-sign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\add28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\edit32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\delete32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

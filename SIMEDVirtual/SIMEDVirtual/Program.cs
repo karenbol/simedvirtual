@@ -16,7 +16,7 @@ namespace SIMEDVirtual
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frm_ExpedienteMG());
+            Application.Run(new Frm_Ingreso());
         }
     }
 }

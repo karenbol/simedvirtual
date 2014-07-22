@@ -56,9 +56,6 @@ namespace SIMEDVirtual.DA
                 }
             }
         }
-
-
-
         //metodo que edita la informacion
         public static Boolean UpdateMedico(string nombre, string apellido1, string apellido2, int cedula,
            DateTime fecha, string direccion, int codigo, string universidad, string especialidad, string correo,
@@ -177,34 +174,6 @@ namespace SIMEDVirtual.DA
             }
 
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         //metodo get all de medicos
         public static List<MedicoEntity> selectMedico()
         {

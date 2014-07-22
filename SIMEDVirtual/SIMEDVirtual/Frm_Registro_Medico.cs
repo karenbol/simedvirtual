@@ -14,6 +14,7 @@ namespace SIMEDVirtual
     public partial class Frm_Registro_Medico : Form
     {
         private Boolean edicion = false;
+
         public Frm_Registro_Medico()
         {
             InitializeComponent();
@@ -104,12 +105,16 @@ namespace SIMEDVirtual
 
         private void button1_Click(object sender, EventArgs e)
         {
+            //DateTime x = Convert.ToDateTime(fecha_nacimiento.Text);
+            //MessageBox.Show(x.ToString());
+
+
             //si todos los campos estan llenos 
             if (txtNombre.Text != string.Empty && txtApellido1.Text != string.Empty
                  && txtApellido2.Text != string.Empty && mtcedula.Text != string.Empty
                 && fecha_nacimiento.Text != string.Empty & txtDireccion.Text != string.Empty
                 && codigo.Text != string.Empty && txtU.Text != string.Empty && txtEspecialidad.Text != string.Empty
-                && txtCorreo.Text != string.Empty&& telefono1.Text!= string.Empty && telefono2.Text!= string.Empty)
+                && txtCorreo.Text != string.Empty && telefono1.Text != string.Empty && telefono2.Text != string.Empty)
             {
                 //si no estoy editando, entonces inserto
                 if (edicion != true)
@@ -127,7 +132,7 @@ namespace SIMEDVirtual
                             //insertamos en la tabla de usuario
                             if (UsuarioIT.InsertaUsuario(txtcontrasena.Text, Convert.ToInt32(mtcedula.Text), 'm'))
                             {
-                                MessageBox.Show("Los Datos han sido Insertados Correctamente !", "Error al Insertar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                                MessageBox.Show("Los Datos han sido Insertados Correctamente !", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                                 this.Close();
                                 Frm_Splash frm = new Frm_Splash();
                                 frm.ShowDialog();

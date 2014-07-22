@@ -54,7 +54,6 @@ C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\fr\Npgsql.resources.dll
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\ja\Npgsql.resources.dll
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\zh-CN\Npgsql.resources.dll
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.csprojResolveAssemblyReference.cache
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Anamnesis.resources
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Ingreso.resources
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Medico.resources
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Membresia.resources
@@ -64,3 +63,4 @@ C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Splash.reso
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Properties.Resources.resources
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.csproj.GenerateResource.Cache
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_ExpedienteMG.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frmVerExpediente.resources
