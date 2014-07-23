@@ -10,35 +10,43 @@ using System.Windows.Forms;
 using Npgsql;
 using System.Configuration;
 using SIMEDVirtual.IT;
+using SIMEDVirtual.Entity;
+using SIMEDVirtual.DA;
 
 namespace SIMEDVirtual
 {
     public partial class Frm_Ingreso : Form
     {
+        string datosUsuario = "karen probando";
         public Frm_Ingreso()
         {
             InitializeComponent();
         }
 
-        private void medicoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //this.Hide();
-            Frm_Registro_Medico rm = new Frm_Registro_Medico();
-            rm.ShowDialog();
-        }
+        //private void medicoToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    //this.Hide();
+        //    Frm_Registro_Medico rm = new Frm_Registro_Medico();
+        //    rm.ShowDialog();
+        //}
 
-        private void secretariaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //this.Hide();
-            Frm_Registro_Secretaria rm = new Frm_Registro_Secretaria();
-            rm.ShowDialog();
-        }
+        //private void secretariaToolStripMenuItem_Click(object sender, EventArgs e)
+        //{
+        //    //this.Hide();
+        //    Frm_Registro_Secretaria rm = new Frm_Registro_Secretaria();
+        //    rm.ShowDialog();
+        //}
 
         private void button1_Click(object sender, EventArgs e)
         {
             Char tipoUsuario;
             //ocultamos la ventana
             this.Hide();
+            //determinamos nombre y apellido del usuario
+            List<MedicoEntity> doctor = UsuarioIT.getNombreApeDr(textBox1.Text.Trim());
+
+            datosUsuario = doctor.ElementAt(0).nombre.ToString();
+            datosUsuario += " " + doctor.ElementAt(0).apellido1.ToString();
 
             //determina si los datos de ingreso son correctos
             if (UsuarioIT.Ingreso(Convert.ToInt32(textBox1.Text.Trim()), textBox2.Text.Trim()))
@@ -47,16 +55,15 @@ namespace SIMEDVirtual
                 if (tipoUsuario == 'a')
                 {
                     //si es adm lo lleva a la pantalla principal
-                    Frm_Splash pr = new Frm_Splash();
+                    Frm_Splash pr = new Frm_Splash(datosUsuario);
                     pr.ShowDialog();
                 }
                 else if (tipoUsuario == 'm')
                 {
                     //si es medico lo lleva a los expedientes
                     MessageBox.Show("eres Medico");
-                    frm_ExpedienteMG pr = new frm_ExpedienteMG();
+                    frm_ExpedienteMG pr = new frm_ExpedienteMG(datosUsuario);
                     pr.ShowDialog();
-                    
                 }
                 else
                 {
@@ -75,6 +82,7 @@ namespace SIMEDVirtual
                 this.Show();
             }
         }
+
 
         private void Frm_Ingreso_Load(object sender, EventArgs e)
         {

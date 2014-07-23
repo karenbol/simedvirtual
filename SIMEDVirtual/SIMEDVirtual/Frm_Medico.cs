@@ -13,9 +13,13 @@ namespace SIMEDVirtual
 {
     public partial class Frm_Medico : Form
     {
-        public Frm_Medico()
+        string usuarioPublico = "";
+
+        public Frm_Medico(string usuario)
         {
             InitializeComponent();
+            usuarioPublico = usuario;
+            label4.Text = usuario;
         }
 
         private void Frm_Medico_Load(object sender, EventArgs e)
@@ -30,7 +34,7 @@ namespace SIMEDVirtual
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = pts;
             //agregar el evento 
-            dataGridView1.CellContentDoubleClick += dataGridView1_CellContentDoubleClick;
+            dataGridView1.CellContentDoubleClick += dataGridView1_CellDoubleClick;
 
             //se asignan datos al datagrid
             for (int j = 0; j < pts.Count; j++)
@@ -44,11 +48,6 @@ namespace SIMEDVirtual
             }
         }
 
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (dataGridView1.SelectedCells.Count > 0)
@@ -56,7 +55,7 @@ namespace SIMEDVirtual
                 DataGridViewRow selectedRow = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex];
                 int ced = Convert.ToInt32(selectedRow.Cells["Cedula"].Value);
                 //devuelve datos del medico segun la cedula
-                var pts = new BindingList<MedicoEntity>(MedicoIT.selectMedico2(Convert.ToInt32(ced)));
+                var pts = new BindingList<MedicoEntity>(MedicoIT.selectMedico2(Convert.ToString(ced)));
 
                 string nombre = pts.ElementAt(0).nombre.ToString();
                 String ape1 = pts.ElementAt(0).apellido1.ToString();
@@ -76,30 +75,55 @@ namespace SIMEDVirtual
                 frm.ShowDialog();
             }
         }
-
+        //agregar medico
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_Registro_Medico pan = new Frm_Registro_Medico();
+            Frm_Registro_Medico pan = new Frm_Registro_Medico(usuarioPublico);
             pan.ShowDialog();
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void Frm_Medico_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            //al cerrar nos devolvemos a pantalla principal
+            this.Hide();
+            Frm_Splash frm = new Frm_Splash(usuarioPublico);
+            frm.ShowDialog();
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        //elimina el medico
+        private void button1_Click_1(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedCells.Count > 0)
+            {
+                DialogResult dialog = MessageBox.Show(
+     "Seguro que Desea Eliminar el Registro?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
+                if (dialog == DialogResult.Yes)
+                {
+                    DataGridViewRow selectedRow = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex];
+                    string ced = Convert.ToString(selectedRow.Cells["Cedula"].Value);
+
+                    //eliminar dr y usuario
+                    if (MedicoIT.deleteMedico(ced) && (MedicoIT.deleteUsuario(ced)))
+                    {
+                        MessageBox.Show("El Registro se ha Eliminado Correctamente!", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        this.cargarDataGrid();
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("NO HAY DATOS SELECCIONADOS");
+            }
         }
 
-        private void dataGridView1_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //cargamos todos la info de drs en el datagrid
             int cedula = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
             //selecciona el medico dependiento de la cedula
-            var pts = new BindingList<MedicoEntity>(MedicoIT.selectMedico2(Convert.ToInt32(cedula)));
+            var pts = new BindingList<MedicoEntity>(MedicoIT.selectMedico2(Convert.ToString(cedula)));
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = pts;
 
@@ -121,41 +145,6 @@ namespace SIMEDVirtual
                 codigo, u, especialidad, correo, telefono1, telefono2, true);
             frm.ShowDialog();
         }
-
-        private void Frm_Medico_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Hide();
-            Frm_Splash frm = new Frm_Splash();
-            frm.ShowDialog();
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            if (dataGridView1.SelectedCells.Count > 0)
-            {
-                DialogResult dialog = MessageBox.Show(
-     "Seguro que Desea Eliminar el Registro?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-
-                if (dialog == DialogResult.Yes)
-                {
-                    DataGridViewRow selectedRow = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex];
-                    int ced = Convert.ToInt32(selectedRow.Cells["Cedula"].Value);
-                    //MessageBox.Show(ced.ToString());
-
-                    //eliminar dr y usuario
-                    if (MedicoIT.deleteMedico(ced) && (MedicoIT.deleteUsuario(ced)))
-                    {
-                        MessageBox.Show("El Registro se ha Eliminado Correctamente!", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        this.cargarDataGrid();
-                    }
-                }
-            }
-            else
-            {
-                MessageBox.Show("NO HAY DATOS SELECCIONADOS");
-            }
-        }
-
     }
 }
 

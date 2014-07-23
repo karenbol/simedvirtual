@@ -24,5 +24,15 @@ namespace SIMEDVirtual.IT
         {
             return UsuarioDa.InsertaUsuario(pass, usuario, tipo);
         }
+        //retorna el nombre y apellido del medico segun la cedula
+        public static  List<MedicoEntity> getNombreApeDr(string cedula)
+        {
+            return UsuarioDa.getNombreApeDr(cedula);
+        }
+        //elimina el usuario
+        public static Boolean deleteUsuario(string cedula)
+        {
+            return UsuarioDa.deleteUsuario(cedula);
+        }
     }
 }

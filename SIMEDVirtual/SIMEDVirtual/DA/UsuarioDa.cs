@@ -128,16 +128,60 @@ namespace SIMEDVirtual.DA
             }
         }
 
+        //me trae el nombre y apellido del medico segun la la cedula
+        public static List<MedicoEntity> getNombreApeDr(string cedula)
+        {
+            List<MedicoEntity> medico = new List<MedicoEntity>();
+            using (NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString()))
+            {
+                conn.Open();
 
+                NpgsqlCommand cmd = new NpgsqlCommand("select nombre,apellido1 from medicos where cedula=@cedula", conn);
+                cmd.Parameters.AddWithValue("@cedula", cedula);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
 
+                if (dr.Read())
+                {
+                    MedicoEntity doctor = new MedicoEntity();
+                    doctor.nombre = Convert.ToString(dr["nombre"]);
+                    doctor.apellido1 = Convert.ToString(dr["apellido1"]);
+                    medico.Add(doctor);
+                }
+            }
+            return medico;
+        }
+        //elimina el medico
+        public static Boolean deleteUsuario(string cedula)
+        {
+            int x = 0;
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                NpgsqlCommand command = new NpgsqlCommand();
+                command.Connection = conn;
+                conn.Open();
+                try
+                {
+                    string cadena = "delete from usuario where nombre_usuario=@cedula";
+                    command.CommandText = cadena;
 
+                    command.Parameters.AddWithValue("@cedula", cedula);
+                    x = command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                }
+                conn.Close();
 
-
-
-
-
-
-
-
+                if (x != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

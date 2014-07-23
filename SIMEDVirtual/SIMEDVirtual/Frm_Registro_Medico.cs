@@ -14,10 +14,12 @@ namespace SIMEDVirtual
     public partial class Frm_Registro_Medico : Form
     {
         private Boolean edicion = false;
+        string usuarioPublico = "";
 
-        public Frm_Registro_Medico()
+        public Frm_Registro_Medico(string usuario)
         {
             InitializeComponent();
+            usuarioPublico = usuario;
         }
 
         public Frm_Registro_Medico(string nombre, string apellido1, string apellido2, int cedula,
@@ -85,7 +87,7 @@ namespace SIMEDVirtual
         private void Frm_Registro_Medico_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Hide();
-            Frm_Medico splash = new Frm_Medico();
+            Frm_Medico splash = new Frm_Medico(usuarioPublico);
             splash.ShowDialog();
         }
 
@@ -125,7 +127,7 @@ namespace SIMEDVirtual
                     {
                         //si se inserto bien imprime e inserta en la tabla usuario
                         if (MedicoIT.InsertaMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
-                Convert.ToInt32(mtcedula.Text), Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text,
+                Convert.ToString(mtcedula.Text), Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text,
                 Convert.ToInt32(codigo.Text), txtU.Text, txtEspecialidad.Text, txtCorreo.Text, Convert.ToInt32(telefono1.Text),
                 Convert.ToInt32(telefono2.Text)))
                         {
@@ -134,7 +136,7 @@ namespace SIMEDVirtual
                             {
                                 MessageBox.Show("Los Datos han sido Insertados Correctamente !", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                                 this.Close();
-                                Frm_Splash frm = new Frm_Splash();
+                                Frm_Splash frm = new Frm_Splash(usuarioPublico);
                                 frm.ShowDialog();
                             }
                             else
@@ -156,13 +158,13 @@ namespace SIMEDVirtual
                 else
                 {
                     if (MedicoIT.UpdateMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
-            Convert.ToInt32(mtcedula.Text), Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text,
+            Convert.ToString(mtcedula.Text), Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text,
             Convert.ToInt32(codigo.Text), txtU.Text, txtEspecialidad.Text, txtCorreo.Text,
             Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text))) ;
                     {
                         MessageBox.Show("Los Datos han sido Actualizados Correctamente!", "Actualizacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Close();
-                        Frm_Splash frm = new Frm_Splash();
+                        Frm_Splash frm = new Frm_Splash(usuarioPublico);
                         frm.ShowDialog();
                     }
                 }
@@ -170,7 +172,6 @@ namespace SIMEDVirtual
             else
             {
                 MessageBox.Show("Algunos Campos estan Vacíos!", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                //DialogResult dialog = MessageBox.Show("Algunos Campos estan Vacíos", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

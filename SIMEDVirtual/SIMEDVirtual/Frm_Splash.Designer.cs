@@ -43,6 +43,8 @@
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -110,6 +112,7 @@
             this.expedientesMedicosToolStripMenuItem1.Name = "expedientesMedicosToolStripMenuItem1";
             this.expedientesMedicosToolStripMenuItem1.Size = new System.Drawing.Size(224, 24);
             this.expedientesMedicosToolStripMenuItem1.Text = "Expedientes Médicos";
+            this.expedientesMedicosToolStripMenuItem1.Click += new System.EventHandler(this.expedientesMedicosToolStripMenuItem1_Click);
             // 
             // empresasToolStripMenuItem
             // 
@@ -181,11 +184,31 @@
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 409);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(46, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Usuario:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(63, 409);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "label2";
+            // 
             // Frm_Splash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 431);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Name = "Frm_Splash";
@@ -219,5 +242,7 @@
         private System.Windows.Forms.ToolStripMenuItem administrativosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem planesFamiliaresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem planesEmpresarialesToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

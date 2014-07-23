@@ -9,7 +9,7 @@ namespace SIMEDVirtual.DA
 {
     class MedicoDa
     {
-        public static Boolean InsertaMedico(string nombre, string apellido1, string apellido2, int cedula,
+        public static Boolean InsertaMedico(string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, int codigo, string universidad, string especialidad, string correo,
             int telefono1, int telefono2)
         {
@@ -57,7 +57,7 @@ namespace SIMEDVirtual.DA
             }
         }
         //metodo que edita la informacion
-        public static Boolean UpdateMedico(string nombre, string apellido1, string apellido2, int cedula,
+        public static Boolean UpdateMedico(string nombre, string apellido1, string apellido2, string cedula,
            DateTime fecha, string direccion, int codigo, string universidad, string especialidad, string correo,
             int telefono1, int telefono2)
         {
@@ -107,7 +107,7 @@ namespace SIMEDVirtual.DA
         }
 
         //metodo que elimina la informacion
-        public static Boolean deleteMedico(int cedula)
+        public static Boolean deleteMedico(string cedula)
         {
             int x = 0;
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
@@ -141,7 +141,7 @@ namespace SIMEDVirtual.DA
         }
 
         //metodo que elimina el usuario
-        public static Boolean deleteUsuario(int cedula)
+        public static Boolean deleteUsuario(string cedula)
         {
             int x = 0;
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
@@ -191,7 +191,7 @@ namespace SIMEDVirtual.DA
                     doctor.nombre = Convert.ToString(dr["nombre"]);
                     doctor.apellido1 = Convert.ToString(dr["apellido1"]);
                     doctor.apellido2 = Convert.ToString(dr["apellido2"]);
-                    doctor.cedula = Convert.ToInt32(dr["cedula"]);
+                    doctor.cedula = Convert.ToString(dr["cedula"]);
                     doctor.fecha_nacimiento = Convert.ToDateTime(dr["fecha_nacimiento"]);
                     doctor.direccion = Convert.ToString(dr["direccion"]);
                     doctor.codigo = Convert.ToInt32(dr["codigo"]);
@@ -205,7 +205,7 @@ namespace SIMEDVirtual.DA
         }
 
         //metodo get all de medicos
-        public static List<MedicoEntity> selectMedico2(int cedula)
+        public static List<MedicoEntity> selectMedico2(string cedula)
         {
             //creacion de lista tipo medico entity
             List<MedicoEntity> list = new List<MedicoEntity>();
@@ -223,7 +223,7 @@ namespace SIMEDVirtual.DA
                     doctor.nombre = Convert.ToString(dr["nombre"]);
                     doctor.apellido1 = Convert.ToString(dr["apellido1"]);
                     doctor.apellido2 = Convert.ToString(dr["apellido2"]);
-                    doctor.cedula = Convert.ToInt32(dr["cedula"]);
+                    doctor.cedula = Convert.ToString(dr["cedula"]);
                     doctor.fecha_nacimiento = Convert.ToDateTime(dr["fecha_nacimiento"]);
                     doctor.direccion = Convert.ToString(dr["direccion"]);
                     doctor.codigo = Convert.ToInt32(dr["codigo"]);
@@ -238,26 +238,5 @@ namespace SIMEDVirtual.DA
             }
             return list;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

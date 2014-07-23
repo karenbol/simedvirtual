@@ -17,11 +17,14 @@ namespace SIMEDVirtual
         //parametro que me dice si guardo toda la info o solo la reconsulta
         public bool expOreconsulta;
         public string cedulaPublica = "";
+        public string usuarioPublico = "";
 
-
-        public frm_ExpedienteMG()
+        public frm_ExpedienteMG(string datosUsuario)
         {
             InitializeComponent();
+            //asignamos el nombre del usuario
+            label29.Text = datosUsuario;
+            usuarioPublico = datosUsuario;
 
             //vamos a guardar en el cliente y en el expediente
             expOreconsulta = false;
@@ -47,7 +50,7 @@ namespace SIMEDVirtual
             string grupo, string profesion, int telefono, int movil, string email, string direccion, char tabaquismo,
             char ingesta, char alcoholismo, char rehabilitacion, char diabetes, string diabetes_trat,
             char hipertension, string hipertension_trat, char dolor_cabeza, char epilepsia, char vertigo, char depresion,
-           char falta_aire, char enf_ojos_oidos, string observaciones)
+           char falta_aire, char enf_ojos_oidos, string observaciones, bool editar)
         {
             InitializeComponent();
 
@@ -247,8 +250,16 @@ namespace SIMEDVirtual
             }
 
             //aqui no se puede editar nada
-            this.DisableAnamnesis();
-            this.DisableInfoPersonal();
+            if (editar == false)
+            {
+                this.DisableAnamnesis();
+                this.DisableInfoPersonal();
+            }
+            else
+            {
+                txtCedula.Enabled = false;
+            }
+
         }
         //deshabilita los campos de info personal
         public void DisableInfoPersonal()
@@ -403,7 +414,6 @@ namespace SIMEDVirtual
                 check7.Enabled = true;
             }
         }
-
         private void check9_Click(object sender, EventArgs e)
         {
             if (check9.Checked)
@@ -445,7 +455,6 @@ namespace SIMEDVirtual
                 check12.Enabled = true;
             }
         }
-
         private void check12_Click(object sender, EventArgs e)
         {
 
@@ -588,13 +597,20 @@ namespace SIMEDVirtual
         {
             if (expOreconsulta == true)
             {
-                //guardamos solo en el expediente
-                if (ExpedienteIT.InsertaExpediente(cedulaPublica, Convert.ToDateTime(dtFechaConsulta.Text), txtTerapeutica.Text, txtObs.Text))
+                if (txtTerapeutica.Text != string.Empty || txtDiagnostico.Text != string.Empty || txtObs.Text != string.Empty)
                 {
-                    MessageBox.Show("Expediente 222 Guardado con Exito");
-                    this.Hide();
-                    frmVerExpediente splash = new frmVerExpediente();
-                    splash.ShowDialog();
+                    //guardamos solo en el expediente
+                    if (ExpedienteIT.InsertaExpediente(cedulaPublica, Convert.ToDateTime(dtFechaConsulta.Text), txtTerapeutica.Text, txtObs.Text))
+                    {
+                        MessageBox.Show("Reconsulta Insertada con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        this.Hide();
+                        frmVerExpediente splash = new frmVerExpediente(usuarioPublico);
+                        splash.ShowDialog();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se puede insertar un Expediente con Campos Vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
             else
@@ -741,28 +757,30 @@ namespace SIMEDVirtual
                 //llamamos al metodo para insertar clientes
                 try
                 {
-                    if (ClienteIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, cedula,
-                fecha, sexo, estado, grupo, txtProfesion.Text, Convert.ToInt32(txtTelefono.Text),
-                Convert.ToInt32(txtMovil.Text), txtEmail.Text, txtDireccion.Text,
-                tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, txtTratDiabetes.Text, hipertension, txtTratHipertension.Text,
-                dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, oidos_ojos, txtObservaciones.Text))
+                    //se inserta solo si los campos obligatorios estan llenos 
+                    if ((txtNombre.Text != string.Empty && txtApe1.Text != string.Empty && txtApe2.Text != string.Empty &&
+                        txtCedula.Text != string.Empty && fecha_nacimiento.Text != string.Empty && cbSexo.Text != string.Empty &&
+                        cbEstado.Text != string.Empty && cbSangre.Text != string.Empty && txtProfesion.Text != string.Empty &&
+                        txtDireccion.Text != string.Empty) && (txtTerapeutica.Text != string.Empty || txtObs.Text != string.Empty))
                     {
-                        MessageBox.Show("todo con exito");
+                        if (ClienteIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, cedula,
+         fecha, sexo, estado, grupo, txtProfesion.Text, Convert.ToInt32(txtTelefono.Text),
+         Convert.ToInt32(txtMovil.Text), txtEmail.Text, txtDireccion.Text,
+         tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, txtTratDiabetes.Text, hipertension, txtTratHipertension.Text,
+         dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, oidos_ojos, txtObservaciones.Text) &&
+         (ExpedienteIT.InsertaExpediente(cedula, Convert.ToDateTime(dtFechaConsulta.Text), txtTerapeutica.Text, txtObs.Text)))
+                        {
 
-                        if (txtTerapeutica.Text == string.Empty || txtObs.Text == string.Empty)
-                        {
-                            MessageBox.Show("No se puede insertar en el Expediente porque Hay casillas sin valor en La pesta;a Epicrisis");
+                            MessageBox.Show("Expediente Guardado con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            this.Hide();
+                            frmVerExpediente splash = new frmVerExpediente(usuarioPublico);
+                            splash.ShowDialog();
                         }
-                        else
-                        {
-                            if (ExpedienteIT.InsertaExpediente(cedula, Convert.ToDateTime(dtFechaConsulta.Text), txtTerapeutica.Text, txtObs.Text)) ;
-                            {
-                                MessageBox.Show("Expediente Guardado con Exito");
-                                this.Hide();
-                                frmVerExpediente splash = new frmVerExpediente();
-                                splash.ShowDialog();
-                            }
-                        }
+                    }
+                    //si hay campos vacios imprime error
+                    else
+                    {
+                        MessageBox.Show("Hay Campos Obligatorios Vacios", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }
                 }
                 catch (Exception x)
@@ -772,46 +790,26 @@ namespace SIMEDVirtual
             }
         }
 
-        private void frm_ExpedienteMG_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void check14_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtTratamiento_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void frm_ExpedienteMG_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Hide();
-            frmVerExpediente splash = new frmVerExpediente();
+            frmVerExpediente splash = new frmVerExpediente(usuarioPublico);
             splash.ShowDialog();
         }
 
-        private void cbEstado_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnVerExp_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            frmVerExpediente frm = new frmVerExpediente(usuarioPublico);
+            frm.ShowDialog();
         }
 
-        private void cbSangre_SelectedIndexChanged(object sender, EventArgs e)
+        private void frm_ExpedienteMG_Load(object sender, EventArgs e)
         {
+            toolTip1.InitialDelay = 1;
 
-        }
-
-        private void tabPage1_Click(object sender, EventArgs e)
-        {
-
+            toolTip1.SetToolTip(btnVerExp, "Ver Todos los Expedientes");
+            toolTip1.SetToolTip(btnGuardar, "Guardar la Informacion del Paciente");
         }
     }
 }

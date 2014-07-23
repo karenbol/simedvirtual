@@ -20,10 +20,14 @@ namespace SIMEDVirtual
 
         private DataSet ds = new DataSet();
         private DataTable dt = new DataTable();
+        string usuarioPublico = "";
 
-        public Frm_Splash()
+        public Frm_Splash(string usuario)
         {
             InitializeComponent();
+            //label1.Text = usuario;
+            usuarioPublico = usuario;
+            label2.Text = usuario;
         }
 
         private void Frm_Splash_Load(object sender, EventArgs e)
@@ -34,7 +38,7 @@ namespace SIMEDVirtual
         private void membresiasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_Membresia mem = new Frm_Membresia();
+            Frm_Membresia mem = new Frm_Membresia(usuarioPublico);
             mem.ShowDialog();
 
         }
@@ -42,7 +46,7 @@ namespace SIMEDVirtual
         private void medicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_Medico mem = new Frm_Medico();
+            Frm_Medico mem = new Frm_Medico(usuarioPublico);
             mem.ShowDialog();
 
         }
@@ -50,14 +54,14 @@ namespace SIMEDVirtual
         private void secretariaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_Registro_Secretaria mem = new Frm_Registro_Secretaria();
+            Frm_Registro_Secretaria mem = new Frm_Registro_Secretaria(usuarioPublico);
             mem.ShowDialog();
         }
 
         private void expedientesMedicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frm_ExpedienteMG mem = new frm_ExpedienteMG();
+            frm_ExpedienteMG mem = new frm_ExpedienteMG(usuarioPublico);
             mem.ShowDialog();
             
         }
@@ -80,7 +84,7 @@ namespace SIMEDVirtual
         private void planesEmpresarialesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_Membresia x = new Frm_Membresia();
+            Frm_Membresia x = new Frm_Membresia(usuarioPublico);
             x.ShowDialog();
         }
 
@@ -104,6 +108,13 @@ namespace SIMEDVirtual
             Frm_Ingreso frm = new Frm_Ingreso();
             frm.Close();
             Application.Exit();
+        }
+
+        private void expedientesMedicosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frmVerExpediente x = new frmVerExpediente(usuarioPublico);
+            x.ShowDialog();
         }
     }
 }

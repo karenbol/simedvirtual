@@ -8,7 +8,7 @@ namespace SIMEDVirtual.IT
 {
     class MedicoIT
     {
-        public static Boolean InsertaMedico(string nombre, string apellido1, string apellido2, int cedula,
+        public static Boolean InsertaMedico(string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, int codigo, string universidad, string especialidad, string correo,
             int telefono1, int telefono2)
         {
@@ -20,7 +20,7 @@ namespace SIMEDVirtual.IT
             return MedicoDa.selectMedico();
         }
 
-        public static Boolean UpdateMedico(string nombre, string apellido1, string apellido2, int cedula,
+        public static Boolean UpdateMedico(string nombre, string apellido1, string apellido2, string cedula,
           DateTime fecha, string direccion, int codigo, string universidad, string especialidad, string correo,
             int telefono1, int telefono2)
         {
@@ -28,17 +28,17 @@ namespace SIMEDVirtual.IT
                 , especialidad, correo, telefono1, telefono2);
         }
 
-        public static List<MedicoEntity> selectMedico2(int cedula)
+        public static List<MedicoEntity> selectMedico2(string cedula)
         {
             return MedicoDa.selectMedico2(cedula);
         }
 
-        public static Boolean deleteMedico(int cedula)
+        public static Boolean deleteMedico(string cedula)
         {
             return MedicoDa.deleteMedico(cedula);
         }
 
-        public static Boolean deleteUsuario(int cedula)
+        public static Boolean deleteUsuario(string cedula)
         {
             return MedicoDa.deleteUsuario(cedula);
         }

@@ -13,15 +13,17 @@ namespace SIMEDVirtual
 {
     public partial class Frm_Registro_Secretaria : Form
     {
-        public Frm_Registro_Secretaria()
+        string usuarioPublico = "";
+        public Frm_Registro_Secretaria(string usuario)
         {
             InitializeComponent();
+            usuarioPublico = usuario;
         }
 
         private void Frm_Registro_Secretaria_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Hide();
-            Frm_Splash splash = new Frm_Splash();
+            Frm_Splash splash = new Frm_Splash(usuarioPublico);
             splash.ShowDialog();
         }
 

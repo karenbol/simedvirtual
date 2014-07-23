@@ -28,6 +28,7 @@ namespace SIMEDVirtual.IT
             return ClienteDA.selectCliente();
         }
 
+        //obtenemos todo del cliente segun la cedula
         public static List<ClienteEntity> selectClienteAnamnesis(string cedula)
         {
             return ClienteDA.selectClienteAnamnesis(cedula);

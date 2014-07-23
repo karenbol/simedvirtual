@@ -13,11 +13,15 @@ namespace SIMEDVirtual
 {
     public partial class frmVerExpediente : Form
     {
-    
-        string prueba="";
-        public frmVerExpediente()
+        string prueba = "";
+        string usuarioPublico = "";
+        public frmVerExpediente(string usuario)
         {
             InitializeComponent();
+            //usuario
+            usuarioPublico = usuario;
+            label4.Text = usuario;
+            ////////////////////////
             label3.AutoSize = false;
             label3.Height = 2;
             label3.BorderStyle = BorderStyle.Fixed3D;
@@ -27,6 +31,14 @@ namespace SIMEDVirtual
         private void frmVerExpediente_Load(object sender, EventArgs e)
         {
             this.cargarDataGrid();
+
+            toolTip1.InitialDelay = 1;
+
+            toolTip1.SetToolTip(btnCrearPaciente, "Crea un Nuevo Paciente");
+            toolTip1.SetToolTip(btnEditarPaciente, "Edita la Informacion del Paciente");
+            toolTip1.SetToolTip(btnEliminarPaciente, "Elimina el Paciente Seleccionado");
+            toolTip1.SetToolTip(btnReconsulta, "Crea una Reconsulta del Paciente");
+
         }
         //cargamos los clientes
         private void cargarDataGrid()
@@ -52,7 +64,7 @@ namespace SIMEDVirtual
         private void btnCrearExp_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frm_ExpedienteMG splash = new frm_ExpedienteMG();
+            frm_ExpedienteMG splash = new frm_ExpedienteMG(usuarioPublico);
             splash.ShowDialog();
         }
 
@@ -63,7 +75,7 @@ namespace SIMEDVirtual
             {
                 //toma el valor de la cedula
                 string cedula = Convert.ToString(dgClientes.Rows[e.RowIndex].Cells[0].Value);
-                prueba=cedula;
+                prueba = cedula;
                 dgReconsultas.DataSource = ExpedienteIT.selectExpediente(cedula);
             }
         }
@@ -76,8 +88,6 @@ namespace SIMEDVirtual
 
         private void btnReconsulta_Click(object sender, EventArgs e)
         {
-            
-
             List<ClienteEntity> lista = ClienteIT.selectClienteAnamnesis(prueba);
 
             //informacion personal
@@ -96,7 +106,7 @@ namespace SIMEDVirtual
             string direccion = lista.ElementAt(0).direccion.ToString();
 
             //anamnesis
-            char tabaquismo= Convert.ToChar(lista.ElementAt(0).tabaquismo);
+            char tabaquismo = Convert.ToChar(lista.ElementAt(0).tabaquismo);
             char ingesta = Convert.ToChar(lista.ElementAt(0).ingesta_medicamentos);
             char alcoholismo = Convert.ToChar(lista.ElementAt(0).alcoholismo);
             char rehabilitacion = Convert.ToChar(lista.ElementAt(0).rehabilitacion);
@@ -113,10 +123,70 @@ namespace SIMEDVirtual
             string observaciones = Convert.ToString(lista.ElementAt(0).observaciones);
             this.Hide();
 
-            frm_ExpedienteMG frm = new frm_ExpedienteMG(nombre,apellido1, apellido2,cedula, fecha, sexo, estado_Civil,grupo,
-             profesion,telefono,movil,email,direccion,tabaquismo,ingesta,alcoholismo,rehabilitacion,diabetes,diabetes_trat,
-             hipertension,hipertension_trat,dolor_cabeza,epilepsia,vertigo,depresion,falta_aire,enf_ojos_oidos,observaciones);
+            frm_ExpedienteMG frm = new frm_ExpedienteMG(nombre, apellido1, apellido2, cedula, fecha, sexo, estado_Civil, grupo,
+             profesion, telefono, movil, email, direccion, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, diabetes_trat,
+             hipertension, hipertension_trat, dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, enf_ojos_oidos, observaciones,false);
 
+            frm.ShowDialog();
+        }
+
+        //editar un paciente
+        private void btnEditarPaciente_Click(object sender, EventArgs e)
+        {
+            if (dgClientes.SelectedCells.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgClientes.Rows[dgClientes.SelectedCells[0].RowIndex];
+                string ced = Convert.ToString(selectedRow.Cells["Cedula"].Value);
+
+               
+                //////////////////////////////
+                List<ClienteEntity> lista = ClienteIT.selectClienteAnamnesis(ced);
+
+                //informacion personal
+                string nombre = lista.ElementAt(0).nombre.ToString();
+                string apellido1 = lista.ElementAt(0).ape1.ToString();
+                string apellido2 = lista.ElementAt(0).ape2.ToString();
+                string cedula = lista.ElementAt(0).cedula.ToString();
+                DateTime fecha = lista.ElementAt(0).fecha;
+                Char sexo = lista.ElementAt(0).sexo;
+                string estado_Civil = lista.ElementAt(0).estado_civil.ToString();
+                string grupo = lista.ElementAt(0).grupo_sanguineo.ToString();
+                string profesion = lista.ElementAt(0).profesion.ToString(); ;
+                int telefono = Convert.ToInt32(lista.ElementAt(0).telefono_fijo);
+                int movil = Convert.ToInt32(lista.ElementAt(0).telefono_movil);
+                string email = lista.ElementAt(0).email.ToString();
+                string direccion = lista.ElementAt(0).direccion.ToString();
+
+                //anamnesis
+                char tabaquismo = Convert.ToChar(lista.ElementAt(0).tabaquismo);
+                char ingesta = Convert.ToChar(lista.ElementAt(0).ingesta_medicamentos);
+                char alcoholismo = Convert.ToChar(lista.ElementAt(0).alcoholismo);
+                char rehabilitacion = Convert.ToChar(lista.ElementAt(0).rehabilitacion);
+                char diabetes = Convert.ToChar(lista.ElementAt(0).diabetes);
+                string diabetes_trat = Convert.ToString(lista.ElementAt(0).diabetes_trat);
+                char hipertension = Convert.ToChar(lista.ElementAt(0).hipertension);
+                string hipertension_trat = Convert.ToString(lista.ElementAt(0).hipertension_trat);
+                char dolor_cabeza = Convert.ToChar(lista.ElementAt(0).dolor_cabeza);
+                char epilepsia = Convert.ToChar(lista.ElementAt(0).epilepsia);
+                char vertigo = Convert.ToChar(lista.ElementAt(0).vertigo);
+                char depresion = Convert.ToChar(lista.ElementAt(0).depre);
+                char falta_aire = Convert.ToChar(lista.ElementAt(0).falta_aire);
+                char enf_ojos_oidos = Convert.ToChar(lista.ElementAt(0).enf_ojos_oidos);
+                string observaciones = Convert.ToString(lista.ElementAt(0).observaciones);
+                this.Hide();
+
+                frm_ExpedienteMG frm = new frm_ExpedienteMG(nombre, apellido1, apellido2, cedula, fecha, sexo, estado_Civil, grupo,
+                 profesion, telefono, movil, email, direccion, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, diabetes_trat,
+                 hipertension, hipertension_trat, dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, enf_ojos_oidos, observaciones,true);
+
+                frm.ShowDialog();
+            }
+        }
+
+        private void btnCrearPaciente_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frm_ExpedienteMG frm = new frm_ExpedienteMG(usuarioPublico);
             frm.ShowDialog();
         }
     }
