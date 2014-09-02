@@ -15,6 +15,7 @@ namespace SIMEDVirtual
     {
         string prueba = "";
         string usuarioPublico = "";
+
         public frmVerExpediente(string usuario)
         {
             InitializeComponent();
@@ -34,9 +35,8 @@ namespace SIMEDVirtual
 
             toolTip1.InitialDelay = 1;
 
-            toolTip1.SetToolTip(btnCrearPaciente, "Crea un Nuevo Paciente");
-            toolTip1.SetToolTip(btnEditarPaciente, "Edita la Informacion del Paciente");
-            toolTip1.SetToolTip(btnEliminarPaciente, "Elimina el Paciente Seleccionado");
+            toolTip1.SetToolTip(btnCrearPaciente, "Crea Nuevo Paciente");
+            toolTip1.SetToolTip(btnEditarPaciente, "Edita Informacion del Paciente");
             toolTip1.SetToolTip(btnReconsulta, "Crea una Reconsulta del Paciente");
 
         }
@@ -125,7 +125,7 @@ namespace SIMEDVirtual
 
             frm_ExpedienteMG frm = new frm_ExpedienteMG(nombre, apellido1, apellido2, cedula, fecha, sexo, estado_Civil, grupo,
              profesion, telefono, movil, email, direccion, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, diabetes_trat,
-             hipertension, hipertension_trat, dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, enf_ojos_oidos, observaciones,false);
+             hipertension, hipertension_trat, dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, enf_ojos_oidos, observaciones, false);
 
             frm.ShowDialog();
         }
@@ -133,12 +133,13 @@ namespace SIMEDVirtual
         //editar un paciente
         private void btnEditarPaciente_Click(object sender, EventArgs e)
         {
+
             if (dgClientes.SelectedCells.Count > 0)
             {
                 DataGridViewRow selectedRow = dgClientes.Rows[dgClientes.SelectedCells[0].RowIndex];
                 string ced = Convert.ToString(selectedRow.Cells["Cedula"].Value);
 
-               
+
                 //////////////////////////////
                 List<ClienteEntity> lista = ClienteIT.selectClienteAnamnesis(ced);
 
@@ -175,9 +176,13 @@ namespace SIMEDVirtual
                 string observaciones = Convert.ToString(lista.ElementAt(0).observaciones);
                 this.Hide();
 
+                //se le envia toda la informacion al form para llenarlo 
                 frm_ExpedienteMG frm = new frm_ExpedienteMG(nombre, apellido1, apellido2, cedula, fecha, sexo, estado_Civil, grupo,
                  profesion, telefono, movil, email, direccion, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, diabetes_trat,
-                 hipertension, hipertension_trat, dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, enf_ojos_oidos, observaciones,true);
+                 hipertension, hipertension_trat, dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, enf_ojos_oidos, observaciones, true);
+                //se llama el siguiente form con toda la informacion del paciente
+
+                //al editar le quito una tab
 
                 frm.ShowDialog();
             }
@@ -188,6 +193,11 @@ namespace SIMEDVirtual
             this.Hide();
             frm_ExpedienteMG frm = new frm_ExpedienteMG(usuarioPublico);
             frm.ShowDialog();
+        }
+
+        private void btnEliminarPaciente_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

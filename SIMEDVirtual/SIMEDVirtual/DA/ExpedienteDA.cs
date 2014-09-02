@@ -48,9 +48,6 @@ namespace SIMEDVirtual.DA
             }
         }
 
-        //comentarios ade prueba bitbucked
-        //////al precer no funciona
-
         //metodo get all de reconsultas
         public static List<ExpedienteEntity> selectExpediente(string cedula_cliente)
         {

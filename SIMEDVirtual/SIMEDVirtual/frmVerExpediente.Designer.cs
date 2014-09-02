@@ -39,7 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnReconsulta = new System.Windows.Forms.Button();
-            this.btnEliminarPaciente = new System.Windows.Forms.Button();
             this.btnEditarPaciente = new System.Windows.Forms.Button();
             this.btnCrearPaciente = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -137,23 +136,11 @@
             this.btnReconsulta.UseVisualStyleBackColor = true;
             this.btnReconsulta.Click += new System.EventHandler(this.btnReconsulta_Click);
             // 
-            // btnEliminarPaciente
-            // 
-            this.btnEliminarPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarPaciente.Image = global::SIMEDVirtual.Properties.Resources.delete32;
-            this.btnEliminarPaciente.Location = new System.Drawing.Point(40, 181);
-            this.btnEliminarPaciente.Name = "btnEliminarPaciente";
-            this.btnEliminarPaciente.Size = new System.Drawing.Size(75, 62);
-            this.btnEliminarPaciente.TabIndex = 3;
-            this.btnEliminarPaciente.Text = "Eliminar";
-            this.btnEliminarPaciente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnEliminarPaciente.UseVisualStyleBackColor = true;
-            // 
             // btnEditarPaciente
             // 
             this.btnEditarPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEditarPaciente.Image = global::SIMEDVirtual.Properties.Resources.edit32;
-            this.btnEditarPaciente.Location = new System.Drawing.Point(42, 119);
+            this.btnEditarPaciente.Location = new System.Drawing.Point(42, 152);
             this.btnEditarPaciente.Name = "btnEditarPaciente";
             this.btnEditarPaciente.Size = new System.Drawing.Size(75, 58);
             this.btnEditarPaciente.TabIndex = 2;
@@ -166,7 +153,7 @@
             // 
             this.btnCrearPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCrearPaciente.Image = global::SIMEDVirtual.Properties.Resources.add28;
-            this.btnCrearPaciente.Location = new System.Drawing.Point(42, 56);
+            this.btnCrearPaciente.Location = new System.Drawing.Point(42, 89);
             this.btnCrearPaciente.Name = "btnCrearPaciente";
             this.btnCrearPaciente.Size = new System.Drawing.Size(75, 57);
             this.btnCrearPaciente.TabIndex = 1;
@@ -205,7 +192,6 @@
             this.Controls.Add(this.dgReconsultas);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReconsulta);
-            this.Controls.Add(this.btnEliminarPaciente);
             this.Controls.Add(this.btnEditarPaciente);
             this.Controls.Add(this.btnCrearPaciente);
             this.Controls.Add(this.dgClientes);
@@ -226,7 +212,6 @@
         private System.Windows.Forms.DataGridView dgClientes;
         private System.Windows.Forms.Button btnCrearPaciente;
         private System.Windows.Forms.Button btnEditarPaciente;
-        private System.Windows.Forms.Button btnEliminarPaciente;
         private System.Windows.Forms.Button btnReconsulta;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgReconsultas;

@@ -11,7 +11,7 @@ namespace SIMEDVirtual.DA
     class Empresa
     {
         //metodo que carga el nombre en el combo
-        public static List<EmpresaEntity> InfoEmpresa()
+        public static List<EmpresaEntity> getAllEmpresas()
         {
             List<EmpresaEntity> empresas = new List<EmpresaEntity>();
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
@@ -24,11 +24,11 @@ namespace SIMEDVirtual.DA
                 {
                     EmpresaEntity entidad = new EmpresaEntity();
 
-                    entidad.nombre = dr[0].ToString();
-                    entidad.cedula = Convert.ToInt32(dr[1]);
-                    entidad.direccion = dr[2].ToString();
-                    entidad.fecha = Convert.ToDateTime(dr[3]);
-                    entidad.encargado = dr[4].ToString();
+                    entidad.nombre = dr[1].ToString();
+                    entidad.cedula = Convert.ToInt32(dr[2]);
+                    entidad.direccion = dr[3].ToString();
+                    entidad.fecha = Convert.ToDateTime(dr[4]);
+                    entidad.encargado = dr[5].ToString();
 
                     empresas.Add(entidad);
                 }

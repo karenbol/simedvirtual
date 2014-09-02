@@ -19,7 +19,7 @@ namespace SIMEDVirtual
         public Frm_Membresia(string usuario)
         {
             InitializeComponent();
-            x = EmpresaIT.InfoEmpresa();
+            x = EmpresaIT.getAllEmpresas();
             comboBox1.DataSource = x;
             comboBox1.DisplayMember = "nombre";
             usuarioPublico = usuario;

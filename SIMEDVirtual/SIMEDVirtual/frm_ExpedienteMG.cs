@@ -19,6 +19,24 @@ namespace SIMEDVirtual
         public string cedulaPublica = "";
         public string usuarioPublico = "";
 
+
+        //metodo para constructor, en caso de que se quiera editar, se elimna una tab
+        //public frm_ExpedienteMG(Boolean editar)
+        //{
+        //    if (editar)
+        //    {
+
+        //        //tabControl1.Remove(tabPageEpicrisis);
+
+
+        //        int idx = tabControl1.TabPages.IndexOf(tabPageEpicrisis);
+        //        tabControl1.TabPages.RemoveAt(idx);
+        //        //tabControl1.TabPages.Add(tabPagePrueba);
+        //        //tabControl1.TabPages.Remove(tabPagePrueba);
+        //    }
+        //}
+
+
         public frm_ExpedienteMG(string datosUsuario)
         {
             InitializeComponent();
@@ -810,6 +828,27 @@ namespace SIMEDVirtual
 
             toolTip1.SetToolTip(btnVerExp, "Ver Todos los Expedientes");
             toolTip1.SetToolTip(btnGuardar, "Guardar la Informacion del Paciente");
+
+            //carga todas las empresas en el combo box
+            cargaComboEmpresas();
+
+
+        }
+
+        //metodo que carga TODAS LAS EMPRESAS registradas EN EL  COMBO BOX
+        public void cargaComboEmpresas()
+        {
+            List<EmpresaEntity> listaEmpresas = new List<EmpresaEntity>();
+            listaEmpresas = EmpresaIT.getAllEmpresas();
+            for (int i = 0; i < listaEmpresas.Count; i++)
+            {
+                comboBox1.Items.Add(listaEmpresas[i].nombre.ToUpper().ToString());
+            }
+        }
+
+        private void tabPageInfoPersonal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

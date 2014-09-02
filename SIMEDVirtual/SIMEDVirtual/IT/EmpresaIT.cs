@@ -9,9 +9,9 @@ namespace SIMEDVirtual.IT
 {
     class EmpresaIT
     {
-        public static List<EmpresaEntity> InfoEmpresa()
+        public static List<EmpresaEntity> getAllEmpresas()
         {
-            return Empresa.InfoEmpresa();
+            return Empresa.getAllEmpresas();
         }
 
         public static int IdEmpresa(String empresa)
