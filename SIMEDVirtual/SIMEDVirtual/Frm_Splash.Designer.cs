@@ -30,9 +30,14 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.reToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.medicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.secretariaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expedientesMedicosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.empresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,11 +45,7 @@
             this.administrativosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.planesFamiliaresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.planesEmpresarialesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.manualDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -74,22 +75,6 @@
             this.reToolStripMenuItem.Text = "Registro";
             this.reToolStripMenuItem.Click += new System.EventHandler(this.reToolStripMenuItem_Click);
             // 
-            // medicoToolStripMenuItem
-            // 
-            this.medicoToolStripMenuItem.Image = global::SIMEDVirtual.Properties.Resources.dr_paq2;
-            this.medicoToolStripMenuItem.Name = "medicoToolStripMenuItem";
-            this.medicoToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
-            this.medicoToolStripMenuItem.Text = "Médico";
-            this.medicoToolStripMenuItem.Click += new System.EventHandler(this.medicoToolStripMenuItem_Click);
-            // 
-            // secretariaToolStripMenuItem
-            // 
-            this.secretariaToolStripMenuItem.Image = global::SIMEDVirtual.Properties.Resources.admin;
-            this.secretariaToolStripMenuItem.Name = "secretariaToolStripMenuItem";
-            this.secretariaToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
-            this.secretariaToolStripMenuItem.Text = "Administrativo";
-            this.secretariaToolStripMenuItem.Click += new System.EventHandler(this.secretariaToolStripMenuItem_Click);
-            // 
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -105,6 +90,78 @@
             this.verToolStripMenuItem.Size = new System.Drawing.Size(45, 24);
             this.verToolStripMenuItem.Text = "Ver";
             this.verToolStripMenuItem.Click += new System.EventHandler(this.verToolStripMenuItem_Click);
+            // 
+            // ayudaToolStripMenuItem
+            // 
+            this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.manualDeUsuarioToolStripMenuItem});
+            this.ayudaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
+            this.ayudaToolStripMenuItem.Text = "Ayuda";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.White;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(12, 402);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(67, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Usuario:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(85, 402);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "label2";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.btnSalir.Image = global::SIMEDVirtual.Properties.Resources.logout;
+            this.btnSalir.Location = new System.Drawing.Point(632, 378);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(94, 41);
+            this.btnSalir.TabIndex = 4;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::SIMEDVirtual.Properties.Resources.logo_SIMED;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(738, 400);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // medicoToolStripMenuItem
+            // 
+            this.medicoToolStripMenuItem.Image = global::SIMEDVirtual.Properties.Resources.dr_paq2;
+            this.medicoToolStripMenuItem.Name = "medicoToolStripMenuItem";
+            this.medicoToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
+            this.medicoToolStripMenuItem.Text = "Médico";
+            this.medicoToolStripMenuItem.Click += new System.EventHandler(this.medicoToolStripMenuItem_Click);
+            // 
+            // secretariaToolStripMenuItem
+            // 
+            this.secretariaToolStripMenuItem.Image = global::SIMEDVirtual.Properties.Resources.admin;
+            this.secretariaToolStripMenuItem.Name = "secretariaToolStripMenuItem";
+            this.secretariaToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
+            this.secretariaToolStripMenuItem.Text = "Administrativo";
+            this.secretariaToolStripMenuItem.Click += new System.EventHandler(this.secretariaToolStripMenuItem_Click);
             // 
             // expedientesMedicosToolStripMenuItem1
             // 
@@ -157,15 +214,6 @@
             this.planesEmpresarialesToolStripMenuItem.Text = "Planes Empresariales";
             this.planesEmpresarialesToolStripMenuItem.Click += new System.EventHandler(this.planesEmpresarialesToolStripMenuItem_Click);
             // 
-            // ayudaToolStripMenuItem
-            // 
-            this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.manualDeUsuarioToolStripMenuItem});
-            this.ayudaToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(66, 24);
-            this.ayudaToolStripMenuItem.Text = "Ayuda";
-            // 
             // manualDeUsuarioToolStripMenuItem
             // 
             this.manualDeUsuarioToolStripMenuItem.Image = global::SIMEDVirtual.Properties.Resources.help;
@@ -173,40 +221,12 @@
             this.manualDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(209, 24);
             this.manualDeUsuarioToolStripMenuItem.Text = "Manual de Usuario";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::SIMEDVirtual.Properties.Resources.logo_SIMED;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 31);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(738, 400);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 409);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Usuario:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(63, 409);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "label2";
-            // 
             // Frm_Splash
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(738, 431);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -244,5 +264,6 @@
         private System.Windows.Forms.ToolStripMenuItem planesEmpresarialesToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSalir;
     }
 }

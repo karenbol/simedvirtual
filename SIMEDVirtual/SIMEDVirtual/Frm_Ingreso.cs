@@ -40,46 +40,70 @@ namespace SIMEDVirtual
         private void button1_Click(object sender, EventArgs e)
         {
             Char tipoUsuario;
-            //ocultamos la ventana
-            this.Hide();
-            //determinamos nombre y apellido del usuario
-            List<MedicoEntity> doctor = UsuarioIT.getNombreApeDr(textBox1.Text.Trim());
+            int parsedValue;
 
-            datosUsuario = doctor.ElementAt(0).nombre.ToString();
-            datosUsuario += " " + doctor.ElementAt(0).apellido1.ToString();
-
-            //determina si los datos de ingreso son correctos
-            if (UsuarioIT.Ingreso(Convert.ToInt32(textBox1.Text.Trim()), textBox2.Text.Trim()))
+            //validamos que no hayan campos vacios al ingresar
+            if (txtUsuario.Text != string.Empty && txtContrasena.Text != string.Empty)
             {
-                tipoUsuario = UsuarioIT.TipoUsuario(Convert.ToInt32(textBox1.Text));
-                if (tipoUsuario == 'a')
+                //valido que se escriban solo numeros en el campo usuario
+                if (!int.TryParse(txtUsuario.Text, out parsedValue))
                 {
-                    //si es adm lo lleva a la pantalla principal
-                    Frm_Splash pr = new Frm_Splash(datosUsuario);
-                    pr.ShowDialog();
-                }
-                else if (tipoUsuario == 'm')
-                {
-                    //si es medico lo lleva a los expedientes
-                    MessageBox.Show("eres Medico");
-                    frm_ExpedienteMG pr = new frm_ExpedienteMG(datosUsuario);
-                    pr.ShowDialog();
+                    txtUsuario.Text = string.Empty;
+                    txtContrasena.Text = string.Empty;
+                    DialogResult dialogResult = MessageBox.Show("Por Favor digite SOLO LETRAS en el Campo Usuario",
+                   "Solo Letras", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    MessageBox.Show("ha ocurrido un error con el tipo de usuario");
+                    //determina si los datos de ingreso son correctos
+                    if (UsuarioIT.Ingreso(Convert.ToInt32(txtUsuario.Text.Trim()), txtContrasena.Text.Trim()))
+                    {
+                        //determinamos nombre y apellido del usuario
+                        //recibe por el nombre de usuario y me trae la informacion
+                        List<MedicoEntity> doctor = UsuarioIT.getNombreApeDr(txtUsuario.Text.Trim());
+                        //concatenamos nombre y apellido del usuario
+                        datosUsuario = doctor.ElementAt(0).nombre.ToString();
+                        datosUsuario += " " + doctor.ElementAt(0).apellido1.ToString();
+
+                        tipoUsuario = UsuarioIT.TipoUsuario(Convert.ToInt32(txtUsuario.Text));
+                        if (tipoUsuario == 'a')
+                        {
+                            this.Hide();
+                            //si es adm lo lleva a la pantalla principal
+                            Frm_Splash pr = new Frm_Splash(datosUsuario);
+                            pr.ShowDialog();
+
+                        }
+                        else if (tipoUsuario == 'm')
+                        {
+                            //si es medico lo lleva a los expedientes
+                            MessageBox.Show("eres Medico");
+                            this.Hide();
+                            frm_ExpedienteMG pr = new frm_ExpedienteMG(datosUsuario);
+                            pr.ShowDialog();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("Ha ocurrido un error con el tipo de usuario");
+                        }
+                    }
+                    else
+                    //si la informacion de ingreso no es correcta
+                    {
+                        DialogResult dialogResult = MessageBox.Show("Ingreso Fallido, Vuelve a intentarlo",
+               "Log In Fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        //limpiamos los campos
+                        txtUsuario.Text = string.Empty;
+                        txtContrasena.Text = string.Empty;
+                    }
                 }
             }
+            //si hay campos vacios notifica
             else
-            //si la informacion no es correcta
             {
-                DialogResult dialogResult = MessageBox.Show("Ingreso Fallido, Vuelve a intentarlo",
-       "Log In Fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //limpiamos los campos
-                textBox1.Text = string.Empty;
-                textBox2.Text = string.Empty;
-                //volvemos a mostrar la pantalla
-                this.Show();
+                DialogResult dialogResult = MessageBox.Show("Algunos Campos de Texto estan Vacios",
+       "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

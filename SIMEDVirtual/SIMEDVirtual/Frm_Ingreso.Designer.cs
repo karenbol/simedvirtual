@@ -28,45 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnIngresar = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtContrasena = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gbIngreso = new System.Windows.Forms.GroupBox();
             this.pbIngreso = new System.Windows.Forms.PictureBox();
+            this.btnIngresar = new System.Windows.Forms.Button();
             this.gbIngreso.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbIngreso)).BeginInit();
             this.SuspendLayout();
             // 
-            // btnIngresar
+            // txtContrasena
             // 
-            this.btnIngresar.AutoSize = true;
-            this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnIngresar.Location = new System.Drawing.Point(177, 179);
-            this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(99, 30);
-            this.btnIngresar.TabIndex = 9;
-            this.btnIngresar.Text = "Ingresar";
-            this.btnIngresar.UseVisualStyleBackColor = true;
-            this.btnIngresar.Click += new System.EventHandler(this.button1_Click);
+            this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasena.Location = new System.Drawing.Point(161, 123);
+            this.txtContrasena.Name = "txtContrasena";
+            this.txtContrasena.PasswordChar = '*';
+            this.txtContrasena.Size = new System.Drawing.Size(153, 26);
+            this.txtContrasena.TabIndex = 8;
             // 
-            // textBox2
+            // txtUsuario
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(161, 123);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.PasswordChar = '*';
-            this.textBox2.Size = new System.Drawing.Size(153, 26);
-            this.textBox2.TabIndex = 8;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(161, 88);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(153, 26);
-            this.textBox1.TabIndex = 7;
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(161, 88);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(153, 26);
+            this.txtUsuario.TabIndex = 7;
             // 
             // label2
             // 
@@ -93,10 +81,10 @@
             this.gbIngreso.BackColor = System.Drawing.SystemColors.Menu;
             this.gbIngreso.Controls.Add(this.pbIngreso);
             this.gbIngreso.Controls.Add(this.btnIngresar);
-            this.gbIngreso.Controls.Add(this.textBox2);
+            this.gbIngreso.Controls.Add(this.txtContrasena);
             this.gbIngreso.Controls.Add(this.label1);
             this.gbIngreso.Controls.Add(this.label2);
-            this.gbIngreso.Controls.Add(this.textBox1);
+            this.gbIngreso.Controls.Add(this.txtUsuario);
             this.gbIngreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbIngreso.Location = new System.Drawing.Point(35, 33);
             this.gbIngreso.Name = "gbIngreso";
@@ -108,19 +96,33 @@
             // pbIngreso
             // 
             this.pbIngreso.BackColor = System.Drawing.Color.Transparent;
-            this.pbIngreso.Image = global::SIMEDVirtual.Properties.Resources.ingreso;
-            this.pbIngreso.Location = new System.Drawing.Point(342, 62);
+            this.pbIngreso.Image = global::SIMEDVirtual.Properties.Resources.user;
+            this.pbIngreso.Location = new System.Drawing.Point(342, 46);
             this.pbIngreso.Name = "pbIngreso";
             this.pbIngreso.Size = new System.Drawing.Size(128, 128);
             this.pbIngreso.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pbIngreso.TabIndex = 9;
             this.pbIngreso.TabStop = false;
             // 
+            // btnIngresar
+            // 
+            this.btnIngresar.AutoSize = true;
+            this.btnIngresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIngresar.Image = global::SIMEDVirtual.Properties.Resources.logIn;
+            this.btnIngresar.Location = new System.Drawing.Point(177, 179);
+            this.btnIngresar.Name = "btnIngresar";
+            this.btnIngresar.Size = new System.Drawing.Size(118, 38);
+            this.btnIngresar.TabIndex = 9;
+            this.btnIngresar.Text = "Ingresar";
+            this.btnIngresar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnIngresar.UseVisualStyleBackColor = true;
+            this.btnIngresar.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Frm_Ingreso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.SkyBlue;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(567, 291);
             this.Controls.Add(this.gbIngreso);
             this.Name = "Frm_Ingreso";
@@ -137,8 +139,8 @@
         #endregion
 
         private System.Windows.Forms.Button btnIngresar;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtContrasena;
+        private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbIngreso;

@@ -181,9 +181,6 @@
     <None Include="Properties\ingreso.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\dr peq.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\dr paq.png" />
   </ItemGroup>
   <ItemGroup>
@@ -232,9 +229,6 @@
     <None Include="bin\Debug\upload.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Properties\1406020441_add.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\1406021074_edit.png" />
   </ItemGroup>
   <ItemGroup>
@@ -254,6 +248,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\verExp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\logIn.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\logout.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

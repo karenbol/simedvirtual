@@ -63,7 +63,7 @@ namespace SIMEDVirtual
             this.Hide();
             frm_ExpedienteMG mem = new frm_ExpedienteMG(usuarioPublico);
             mem.ShowDialog();
-            
+
         }
 
         private void Frm_Splash_FormClosed(object sender, FormClosedEventArgs e)
@@ -115,6 +115,18 @@ namespace SIMEDVirtual
             this.Hide();
             frmVerExpediente x = new frmVerExpediente(usuarioPublico);
             x.ShowDialog();
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_Ingreso pantalla = new Frm_Ingreso();
+            pantalla.ShowDialog();
         }
     }
 }
