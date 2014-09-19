@@ -850,6 +850,56 @@ namespace SIMEDVirtual
         {
 
         }
+
+        private void label69_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPageExFisico_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label102_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox13_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton68_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox12_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label113_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton76_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void radioButton75_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
