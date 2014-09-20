@@ -41,6 +41,7 @@
             // 
             // txtContrasena
             // 
+            this.txtContrasena.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtContrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasena.Location = new System.Drawing.Point(161, 123);
             this.txtContrasena.Name = "txtContrasena";
@@ -50,6 +51,7 @@
             // 
             // txtUsuario
             // 
+            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.Location = new System.Drawing.Point(161, 88);
             this.txtUsuario.Name = "txtUsuario";

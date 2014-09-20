@@ -51,7 +51,6 @@ namespace SIMEDVirtual
                 this.lblTitle.Text = "Información de Médicos";
                 lblpass.Visible = false;
                 lblconfirmapass.Visible = false;
-                btnCargarFoto.Visible = false;
                 btnGuardar.Visible = false;
             }
             else
@@ -59,10 +58,8 @@ namespace SIMEDVirtual
                 edicion = true;
                 this.Text = "Editar Información de Médicos";
                 this.lblTitle.Text = "Editar Información de Médicos";
-                btnCargarFoto.Visible = false;
                 btnGuardar.Visible = true;
                 btnGuardar.Image = Image.FromFile("update.png");
-                btnCargarFoto.Visible = true;
                 mtcedula.Enabled = false;
             }
         }
@@ -104,13 +101,9 @@ namespace SIMEDVirtual
             }
         }
 
-
+        //guarda un nuevo medico
         private void button1_Click(object sender, EventArgs e)
         {
-            //DateTime x = Convert.ToDateTime(fecha_nacimiento.Text);
-            //MessageBox.Show(x.ToString());
-
-
             //si todos los campos estan llenos 
             if (txtNombre.Text != string.Empty && txtApellido1.Text != string.Empty
                  && txtApellido2.Text != string.Empty && mtcedula.Text != string.Empty
@@ -175,23 +168,21 @@ namespace SIMEDVirtual
             }
         }
 
+        private void Frm_Registro_Medico_Load(object sender, EventArgs e)
+        {
 
-        private void button2_Click(object sender, EventArgs e)
+        }
+        //accion del picture Box
+        private void pbFotoDr_Click(object sender, EventArgs e)
         {
             opFile.Title = "Cargar Foto Médico";
             if (opFile.ShowDialog() == DialogResult.OK)
             {
-
                 string x = opFile.FileName;
                 MessageBox.Show(x);
                 opFile.Dispose();
                 pbFotoDr.ImageLocation = x;
             }
-        }
-
-        private void Frm_Registro_Medico_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

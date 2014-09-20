@@ -89,10 +89,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label1.Location = new System.Drawing.Point(290, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(193, 20);
+            this.label1.Size = new System.Drawing.Size(278, 29);
             this.label1.TabIndex = 5;
             this.label1.Text = "LISTA DE PACIENTES";
             // 
@@ -107,10 +108,11 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(272, 278);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label2.Location = new System.Drawing.Point(228, 278);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(272, 20);
+            this.label2.Size = new System.Drawing.Size(395, 29);
             this.label2.TabIndex = 7;
             this.label2.Text = "RECONSULTAS DEL PACIENTE";
             // 
@@ -187,6 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(865, 476);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);

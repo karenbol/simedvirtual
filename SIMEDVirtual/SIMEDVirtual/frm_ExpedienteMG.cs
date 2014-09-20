@@ -829,6 +829,8 @@ namespace SIMEDVirtual
             toolTip1.SetToolTip(btnVerExp, "Ver Todos los Expedientes");
             toolTip1.SetToolTip(btnGuardar, "Guardar la Informacion del Paciente");
 
+            toolTip1.SetToolTip(pbPaciente, "Cargar Foto de Paciente");
+
             //carga todas las empresas en el combo box
             cargaComboEmpresas();
 
