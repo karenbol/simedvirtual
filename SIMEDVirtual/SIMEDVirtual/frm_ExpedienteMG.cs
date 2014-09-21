@@ -14,34 +14,30 @@ namespace SIMEDVirtual
 {
     public partial class frm_ExpedienteMG : Form
     {
+        char sexo = 'f';
+        char tabaquismo = ' ';
+        char ingesta = ' ';
+        char alcoholismo = ' ';
+        char rehabilitacion = ' ';
+        char diabetes = ' ';
+        char hipertension = ' ';
+        char dolor_cabeza = ' ';
+        char epilepsia = ' ';
+        char vertigo = ' ';
+        char depresion = ' ';
+        char falta_aire = ' ';
+        char oidos_ojos = ' ';
+
+
         //parametro que me dice si guardo toda la info o solo la reconsulta
         public bool expOreconsulta;
         public string cedulaPublica = "";
         public string usuarioPublico = "";
 
-
-        //metodo para constructor, en caso de que se quiera editar, se elimna una tab
-        //public frm_ExpedienteMG(Boolean editar)
-        //{
-        //    if (editar)
-        //    {
-
-        //        //tabControl1.Remove(tabPageEpicrisis);
-
-
-        //        int idx = tabControl1.TabPages.IndexOf(tabPageEpicrisis);
-        //        tabControl1.TabPages.RemoveAt(idx);
-        //        //tabControl1.TabPages.Add(tabPagePrueba);
-        //        //tabControl1.TabPages.Remove(tabPagePrueba);
-        //    }
-        //}
-
-
         public frm_ExpedienteMG(string datosUsuario)
         {
             InitializeComponent();
-            //asignamos el nombre del usuario
-            label29.Text = datosUsuario;
+            label29.Text = datosUsuario;  //asignamos el nombre del usuario
             usuarioPublico = datosUsuario;
 
             //vamos a guardar en el cliente y en el expediente
@@ -52,6 +48,14 @@ namespace SIMEDVirtual
 
             txtTratHipertension.Visible = false;
             lblTratHipertension.Visible = false;
+
+            txtTratAsma.Visible = false;
+            lblTratAsma.Visible = false;
+
+            txtTratTiroides.Visible = false;
+            lblTratTiroides.Visible = false;
+
+            txtAlergias.Visible = false;
 
             fecha_nacimiento.Format = DateTimePickerFormat.Custom;
             fecha_nacimiento.CustomFormat = "yyyy/MM/dd";
@@ -72,7 +76,7 @@ namespace SIMEDVirtual
         {
             InitializeComponent();
 
-            //vamos a guardar solo en el exp
+            //vamos a guardar solo en el exp xq es reconsulta
             expOreconsulta = true;
             cedulaPublica = cedula;
 
@@ -147,7 +151,6 @@ namespace SIMEDVirtual
                 cbSangre.SelectedIndex = 7;
             }
 
-
             txtProfesion.Text = profesion;
             txtTelefono.Text = telefono.ToString();
             txtMovil.Text = movil.ToString();
@@ -155,117 +158,133 @@ namespace SIMEDVirtual
             txtDireccion.Text = direccion;
             txtObservaciones.Text = observaciones;
 
-            //anamnesis
+            //----------------------------anamnesis----------------------
+
+            // revision de combo boxes anamnesis
             if (tabaquismo == 's')
             {
-                check1.Checked = true;
+                r1.Checked = true;
             }
             else if (tabaquismo == 'n')
             {
-                check2.Checked = true;
+                r2.Checked = true;
             }
+
             //ingesta medicamentos
             if (ingesta == 's')
             {
-                check3.Checked = true;
+                r3.Checked = true;
             }
             else if (ingesta == 'n')
             {
-                check4.Checked = true;
+                r4.Checked = true;
             }
+
             //alcoholismo
             if (alcoholismo == 's')
             {
-                check5.Checked = true;
+                r5.Checked = true;
             }
             else if (alcoholismo == 'n')
             {
-                check6.Checked = true;
+                r6.Checked = true;
             }
-            //reahabilitacion
+
+            //rehabilitacion
             if (rehabilitacion == 's')
             {
-                check7.Checked = true;
+                r7.Checked = true;
             }
             else if (rehabilitacion == 'n')
             {
-                check8.Checked = true;
+                r8.Checked = true;
             }
-            //diabetes
-            if (diabetes == 's')
-            {
-                check9.Checked = true;
-            }
-            else if (diabetes == 'n')
-            {
-                check10.Checked = true;
-            }
-            //diabetes tratamiento
-            txtTratDiabetes.Text = diabetes_trat;
-            txtTratHipertension.Text = hipertension_trat;
-            //hipertension
-            if (hipertension == 's')
-            {
-                check11.Checked = true;
-            }
-            else if (hipertension == 'n')
-            {
-                check12.Checked = true;
-            }
+
             //dolor cabeza
             if (dolor_cabeza == 's')
             {
-                check13.Checked = true;
+                r9.Checked = true;
             }
             else if (dolor_cabeza == 'n')
             {
-                check14.Checked = true;
+                r10.Checked = true;
             }
+
             //epilepsia
             if (epilepsia == 's')
             {
-                check15.Checked = true;
+                r11.Checked = true;
             }
             else if (epilepsia == 'n')
             {
-                check16.Checked = true;
+                r12.Checked = true;
             }
             //vertigo
             if (vertigo == 's')
             {
-                check17.Checked = true;
+                r13.Checked = true;
             }
             else if (vertigo == 'n')
             {
-                check18.Checked = true;
+                r14.Checked = true;
             }
+
             //depresion
             if (depresion == 's')
             {
-                check19.Checked = true;
+                r15.Checked = true;
             }
             else if (depresion == 'n')
             {
-                check20.Checked = true;
+                r16.Checked = true;
             }
+
             //falta_aire
             if (falta_aire == 's')
             {
-                check21.Checked = true;
+                r17.Checked = true;
             }
             else if (falta_aire == 'n')
             {
-                check22.Checked = true;
+                r18.Checked = true;
             }
             //enf oidos ojos
             if (enf_ojos_oidos == 's')
             {
-                check23.Checked = true;
+                r19.Checked = true;
             }
             else if (enf_ojos_oidos == 'n')
             {
-                check24.Checked = true;
+                r20.Checked = true;
             }
+            //aqui falta dolor de pecho, enfermedades nerviosas y alergias
+
+
+
+            //diabetes
+            if (diabetes == 's')
+            {
+                r27.Checked = true;
+            }
+            else if (diabetes == 'n')
+            {
+                r28.Checked = true;
+            }
+
+            txtTratDiabetes.Text = diabetes_trat; //diabetes tratamiento
+
+            //hipertension
+            if (hipertension == 's')
+            {
+                r29.Checked = true;
+            }
+            else if (hipertension == 'n')
+            {
+                r30.Checked = true;
+            }
+            txtTratHipertension.Text = hipertension_trat;//tratmiento de hipertension
+
+            //aqui falta asma y tiroides
 
             //aqui no se puede editar nada
             if (editar == false)
@@ -299,40 +318,51 @@ namespace SIMEDVirtual
         //deshabilita los campos de anamnesis
         public void DisableAnamnesis()
         {
-            this.check1.Enabled = false;
-            this.check2.Enabled = false;
-            this.check3.Enabled = false;
-            this.check4.Enabled = false;
-            this.check5.Enabled = false;
-            this.check6.Enabled = false;
-            this.check7.Enabled = false;
-            this.check8.Enabled = false;
-            this.check9.Enabled = false;
-            this.check10.Enabled = false;
-            this.check11.Enabled = false;
-            this.check12.Enabled = false;
-            this.check13.Enabled = false;
-            this.check14.Enabled = false;
-            this.check15.Enabled = false;
-            this.check16.Enabled = false;
-            this.check17.Enabled = false;
-            this.check18.Enabled = false;
-            this.check19.Enabled = false;
-            this.check20.Enabled = false;
-            this.check21.Enabled = false;
-            this.check22.Enabled = false;
-            this.check23.Enabled = false;
-            this.check24.Enabled = false;
+            this.r1.Enabled = false;
+            this.r2.Enabled = false;
+            this.r3.Enabled = false;
+            this.r4.Enabled = false;
+            this.r5.Enabled = false;
+            this.r6.Enabled = false;
+            this.r7.Enabled = false;
+            this.r8.Enabled = false;
+            this.r9.Enabled = false;
+            this.r10.Enabled = false;
+            this.r11.Enabled = false;
+            this.r12.Enabled = false;
+            this.r13.Enabled = false;
+            this.r14.Enabled = false;
+            this.r15.Enabled = false;
+            this.r16.Enabled = false;
+            this.r17.Enabled = false;
+            this.r18.Enabled = false;
+            this.r19.Enabled = false;
+            this.r20.Enabled = false;
+            this.r21.Enabled = false;
+            this.r22.Enabled = false;
+            this.r23.Enabled = false;
+            this.r24.Enabled = false;
+            this.r25.Enabled = false;
+            this.r26.Enabled = false;
+            this.r27.Enabled = false;
+            this.r28.Enabled = false;
+            this.r29.Enabled = false;
+            this.r30.Enabled = false;
+            this.r31.Enabled = false;
+            this.r32.Enabled = false;
+            this.r33.Enabled = false;
+            this.r34.Enabled = false;
+
 
             txtTratDiabetes.Enabled = false;
             txtTratHipertension.Enabled = false;
             txtObservaciones.Enabled = false;
         }
 
-        //opciond e cargar foto de paciente
+        //opciond de cargar foto de paciente
         private void pbPaciente_Click(object sender, EventArgs e)
         {
-            lblPb.Visible = false;
+            //lblPb.Visible = false;
             opFile.Title = "Cargar Foto Médico";
             if (opFile.ShowDialog() == DialogResult.OK)
             {
@@ -343,272 +373,272 @@ namespace SIMEDVirtual
             }
         }
         //-----------------checks---------------------------------------
-        private void checkBox1_Click(object sender, EventArgs e)
-        {
-            if (check1.Checked)
-            {
-                check2.Enabled = false;
-            }
-            else if (check1.Checked == false)
-            {
-                check2.Enabled = true;
-            }
-        }
-        private void checkBox2_Click(object sender, EventArgs e)
-        {
-            if (check2.Checked)
-            {
-                check1.Enabled = false;
-            }
-            else if (check2.Checked == false)
-            {
-                check1.Enabled = true;
-            }
-        }
-        private void check3_Click(object sender, EventArgs e)
-        {
-            if (check3.Checked)
-            {
-                check4.Enabled = false;
-            }
-            else if (check3.Checked == false)
-            {
-                check4.Enabled = true;
-            }
-        }
-        private void check4_Click(object sender, EventArgs e)
-        {
-            if (check4.Checked)
-            {
-                check3.Enabled = false;
-            }
-            else if (check4.Checked == false)
-            {
-                check3.Enabled = true;
-            }
-        }
-        private void check5_Click(object sender, EventArgs e)
-        {
-            if (check5.Checked)
-            {
-                check6.Enabled = false;
-            }
-            else if (check5.Checked == false)
-            {
-                check6.Enabled = true;
-            }
-        }
-        private void check6_Click(object sender, EventArgs e)
-        {
+        //private void checkBox1_Click(object sender, EventArgs e)
+        //{
+        //    if (check1.Checked)
+        //    {
+        //        check2.Enabled = false;
+        //    }
+        //    else if (check1.Checked == false)
+        //    {
+        //        check2.Enabled = true;
+        //    }
+        //}
+        //private void checkBox2_Click(object sender, EventArgs e)
+        //{
+        //    if (check2.Checked)
+        //    {
+        //        check1.Enabled = false;
+        //    }
+        //    else if (check2.Checked == false)
+        //    {
+        //        check1.Enabled = true;
+        //    }
+        //}
+        //private void check3_Click(object sender, EventArgs e)
+        //{
+        //    if (check3.Checked)
+        //    {
+        //        check4.Enabled = false;
+        //    }
+        //    else if (check3.Checked == false)
+        //    {
+        //        check4.Enabled = true;
+        //    }
+        //}
+        //private void check4_Click(object sender, EventArgs e)
+        //{
+        //    if (check4.Checked)
+        //    {
+        //        check3.Enabled = false;
+        //    }
+        //    else if (check4.Checked == false)
+        //    {
+        //        check3.Enabled = true;
+        //    }
+        //}
+        //private void check5_Click(object sender, EventArgs e)
+        //{
+        //    if (check5.Checked)
+        //    {
+        //        check6.Enabled = false;
+        //    }
+        //    else if (check5.Checked == false)
+        //    {
+        //        check6.Enabled = true;
+        //    }
+        //}
+        //private void check6_Click(object sender, EventArgs e)
+        //{
 
-            if (check6.Checked)
-            {
-                check5.Enabled = false;
-            }
-            else if (check6.Checked == false)
-            {
-                check5.Enabled = true;
-            }
-        }
-        private void check7_Click(object sender, EventArgs e)
-        {
-            if (check7.Checked)
-            {
-                check8.Enabled = false;
-            }
-            else if (check7.Checked == false)
-            {
-                check8.Enabled = true;
-            }
-        }
-        private void check8_Click(object sender, EventArgs e)
-        {
-            if (check8.Checked)
-            {
-                check7.Enabled = false;
-            }
-            else if (check8.Checked == false)
-            {
-                check7.Enabled = true;
-            }
-        }
-        private void check9_Click(object sender, EventArgs e)
-        {
-            if (check9.Checked)
-            {
-                txtTratDiabetes.Visible = true;
-                lblTratamiento.Visible = true;
-                check10.Enabled = false;
-            }
-            else if (!check9.Checked)
-            {
-                txtTratDiabetes.Visible = false;
-                lblTratamiento.Visible = false;
-                check10.Enabled = true;
-            }
-        }
-        private void check10_Click(object sender, EventArgs e)
-        {
-            if (check10.Checked)
-            {
-                check9.Enabled = false;
-            }
-            else if (check10.Checked == false)
-            {
-                check9.Enabled = true;
-            }
-        }
-        private void check11_Click(object sender, EventArgs e)
-        {
-            if (check11.Checked)
-            {
-                txtTratHipertension.Visible = true;
-                lblTratHipertension.Visible = true;
-                check12.Enabled = false;
-            }
-            else if (!check11.Checked)
-            {
-                txtTratHipertension.Visible = false;
-                lblTratHipertension.Visible = false;
-                check12.Enabled = true;
-            }
-        }
-        private void check12_Click(object sender, EventArgs e)
-        {
+        //    if (check6.Checked)
+        //    {
+        //        check5.Enabled = false;
+        //    }
+        //    else if (check6.Checked == false)
+        //    {
+        //        check5.Enabled = true;
+        //    }
+        //}
+        //private void check7_Click(object sender, EventArgs e)
+        //{
+        //    if (check7.Checked)
+        //    {
+        //        check8.Enabled = false;
+        //    }
+        //    else if (check7.Checked == false)
+        //    {
+        //        check8.Enabled = true;
+        //    }
+        //}
+        //private void check8_Click(object sender, EventArgs e)
+        //{
+        //    if (check8.Checked)
+        //    {
+        //        check7.Enabled = false;
+        //    }
+        //    else if (check8.Checked == false)
+        //    {
+        //        check7.Enabled = true;
+        //    }
+        //}
+        //private void check9_Click(object sender, EventArgs e)
+        //{
+        //    if (check9.Checked)
+        //    {
+        //        txtTratDiabetes.Visible = true;
+        //        lblTratamiento.Visible = true;
+        //        check10.Enabled = false;
+        //    }
+        //    else if (!check9.Checked)
+        //    {
+        //        txtTratDiabetes.Visible = false;
+        //        lblTratamiento.Visible = false;
+        //        check10.Enabled = true;
+        //    }
+        //}
+        //private void check10_Click(object sender, EventArgs e)
+        //{
+        //    if (check10.Checked)
+        //    {
+        //        check9.Enabled = false;
+        //    }
+        //    else if (check10.Checked == false)
+        //    {
+        //        check9.Enabled = true;
+        //    }
+        //}
+        //private void check11_Click(object sender, EventArgs e)
+        //{
+        //    if (check11.Checked)
+        //    {
+        //        txtTratHipertension.Visible = true;
+        //        lblTratHipertension.Visible = true;
+        //        check12.Enabled = false;
+        //    }
+        //    else if (!check11.Checked)
+        //    {
+        //        txtTratHipertension.Visible = false;
+        //        lblTratHipertension.Visible = false;
+        //        check12.Enabled = true;
+        //    }
+        //}
+        //private void check12_Click(object sender, EventArgs e)
+        //{
 
-        }
-        private void check13_Click(object sender, EventArgs e)
-        {
-            if (check13.Checked)
-            {
-                check14.Enabled = false;
-            }
-            else if (check13.Checked == false)
-            {
-                check14.Enabled = true;
-            }
-        }
-        private void check14_Click(object sender, EventArgs e)
-        {
-            if (check14.Checked)
-            {
-                check13.Enabled = false;
-            }
-            else if (check14.Checked == false)
-            {
-                check13.Enabled = true;
-            }
-        }
-        private void check15_Click(object sender, EventArgs e)
-        {
-            if (check15.Checked)
-            {
-                check16.Enabled = false;
-            }
-            else if (check15.Checked == false)
-            {
-                check16.Enabled = true;
-            }
-        }
-        private void check16_Click(object sender, EventArgs e)
-        {
-            if (check16.Checked)
-            {
-                check15.Enabled = false;
-            }
-            else if (check16.Checked == false)
-            {
-                check15.Enabled = true;
-            }
-        }
-        private void check17_Click(object sender, EventArgs e)
-        {
-            if (check17.Checked)
-            {
-                check18.Enabled = false;
-            }
-            else if (check17.Checked == false)
-            {
-                check18.Enabled = true;
-            }
-        }
-        private void check18_Click(object sender, EventArgs e)
-        {
-            if (check18.Checked)
-            {
-                check17.Enabled = false;
-            }
-            else if (check18.Checked == false)
-            {
-                check17.Enabled = true;
-            }
-        }
-        private void check19_Click(object sender, EventArgs e)
-        {
-            if (check19.Checked)
-            {
-                check20.Enabled = false;
-            }
-            else if (check19.Checked == false)
-            {
-                check20.Enabled = true;
-            }
-        }
-        private void check20_Click(object sender, EventArgs e)
-        {
-            if (check20.Checked)
-            {
-                check19.Enabled = false;
-            }
-            else if (check20.Checked == false)
-            {
-                check19.Enabled = true;
-            }
-        }
-        private void check21_Click(object sender, EventArgs e)
-        {
-            if (check21.Checked)
-            {
-                check22.Enabled = false;
-            }
-            else if (check21.Checked == false)
-            {
-                check22.Enabled = true;
-            }
-        }
-        private void check22_Click(object sender, EventArgs e)
-        {
-            if (check22.Checked)
-            {
-                check21.Enabled = false;
-            }
-            else if (check22.Checked == false)
-            {
-                check21.Enabled = true;
-            }
-        }
-        private void check23_Click(object sender, EventArgs e)
-        {
-            if (check23.Checked)
-            {
-                check24.Enabled = false;
-            }
-            else if (check23.Checked == false)
-            {
-                check24.Enabled = true;
-            }
-        }
-        private void check24_Click(object sender, EventArgs e)
-        {
-            if (check24.Checked)
-            {
-                check23.Enabled = false;
-            }
-            else if (check24.Checked == false)
-            {
-                check23.Enabled = true;
-            }
-        }
+        //}
+        //private void check13_Click(object sender, EventArgs e)
+        //{
+        //    if (check13.Checked)
+        //    {
+        //        check14.Enabled = false;
+        //    }
+        //    else if (check13.Checked == false)
+        //    {
+        //        check14.Enabled = true;
+        //    }
+        //}
+        //private void check14_Click(object sender, EventArgs e)
+        //{
+        //    if (check14.Checked)
+        //    {
+        //        check13.Enabled = false;
+        //    }
+        //    else if (check14.Checked == false)
+        //    {
+        //        check13.Enabled = true;
+        //    }
+        //}
+        //private void check15_Click(object sender, EventArgs e)
+        //{
+        //    if (check15.Checked)
+        //    {
+        //        check16.Enabled = false;
+        //    }
+        //    else if (check15.Checked == false)
+        //    {
+        //        check16.Enabled = true;
+        //    }
+        //}
+        //private void check16_Click(object sender, EventArgs e)
+        //{
+        //    if (check16.Checked)
+        //    {
+        //        check15.Enabled = false;
+        //    }
+        //    else if (check16.Checked == false)
+        //    {
+        //        check15.Enabled = true;
+        //    }
+        //}
+        //private void check17_Click(object sender, EventArgs e)
+        //{
+        //    if (check17.Checked)
+        //    {
+        //        check18.Enabled = false;
+        //    }
+        //    else if (check17.Checked == false)
+        //    {
+        //        check18.Enabled = true;
+        //    }
+        //}
+        //private void check18_Click(object sender, EventArgs e)
+        //{
+        //    if (check18.Checked)
+        //    {
+        //        check17.Enabled = false;
+        //    }
+        //    else if (check18.Checked == false)
+        //    {
+        //        check17.Enabled = true;
+        //    }
+        //}
+        //private void check19_Click(object sender, EventArgs e)
+        //{
+        //    if (check19.Checked)
+        //    {
+        //        check20.Enabled = false;
+        //    }
+        //    else if (check19.Checked == false)
+        //    {
+        //        check20.Enabled = true;
+        //    }
+        //}
+        //private void check20_Click(object sender, EventArgs e)
+        //{
+        //    if (check20.Checked)
+        //    {
+        //        check19.Enabled = false;
+        //    }
+        //    else if (check20.Checked == false)
+        //    {
+        //        check19.Enabled = true;
+        //    }
+        //}
+        //private void check21_Click(object sender, EventArgs e)
+        //{
+        //    if (check21.Checked)
+        //    {
+        //        check22.Enabled = false;
+        //    }
+        //    else if (check21.Checked == false)
+        //    {
+        //        check22.Enabled = true;
+        //    }
+        //}
+        //private void check22_Click(object sender, EventArgs e)
+        //{
+        //    if (check22.Checked)
+        //    {
+        //        check21.Enabled = false;
+        //    }
+        //    else if (check22.Checked == false)
+        //    {
+        //        check21.Enabled = true;
+        //    }
+        //}
+        //private void check23_Click(object sender, EventArgs e)
+        //{
+        //    if (check23.Checked)
+        //    {
+        //        check24.Enabled = false;
+        //    }
+        //    else if (check23.Checked == false)
+        //    {
+        //        check24.Enabled = true;
+        //    }
+        //}
+        //private void check24_Click(object sender, EventArgs e)
+        //{
+        //    if (check24.Checked)
+        //    {
+        //        check23.Enabled = false;
+        //    }
+        //    else if (check24.Checked == false)
+        //    {
+        //        check23.Enabled = true;
+        //    }
+        //}
 
         //guarda el expediente. inserta en cliente y expediente
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -633,20 +663,6 @@ namespace SIMEDVirtual
             }
             else
             {
-                char sexo = 'f';
-                char tabaquismo = ' ';
-                char ingesta = ' ';
-                char alcoholismo = ' ';
-                char rehabilitacion = ' ';
-                char diabetes = ' ';
-                char hipertension = ' ';
-                char dolor_cabeza = ' ';
-                char epilepsia = ' ';
-                char vertigo = ' ';
-                char depresion = ' ';
-                char falta_aire = ' ';
-                char oidos_ojos = ' ';
-
                 //determinar la fecha de nacimiento
                 DateTime fecha = Convert.ToDateTime(fecha_nacimiento.Text);
                 //determinar el sexo            
@@ -658,115 +674,9 @@ namespace SIMEDVirtual
                 string estado = cbEstado.SelectedItem.ToString();
                 string grupo = cbSangre.SelectedItem.ToString();
 
-                //determinar check de anamnesis
-                //tabaquismo
-                if (check1.Checked == true)
-                {
-                    tabaquismo = 's';
-                }
-                else if (check2.Checked == true)
-                {
-                    tabaquismo = 'n';
-                }
-                //ingesta de medicamentos
-                if (check3.Checked == true)
-                {
-                    ingesta = 's';
-                }
-                else if (check4.Checked == true)
-                {
-                    ingesta = 'n';
-                }
-                //alcoholismo
-                if (check5.Checked == true)
-                {
-                    alcoholismo = 's';
-                }
-                else if (check6.Checked == true)
-                {
-                    alcoholismo = 'n';
-                }
-                //rehabilitacion
-                if (check7.Checked == true)
-                {
-                    rehabilitacion = 's';
-                }
-                else if (check8.Checked == true)
-                {
-                    rehabilitacion = 'n';
-                }
-                //diabetes
-                if (check9.Checked == true)
-                {
-                    diabetes = 's';
-                }
-                else if (check10.Checked == true)
-                {
-                    diabetes = 'n';
-                }
-                //hipertension
-                if (check11.Checked == true)
-                {
-                    hipertension = 's';
-                }
-                else if (check12.Checked == true)
-                {
-                    hipertension = 'n';
-                }
-                //dolor de cabeza
-                if (check13.Checked == true)
-                {
-                    dolor_cabeza = 's';
-                }
-                else if (check14.Checked == true)
-                {
-                    dolor_cabeza = 'n';
-                }
-                //epilepsia
-                if (check15.Checked == true)
-                {
-                    epilepsia = 's';
-                }
-                else if (check16.Checked == true)
-                {
-                    epilepsia = 'n';
-                }
-                //vertigo
-                if (check17.Checked == true)
-                {
-                    vertigo = 's';
-                }
-                else if (check18.Checked == true)
-                {
-                    vertigo = 'n';
-                }
-                //depresion
-                if (check19.Checked == true)
-                {
-                    depresion = 's';
-                }
-                else if (check20.Checked == true)
-                {
-                    depresion = 'n';
-                }
-                //falta de aire
-                if (check21.Checked == true)
-                {
-                    falta_aire = 's';
-                }
-                else if (check22.Checked == true)
-                {
-                    falta_aire = 'n';
-                }
-                //ojos y oidos
-                if (check23.Checked == true)
-                {
-                    oidos_ojos = 's';
-                }
-                else if (check24.Checked == true)
-                {
-                    oidos_ojos = 'n';
-                }
+                //se verifican cuales checks estan seleccionados
+                seleccionChecks();
+
                 //guardamos la cedula en una variable
                 string cedula = txtCedula.Text;
 
@@ -788,7 +698,6 @@ namespace SIMEDVirtual
          dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, oidos_ojos, txtObservaciones.Text) &&
          (ExpedienteIT.InsertaExpediente(cedula, Convert.ToDateTime(dtFechaConsulta.Text), txtTerapeutica.Text, txtObs.Text)))
                         {
-
                             MessageBox.Show("Expediente Guardado con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Hide();
                             frmVerExpediente splash = new frmVerExpediente(usuarioPublico);
@@ -805,6 +714,127 @@ namespace SIMEDVirtual
                 {
                     MessageBox.Show(x.Message);
                 }
+            }
+        }
+        //determina cuales checks de la amamnesis estan seleccionados y asigna valor a la variable
+        public void seleccionChecks()
+        {
+            //determinar check de anamnesis
+            //tabaquismo
+            if (r1.Checked == true)
+            {
+                tabaquismo = 's';
+            }
+            else if (r2.Checked == true)
+            {
+                tabaquismo = 'n';
+            }
+            //ingesta de medicamentos
+            if (r3.Checked == true)
+            {
+                ingesta = 's';
+            }
+            else if (r4.Checked == true)
+            {
+                ingesta = 'n';
+            }
+            //alcoholismo
+            if (r5.Checked == true)
+            {
+                alcoholismo = 's';
+            }
+            else if (r6.Checked == true)
+            {
+                alcoholismo = 'n';
+            }
+
+            //rehabilitacion
+            if (r7.Checked == true)
+            {
+                rehabilitacion = 's';
+            }
+            else if (r8.Checked == true)
+            {
+                rehabilitacion = 'n';
+            }
+            //dolor de cabeza
+            if (r9.Checked == true)
+            {
+                dolor_cabeza = 's';
+            }
+            else if (r10.Checked == true)
+            {
+                dolor_cabeza = 'n';
+            }
+            //epilepsia
+            if (r11.Checked == true)
+            {
+                epilepsia = 's';
+            }
+            else if (r12.Checked == true)
+            {
+                epilepsia = 'n';
+            }
+            //vertigo
+            if (r13.Checked == true)
+            {
+                vertigo = 's';
+            }
+            else if (r14.Checked == true)
+            {
+                vertigo = 'n';
+            }
+            //depresion
+            if (r15.Checked == true)
+            {
+                depresion = 's';
+            }
+            else if (r16.Checked == true)
+            {
+                depresion = 'n';
+            }
+            //falta de aire
+            if (r17.Checked == true)
+            {
+                falta_aire = 's';
+            }
+            else if (r18.Checked == true)
+            {
+                falta_aire = 'n';
+            }
+            //ojos y oidos
+            if (r19.Checked == true)
+            {
+                oidos_ojos = 's';
+            }
+            else if (r20.Checked == true)
+            {
+                oidos_ojos = 'n';
+            }
+
+
+            //falta dolor pecho, enfermedades nerviosas y alergias
+
+
+
+            //diabetes
+            if (r27.Checked == true)
+            {
+                diabetes = 's';
+            }
+            else if (r28.Checked == true)
+            {
+                diabetes = 'n';
+            }
+
+            //hipertension
+            if (r29.Checked == true)
+            {
+                hipertension = 's';
+            }
+            else if (r30.Checked == true)
+            {
+                hipertension = 'n';
             }
         }
 
@@ -833,8 +863,6 @@ namespace SIMEDVirtual
 
             //carga todas las empresas en el combo box
             cargaComboEmpresas();
-
-
         }
 
         //metodo que carga TODAS LAS EMPRESAS registradas EN EL  COMBO BOX
@@ -847,60 +875,70 @@ namespace SIMEDVirtual
                 comboBox1.Items.Add(listaEmpresas[i].nombre.ToUpper().ToString());
             }
         }
+        //////////////////////////////////////////////
 
-        private void tabPageInfoPersonal_Click(object sender, EventArgs e)
+
+        //si se activa el check de diabetess
+        private void r27_Click(object sender, EventArgs e)
         {
-
+            txtTratDiabetes.Visible = true;
+            lblTratamiento.Visible = true;
         }
 
-        private void label69_Click(object sender, EventArgs e)
+        private void r28_Click(object sender, EventArgs e)
         {
-
+            txtTratDiabetes.Visible = false;
+            lblTratamiento.Visible = false;
         }
 
-        private void tabPageExFisico_Click(object sender, EventArgs e)
-        {
 
+
+        //check de hipertension
+        private void r29_Click(object sender, EventArgs e)
+        {
+            txtTratHipertension.Visible = true;
+            lblTratHipertension.Visible = true;
+        }
+        private void r30_Click(object sender, EventArgs e)
+        {
+            txtTratHipertension.Visible = false;
+            lblTratHipertension.Visible = false;
         }
 
-        private void textBox11_TextChanged(object sender, EventArgs e)
+        //check de asma
+        private void r31_Click(object sender, EventArgs e)
         {
-
+            txtTratAsma.Visible = true;
+            lblTratAsma.Visible = true;
+        }
+        private void r32_Click(object sender, EventArgs e)
+        {
+            txtTratAsma.Visible = false;
+            lblTratAsma.Visible = false;
         }
 
-        private void label102_Click(object sender, EventArgs e)
-        {
 
+        //check de tiroides
+        private void r33_Click(object sender, EventArgs e)
+        {
+            txtTratTiroides.Visible = true;
+            lblTratTiroides.Visible = true;
+        }
+        private void r34_Click(object sender, EventArgs e)
+        {
+            txtTratTiroides.Visible = false;
+            lblTratTiroides.Visible = false;
         }
 
-        private void textBox13_TextChanged(object sender, EventArgs e)
+        //check de alergias
+        private void r25_Click(object sender, EventArgs e)
         {
-
+            txtAlergias.Visible = true;
         }
 
-        private void radioButton68_CheckedChanged(object sender, EventArgs e)
+        private void r26_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void groupBox12_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label113_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton76_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton75_CheckedChanged(object sender, EventArgs e)
-        {
-
+            txtAlergias.Visible = !true;
         }
     }
 }
