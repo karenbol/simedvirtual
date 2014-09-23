@@ -27,7 +27,11 @@ namespace SIMEDVirtual
         char depresion = ' ';
         char falta_aire = ' ';
         char oidos_ojos = ' ';
-
+        char dolor_pecho = ' ';
+        char enf_nerviosas = ' ';
+        char alergia = ' ';
+        char asma = ' ';
+        char tiroides = ' ';
 
         //parametro que me dice si guardo toda la info o solo la reconsulta
         public bool expOreconsulta;
@@ -64,15 +68,22 @@ namespace SIMEDVirtual
             cbEstado.SelectedIndex = 0;
             cbSangre.SelectedIndex = 0;
             cbSexo.SelectedIndex = 0;
+            
+            cargaComboEmpresas();
         }
 
-        //segundo metodo constructor para la reconsulta
+        //************************************************************************
+        //segundo metodo constructor para la RECONSULTA
+        //aqui tengo todos los datos personales y de amannesis para quemarlos en la pantalla
         public frm_ExpedienteMG(
             string nombre, string apellido1, string apellido2, string cedula, DateTime fecha, char sexo, string estado_Civil,
             string grupo, string profesion, int telefono, int movil, string email, string direccion, char tabaquismo,
-            char ingesta, char alcoholismo, char rehabilitacion, char diabetes, string diabetes_trat,
-            char hipertension, string hipertension_trat, char dolor_cabeza, char epilepsia, char vertigo, char depresion,
-           char falta_aire, char enf_ojos_oidos, string observaciones, bool editar)
+            char ingesta, char alcoholismo, char rehabilitacion, char diabetes, char hipertension, char dolor_cabeza,
+            char epilepsia, char vertigo, char depresion, char falta_aire, char enf_ojos_oidos, char dolor_pecho,
+            char enf_nerviosas, char alergia, string alergia_trat, string diabetes_trat, string hipertension_trat,
+            char asma, string asma_trat, char tiroides, string tiroides_trat, string hipertension_heredo, string diabetes_heredo,
+            string cancer_heredo, string tiroides_heredo, string asma_heredo, string otros_heredo, string edad, string empresa,
+            string observaciones, bool editar)
         {
             InitializeComponent();
 
@@ -85,6 +96,13 @@ namespace SIMEDVirtual
             txtApe2.Text = apellido2;
             txtCedula.Text = cedula;
             fecha_nacimiento.Value = fecha;
+            txtEdad.Text = edad;
+
+            //combo de empresa
+            cargaComboEmpresas();
+
+            int x = cbEmpresa.Items.IndexOf(empresa);
+            cbEmpresa.SelectedIndex = x;
 
             //combo del sexo
             if (sexo == 'f')
@@ -95,6 +113,7 @@ namespace SIMEDVirtual
             {
                 cbSexo.SelectedIndex = 1;
             }
+
             //combo de estado civil
             if (estado_Civil == "SOLTERO")
             {
@@ -257,8 +276,37 @@ namespace SIMEDVirtual
             {
                 r20.Checked = true;
             }
-            //aqui falta dolor de pecho, enfermedades nerviosas y alergias
 
+            //dolor de pecho
+            if (dolor_pecho == 's')
+            {
+                r21.Checked = true;
+            }
+            else if (dolor_pecho == 'n')
+            {
+                r22.Checked = true;
+            }
+
+            //enf nerviosas
+            if (enf_nerviosas == 's')
+            {
+                r23.Checked = true;
+            }
+            else if (enf_nerviosas == 'n')
+            {
+                r24.Checked = true;
+            }
+
+            //alergia
+            if (alergia == 's')
+            {
+                r25.Checked = true;
+            }
+            else if (alergia == 'n')
+            {
+                r26.Checked = true;
+            }
+            txtAlergias.Text = alergia_trat;
 
 
             //diabetes
@@ -285,6 +333,34 @@ namespace SIMEDVirtual
             txtTratHipertension.Text = hipertension_trat;//tratmiento de hipertension
 
             //aqui falta asma y tiroides
+            //asma
+            if (asma == 's')
+            {
+                r31.Checked = true;
+            }
+            else if (asma == 'n')
+            {
+                r32.Checked = true;
+            }
+            txtTratAsma.Text = asma_trat;
+
+            //tiroides
+            if (tiroides == 's')
+            {
+                r33.Checked = true;
+            }
+            else if (tiroides == 'n')
+            {
+                r34.Checked = true;
+            }
+            txtTratTiroides.Text = tiroides_trat;
+
+            txtHipertensionHeredo.Text = hipertension_heredo;
+            txtDiabetesHeredo.Text = diabetes_heredo;
+            txtCancerHeredo.Text = cancer_heredo;
+            txtTiroidesHeredo.Text = tiroides_heredo;
+            txtAsmaHeredo.Text = asma_heredo;
+            txtOtrosHeredo.Text = otros_heredo;
 
             //aqui no se puede editar nada
             if (editar == false)
@@ -309,6 +385,7 @@ namespace SIMEDVirtual
             this.cbSexo.Enabled = false;
             this.cbEstado.Enabled = false;
             this.cbSangre.Enabled = false;
+            this.cbEmpresa.Enabled = false;
             this.txtProfesion.Enabled = false;
             this.txtTelefono.Enabled = false;
             this.txtMovil.Enabled = false;
@@ -356,6 +433,19 @@ namespace SIMEDVirtual
 
             txtTratDiabetes.Enabled = false;
             txtTratHipertension.Enabled = false;
+            txtAlergias.Enabled = false;
+            txtTratAsma.Enabled = false;
+            txtTratTiroides.Enabled = false;
+
+            txtHipertensionHeredo.Enabled = false;
+            txtDiabetesHeredo.Enabled = false;
+            txtCancerHeredo.Enabled = false;
+            txtTiroidesHeredo.Enabled = false;
+            txtAsmaHeredo.Enabled = false;
+            txtOtrosHeredo.Enabled = false;
+
+            txtEdad.Enabled = false;
+
             txtObservaciones.Enabled = false;
         }
 
@@ -372,275 +462,7 @@ namespace SIMEDVirtual
                 pbPaciente.ImageLocation = x;
             }
         }
-        //-----------------checks---------------------------------------
-        //private void checkBox1_Click(object sender, EventArgs e)
-        //{
-        //    if (check1.Checked)
-        //    {
-        //        check2.Enabled = false;
-        //    }
-        //    else if (check1.Checked == false)
-        //    {
-        //        check2.Enabled = true;
-        //    }
-        //}
-        //private void checkBox2_Click(object sender, EventArgs e)
-        //{
-        //    if (check2.Checked)
-        //    {
-        //        check1.Enabled = false;
-        //    }
-        //    else if (check2.Checked == false)
-        //    {
-        //        check1.Enabled = true;
-        //    }
-        //}
-        //private void check3_Click(object sender, EventArgs e)
-        //{
-        //    if (check3.Checked)
-        //    {
-        //        check4.Enabled = false;
-        //    }
-        //    else if (check3.Checked == false)
-        //    {
-        //        check4.Enabled = true;
-        //    }
-        //}
-        //private void check4_Click(object sender, EventArgs e)
-        //{
-        //    if (check4.Checked)
-        //    {
-        //        check3.Enabled = false;
-        //    }
-        //    else if (check4.Checked == false)
-        //    {
-        //        check3.Enabled = true;
-        //    }
-        //}
-        //private void check5_Click(object sender, EventArgs e)
-        //{
-        //    if (check5.Checked)
-        //    {
-        //        check6.Enabled = false;
-        //    }
-        //    else if (check5.Checked == false)
-        //    {
-        //        check6.Enabled = true;
-        //    }
-        //}
-        //private void check6_Click(object sender, EventArgs e)
-        //{
 
-        //    if (check6.Checked)
-        //    {
-        //        check5.Enabled = false;
-        //    }
-        //    else if (check6.Checked == false)
-        //    {
-        //        check5.Enabled = true;
-        //    }
-        //}
-        //private void check7_Click(object sender, EventArgs e)
-        //{
-        //    if (check7.Checked)
-        //    {
-        //        check8.Enabled = false;
-        //    }
-        //    else if (check7.Checked == false)
-        //    {
-        //        check8.Enabled = true;
-        //    }
-        //}
-        //private void check8_Click(object sender, EventArgs e)
-        //{
-        //    if (check8.Checked)
-        //    {
-        //        check7.Enabled = false;
-        //    }
-        //    else if (check8.Checked == false)
-        //    {
-        //        check7.Enabled = true;
-        //    }
-        //}
-        //private void check9_Click(object sender, EventArgs e)
-        //{
-        //    if (check9.Checked)
-        //    {
-        //        txtTratDiabetes.Visible = true;
-        //        lblTratamiento.Visible = true;
-        //        check10.Enabled = false;
-        //    }
-        //    else if (!check9.Checked)
-        //    {
-        //        txtTratDiabetes.Visible = false;
-        //        lblTratamiento.Visible = false;
-        //        check10.Enabled = true;
-        //    }
-        //}
-        //private void check10_Click(object sender, EventArgs e)
-        //{
-        //    if (check10.Checked)
-        //    {
-        //        check9.Enabled = false;
-        //    }
-        //    else if (check10.Checked == false)
-        //    {
-        //        check9.Enabled = true;
-        //    }
-        //}
-        //private void check11_Click(object sender, EventArgs e)
-        //{
-        //    if (check11.Checked)
-        //    {
-        //        txtTratHipertension.Visible = true;
-        //        lblTratHipertension.Visible = true;
-        //        check12.Enabled = false;
-        //    }
-        //    else if (!check11.Checked)
-        //    {
-        //        txtTratHipertension.Visible = false;
-        //        lblTratHipertension.Visible = false;
-        //        check12.Enabled = true;
-        //    }
-        //}
-        //private void check12_Click(object sender, EventArgs e)
-        //{
-
-        //}
-        //private void check13_Click(object sender, EventArgs e)
-        //{
-        //    if (check13.Checked)
-        //    {
-        //        check14.Enabled = false;
-        //    }
-        //    else if (check13.Checked == false)
-        //    {
-        //        check14.Enabled = true;
-        //    }
-        //}
-        //private void check14_Click(object sender, EventArgs e)
-        //{
-        //    if (check14.Checked)
-        //    {
-        //        check13.Enabled = false;
-        //    }
-        //    else if (check14.Checked == false)
-        //    {
-        //        check13.Enabled = true;
-        //    }
-        //}
-        //private void check15_Click(object sender, EventArgs e)
-        //{
-        //    if (check15.Checked)
-        //    {
-        //        check16.Enabled = false;
-        //    }
-        //    else if (check15.Checked == false)
-        //    {
-        //        check16.Enabled = true;
-        //    }
-        //}
-        //private void check16_Click(object sender, EventArgs e)
-        //{
-        //    if (check16.Checked)
-        //    {
-        //        check15.Enabled = false;
-        //    }
-        //    else if (check16.Checked == false)
-        //    {
-        //        check15.Enabled = true;
-        //    }
-        //}
-        //private void check17_Click(object sender, EventArgs e)
-        //{
-        //    if (check17.Checked)
-        //    {
-        //        check18.Enabled = false;
-        //    }
-        //    else if (check17.Checked == false)
-        //    {
-        //        check18.Enabled = true;
-        //    }
-        //}
-        //private void check18_Click(object sender, EventArgs e)
-        //{
-        //    if (check18.Checked)
-        //    {
-        //        check17.Enabled = false;
-        //    }
-        //    else if (check18.Checked == false)
-        //    {
-        //        check17.Enabled = true;
-        //    }
-        //}
-        //private void check19_Click(object sender, EventArgs e)
-        //{
-        //    if (check19.Checked)
-        //    {
-        //        check20.Enabled = false;
-        //    }
-        //    else if (check19.Checked == false)
-        //    {
-        //        check20.Enabled = true;
-        //    }
-        //}
-        //private void check20_Click(object sender, EventArgs e)
-        //{
-        //    if (check20.Checked)
-        //    {
-        //        check19.Enabled = false;
-        //    }
-        //    else if (check20.Checked == false)
-        //    {
-        //        check19.Enabled = true;
-        //    }
-        //}
-        //private void check21_Click(object sender, EventArgs e)
-        //{
-        //    if (check21.Checked)
-        //    {
-        //        check22.Enabled = false;
-        //    }
-        //    else if (check21.Checked == false)
-        //    {
-        //        check22.Enabled = true;
-        //    }
-        //}
-        //private void check22_Click(object sender, EventArgs e)
-        //{
-        //    if (check22.Checked)
-        //    {
-        //        check21.Enabled = false;
-        //    }
-        //    else if (check22.Checked == false)
-        //    {
-        //        check21.Enabled = true;
-        //    }
-        //}
-        //private void check23_Click(object sender, EventArgs e)
-        //{
-        //    if (check23.Checked)
-        //    {
-        //        check24.Enabled = false;
-        //    }
-        //    else if (check23.Checked == false)
-        //    {
-        //        check24.Enabled = true;
-        //    }
-        //}
-        //private void check24_Click(object sender, EventArgs e)
-        //{
-        //    if (check24.Checked)
-        //    {
-        //        check23.Enabled = false;
-        //    }
-        //    else if (check24.Checked == false)
-        //    {
-        //        check23.Enabled = true;
-        //    }
-        //}
-
-        //guarda el expediente. inserta en cliente y expediente
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (expOreconsulta == true)
@@ -680,6 +502,9 @@ namespace SIMEDVirtual
                 //guardamos la cedula en una variable
                 string cedula = txtCedula.Text;
 
+                //determinar empresa
+                string empresa = cbEmpresa.SelectedItem.ToString();
+
                 //--------------------------------------------------------insertar---------------
 
                 //llamamos al metodo para insertar clientes
@@ -691,12 +516,12 @@ namespace SIMEDVirtual
                         cbEstado.Text != string.Empty && cbSangre.Text != string.Empty && txtProfesion.Text != string.Empty &&
                         txtDireccion.Text != string.Empty) && (txtTerapeutica.Text != string.Empty || txtObs.Text != string.Empty))
                     {
-                        if (ClienteIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, cedula,
-         fecha, sexo, estado, grupo, txtProfesion.Text, Convert.ToInt32(txtTelefono.Text),
-         Convert.ToInt32(txtMovil.Text), txtEmail.Text, txtDireccion.Text,
-         tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, txtTratDiabetes.Text, hipertension, txtTratHipertension.Text,
-         dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, oidos_ojos, txtObservaciones.Text) &&
-         (ExpedienteIT.InsertaExpediente(cedula, Convert.ToDateTime(dtFechaConsulta.Text), txtTerapeutica.Text, txtObs.Text)))
+                        if (ClienteIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, cedula, fecha,
+     sexo, estado, grupo, txtProfesion.Text, Convert.ToInt32(txtTelefono.Text), Convert.ToInt32(txtMovil.Text),
+  txtEmail.Text, txtDireccion.Text, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, hipertension, dolor_cabeza,
+ epilepsia, vertigo, depresion, falta_aire, oidos_ojos, dolor_pecho, enf_nerviosas, alergia, txtAlergias.Text, txtTratDiabetes.Text,
+ txtTratHipertension.Text, asma, txtTratAsma.Text, tiroides, txtTratTiroides.Text, txtHipertensionHeredo.Text, txtDiabetesHeredo.Text,
+ txtCancerHeredo.Text, txtTiroidesHeredo.Text, txtAsmaHeredo.Text, txtOtrosHeredo.Text, txtEdad.Text, empresa, txtObservaciones.Text))
                         {
                             MessageBox.Show("Expediente Guardado con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Hide();
@@ -729,6 +554,7 @@ namespace SIMEDVirtual
             {
                 tabaquismo = 'n';
             }
+
             //ingesta de medicamentos
             if (r3.Checked == true)
             {
@@ -738,6 +564,7 @@ namespace SIMEDVirtual
             {
                 ingesta = 'n';
             }
+
             //alcoholismo
             if (r5.Checked == true)
             {
@@ -784,6 +611,7 @@ namespace SIMEDVirtual
             {
                 vertigo = 'n';
             }
+
             //depresion
             if (r15.Checked == true)
             {
@@ -812,10 +640,35 @@ namespace SIMEDVirtual
                 oidos_ojos = 'n';
             }
 
+            //dolor de pecho
+            if (r21.Checked == true)
+            {
+                dolor_pecho = 's';
+            }
+            else if (r22.Checked == true)
+            {
+                dolor_pecho = 'n';
+            }
 
-            //falta dolor pecho, enfermedades nerviosas y alergias
+            //enfermedades nerviosas
+            if (r23.Checked == true)
+            {
+                enf_nerviosas = 's';
+            }
+            else if (r24.Checked == true)
+            {
+                enf_nerviosas = 'n';
+            }
 
-
+            //alergias
+            if (r25.Checked == true)
+            {
+                alergia = 's';
+            }
+            else if (r26.Checked == true)
+            {
+                alergia = 'n';
+            }
 
             //diabetes
             if (r27.Checked == true)
@@ -835,6 +688,26 @@ namespace SIMEDVirtual
             else if (r30.Checked == true)
             {
                 hipertension = 'n';
+            }
+
+            //asma
+            if (r31.Checked == true)
+            {
+                asma = 's';
+            }
+            else if (r32.Checked == true)
+            {
+                asma = 'n';
+            }
+
+            //tiroides
+            if (r33.Checked == true)
+            {
+                tiroides = 's';
+            }
+            else if (r34.Checked == true)
+            {
+                tiroides = 'n';
             }
         }
 
@@ -862,7 +735,7 @@ namespace SIMEDVirtual
             toolTip1.SetToolTip(pbPaciente, "Cargar Foto de Paciente");
 
             //carga todas las empresas en el combo box
-            cargaComboEmpresas();
+            //cargaComboEmpresas();
         }
 
         //metodo que carga TODAS LAS EMPRESAS registradas EN EL  COMBO BOX
@@ -872,73 +745,68 @@ namespace SIMEDVirtual
             listaEmpresas = EmpresaIT.getAllEmpresas();
             for (int i = 0; i < listaEmpresas.Count; i++)
             {
-                comboBox1.Items.Add(listaEmpresas[i].nombre.ToUpper().ToString());
+                cbEmpresa.Items.Add(listaEmpresas[i].nombre.ToUpper().ToString());
             }
+            cbEmpresa.SelectedIndex = 1;
         }
-        //////////////////////////////////////////////
 
+        //se activan los txt segun seleccion
+        //check de alergias
+        private void r25_CheckedChanged(object sender, EventArgs e)
+        {
+            txtAlergias.Visible = true;
+        }
+        private void r26_CheckedChanged(object sender, EventArgs e)
+        {
+            txtAlergias.Visible = !true;
+        }
 
         //si se activa el check de diabetess
-        private void r27_Click(object sender, EventArgs e)
+        private void r27_CheckedChanged(object sender, EventArgs e)
         {
             txtTratDiabetes.Visible = true;
             lblTratamiento.Visible = true;
         }
-
-        private void r28_Click(object sender, EventArgs e)
+        private void r28_CheckedChanged(object sender, EventArgs e)
         {
             txtTratDiabetes.Visible = false;
             lblTratamiento.Visible = false;
         }
 
-
-
         //check de hipertension
-        private void r29_Click(object sender, EventArgs e)
+        private void r29_CheckedChanged(object sender, EventArgs e)
         {
             txtTratHipertension.Visible = true;
             lblTratHipertension.Visible = true;
         }
-        private void r30_Click(object sender, EventArgs e)
+        private void r30_CheckedChanged(object sender, EventArgs e)
         {
             txtTratHipertension.Visible = false;
             lblTratHipertension.Visible = false;
         }
 
         //check de asma
-        private void r31_Click(object sender, EventArgs e)
+        private void r31_CheckedChanged(object sender, EventArgs e)
         {
             txtTratAsma.Visible = true;
             lblTratAsma.Visible = true;
         }
-        private void r32_Click(object sender, EventArgs e)
+        private void r32_CheckedChanged(object sender, EventArgs e)
         {
             txtTratAsma.Visible = false;
             lblTratAsma.Visible = false;
         }
 
-
         //check de tiroides
-        private void r33_Click(object sender, EventArgs e)
+        private void r33_CheckedChanged(object sender, EventArgs e)
         {
             txtTratTiroides.Visible = true;
             lblTratTiroides.Visible = true;
         }
-        private void r34_Click(object sender, EventArgs e)
+        private void r34_CheckedChanged(object sender, EventArgs e)
         {
             txtTratTiroides.Visible = false;
             lblTratTiroides.Visible = false;
-        }
-
-        //check de alergias
-        private void r25_Click(object sender, EventArgs e)
-        {
-            txtAlergias.Visible = true;
-        }
-
-        private void r26_Click(object sender, EventArgs e)
-        {
-            txtAlergias.Visible = !true;
         }
     }
 }

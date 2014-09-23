@@ -88,6 +88,7 @@ namespace SIMEDVirtual
 
         private void btnReconsulta_Click(object sender, EventArgs e)
         {
+            //prueba lleva la cedula que es global 
             List<ClienteEntity> lista = ClienteIT.selectClienteAnamnesis(prueba);
 
             //informacion personal
@@ -111,82 +112,102 @@ namespace SIMEDVirtual
             char alcoholismo = Convert.ToChar(lista.ElementAt(0).alcoholismo);
             char rehabilitacion = Convert.ToChar(lista.ElementAt(0).rehabilitacion);
             char diabetes = Convert.ToChar(lista.ElementAt(0).diabetes);
-            string diabetes_trat = Convert.ToString(lista.ElementAt(0).diabetes_trat);
             char hipertension = Convert.ToChar(lista.ElementAt(0).hipertension);
-            string hipertension_trat = Convert.ToString(lista.ElementAt(0).hipertension_trat);
-            char dolor_cabeza = Convert.ToChar(lista.ElementAt(0).dolor_cabeza);
+            char dolor_cabeza = Convert.ToChar(lista.ElementAt(0).dolor_Cabeza);
             char epilepsia = Convert.ToChar(lista.ElementAt(0).epilepsia);
             char vertigo = Convert.ToChar(lista.ElementAt(0).vertigo);
             char depresion = Convert.ToChar(lista.ElementAt(0).depre);
             char falta_aire = Convert.ToChar(lista.ElementAt(0).falta_aire);
             char enf_ojos_oidos = Convert.ToChar(lista.ElementAt(0).enf_ojos_oidos);
+            char dolor_pecho = Convert.ToChar(lista.ElementAt(0).dolor_pecho);
+            char enf_nerviosas = Convert.ToChar(lista.ElementAt(0).enf_nerviosas);
+            char alergia = Convert.ToChar(lista.ElementAt(0).alergias);
+            string alergia_trat = Convert.ToString(lista.ElementAt(0).alergias_tratamiento);
+            string diabetes_trat = Convert.ToString(lista.ElementAt(0).diabetes_trat);
+            string hipertension_trat = Convert.ToString(lista.ElementAt(0).hipertension_trat);
+            char asma = Convert.ToChar(lista.ElementAt(0).asma);
+            string asma_trat = Convert.ToString(lista.ElementAt(0).asma_tratamiento);
+            char tiroides = Convert.ToChar(lista.ElementAt(0).tiroides);
+            string tiroides_trat = Convert.ToString(lista.ElementAt(0).tiroides_tratamiento);
+
+            string hipertension_heredo = Convert.ToString(lista.ElementAt(0).hipertension_heredo);
+            string diabetes_heredo = Convert.ToString(lista.ElementAt(0).diabetes_heredo);
+            string cancer_heredo = Convert.ToString(lista.ElementAt(0).cancer_heredo);
+            string tiroides_heredo = Convert.ToString(lista.ElementAt(0).tiroides_heredo);
+            string asma_heredo = Convert.ToString(lista.ElementAt(0).asma_heredo);
+            string otros_heredo = Convert.ToString(lista.ElementAt(0).otros_heredo);
+            string edad = Convert.ToString(lista.ElementAt(0).edad);
+            string empresa = Convert.ToString(lista.ElementAt(0).empresa);
+
             string observaciones = Convert.ToString(lista.ElementAt(0).observaciones);
             this.Hide();
 
             frm_ExpedienteMG frm = new frm_ExpedienteMG(nombre, apellido1, apellido2, cedula, fecha, sexo, estado_Civil, grupo,
-             profesion, telefono, movil, email, direccion, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, diabetes_trat,
-             hipertension, hipertension_trat, dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, enf_ojos_oidos, observaciones, false);
+             profesion, telefono, movil, email, direccion, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, hipertension,
+             dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, enf_ojos_oidos, dolor_pecho, enf_nerviosas, alergia, alergia_trat,
+             diabetes_trat, hipertension_trat, asma, asma_trat, tiroides, tiroides_trat, hipertension_heredo, diabetes_heredo, cancer_heredo,
+             tiroides_heredo, asma_heredo, otros_heredo, edad, empresa, observaciones, false);
 
             frm.ShowDialog();
         }
 
         //editar un paciente
-        private void btnEditarPaciente_Click(object sender, EventArgs e)
-        {
+        //private void btnEditarPaciente_Click(object sender, EventArgs e)
+        //{
 
-            if (dgClientes.SelectedCells.Count > 0)
-            {
-                DataGridViewRow selectedRow = dgClientes.Rows[dgClientes.SelectedCells[0].RowIndex];
-                string ced = Convert.ToString(selectedRow.Cells["Cedula"].Value);
+        //    if (dgClientes.SelectedCells.Count > 0)
+        //    {
+        //        DataGridViewRow selectedRow = dgClientes.Rows[dgClientes.SelectedCells[0].RowIndex];
+        //        string ced = Convert.ToString(selectedRow.Cells["Cedula"].Value);
 
 
-                //////////////////////////////
-                List<ClienteEntity> lista = ClienteIT.selectClienteAnamnesis(ced);
+        //        //////////////////////////////
+        //        List<ClienteEntity> lista = ClienteIT.selectClienteAnamnesis(ced);
 
-                //informacion personal
-                string nombre = lista.ElementAt(0).nombre.ToString();
-                string apellido1 = lista.ElementAt(0).ape1.ToString();
-                string apellido2 = lista.ElementAt(0).ape2.ToString();
-                string cedula = lista.ElementAt(0).cedula.ToString();
-                DateTime fecha = lista.ElementAt(0).fecha;
-                Char sexo = lista.ElementAt(0).sexo;
-                string estado_Civil = lista.ElementAt(0).estado_civil.ToString();
-                string grupo = lista.ElementAt(0).grupo_sanguineo.ToString();
-                string profesion = lista.ElementAt(0).profesion.ToString(); ;
-                int telefono = Convert.ToInt32(lista.ElementAt(0).telefono_fijo);
-                int movil = Convert.ToInt32(lista.ElementAt(0).telefono_movil);
-                string email = lista.ElementAt(0).email.ToString();
-                string direccion = lista.ElementAt(0).direccion.ToString();
+        //        //informacion personal
+        //        string nombre = lista.ElementAt(0).nombre.ToString();
+        //        string apellido1 = lista.ElementAt(0).ape1.ToString();
+        //        string apellido2 = lista.ElementAt(0).ape2.ToString();
+        //        string cedula = lista.ElementAt(0).cedula.ToString();
+        //        DateTime fecha = lista.ElementAt(0).fecha;
+        //        Char sexo = lista.ElementAt(0).sexo;
+        //        string estado_Civil = lista.ElementAt(0).estado_civil.ToString();
+        //        string grupo = lista.ElementAt(0).grupo_sanguineo.ToString();
+        //        string profesion = lista.ElementAt(0).profesion.ToString(); ;
+        //        int telefono = Convert.ToInt32(lista.ElementAt(0).telefono_fijo);
+        //        int movil = Convert.ToInt32(lista.ElementAt(0).telefono_movil);
+        //        string email = lista.ElementAt(0).email.ToString();
+        //        string direccion = lista.ElementAt(0).direccion.ToString();
 
-                //anamnesis
-                char tabaquismo = Convert.ToChar(lista.ElementAt(0).tabaquismo);
-                char ingesta = Convert.ToChar(lista.ElementAt(0).ingesta_medicamentos);
-                char alcoholismo = Convert.ToChar(lista.ElementAt(0).alcoholismo);
-                char rehabilitacion = Convert.ToChar(lista.ElementAt(0).rehabilitacion);
-                char diabetes = Convert.ToChar(lista.ElementAt(0).diabetes);
-                string diabetes_trat = Convert.ToString(lista.ElementAt(0).diabetes_trat);
-                char hipertension = Convert.ToChar(lista.ElementAt(0).hipertension);
-                string hipertension_trat = Convert.ToString(lista.ElementAt(0).hipertension_trat);
-                char dolor_cabeza = Convert.ToChar(lista.ElementAt(0).dolor_cabeza);
-                char epilepsia = Convert.ToChar(lista.ElementAt(0).epilepsia);
-                char vertigo = Convert.ToChar(lista.ElementAt(0).vertigo);
-                char depresion = Convert.ToChar(lista.ElementAt(0).depre);
-                char falta_aire = Convert.ToChar(lista.ElementAt(0).falta_aire);
-                char enf_ojos_oidos = Convert.ToChar(lista.ElementAt(0).enf_ojos_oidos);
-                string observaciones = Convert.ToString(lista.ElementAt(0).observaciones);
-                this.Hide();
+        //        //anamnesis
+        //        char tabaquismo = Convert.ToChar(lista.ElementAt(0).tabaquismo);
+        //        char ingesta = Convert.ToChar(lista.ElementAt(0).ingesta_medicamentos);
+        //        char alcoholismo = Convert.ToChar(lista.ElementAt(0).alcoholismo);
+        //        char rehabilitacion = Convert.ToChar(lista.ElementAt(0).rehabilitacion);
+        //        char diabetes = Convert.ToChar(lista.ElementAt(0).diabetes);
+        //        string diabetes_trat = Convert.ToString(lista.ElementAt(0).diabetes_trat);
+        //        char hipertension = Convert.ToChar(lista.ElementAt(0).hipertension);
+        //        string hipertension_trat = Convert.ToString(lista.ElementAt(0).hipertension_trat);
+        //        char dolor_cabeza = Convert.ToChar(lista.ElementAt(0).dolor_Cabeza);
+        //        char epilepsia = Convert.ToChar(lista.ElementAt(0).epilepsia);
+        //        char vertigo = Convert.ToChar(lista.ElementAt(0).vertigo);
+        //        char depresion = Convert.ToChar(lista.ElementAt(0).depre);
+        //        char falta_aire = Convert.ToChar(lista.ElementAt(0).falta_aire);
+        //        char enf_ojos_oidos = Convert.ToChar(lista.ElementAt(0).enf_ojos_oidos);
+        //        string observaciones = Convert.ToString(lista.ElementAt(0).observaciones);
+        //        this.Hide();
 
-                //se le envia toda la informacion al form para llenarlo 
-                frm_ExpedienteMG frm = new frm_ExpedienteMG(nombre, apellido1, apellido2, cedula, fecha, sexo, estado_Civil, grupo,
-                 profesion, telefono, movil, email, direccion, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, diabetes_trat,
-                 hipertension, hipertension_trat, dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, enf_ojos_oidos, observaciones, true);
-                //se llama el siguiente form con toda la informacion del paciente
+        //        //se le envia toda la informacion al form para llenarlo 
+        //        frm_ExpedienteMG frm = new frm_ExpedienteMG(nombre, apellido1, apellido2, cedula, fecha, sexo, estado_Civil, grupo,
+        //         profesion, telefono, movil, email, direccion, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, diabetes_trat,
+        //         hipertension, hipertension_trat, dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, enf_ojos_oidos, observaciones, true);
+        //        //se llama el siguiente form con toda la informacion del paciente
 
-                //al editar le quito una tab
+        //        //al editar le quito una tab
 
-                frm.ShowDialog();
-            }
-        }
+        //        frm.ShowDialog();
+        //    }
+        //}
 
         private void btnCrearPaciente_Click(object sender, EventArgs e)
         {

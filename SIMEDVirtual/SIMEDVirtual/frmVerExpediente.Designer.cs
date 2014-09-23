@@ -170,7 +170,7 @@
             this.btnEditarPaciente.Text = "Editar";
             this.btnEditarPaciente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnEditarPaciente.UseVisualStyleBackColor = true;
-            this.btnEditarPaciente.Click += new System.EventHandler(this.btnEditarPaciente_Click);
+            //this.btnEditarPaciente.Click += new System.EventHandler(this.btnEditarPaciente_Click);
             // 
             // btnCrearPaciente
             // 

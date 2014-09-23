@@ -77,7 +77,7 @@ namespace SIMEDVirtual
                         else if (tipoUsuario == 'm')
                         {
                             //si es medico lo lleva a los expedientes
-                            MessageBox.Show("eres Medico");
+                            //MessageBox.Show("eres Medico");
                             this.Hide();
                             frm_ExpedienteMG pr = new frm_ExpedienteMG(datosUsuario);
                             pr.ShowDialog();

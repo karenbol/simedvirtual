@@ -50,72 +50,102 @@
             this.dtFechaConsulta = new System.Windows.Forms.DateTimePicker();
             this.label32 = new System.Windows.Forms.Label();
             this.tbPageAnamnesis = new System.Windows.Forms.TabPage();
+            this.groupBox28 = new System.Windows.Forms.GroupBox();
+            this.r26 = new System.Windows.Forms.RadioButton();
+            this.r25 = new System.Windows.Forms.RadioButton();
+            this.label68 = new System.Windows.Forms.Label();
+            this.groupBox27 = new System.Windows.Forms.GroupBox();
+            this.r24 = new System.Windows.Forms.RadioButton();
+            this.r23 = new System.Windows.Forms.RadioButton();
+            this.label63 = new System.Windows.Forms.Label();
+            this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.r18 = new System.Windows.Forms.RadioButton();
+            this.r17 = new System.Windows.Forms.RadioButton();
+            this.label26 = new System.Windows.Forms.Label();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.r14 = new System.Windows.Forms.RadioButton();
+            this.r13 = new System.Windows.Forms.RadioButton();
+            this.label23 = new System.Windows.Forms.Label();
+            this.groupBox20 = new System.Windows.Forms.GroupBox();
+            this.r10 = new System.Windows.Forms.RadioButton();
+            this.r9 = new System.Windows.Forms.RadioButton();
+            this.label18 = new System.Windows.Forms.Label();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.r3 = new System.Windows.Forms.RadioButton();
+            this.r4 = new System.Windows.Forms.RadioButton();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.r1 = new System.Windows.Forms.RadioButton();
+            this.label8 = new System.Windows.Forms.Label();
+            this.r2 = new System.Windows.Forms.RadioButton();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.txtOtrosHeredo = new System.Windows.Forms.TextBox();
+            this.txtAsmaHeredo = new System.Windows.Forms.TextBox();
+            this.label87 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.txtTiroidesHeredo = new System.Windows.Forms.TextBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.txtCancerHeredo = new System.Windows.Forms.TextBox();
+            this.txtDiabetesHeredo = new System.Windows.Forms.TextBox();
+            this.txtHipertensionHeredo = new System.Windows.Forms.TextBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label61 = new System.Windows.Forms.Label();
             this.txtObservaciones = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.r26 = new System.Windows.Forms.RadioButton();
-            this.r25 = new System.Windows.Forms.RadioButton();
-            this.r24 = new System.Windows.Forms.RadioButton();
-            this.r23 = new System.Windows.Forms.RadioButton();
+            this.groupBox26 = new System.Windows.Forms.GroupBox();
             this.r22 = new System.Windows.Forms.RadioButton();
             this.r21 = new System.Windows.Forms.RadioButton();
+            this.label62 = new System.Windows.Forms.Label();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
             this.r20 = new System.Windows.Forms.RadioButton();
             this.r19 = new System.Windows.Forms.RadioButton();
-            this.r18 = new System.Windows.Forms.RadioButton();
-            this.r17 = new System.Windows.Forms.RadioButton();
+            this.label27 = new System.Windows.Forms.Label();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.r16 = new System.Windows.Forms.RadioButton();
             this.r15 = new System.Windows.Forms.RadioButton();
-            this.r14 = new System.Windows.Forms.RadioButton();
-            this.r13 = new System.Windows.Forms.RadioButton();
+            this.label24 = new System.Windows.Forms.Label();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
             this.r12 = new System.Windows.Forms.RadioButton();
             this.r11 = new System.Windows.Forms.RadioButton();
-            this.r10 = new System.Windows.Forms.RadioButton();
-            this.r9 = new System.Windows.Forms.RadioButton();
-            this.txtAlergias = new System.Windows.Forms.TextBox();
-            this.label68 = new System.Windows.Forms.Label();
-            this.label63 = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.txtAlergias = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.r28 = new System.Windows.Forms.RadioButton();
-            this.r27 = new System.Windows.Forms.RadioButton();
+            this.groupBox32 = new System.Windows.Forms.GroupBox();
             this.r34 = new System.Windows.Forms.RadioButton();
             this.r33 = new System.Windows.Forms.RadioButton();
+            this.label67 = new System.Windows.Forms.Label();
+            this.groupBox31 = new System.Windows.Forms.GroupBox();
             this.r32 = new System.Windows.Forms.RadioButton();
             this.r31 = new System.Windows.Forms.RadioButton();
+            this.lblasma = new System.Windows.Forms.Label();
+            this.groupBox30 = new System.Windows.Forms.GroupBox();
             this.r30 = new System.Windows.Forms.RadioButton();
             this.r29 = new System.Windows.Forms.RadioButton();
+            this.label30 = new System.Windows.Forms.Label();
+            this.groupBox29 = new System.Windows.Forms.GroupBox();
+            this.r28 = new System.Windows.Forms.RadioButton();
+            this.r27 = new System.Windows.Forms.RadioButton();
+            this.label13 = new System.Windows.Forms.Label();
             this.lblTratTiroides = new System.Windows.Forms.Label();
             this.lblTratAsma = new System.Windows.Forms.Label();
             this.txtTratAsma = new System.Windows.Forms.TextBox();
             this.txtTratTiroides = new System.Windows.Forms.TextBox();
-            this.label67 = new System.Windows.Forms.Label();
-            this.lblasma = new System.Windows.Forms.Label();
             this.lblTratHipertension = new System.Windows.Forms.Label();
             this.txtTratHipertension = new System.Windows.Forms.TextBox();
-            this.label30 = new System.Windows.Forms.Label();
             this.txtTratDiabetes = new System.Windows.Forms.TextBox();
             this.lblTratamiento = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
             this.r8 = new System.Windows.Forms.RadioButton();
             this.r7 = new System.Windows.Forms.RadioButton();
+            this.label12 = new System.Windows.Forms.Label();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.r6 = new System.Windows.Forms.RadioButton();
             this.r5 = new System.Windows.Forms.RadioButton();
-            this.r4 = new System.Windows.Forms.RadioButton();
-            this.r3 = new System.Windows.Forms.RadioButton();
-            this.r2 = new System.Windows.Forms.RadioButton();
-            this.r1 = new System.Windows.Forms.RadioButton();
-            this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
             this.tabPageInfoPersonal = new System.Windows.Forms.TabPage();
             this.txtEdad = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -127,7 +157,7 @@
             this.txtApe2 = new System.Windows.Forms.TextBox();
             this.label60 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbEmpresa = new System.Windows.Forms.ComboBox();
             this.label58 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.label44 = new System.Windows.Forms.Label();
@@ -163,81 +193,33 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageExFisico = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.radioButton23 = new System.Windows.Forms.RadioButton();
-            this.label82 = new System.Windows.Forms.Label();
-            this.radioButton24 = new System.Windows.Forms.RadioButton();
-            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.txtObservacionesCDL = new System.Windows.Forms.TextBox();
             this.label83 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.txtMalformaciones = new System.Windows.Forms.TextBox();
             this.label101 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.txtObservacionesCC = new System.Windows.Forms.TextBox();
             this.label100 = new System.Windows.Forms.Label();
-            this.radioButton55 = new System.Windows.Forms.RadioButton();
-            this.radioButton56 = new System.Windows.Forms.RadioButton();
-            this.label98 = new System.Windows.Forms.Label();
-            this.radioButton57 = new System.Windows.Forms.RadioButton();
-            this.radioButton58 = new System.Windows.Forms.RadioButton();
-            this.label99 = new System.Windows.Forms.Label();
-            this.radioButton51 = new System.Windows.Forms.RadioButton();
-            this.radioButton53 = new System.Windows.Forms.RadioButton();
-            this.label96 = new System.Windows.Forms.Label();
-            this.radioButton54 = new System.Windows.Forms.RadioButton();
-            this.radioButton52 = new System.Windows.Forms.RadioButton();
-            this.label97 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.radioButton21 = new System.Windows.Forms.RadioButton();
-            this.radioButton22 = new System.Windows.Forms.RadioButton();
-            this.label81 = new System.Windows.Forms.Label();
-            this.radioButton19 = new System.Windows.Forms.RadioButton();
-            this.radioButton20 = new System.Windows.Forms.RadioButton();
-            this.label80 = new System.Windows.Forms.Label();
-            this.radioButton17 = new System.Windows.Forms.RadioButton();
-            this.radioButton18 = new System.Windows.Forms.RadioButton();
-            this.label79 = new System.Windows.Forms.Label();
-            this.radioButton15 = new System.Windows.Forms.RadioButton();
-            this.radioButton16 = new System.Windows.Forms.RadioButton();
-            this.label78 = new System.Windows.Forms.Label();
-            this.radioButton13 = new System.Windows.Forms.RadioButton();
-            this.radioButton14 = new System.Windows.Forms.RadioButton();
-            this.label77 = new System.Windows.Forms.Label();
-            this.radioButton11 = new System.Windows.Forms.RadioButton();
-            this.radioButton12 = new System.Windows.Forms.RadioButton();
-            this.label76 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtPiernaIzq = new System.Windows.Forms.TextBox();
             this.label74 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.txtPiernaDer = new System.Windows.Forms.TextBox();
             this.label75 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.txtBrazoIzq = new System.Windows.Forms.TextBox();
             this.label73 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.txtBrazoDech = new System.Windows.Forms.TextBox();
             this.label72 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txtObservacionesSE = new System.Windows.Forms.TextBox();
             this.label71 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtPeso = new System.Windows.Forms.TextBox();
+            this.txtTalla = new System.Windows.Forms.TextBox();
             this.label70 = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.txtObservacionesEx = new System.Windows.Forms.TextBox();
-            this.radioButton9 = new System.Windows.Forms.RadioButton();
-            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.txtObservacionesSC = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
-            this.radioButton7 = new System.Windows.Forms.RadioButton();
-            this.radioButton8 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
-            this.radioButton6 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.label56 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.label55 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
             this.txtPresionArterial = new System.Windows.Forms.TextBox();
             this.txtPulso = new System.Windows.Forms.TextBox();
             this.label51 = new System.Windows.Forms.Label();
@@ -290,11 +272,94 @@
             this.label104 = new System.Windows.Forms.Label();
             this.label105 = new System.Windows.Forms.Label();
             this.radioButton62 = new System.Windows.Forms.RadioButton();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.groupBox33 = new System.Windows.Forms.GroupBox();
+            this.radioButton9 = new System.Windows.Forms.RadioButton();
+            this.radioButton10 = new System.Windows.Forms.RadioButton();
+            this.label56 = new System.Windows.Forms.Label();
+            this.groupBox34 = new System.Windows.Forms.GroupBox();
+            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.radioButton6 = new System.Windows.Forms.RadioButton();
+            this.label54 = new System.Windows.Forms.Label();
+            this.groupBox35 = new System.Windows.Forms.GroupBox();
+            this.radioButton7 = new System.Windows.Forms.RadioButton();
+            this.radioButton8 = new System.Windows.Forms.RadioButton();
+            this.label55 = new System.Windows.Forms.Label();
+            this.groupBox36 = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.label53 = new System.Windows.Forms.Label();
+            this.groupBox37 = new System.Windows.Forms.GroupBox();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.label52 = new System.Windows.Forms.Label();
+            this.groupBox38 = new System.Windows.Forms.GroupBox();
+            this.radioButton23 = new System.Windows.Forms.RadioButton();
+            this.label82 = new System.Windows.Forms.Label();
+            this.radioButton24 = new System.Windows.Forms.RadioButton();
+            this.groupBox39 = new System.Windows.Forms.GroupBox();
+            this.radioButton53 = new System.Windows.Forms.RadioButton();
+            this.radioButton54 = new System.Windows.Forms.RadioButton();
+            this.label97 = new System.Windows.Forms.Label();
+            this.groupBox40 = new System.Windows.Forms.GroupBox();
+            this.radioButton56 = new System.Windows.Forms.RadioButton();
+            this.radioButton57 = new System.Windows.Forms.RadioButton();
+            this.label99 = new System.Windows.Forms.Label();
+            this.groupBox41 = new System.Windows.Forms.GroupBox();
+            this.radioButton51 = new System.Windows.Forms.RadioButton();
+            this.label96 = new System.Windows.Forms.Label();
+            this.radioButton52 = new System.Windows.Forms.RadioButton();
+            this.groupBox42 = new System.Windows.Forms.GroupBox();
+            this.radioButton55 = new System.Windows.Forms.RadioButton();
+            this.label98 = new System.Windows.Forms.Label();
+            this.radioButton58 = new System.Windows.Forms.RadioButton();
+            this.groupBox43 = new System.Windows.Forms.GroupBox();
+            this.radioButton11 = new System.Windows.Forms.RadioButton();
+            this.radioButton12 = new System.Windows.Forms.RadioButton();
+            this.label76 = new System.Windows.Forms.Label();
+            this.groupBox44 = new System.Windows.Forms.GroupBox();
+            this.radioButton15 = new System.Windows.Forms.RadioButton();
+            this.radioButton16 = new System.Windows.Forms.RadioButton();
+            this.label78 = new System.Windows.Forms.Label();
+            this.groupBox45 = new System.Windows.Forms.GroupBox();
+            this.radioButton21 = new System.Windows.Forms.RadioButton();
+            this.radioButton22 = new System.Windows.Forms.RadioButton();
+            this.label81 = new System.Windows.Forms.Label();
+            this.groupBox46 = new System.Windows.Forms.GroupBox();
+            this.radioButton13 = new System.Windows.Forms.RadioButton();
+            this.radioButton14 = new System.Windows.Forms.RadioButton();
+            this.label77 = new System.Windows.Forms.Label();
+            this.groupBox47 = new System.Windows.Forms.GroupBox();
+            this.radioButton17 = new System.Windows.Forms.RadioButton();
+            this.radioButton18 = new System.Windows.Forms.RadioButton();
+            this.label79 = new System.Windows.Forms.Label();
+            this.groupBox48 = new System.Windows.Forms.GroupBox();
+            this.radioButton19 = new System.Windows.Forms.RadioButton();
+            this.radioButton20 = new System.Windows.Forms.RadioButton();
+            this.label80 = new System.Windows.Forms.Label();
             this.tabPageEpicrisis.SuspendLayout();
             this.tbPageAnamnesis.SuspendLayout();
+            this.groupBox28.SuspendLayout();
+            this.groupBox27.SuspendLayout();
+            this.groupBox24.SuspendLayout();
+            this.groupBox22.SuspendLayout();
+            this.groupBox20.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            this.groupBox10.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.groupBox26.SuspendLayout();
+            this.groupBox25.SuspendLayout();
+            this.groupBox23.SuspendLayout();
+            this.groupBox21.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox32.SuspendLayout();
+            this.groupBox31.SuspendLayout();
+            this.groupBox30.SuspendLayout();
+            this.groupBox29.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.groupBox19.SuspendLayout();
+            this.groupBox18.SuspendLayout();
             this.tabPageInfoPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPaciente)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -311,6 +376,22 @@
             this.groupBox13.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox11.SuspendLayout();
+            this.groupBox33.SuspendLayout();
+            this.groupBox34.SuspendLayout();
+            this.groupBox35.SuspendLayout();
+            this.groupBox36.SuspendLayout();
+            this.groupBox37.SuspendLayout();
+            this.groupBox38.SuspendLayout();
+            this.groupBox39.SuspendLayout();
+            this.groupBox40.SuspendLayout();
+            this.groupBox41.SuspendLayout();
+            this.groupBox42.SuspendLayout();
+            this.groupBox43.SuspendLayout();
+            this.groupBox44.SuspendLayout();
+            this.groupBox45.SuspendLayout();
+            this.groupBox46.SuspendLayout();
+            this.groupBox47.SuspendLayout();
+            this.groupBox48.SuspendLayout();
             this.SuspendLayout();
             // 
             // opFile
@@ -360,7 +441,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label25.Location = new System.Drawing.Point(12, 626);
+            this.label25.Location = new System.Drawing.Point(12, 655);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(67, 20);
             this.label25.TabIndex = 24;
@@ -370,7 +451,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label29.Location = new System.Drawing.Point(81, 626);
+            this.label29.Location = new System.Drawing.Point(81, 655);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(60, 20);
             this.label29.TabIndex = 25;
@@ -393,7 +474,7 @@
             this.tabPageEpicrisis.Location = new System.Drawing.Point(4, 22);
             this.tabPageEpicrisis.Name = "tabPageEpicrisis";
             this.tabPageEpicrisis.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageEpicrisis.Size = new System.Drawing.Size(970, 513);
+            this.tabPageEpicrisis.Size = new System.Drawing.Size(970, 547);
             this.tabPageEpicrisis.TabIndex = 2;
             this.tabPageEpicrisis.Text = "EPICRISIS";
             this.tabPageEpicrisis.UseVisualStyleBackColor = true;
@@ -511,6 +592,14 @@
             // 
             // tbPageAnamnesis
             // 
+            this.tbPageAnamnesis.Controls.Add(this.groupBox28);
+            this.tbPageAnamnesis.Controls.Add(this.groupBox27);
+            this.tbPageAnamnesis.Controls.Add(this.groupBox24);
+            this.tbPageAnamnesis.Controls.Add(this.groupBox22);
+            this.tbPageAnamnesis.Controls.Add(this.groupBox20);
+            this.tbPageAnamnesis.Controls.Add(this.groupBox17);
+            this.tbPageAnamnesis.Controls.Add(this.groupBox16);
+            this.tbPageAnamnesis.Controls.Add(this.groupBox10);
             this.tbPageAnamnesis.Controls.Add(this.txtObservaciones);
             this.tbPageAnamnesis.Controls.Add(this.label28);
             this.tbPageAnamnesis.Controls.Add(this.groupBox3);
@@ -520,96 +609,73 @@
             this.tbPageAnamnesis.Location = new System.Drawing.Point(4, 22);
             this.tbPageAnamnesis.Name = "tbPageAnamnesis";
             this.tbPageAnamnesis.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPageAnamnesis.Size = new System.Drawing.Size(970, 513);
+            this.tbPageAnamnesis.Size = new System.Drawing.Size(970, 547);
             this.tbPageAnamnesis.TabIndex = 1;
             this.tbPageAnamnesis.Text = "ANAMNESIS";
             this.tbPageAnamnesis.UseVisualStyleBackColor = true;
             // 
-            // txtObservaciones
+            // groupBox28
             // 
-            this.txtObservaciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtObservaciones.Location = new System.Drawing.Point(417, 446);
-            this.txtObservaciones.Multiline = true;
-            this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.Size = new System.Drawing.Size(519, 53);
-            this.txtObservaciones.TabIndex = 18;
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(414, 427);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(98, 13);
-            this.label28.TabIndex = 17;
-            this.label28.Text = "OBSERVACIONES";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.r26);
-            this.groupBox3.Controls.Add(this.r25);
-            this.groupBox3.Controls.Add(this.r24);
-            this.groupBox3.Controls.Add(this.r23);
-            this.groupBox3.Controls.Add(this.r22);
-            this.groupBox3.Controls.Add(this.r21);
-            this.groupBox3.Controls.Add(this.r20);
-            this.groupBox3.Controls.Add(this.r19);
-            this.groupBox3.Controls.Add(this.r18);
-            this.groupBox3.Controls.Add(this.r17);
-            this.groupBox3.Controls.Add(this.r16);
-            this.groupBox3.Controls.Add(this.r15);
-            this.groupBox3.Controls.Add(this.r14);
-            this.groupBox3.Controls.Add(this.r13);
-            this.groupBox3.Controls.Add(this.r12);
-            this.groupBox3.Controls.Add(this.r11);
-            this.groupBox3.Controls.Add(this.r10);
-            this.groupBox3.Controls.Add(this.r9);
-            this.groupBox3.Controls.Add(this.txtAlergias);
-            this.groupBox3.Controls.Add(this.label68);
-            this.groupBox3.Controls.Add(this.label63);
-            this.groupBox3.Controls.Add(this.label62);
-            this.groupBox3.Controls.Add(this.label27);
-            this.groupBox3.Controls.Add(this.label26);
-            this.groupBox3.Controls.Add(this.label24);
-            this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Controls.Add(this.label22);
-            this.groupBox3.Controls.Add(this.label18);
-            this.groupBox3.Location = new System.Drawing.Point(23, 173);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(336, 334);
-            this.groupBox3.TabIndex = 3;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "PADECE O HA PADECIDO DE:";
+            this.groupBox28.Controls.Add(this.r26);
+            this.groupBox28.Controls.Add(this.r25);
+            this.groupBox28.Controls.Add(this.label68);
+            this.groupBox28.Location = new System.Drawing.Point(23, 395);
+            this.groupBox28.Name = "groupBox28";
+            this.groupBox28.Size = new System.Drawing.Size(336, 27);
+            this.groupBox28.TabIndex = 44;
+            this.groupBox28.TabStop = false;
             // 
             // r26
             // 
             this.r26.AutoSize = true;
-            this.r26.Location = new System.Drawing.Point(268, 214);
+            this.r26.Location = new System.Drawing.Point(274, 4);
             this.r26.Name = "r26";
             this.r26.Size = new System.Drawing.Size(41, 17);
-            this.r26.TabIndex = 17;
+            this.r26.TabIndex = 45;
             this.r26.TabStop = true;
             this.r26.Text = "NO";
             this.r26.UseVisualStyleBackColor = true;
-            this.r26.Click += new System.EventHandler(this.r26_Click);
+            this.r26.CheckedChanged += new System.EventHandler(this.r26_CheckedChanged);
             // 
             // r25
             // 
             this.r25.AutoSize = true;
-            this.r25.Location = new System.Drawing.Point(217, 215);
+            this.r25.Location = new System.Drawing.Point(223, 5);
             this.r25.Name = "r25";
             this.r25.Size = new System.Drawing.Size(35, 17);
-            this.r25.TabIndex = 16;
+            this.r25.TabIndex = 44;
             this.r25.TabStop = true;
             this.r25.Text = "SI";
             this.r25.UseVisualStyleBackColor = true;
+            this.r25.CheckedChanged += new System.EventHandler(this.r25_CheckedChanged);
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(15, 6);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(161, 13);
+            this.label68.TabIndex = 46;
+            this.label68.Text = "ALERGICO A MEDICAMENTOS";
+            // 
+            // groupBox27
+            // 
+            this.groupBox27.Controls.Add(this.r24);
+            this.groupBox27.Controls.Add(this.r23);
+            this.groupBox27.Controls.Add(this.label63);
+            this.groupBox27.Location = new System.Drawing.Point(23, 369);
+            this.groupBox27.Name = "groupBox27";
+            this.groupBox27.Size = new System.Drawing.Size(336, 27);
+            this.groupBox27.TabIndex = 41;
+            this.groupBox27.TabStop = false;
             // 
             // r24
             // 
             this.r24.AutoSize = true;
-            this.r24.Location = new System.Drawing.Point(268, 191);
+            this.r24.Location = new System.Drawing.Point(274, 4);
             this.r24.Name = "r24";
             this.r24.Size = new System.Drawing.Size(41, 17);
-            this.r24.TabIndex = 15;
+            this.r24.TabIndex = 42;
             this.r24.TabStop = true;
             this.r24.Text = "NO";
             this.r24.UseVisualStyleBackColor = true;
@@ -617,65 +683,41 @@
             // r23
             // 
             this.r23.AutoSize = true;
-            this.r23.Location = new System.Drawing.Point(217, 192);
+            this.r23.Location = new System.Drawing.Point(223, 5);
             this.r23.Name = "r23";
             this.r23.Size = new System.Drawing.Size(35, 17);
-            this.r23.TabIndex = 14;
+            this.r23.TabIndex = 41;
             this.r23.TabStop = true;
             this.r23.Text = "SI";
             this.r23.UseVisualStyleBackColor = true;
             // 
-            // r22
+            // label63
             // 
-            this.r22.AutoSize = true;
-            this.r22.Location = new System.Drawing.Point(268, 166);
-            this.r22.Name = "r22";
-            this.r22.Size = new System.Drawing.Size(41, 17);
-            this.r22.TabIndex = 13;
-            this.r22.TabStop = true;
-            this.r22.Text = "NO";
-            this.r22.UseVisualStyleBackColor = true;
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(15, 6);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(161, 13);
+            this.label63.TabIndex = 43;
+            this.label63.Text = "ENFERMEDADES NERVIOSAS";
             // 
-            // r21
+            // groupBox24
             // 
-            this.r21.AutoSize = true;
-            this.r21.Location = new System.Drawing.Point(217, 167);
-            this.r21.Name = "r21";
-            this.r21.Size = new System.Drawing.Size(35, 17);
-            this.r21.TabIndex = 12;
-            this.r21.TabStop = true;
-            this.r21.Text = "SI";
-            this.r21.UseVisualStyleBackColor = true;
-            // 
-            // r20
-            // 
-            this.r20.AutoSize = true;
-            this.r20.Location = new System.Drawing.Point(268, 141);
-            this.r20.Name = "r20";
-            this.r20.Size = new System.Drawing.Size(41, 17);
-            this.r20.TabIndex = 11;
-            this.r20.TabStop = true;
-            this.r20.Text = "NO";
-            this.r20.UseVisualStyleBackColor = true;
-            // 
-            // r19
-            // 
-            this.r19.AutoSize = true;
-            this.r19.Location = new System.Drawing.Point(217, 142);
-            this.r19.Name = "r19";
-            this.r19.Size = new System.Drawing.Size(35, 17);
-            this.r19.TabIndex = 10;
-            this.r19.TabStop = true;
-            this.r19.Text = "SI";
-            this.r19.UseVisualStyleBackColor = true;
+            this.groupBox24.Controls.Add(this.r18);
+            this.groupBox24.Controls.Add(this.r17);
+            this.groupBox24.Controls.Add(this.label26);
+            this.groupBox24.Location = new System.Drawing.Point(23, 292);
+            this.groupBox24.Name = "groupBox24";
+            this.groupBox24.Size = new System.Drawing.Size(336, 27);
+            this.groupBox24.TabIndex = 38;
+            this.groupBox24.TabStop = false;
             // 
             // r18
             // 
             this.r18.AutoSize = true;
-            this.r18.Location = new System.Drawing.Point(268, 117);
+            this.r18.Location = new System.Drawing.Point(274, 6);
             this.r18.Name = "r18";
             this.r18.Size = new System.Drawing.Size(41, 17);
-            this.r18.TabIndex = 9;
+            this.r18.TabIndex = 22;
             this.r18.TabStop = true;
             this.r18.Text = "NO";
             this.r18.UseVisualStyleBackColor = true;
@@ -683,43 +725,41 @@
             // r17
             // 
             this.r17.AutoSize = true;
-            this.r17.Location = new System.Drawing.Point(217, 118);
+            this.r17.Location = new System.Drawing.Point(223, 7);
             this.r17.Name = "r17";
             this.r17.Size = new System.Drawing.Size(35, 17);
-            this.r17.TabIndex = 8;
+            this.r17.TabIndex = 21;
             this.r17.TabStop = true;
             this.r17.Text = "SI";
             this.r17.UseVisualStyleBackColor = true;
             // 
-            // r16
+            // label26
             // 
-            this.r16.AutoSize = true;
-            this.r16.Location = new System.Drawing.Point(268, 94);
-            this.r16.Name = "r16";
-            this.r16.Size = new System.Drawing.Size(41, 17);
-            this.r16.TabIndex = 7;
-            this.r16.TabStop = true;
-            this.r16.Text = "NO";
-            this.r16.UseVisualStyleBackColor = true;
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(15, 9);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(86, 13);
+            this.label26.TabIndex = 23;
+            this.label26.Text = "FALTA DE AIRE";
             // 
-            // r15
+            // groupBox22
             // 
-            this.r15.AutoSize = true;
-            this.r15.Location = new System.Drawing.Point(217, 95);
-            this.r15.Name = "r15";
-            this.r15.Size = new System.Drawing.Size(35, 17);
-            this.r15.TabIndex = 6;
-            this.r15.TabStop = true;
-            this.r15.Text = "SI";
-            this.r15.UseVisualStyleBackColor = true;
+            this.groupBox22.Controls.Add(this.r14);
+            this.groupBox22.Controls.Add(this.r13);
+            this.groupBox22.Controls.Add(this.label23);
+            this.groupBox22.Location = new System.Drawing.Point(23, 241);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(336, 27);
+            this.groupBox22.TabIndex = 36;
+            this.groupBox22.TabStop = false;
             // 
             // r14
             // 
             this.r14.AutoSize = true;
-            this.r14.Location = new System.Drawing.Point(268, 70);
+            this.r14.Location = new System.Drawing.Point(274, 4);
             this.r14.Name = "r14";
             this.r14.Size = new System.Drawing.Size(41, 17);
-            this.r14.TabIndex = 5;
+            this.r14.TabIndex = 19;
             this.r14.TabStop = true;
             this.r14.Text = "NO";
             this.r14.UseVisualStyleBackColor = true;
@@ -727,43 +767,41 @@
             // r13
             // 
             this.r13.AutoSize = true;
-            this.r13.Location = new System.Drawing.Point(217, 71);
+            this.r13.Location = new System.Drawing.Point(223, 5);
             this.r13.Name = "r13";
             this.r13.Size = new System.Drawing.Size(35, 17);
-            this.r13.TabIndex = 4;
+            this.r13.TabIndex = 18;
             this.r13.TabStop = true;
             this.r13.Text = "SI";
             this.r13.UseVisualStyleBackColor = true;
             // 
-            // r12
+            // label23
             // 
-            this.r12.AutoSize = true;
-            this.r12.Location = new System.Drawing.Point(268, 47);
-            this.r12.Name = "r12";
-            this.r12.Size = new System.Drawing.Size(41, 17);
-            this.r12.TabIndex = 3;
-            this.r12.TabStop = true;
-            this.r12.Text = "NO";
-            this.r12.UseVisualStyleBackColor = true;
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(15, 9);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(55, 13);
+            this.label23.TabIndex = 20;
+            this.label23.Text = "VERTIGO";
             // 
-            // r11
+            // groupBox20
             // 
-            this.r11.AutoSize = true;
-            this.r11.Location = new System.Drawing.Point(217, 48);
-            this.r11.Name = "r11";
-            this.r11.Size = new System.Drawing.Size(35, 17);
-            this.r11.TabIndex = 2;
-            this.r11.TabStop = true;
-            this.r11.Text = "SI";
-            this.r11.UseVisualStyleBackColor = true;
+            this.groupBox20.Controls.Add(this.r10);
+            this.groupBox20.Controls.Add(this.r9);
+            this.groupBox20.Controls.Add(this.label18);
+            this.groupBox20.Location = new System.Drawing.Point(23, 192);
+            this.groupBox20.Name = "groupBox20";
+            this.groupBox20.Size = new System.Drawing.Size(336, 27);
+            this.groupBox20.TabIndex = 39;
+            this.groupBox20.TabStop = false;
             // 
             // r10
             // 
             this.r10.AutoSize = true;
-            this.r10.Location = new System.Drawing.Point(268, 24);
+            this.r10.Location = new System.Drawing.Point(274, 7);
             this.r10.Name = "r10";
             this.r10.Size = new System.Drawing.Size(41, 17);
-            this.r10.TabIndex = 1;
+            this.r10.TabIndex = 17;
             this.r10.TabStop = true;
             this.r10.Text = "NO";
             this.r10.UseVisualStyleBackColor = true;
@@ -771,233 +809,634 @@
             // r9
             // 
             this.r9.AutoSize = true;
-            this.r9.Location = new System.Drawing.Point(217, 25);
+            this.r9.Location = new System.Drawing.Point(223, 7);
             this.r9.Name = "r9";
             this.r9.Size = new System.Drawing.Size(35, 17);
-            this.r9.TabIndex = 0;
+            this.r9.TabIndex = 16;
             this.r9.TabStop = true;
             this.r9.Text = "SI";
             this.r9.UseVisualStyleBackColor = true;
             // 
-            // txtAlergias
+            // label18
             // 
-            this.txtAlergias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtAlergias.Location = new System.Drawing.Point(18, 261);
-            this.txtAlergias.Multiline = true;
-            this.txtAlergias.Name = "txtAlergias";
-            this.txtAlergias.Size = new System.Drawing.Size(292, 65);
-            this.txtAlergias.TabIndex = 46;
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(15, 8);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(108, 13);
+            this.label18.TabIndex = 18;
+            this.label18.Text = "DOLOR DE CABEZA";
             // 
-            // label68
+            // groupBox17
             // 
-            this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(15, 216);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(161, 13);
-            this.label68.TabIndex = 43;
-            this.label68.Text = "ALERGICO A MEDICAMENTOS";
+            this.groupBox17.Controls.Add(this.label9);
+            this.groupBox17.Controls.Add(this.r3);
+            this.groupBox17.Controls.Add(this.r4);
+            this.groupBox17.Location = new System.Drawing.Point(23, 65);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(336, 27);
+            this.groupBox17.TabIndex = 36;
+            this.groupBox17.TabStop = false;
             // 
-            // label63
+            // label9
             // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(15, 193);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(161, 13);
-            this.label63.TabIndex = 40;
-            this.label63.Text = "ENFERMEDADES NERVIOSAS";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(15, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(162, 13);
+            this.label9.TabIndex = 1;
+            this.label9.Text = "INGESTA DE MEDICAMENTOS";
+            // 
+            // r3
+            // 
+            this.r3.AutoSize = true;
+            this.r3.Location = new System.Drawing.Point(227, 10);
+            this.r3.Name = "r3";
+            this.r3.Size = new System.Drawing.Size(35, 17);
+            this.r3.TabIndex = 2;
+            this.r3.TabStop = true;
+            this.r3.Text = "SI";
+            this.r3.UseVisualStyleBackColor = true;
+            // 
+            // r4
+            // 
+            this.r4.AutoSize = true;
+            this.r4.Location = new System.Drawing.Point(278, 9);
+            this.r4.Name = "r4";
+            this.r4.Size = new System.Drawing.Size(41, 17);
+            this.r4.TabIndex = 3;
+            this.r4.TabStop = true;
+            this.r4.Text = "NO";
+            this.r4.UseVisualStyleBackColor = true;
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.r1);
+            this.groupBox16.Controls.Add(this.label8);
+            this.groupBox16.Controls.Add(this.r2);
+            this.groupBox16.Location = new System.Drawing.Point(23, 32);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(336, 27);
+            this.groupBox16.TabIndex = 26;
+            this.groupBox16.TabStop = false;
+            // 
+            // r1
+            // 
+            this.r1.AutoSize = true;
+            this.r1.Location = new System.Drawing.Point(227, 7);
+            this.r1.Name = "r1";
+            this.r1.Size = new System.Drawing.Size(35, 17);
+            this.r1.TabIndex = 0;
+            this.r1.TabStop = true;
+            this.r1.Text = "SI";
+            this.r1.UseVisualStyleBackColor = true;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(15, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 13);
+            this.label8.TabIndex = 0;
+            this.label8.Text = "TABAQUISMO";
+            // 
+            // r2
+            // 
+            this.r2.AutoSize = true;
+            this.r2.Location = new System.Drawing.Point(278, 6);
+            this.r2.Name = "r2";
+            this.r2.Size = new System.Drawing.Size(41, 17);
+            this.r2.TabIndex = 1;
+            this.r2.TabStop = true;
+            this.r2.Text = "NO";
+            this.r2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.txtOtrosHeredo);
+            this.groupBox10.Controls.Add(this.txtAsmaHeredo);
+            this.groupBox10.Controls.Add(this.label87);
+            this.groupBox10.Controls.Add(this.label86);
+            this.groupBox10.Controls.Add(this.txtTiroidesHeredo);
+            this.groupBox10.Controls.Add(this.label66);
+            this.groupBox10.Controls.Add(this.txtCancerHeredo);
+            this.groupBox10.Controls.Add(this.txtDiabetesHeredo);
+            this.groupBox10.Controls.Add(this.txtHipertensionHeredo);
+            this.groupBox10.Controls.Add(this.label65);
+            this.groupBox10.Controls.Add(this.label64);
+            this.groupBox10.Controls.Add(this.label61);
+            this.groupBox10.Location = new System.Drawing.Point(382, 345);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(575, 110);
+            this.groupBox10.TabIndex = 19;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "ANTECEDENTES HEREDOFAMILIARES";
+            // 
+            // txtOtrosHeredo
+            // 
+            this.txtOtrosHeredo.Location = new System.Drawing.Point(386, 71);
+            this.txtOtrosHeredo.Name = "txtOtrosHeredo";
+            this.txtOtrosHeredo.Size = new System.Drawing.Size(164, 20);
+            this.txtOtrosHeredo.TabIndex = 11;
+            // 
+            // txtAsmaHeredo
+            // 
+            this.txtAsmaHeredo.Location = new System.Drawing.Point(386, 47);
+            this.txtAsmaHeredo.Name = "txtAsmaHeredo";
+            this.txtAsmaHeredo.Size = new System.Drawing.Size(164, 20);
+            this.txtAsmaHeredo.TabIndex = 10;
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(319, 74);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(45, 13);
+            this.label87.TabIndex = 9;
+            this.label87.Text = "OTROS";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(319, 49);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(37, 13);
+            this.label86.TabIndex = 8;
+            this.label86.Text = "ASMA";
+            // 
+            // txtTiroidesHeredo
+            // 
+            this.txtTiroidesHeredo.Location = new System.Drawing.Point(386, 18);
+            this.txtTiroidesHeredo.Name = "txtTiroidesHeredo";
+            this.txtTiroidesHeredo.Size = new System.Drawing.Size(164, 20);
+            this.txtTiroidesHeredo.TabIndex = 7;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(319, 22);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(58, 13);
+            this.label66.TabIndex = 6;
+            this.label66.Text = "TIROIDES";
+            // 
+            // txtCancerHeredo
+            // 
+            this.txtCancerHeredo.Location = new System.Drawing.Point(104, 76);
+            this.txtCancerHeredo.Name = "txtCancerHeredo";
+            this.txtCancerHeredo.Size = new System.Drawing.Size(171, 20);
+            this.txtCancerHeredo.TabIndex = 5;
+            // 
+            // txtDiabetesHeredo
+            // 
+            this.txtDiabetesHeredo.Location = new System.Drawing.Point(104, 49);
+            this.txtDiabetesHeredo.Name = "txtDiabetesHeredo";
+            this.txtDiabetesHeredo.Size = new System.Drawing.Size(171, 20);
+            this.txtDiabetesHeredo.TabIndex = 4;
+            // 
+            // txtHipertensionHeredo
+            // 
+            this.txtHipertensionHeredo.Location = new System.Drawing.Point(104, 21);
+            this.txtHipertensionHeredo.Name = "txtHipertensionHeredo";
+            this.txtHipertensionHeredo.Size = new System.Drawing.Size(171, 20);
+            this.txtHipertensionHeredo.TabIndex = 3;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(10, 78);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(51, 13);
+            this.label65.TabIndex = 2;
+            this.label65.Text = "CANCER";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(10, 50);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(60, 13);
+            this.label64.TabIndex = 1;
+            this.label64.Text = "DIABETES";
+            // 
+            // label61
+            // 
+            this.label61.AutoSize = true;
+            this.label61.Location = new System.Drawing.Point(10, 22);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(88, 13);
+            this.label61.TabIndex = 0;
+            this.label61.Text = "HIPERTENSION";
+            // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtObservaciones.Location = new System.Drawing.Point(411, 464);
+            this.txtObservaciones.Multiline = true;
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.Size = new System.Drawing.Size(525, 77);
+            this.txtObservaciones.TabIndex = 18;
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(307, 497);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(98, 13);
+            this.label28.TabIndex = 17;
+            this.label28.Text = "OBSERVACIONES";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.groupBox26);
+            this.groupBox3.Controls.Add(this.groupBox25);
+            this.groupBox3.Controls.Add(this.groupBox23);
+            this.groupBox3.Controls.Add(this.groupBox21);
+            this.groupBox3.Controls.Add(this.txtAlergias);
+            this.groupBox3.Location = new System.Drawing.Point(6, 173);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(370, 321);
+            this.groupBox3.TabIndex = 3;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "PADECE O HA PADECIDO DE:";
+            // 
+            // groupBox26
+            // 
+            this.groupBox26.Controls.Add(this.r22);
+            this.groupBox26.Controls.Add(this.r21);
+            this.groupBox26.Controls.Add(this.label62);
+            this.groupBox26.Location = new System.Drawing.Point(17, 170);
+            this.groupBox26.Name = "groupBox26";
+            this.groupBox26.Size = new System.Drawing.Size(336, 27);
+            this.groupBox26.TabIndex = 40;
+            this.groupBox26.TabStop = false;
+            // 
+            // r22
+            // 
+            this.r22.AutoSize = true;
+            this.r22.Location = new System.Drawing.Point(274, 4);
+            this.r22.Name = "r22";
+            this.r22.Size = new System.Drawing.Size(41, 17);
+            this.r22.TabIndex = 39;
+            this.r22.TabStop = true;
+            this.r22.Text = "NO";
+            this.r22.UseVisualStyleBackColor = true;
+            // 
+            // r21
+            // 
+            this.r21.AutoSize = true;
+            this.r21.Location = new System.Drawing.Point(223, 5);
+            this.r21.Name = "r21";
+            this.r21.Size = new System.Drawing.Size(35, 17);
+            this.r21.TabIndex = 38;
+            this.r21.TabStop = true;
+            this.r21.Text = "SI";
+            this.r21.UseVisualStyleBackColor = true;
             // 
             // label62
             // 
             this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(15, 170);
+            this.label62.Location = new System.Drawing.Point(15, 8);
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(103, 13);
-            this.label62.TabIndex = 37;
+            this.label62.TabIndex = 40;
             this.label62.Text = "DOLOR DE PECHO";
+            // 
+            // groupBox25
+            // 
+            this.groupBox25.Controls.Add(this.r20);
+            this.groupBox25.Controls.Add(this.r19);
+            this.groupBox25.Controls.Add(this.label27);
+            this.groupBox25.Location = new System.Drawing.Point(17, 144);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Size = new System.Drawing.Size(336, 27);
+            this.groupBox25.TabIndex = 39;
+            this.groupBox25.TabStop = false;
+            // 
+            // r20
+            // 
+            this.r20.AutoSize = true;
+            this.r20.Location = new System.Drawing.Point(274, 6);
+            this.r20.Name = "r20";
+            this.r20.Size = new System.Drawing.Size(41, 17);
+            this.r20.TabIndex = 23;
+            this.r20.TabStop = true;
+            this.r20.Text = "NO";
+            this.r20.UseVisualStyleBackColor = true;
+            // 
+            // r19
+            // 
+            this.r19.AutoSize = true;
+            this.r19.Location = new System.Drawing.Point(223, 7);
+            this.r19.Name = "r19";
+            this.r19.Size = new System.Drawing.Size(35, 17);
+            this.r19.TabIndex = 22;
+            this.r19.TabStop = true;
+            this.r19.Text = "SI";
+            this.r19.UseVisualStyleBackColor = true;
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(15, 144);
+            this.label27.Location = new System.Drawing.Point(15, 10);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(175, 13);
-            this.label27.TabIndex = 21;
+            this.label27.TabIndex = 24;
             this.label27.Text = "ENFERMEDADES OJOS U OIDOS";
             // 
-            // label26
+            // groupBox23
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(15, 122);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(86, 13);
-            this.label26.TabIndex = 20;
-            this.label26.Text = "FALTA DE AIRE";
+            this.groupBox23.Controls.Add(this.r16);
+            this.groupBox23.Controls.Add(this.r15);
+            this.groupBox23.Controls.Add(this.label24);
+            this.groupBox23.Location = new System.Drawing.Point(17, 93);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Size = new System.Drawing.Size(336, 27);
+            this.groupBox23.TabIndex = 37;
+            this.groupBox23.TabStop = false;
+            // 
+            // r16
+            // 
+            this.r16.AutoSize = true;
+            this.r16.Location = new System.Drawing.Point(274, 7);
+            this.r16.Name = "r16";
+            this.r16.Size = new System.Drawing.Size(41, 17);
+            this.r16.TabIndex = 20;
+            this.r16.TabStop = true;
+            this.r16.Text = "NO";
+            this.r16.UseVisualStyleBackColor = true;
+            // 
+            // r15
+            // 
+            this.r15.AutoSize = true;
+            this.r15.Location = new System.Drawing.Point(223, 8);
+            this.r15.Name = "r15";
+            this.r15.Size = new System.Drawing.Size(35, 17);
+            this.r15.TabIndex = 19;
+            this.r15.TabStop = true;
+            this.r15.Text = "SI";
+            this.r15.UseVisualStyleBackColor = true;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(15, 99);
+            this.label24.Location = new System.Drawing.Point(15, 9);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(70, 13);
-            this.label24.TabIndex = 18;
+            this.label24.TabIndex = 21;
             this.label24.Text = "DEPRESION";
             // 
-            // label23
+            // groupBox21
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(15, 75);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(55, 13);
-            this.label23.TabIndex = 17;
-            this.label23.Text = "VERTIGO";
+            this.groupBox21.Controls.Add(this.r12);
+            this.groupBox21.Controls.Add(this.r11);
+            this.groupBox21.Controls.Add(this.label22);
+            this.groupBox21.Location = new System.Drawing.Point(17, 42);
+            this.groupBox21.Name = "groupBox21";
+            this.groupBox21.Size = new System.Drawing.Size(336, 27);
+            this.groupBox21.TabIndex = 40;
+            this.groupBox21.TabStop = false;
+            // 
+            // r12
+            // 
+            this.r12.AutoSize = true;
+            this.r12.Location = new System.Drawing.Point(274, 4);
+            this.r12.Name = "r12";
+            this.r12.Size = new System.Drawing.Size(41, 17);
+            this.r12.TabIndex = 18;
+            this.r12.TabStop = true;
+            this.r12.Text = "NO";
+            this.r12.UseVisualStyleBackColor = true;
+            // 
+            // r11
+            // 
+            this.r11.AutoSize = true;
+            this.r11.Location = new System.Drawing.Point(223, 5);
+            this.r11.Name = "r11";
+            this.r11.Size = new System.Drawing.Size(35, 17);
+            this.r11.TabIndex = 17;
+            this.r11.TabStop = true;
+            this.r11.Text = "SI";
+            this.r11.UseVisualStyleBackColor = true;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(15, 52);
+            this.label22.Location = new System.Drawing.Point(15, 9);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(61, 13);
-            this.label22.TabIndex = 16;
+            this.label22.TabIndex = 19;
             this.label22.Text = "EPILEPSIA";
             // 
-            // label18
+            // txtAlergias
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(15, 27);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(108, 13);
-            this.label18.TabIndex = 15;
-            this.label18.Text = "DOLOR DE CABEZA";
+            this.txtAlergias.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtAlergias.Location = new System.Drawing.Point(18, 253);
+            this.txtAlergias.Multiline = true;
+            this.txtAlergias.Name = "txtAlergias";
+            this.txtAlergias.Size = new System.Drawing.Size(335, 58);
+            this.txtAlergias.TabIndex = 46;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.r28);
-            this.groupBox2.Controls.Add(this.r27);
-            this.groupBox2.Controls.Add(this.r34);
-            this.groupBox2.Controls.Add(this.r33);
-            this.groupBox2.Controls.Add(this.r32);
-            this.groupBox2.Controls.Add(this.r31);
-            this.groupBox2.Controls.Add(this.r30);
-            this.groupBox2.Controls.Add(this.r29);
+            this.groupBox2.Controls.Add(this.groupBox32);
+            this.groupBox2.Controls.Add(this.groupBox31);
+            this.groupBox2.Controls.Add(this.groupBox30);
+            this.groupBox2.Controls.Add(this.groupBox29);
             this.groupBox2.Controls.Add(this.lblTratTiroides);
             this.groupBox2.Controls.Add(this.lblTratAsma);
             this.groupBox2.Controls.Add(this.txtTratAsma);
             this.groupBox2.Controls.Add(this.txtTratTiroides);
-            this.groupBox2.Controls.Add(this.label67);
-            this.groupBox2.Controls.Add(this.lblasma);
             this.groupBox2.Controls.Add(this.lblTratHipertension);
             this.groupBox2.Controls.Add(this.txtTratHipertension);
-            this.groupBox2.Controls.Add(this.label30);
             this.groupBox2.Controls.Add(this.txtTratDiabetes);
             this.groupBox2.Controls.Add(this.lblTratamiento);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Location = new System.Drawing.Point(409, 17);
+            this.groupBox2.Location = new System.Drawing.Point(382, 11);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(548, 365);
+            this.groupBox2.Size = new System.Drawing.Size(575, 328);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "HA RECIBIDO TRATAMIENTO CON ";
+            this.groupBox2.Text = "HA RECIBIDO TRATAMIENTO CON :";
             // 
-            // r28
+            // groupBox32
             // 
-            this.r28.AutoSize = true;
-            this.r28.Location = new System.Drawing.Point(154, 29);
-            this.r28.Name = "r28";
-            this.r28.Size = new System.Drawing.Size(41, 17);
-            this.r28.TabIndex = 35;
-            this.r28.TabStop = true;
-            this.r28.Text = "NO";
-            this.r28.UseVisualStyleBackColor = true;
-            this.r28.Click += new System.EventHandler(this.r28_Click);
-            // 
-            // r27
-            // 
-            this.r27.AutoSize = true;
-            this.r27.Location = new System.Drawing.Point(103, 30);
-            this.r27.Name = "r27";
-            this.r27.Size = new System.Drawing.Size(35, 17);
-            this.r27.TabIndex = 34;
-            this.r27.TabStop = true;
-            this.r27.Text = "SI";
-            this.r27.UseVisualStyleBackColor = true;
-            this.r27.Click += new System.EventHandler(this.r27_Click);
+            this.groupBox32.Controls.Add(this.r34);
+            this.groupBox32.Controls.Add(this.r33);
+            this.groupBox32.Controls.Add(this.label67);
+            this.groupBox32.Location = new System.Drawing.Point(7, 247);
+            this.groupBox32.Name = "groupBox32";
+            this.groupBox32.Size = new System.Drawing.Size(212, 28);
+            this.groupBox32.TabIndex = 41;
+            this.groupBox32.TabStop = false;
             // 
             // r34
             // 
             this.r34.AutoSize = true;
-            this.r34.Location = new System.Drawing.Point(154, 280);
+            this.r34.Location = new System.Drawing.Point(159, 6);
             this.r34.Name = "r34";
             this.r34.Size = new System.Drawing.Size(41, 17);
-            this.r34.TabIndex = 5;
+            this.r34.TabIndex = 31;
             this.r34.TabStop = true;
             this.r34.Text = "NO";
             this.r34.UseVisualStyleBackColor = true;
-            this.r34.Click += new System.EventHandler(this.r34_Click);
+            this.r34.CheckedChanged += new System.EventHandler(this.r34_CheckedChanged);
             // 
             // r33
             // 
             this.r33.AutoSize = true;
-            this.r33.Location = new System.Drawing.Point(103, 281);
+            this.r33.Location = new System.Drawing.Point(108, 7);
             this.r33.Name = "r33";
             this.r33.Size = new System.Drawing.Size(35, 17);
-            this.r33.TabIndex = 4;
+            this.r33.TabIndex = 30;
             this.r33.TabStop = true;
             this.r33.Text = "SI";
             this.r33.UseVisualStyleBackColor = true;
-            this.r33.Click += new System.EventHandler(this.r33_Click);
+            this.r33.CheckedChanged += new System.EventHandler(this.r33_CheckedChanged);
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(6, 9);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(58, 13);
+            this.label67.TabIndex = 32;
+            this.label67.Text = "TIROIDES";
+            // 
+            // groupBox31
+            // 
+            this.groupBox31.Controls.Add(this.r32);
+            this.groupBox31.Controls.Add(this.r31);
+            this.groupBox31.Controls.Add(this.lblasma);
+            this.groupBox31.Location = new System.Drawing.Point(8, 173);
+            this.groupBox31.Name = "groupBox31";
+            this.groupBox31.Size = new System.Drawing.Size(212, 28);
+            this.groupBox31.TabIndex = 40;
+            this.groupBox31.TabStop = false;
             // 
             // r32
             // 
             this.r32.AutoSize = true;
-            this.r32.Location = new System.Drawing.Point(154, 197);
+            this.r32.Location = new System.Drawing.Point(160, 6);
             this.r32.Name = "r32";
             this.r32.Size = new System.Drawing.Size(41, 17);
-            this.r32.TabIndex = 3;
+            this.r32.TabIndex = 26;
             this.r32.TabStop = true;
             this.r32.Text = "NO";
             this.r32.UseVisualStyleBackColor = true;
-            this.r32.Click += new System.EventHandler(this.r32_Click);
+            this.r32.CheckedChanged += new System.EventHandler(this.r32_CheckedChanged);
             // 
             // r31
             // 
             this.r31.AutoSize = true;
-            this.r31.Location = new System.Drawing.Point(103, 198);
+            this.r31.Location = new System.Drawing.Point(109, 7);
             this.r31.Name = "r31";
             this.r31.Size = new System.Drawing.Size(35, 17);
-            this.r31.TabIndex = 2;
+            this.r31.TabIndex = 25;
             this.r31.TabStop = true;
             this.r31.Text = "SI";
             this.r31.UseVisualStyleBackColor = true;
-            this.r31.Click += new System.EventHandler(this.r31_Click);
+            this.r31.CheckedChanged += new System.EventHandler(this.r31_CheckedChanged);
+            // 
+            // lblasma
+            // 
+            this.lblasma.AutoSize = true;
+            this.lblasma.Location = new System.Drawing.Point(6, 11);
+            this.lblasma.Name = "lblasma";
+            this.lblasma.Size = new System.Drawing.Size(37, 13);
+            this.lblasma.TabIndex = 27;
+            this.lblasma.Text = "ASMA";
+            // 
+            // groupBox30
+            // 
+            this.groupBox30.Controls.Add(this.r30);
+            this.groupBox30.Controls.Add(this.r29);
+            this.groupBox30.Controls.Add(this.label30);
+            this.groupBox30.Location = new System.Drawing.Point(8, 95);
+            this.groupBox30.Name = "groupBox30";
+            this.groupBox30.Size = new System.Drawing.Size(212, 31);
+            this.groupBox30.TabIndex = 39;
+            this.groupBox30.TabStop = false;
             // 
             // r30
             // 
             this.r30.AutoSize = true;
-            this.r30.Location = new System.Drawing.Point(154, 104);
+            this.r30.Location = new System.Drawing.Point(160, 6);
             this.r30.Name = "r30";
             this.r30.Size = new System.Drawing.Size(41, 17);
-            this.r30.TabIndex = 1;
+            this.r30.TabIndex = 21;
             this.r30.TabStop = true;
             this.r30.Text = "NO";
             this.r30.UseVisualStyleBackColor = true;
-            this.r30.Click += new System.EventHandler(this.r30_Click);
+            this.r30.CheckedChanged += new System.EventHandler(this.r30_CheckedChanged);
             // 
             // r29
             // 
             this.r29.AutoSize = true;
-            this.r29.Location = new System.Drawing.Point(103, 105);
+            this.r29.Location = new System.Drawing.Point(109, 7);
             this.r29.Name = "r29";
             this.r29.Size = new System.Drawing.Size(35, 17);
-            this.r29.TabIndex = 0;
+            this.r29.TabIndex = 20;
             this.r29.TabStop = true;
             this.r29.Text = "SI";
             this.r29.UseVisualStyleBackColor = true;
-            this.r29.Click += new System.EventHandler(this.r29_Click);
+            this.r29.CheckedChanged += new System.EventHandler(this.r29_CheckedChanged);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(6, 12);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(88, 13);
+            this.label30.TabIndex = 22;
+            this.label30.Text = "HIPERTENSION";
+            // 
+            // groupBox29
+            // 
+            this.groupBox29.Controls.Add(this.r28);
+            this.groupBox29.Controls.Add(this.r27);
+            this.groupBox29.Controls.Add(this.label13);
+            this.groupBox29.Location = new System.Drawing.Point(8, 15);
+            this.groupBox29.Name = "groupBox29";
+            this.groupBox29.Size = new System.Drawing.Size(212, 31);
+            this.groupBox29.TabIndex = 36;
+            this.groupBox29.TabStop = false;
+            // 
+            // r28
+            // 
+            this.r28.AutoSize = true;
+            this.r28.Location = new System.Drawing.Point(161, 10);
+            this.r28.Name = "r28";
+            this.r28.Size = new System.Drawing.Size(41, 17);
+            this.r28.TabIndex = 38;
+            this.r28.TabStop = true;
+            this.r28.Text = "NO";
+            this.r28.UseVisualStyleBackColor = true;
+            this.r28.CheckedChanged += new System.EventHandler(this.r28_CheckedChanged);
+            // 
+            // r27
+            // 
+            this.r27.AutoSize = true;
+            this.r27.Location = new System.Drawing.Point(110, 11);
+            this.r27.Name = "r27";
+            this.r27.Size = new System.Drawing.Size(35, 17);
+            this.r27.TabIndex = 37;
+            this.r27.TabStop = true;
+            this.r27.Text = "SI";
+            this.r27.UseVisualStyleBackColor = true;
+            this.r27.CheckedChanged += new System.EventHandler(this.r27_CheckedChanged);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(6, 13);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(60, 13);
+            this.label13.TabIndex = 36;
+            this.label13.Text = "DIABETES";
             // 
             // lblTratTiroides
             // 
             this.lblTratTiroides.AutoSize = true;
-            this.lblTratTiroides.Location = new System.Drawing.Point(8, 309);
+            this.lblTratTiroides.Location = new System.Drawing.Point(8, 278);
             this.lblTratTiroides.Name = "lblTratTiroides";
             this.lblTratTiroides.Size = new System.Drawing.Size(85, 13);
             this.lblTratTiroides.TabIndex = 33;
@@ -1006,7 +1445,7 @@
             // lblTratAsma
             // 
             this.lblTratAsma.AutoSize = true;
-            this.lblTratAsma.Location = new System.Drawing.Point(6, 228);
+            this.lblTratAsma.Location = new System.Drawing.Point(6, 210);
             this.lblTratAsma.Name = "lblTratAsma";
             this.lblTratAsma.Size = new System.Drawing.Size(85, 13);
             this.lblTratAsma.TabIndex = 28;
@@ -1015,38 +1454,20 @@
             // txtTratAsma
             // 
             this.txtTratAsma.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTratAsma.Location = new System.Drawing.Point(99, 221);
+            this.txtTratAsma.Location = new System.Drawing.Point(99, 204);
             this.txtTratAsma.Multiline = true;
             this.txtTratAsma.Name = "txtTratAsma";
-            this.txtTratAsma.Size = new System.Drawing.Size(428, 49);
+            this.txtTratAsma.Size = new System.Drawing.Size(455, 41);
             this.txtTratAsma.TabIndex = 27;
             // 
             // txtTratTiroides
             // 
             this.txtTratTiroides.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTratTiroides.Location = new System.Drawing.Point(99, 309);
+            this.txtTratTiroides.Location = new System.Drawing.Point(99, 278);
             this.txtTratTiroides.Multiline = true;
             this.txtTratTiroides.Name = "txtTratTiroides";
-            this.txtTratTiroides.Size = new System.Drawing.Size(428, 39);
+            this.txtTratTiroides.Size = new System.Drawing.Size(455, 41);
             this.txtTratTiroides.TabIndex = 32;
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(8, 283);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(58, 13);
-            this.label67.TabIndex = 29;
-            this.label67.Text = "TIROIDES";
-            // 
-            // lblasma
-            // 
-            this.lblasma.AutoSize = true;
-            this.lblasma.Location = new System.Drawing.Point(6, 202);
-            this.lblasma.Name = "lblasma";
-            this.lblasma.Size = new System.Drawing.Size(37, 13);
-            this.lblasma.TabIndex = 24;
-            this.lblasma.Text = "ASMA";
             // 
             // lblTratHipertension
             // 
@@ -1063,17 +1484,8 @@
             this.txtTratHipertension.Location = new System.Drawing.Point(99, 129);
             this.txtTratHipertension.Multiline = true;
             this.txtTratHipertension.Name = "txtTratHipertension";
-            this.txtTratHipertension.Size = new System.Drawing.Size(428, 52);
+            this.txtTratHipertension.Size = new System.Drawing.Size(455, 41);
             this.txtTratHipertension.TabIndex = 22;
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(6, 110);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(88, 13);
-            this.label30.TabIndex = 19;
-            this.label30.Text = "HIPERTENSION";
             // 
             // txtTratDiabetes
             // 
@@ -1081,7 +1493,7 @@
             this.txtTratDiabetes.Location = new System.Drawing.Point(99, 52);
             this.txtTratDiabetes.Multiline = true;
             this.txtTratDiabetes.Name = "txtTratDiabetes";
-            this.txtTratDiabetes.Size = new System.Drawing.Size(428, 41);
+            this.txtTratDiabetes.Size = new System.Drawing.Size(455, 41);
             this.txtTratDiabetes.TabIndex = 18;
             // 
             // lblTratamiento
@@ -1093,18 +1505,10 @@
             this.lblTratamiento.TabIndex = 17;
             this.lblTratamiento.Text = "TRATAMIENTO";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(6, 32);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(60, 13);
-            this.label13.TabIndex = 7;
-            this.label13.Text = "DIABETES";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(20, 13);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(356, 13);
@@ -1113,31 +1517,32 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.r8);
-            this.groupBox1.Controls.Add(this.r7);
-            this.groupBox1.Controls.Add(this.r6);
-            this.groupBox1.Controls.Add(this.r5);
-            this.groupBox1.Controls.Add(this.r4);
-            this.groupBox1.Controls.Add(this.r3);
-            this.groupBox1.Controls.Add(this.r2);
-            this.groupBox1.Controls.Add(this.r1);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.groupBox19);
+            this.groupBox1.Controls.Add(this.groupBox18);
             this.groupBox1.Location = new System.Drawing.Point(23, 26);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(336, 141);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             // 
+            // groupBox19
+            // 
+            this.groupBox19.Controls.Add(this.r8);
+            this.groupBox19.Controls.Add(this.r7);
+            this.groupBox19.Controls.Add(this.label12);
+            this.groupBox19.Location = new System.Drawing.Point(0, 104);
+            this.groupBox19.Name = "groupBox19";
+            this.groupBox19.Size = new System.Drawing.Size(336, 27);
+            this.groupBox19.TabIndex = 38;
+            this.groupBox19.TabStop = false;
+            // 
             // r8
             // 
             this.r8.AutoSize = true;
-            this.r8.Location = new System.Drawing.Point(268, 95);
+            this.r8.Location = new System.Drawing.Point(278, 4);
             this.r8.Name = "r8";
             this.r8.Size = new System.Drawing.Size(41, 17);
-            this.r8.TabIndex = 7;
+            this.r8.TabIndex = 10;
             this.r8.TabStop = true;
             this.r8.Text = "NO";
             this.r8.UseVisualStyleBackColor = true;
@@ -1145,21 +1550,41 @@
             // r7
             // 
             this.r7.AutoSize = true;
-            this.r7.Location = new System.Drawing.Point(217, 96);
+            this.r7.Location = new System.Drawing.Point(227, 5);
             this.r7.Name = "r7";
             this.r7.Size = new System.Drawing.Size(35, 17);
-            this.r7.TabIndex = 6;
+            this.r7.TabIndex = 9;
             this.r7.TabStop = true;
             this.r7.Text = "SI";
             this.r7.UseVisualStyleBackColor = true;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(15, 8);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(190, 13);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "REHABILITACION FISICA O MENTAL";
+            // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.r6);
+            this.groupBox18.Controls.Add(this.r5);
+            this.groupBox18.Controls.Add(this.label11);
+            this.groupBox18.Location = new System.Drawing.Point(0, 72);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(336, 27);
+            this.groupBox18.TabIndex = 37;
+            this.groupBox18.TabStop = false;
+            // 
             // r6
             // 
             this.r6.AutoSize = true;
-            this.r6.Location = new System.Drawing.Point(268, 68);
+            this.r6.Location = new System.Drawing.Point(278, 4);
             this.r6.Name = "r6";
             this.r6.Size = new System.Drawing.Size(41, 17);
-            this.r6.TabIndex = 5;
+            this.r6.TabIndex = 8;
             this.r6.TabStop = true;
             this.r6.Text = "NO";
             this.r6.UseVisualStyleBackColor = true;
@@ -1167,93 +1592,22 @@
             // r5
             // 
             this.r5.AutoSize = true;
-            this.r5.Location = new System.Drawing.Point(217, 69);
+            this.r5.Location = new System.Drawing.Point(227, 5);
             this.r5.Name = "r5";
             this.r5.Size = new System.Drawing.Size(35, 17);
-            this.r5.TabIndex = 4;
+            this.r5.TabIndex = 7;
             this.r5.TabStop = true;
             this.r5.Text = "SI";
             this.r5.UseVisualStyleBackColor = true;
             // 
-            // r4
-            // 
-            this.r4.AutoSize = true;
-            this.r4.Location = new System.Drawing.Point(268, 43);
-            this.r4.Name = "r4";
-            this.r4.Size = new System.Drawing.Size(41, 17);
-            this.r4.TabIndex = 3;
-            this.r4.TabStop = true;
-            this.r4.Text = "NO";
-            this.r4.UseVisualStyleBackColor = true;
-            // 
-            // r3
-            // 
-            this.r3.AutoSize = true;
-            this.r3.Location = new System.Drawing.Point(217, 44);
-            this.r3.Name = "r3";
-            this.r3.Size = new System.Drawing.Size(35, 17);
-            this.r3.TabIndex = 2;
-            this.r3.TabStop = true;
-            this.r3.Text = "SI";
-            this.r3.UseVisualStyleBackColor = true;
-            // 
-            // r2
-            // 
-            this.r2.AutoSize = true;
-            this.r2.Location = new System.Drawing.Point(268, 19);
-            this.r2.Name = "r2";
-            this.r2.Size = new System.Drawing.Size(41, 17);
-            this.r2.TabIndex = 1;
-            this.r2.TabStop = true;
-            this.r2.Text = "NO";
-            this.r2.UseVisualStyleBackColor = true;
-            // 
-            // r1
-            // 
-            this.r1.AutoSize = true;
-            this.r1.Location = new System.Drawing.Point(217, 20);
-            this.r1.Name = "r1";
-            this.r1.Size = new System.Drawing.Size(35, 17);
-            this.r1.TabIndex = 0;
-            this.r1.TabStop = true;
-            this.r1.Text = "SI";
-            this.r1.UseVisualStyleBackColor = true;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 99);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(190, 13);
-            this.label12.TabIndex = 4;
-            this.label12.Text = "REHABILITACION FISICA O MENTAL";
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(6, 72);
+            this.label11.Location = new System.Drawing.Point(15, 8);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(183, 13);
-            this.label11.TabIndex = 3;
+            this.label11.TabIndex = 6;
             this.label11.Text = "ALCOHOLISMO ACTUAL O PREVIO";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(6, 43);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(162, 13);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "INGESTA DE MEDICAMENTOS";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(6, 16);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 13);
-            this.label8.TabIndex = 0;
-            this.label8.Text = "TABAQUISMO";
             // 
             // tabPageInfoPersonal
             // 
@@ -1267,7 +1621,7 @@
             this.tabPageInfoPersonal.Controls.Add(this.txtApe2);
             this.tabPageInfoPersonal.Controls.Add(this.label60);
             this.tabPageInfoPersonal.Controls.Add(this.label59);
-            this.tabPageInfoPersonal.Controls.Add(this.comboBox1);
+            this.tabPageInfoPersonal.Controls.Add(this.cbEmpresa);
             this.tabPageInfoPersonal.Controls.Add(this.label58);
             this.tabPageInfoPersonal.Controls.Add(this.label45);
             this.tabPageInfoPersonal.Controls.Add(this.label44);
@@ -1303,7 +1657,7 @@
             this.tabPageInfoPersonal.Location = new System.Drawing.Point(4, 22);
             this.tabPageInfoPersonal.Name = "tabPageInfoPersonal";
             this.tabPageInfoPersonal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageInfoPersonal.Size = new System.Drawing.Size(970, 513);
+            this.tabPageInfoPersonal.Size = new System.Drawing.Size(970, 547);
             this.tabPageInfoPersonal.TabIndex = 0;
             this.tabPageInfoPersonal.Text = "INFORMACIÓN PERSONAL";
             this.tabPageInfoPersonal.UseVisualStyleBackColor = true;
@@ -1314,7 +1668,7 @@
             this.txtEdad.Multiline = true;
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.Size = new System.Drawing.Size(193, 22);
-            this.txtEdad.TabIndex = 83;
+            this.txtEdad.TabIndex = 5;
             // 
             // txtDireccion
             // 
@@ -1323,7 +1677,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDireccion.Size = new System.Drawing.Size(193, 93);
-            this.txtDireccion.TabIndex = 12;
+            this.txtDireccion.TabIndex = 14;
             // 
             // txtEmail
             // 
@@ -1331,7 +1685,7 @@
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(193, 20);
-            this.txtEmail.TabIndex = 11;
+            this.txtEmail.TabIndex = 13;
             // 
             // txtProfesion
             // 
@@ -1339,7 +1693,7 @@
             this.txtProfesion.Multiline = true;
             this.txtProfesion.Name = "txtProfesion";
             this.txtProfesion.Size = new System.Drawing.Size(193, 22);
-            this.txtProfesion.TabIndex = 8;
+            this.txtProfesion.TabIndex = 10;
             // 
             // txtCedula
             // 
@@ -1393,14 +1747,14 @@
             this.label59.TabIndex = 82;
             this.label59.Text = "*";
             // 
-            // comboBox1
+            // cbEmpresa
             // 
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Location = new System.Drawing.Point(152, 310);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 81;
+            this.cbEmpresa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEmpresa.Location = new System.Drawing.Point(152, 310);
+            this.cbEmpresa.Name = "cbEmpresa";
+            this.cbEmpresa.Size = new System.Drawing.Size(121, 21);
+            this.cbEmpresa.TabIndex = 6;
             // 
             // label58
             // 
@@ -1534,11 +1888,12 @@
             // 
             // fecha_nacimiento
             // 
+            this.fecha_nacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.fecha_nacimiento.ImeMode = System.Windows.Forms.ImeMode.On;
-            this.fecha_nacimiento.Location = new System.Drawing.Point(151, 229);
+            this.fecha_nacimiento.Location = new System.Drawing.Point(158, 231);
             this.fecha_nacimiento.Name = "fecha_nacimiento";
-            this.fecha_nacimiento.Size = new System.Drawing.Size(200, 20);
-            this.fecha_nacimiento.TabIndex = 70;
+            this.fecha_nacimiento.Size = new System.Drawing.Size(193, 20);
+            this.fecha_nacimiento.TabIndex = 4;
             // 
             // label1
             // 
@@ -1565,7 +1920,7 @@
             this.cbSangre.Location = new System.Drawing.Point(564, 106);
             this.cbSangre.Name = "cbSangre";
             this.cbSangre.Size = new System.Drawing.Size(121, 21);
-            this.cbSangre.TabIndex = 7;
+            this.cbSangre.TabIndex = 9;
             // 
             // label16
             // 
@@ -1582,7 +1937,7 @@
             this.txtMovil.Mask = "00000000";
             this.txtMovil.Name = "txtMovil";
             this.txtMovil.Size = new System.Drawing.Size(193, 20);
-            this.txtMovil.TabIndex = 10;
+            this.txtMovil.TabIndex = 12;
             // 
             // txtTelefono
             // 
@@ -1590,7 +1945,7 @@
             this.txtTelefono.Mask = "00000000";
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(193, 20);
-            this.txtTelefono.TabIndex = 9;
+            this.txtTelefono.TabIndex = 11;
             // 
             // label21
             // 
@@ -1654,7 +2009,7 @@
             this.cbEstado.Location = new System.Drawing.Point(564, 60);
             this.cbEstado.Name = "cbEstado";
             this.cbEstado.Size = new System.Drawing.Size(121, 21);
-            this.cbEstado.TabIndex = 6;
+            this.cbEstado.TabIndex = 8;
             // 
             // label15
             // 
@@ -1674,7 +2029,7 @@
             this.cbSexo.Location = new System.Drawing.Point(151, 350);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(121, 21);
-            this.cbSexo.TabIndex = 5;
+            this.cbSexo.TabIndex = 7;
             // 
             // label14
             // 
@@ -1741,12 +2096,12 @@
             this.tabControl1.Location = new System.Drawing.Point(28, 79);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(978, 539);
-            this.tabControl1.TabIndex = 1;
+            this.tabControl1.Size = new System.Drawing.Size(978, 573);
+            this.tabControl1.TabIndex = 0;
             // 
             // tabPageExFisico
             // 
-            this.tabPageExFisico.BackColor = System.Drawing.Color.DarkGray;
+            this.tabPageExFisico.BackColor = System.Drawing.Color.White;
             this.tabPageExFisico.Controls.Add(this.groupBox8);
             this.tabPageExFisico.Controls.Add(this.groupBox9);
             this.tabPageExFisico.Controls.Add(this.groupBox7);
@@ -1756,16 +2111,14 @@
             this.tabPageExFisico.Location = new System.Drawing.Point(4, 22);
             this.tabPageExFisico.Name = "tabPageExFisico";
             this.tabPageExFisico.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageExFisico.Size = new System.Drawing.Size(970, 513);
+            this.tabPageExFisico.Size = new System.Drawing.Size(970, 547);
             this.tabPageExFisico.TabIndex = 3;
             this.tabPageExFisico.Text = "EXAMEN FISICO";
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.radioButton23);
-            this.groupBox8.Controls.Add(this.label82);
-            this.groupBox8.Controls.Add(this.radioButton24);
-            this.groupBox8.Controls.Add(this.textBox22);
+            this.groupBox8.Controls.Add(this.groupBox38);
+            this.groupBox8.Controls.Add(this.txtObservacionesCDL);
             this.groupBox8.Controls.Add(this.label83);
             this.groupBox8.Location = new System.Drawing.Point(517, 370);
             this.groupBox8.Name = "groupBox8";
@@ -1774,44 +2127,14 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "COLUMNA DORSO LUMBAR";
             // 
-            // radioButton23
+            // txtObservacionesCDL
             // 
-            this.radioButton23.AutoSize = true;
-            this.radioButton23.Location = new System.Drawing.Point(205, 29);
-            this.radioButton23.Name = "radioButton23";
-            this.radioButton23.Size = new System.Drawing.Size(46, 17);
-            this.radioButton23.TabIndex = 82;
-            this.radioButton23.TabStop = true;
-            this.radioButton23.Text = "ANL";
-            this.radioButton23.UseVisualStyleBackColor = true;
-            // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(8, 29);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(98, 13);
-            this.label82.TabIndex = 83;
-            this.label82.Text = "OBSERVACIONES";
-            // 
-            // radioButton24
-            // 
-            this.radioButton24.AutoSize = true;
-            this.radioButton24.Location = new System.Drawing.Point(163, 29);
-            this.radioButton24.Name = "radioButton24";
-            this.radioButton24.Size = new System.Drawing.Size(36, 17);
-            this.radioButton24.TabIndex = 81;
-            this.radioButton24.TabStop = true;
-            this.radioButton24.Text = "NI";
-            this.radioButton24.UseVisualStyleBackColor = true;
-            // 
-            // textBox22
-            // 
-            this.textBox22.Location = new System.Drawing.Point(112, 57);
-            this.textBox22.Multiline = true;
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(303, 44);
-            this.textBox22.TabIndex = 27;
+            this.txtObservacionesCDL.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtObservacionesCDL.Location = new System.Drawing.Point(112, 57);
+            this.txtObservacionesCDL.Multiline = true;
+            this.txtObservacionesCDL.Name = "txtObservacionesCDL";
+            this.txtObservacionesCDL.Size = new System.Drawing.Size(303, 44);
+            this.txtObservacionesCDL.TabIndex = 27;
             // 
             // label83
             // 
@@ -1824,22 +2147,14 @@
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.textBox12);
+            this.groupBox9.Controls.Add(this.groupBox42);
+            this.groupBox9.Controls.Add(this.groupBox41);
+            this.groupBox9.Controls.Add(this.groupBox40);
+            this.groupBox9.Controls.Add(this.groupBox39);
+            this.groupBox9.Controls.Add(this.txtMalformaciones);
             this.groupBox9.Controls.Add(this.label101);
-            this.groupBox9.Controls.Add(this.textBox11);
+            this.groupBox9.Controls.Add(this.txtObservacionesCC);
             this.groupBox9.Controls.Add(this.label100);
-            this.groupBox9.Controls.Add(this.radioButton55);
-            this.groupBox9.Controls.Add(this.radioButton56);
-            this.groupBox9.Controls.Add(this.label98);
-            this.groupBox9.Controls.Add(this.radioButton57);
-            this.groupBox9.Controls.Add(this.radioButton58);
-            this.groupBox9.Controls.Add(this.label99);
-            this.groupBox9.Controls.Add(this.radioButton51);
-            this.groupBox9.Controls.Add(this.radioButton53);
-            this.groupBox9.Controls.Add(this.label96);
-            this.groupBox9.Controls.Add(this.radioButton54);
-            this.groupBox9.Controls.Add(this.radioButton52);
-            this.groupBox9.Controls.Add(this.label97);
             this.groupBox9.Location = new System.Drawing.Point(512, 156);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(457, 176);
@@ -1847,13 +2162,14 @@
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "COLUMNA CERVICAL";
             // 
-            // textBox12
+            // txtMalformaciones
             // 
-            this.textBox12.Location = new System.Drawing.Point(114, 126);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(323, 44);
-            this.textBox12.TabIndex = 97;
+            this.txtMalformaciones.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtMalformaciones.Location = new System.Drawing.Point(114, 126);
+            this.txtMalformaciones.Multiline = true;
+            this.txtMalformaciones.Name = "txtMalformaciones";
+            this.txtMalformaciones.Size = new System.Drawing.Size(323, 44);
+            this.txtMalformaciones.TabIndex = 97;
             // 
             // label101
             // 
@@ -1864,369 +2180,48 @@
             this.label101.TabIndex = 96;
             this.label101.Text = "MALFORMACIONES";
             // 
-            // textBox11
+            // txtObservacionesCC
             // 
-            this.textBox11.Location = new System.Drawing.Point(114, 74);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(323, 44);
-            this.textBox11.TabIndex = 25;
+            this.txtObservacionesCC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtObservacionesCC.Location = new System.Drawing.Point(114, 77);
+            this.txtObservacionesCC.Multiline = true;
+            this.txtObservacionesCC.Name = "txtObservacionesCC";
+            this.txtObservacionesCC.Size = new System.Drawing.Size(323, 44);
+            this.txtObservacionesCC.TabIndex = 25;
             // 
             // label100
             // 
             this.label100.AutoSize = true;
-            this.label100.Location = new System.Drawing.Point(8, 78);
+            this.label100.Location = new System.Drawing.Point(8, 84);
             this.label100.Name = "label100";
             this.label100.Size = new System.Drawing.Size(98, 13);
             this.label100.TabIndex = 24;
             this.label100.Text = "OBSERVACIONES";
             // 
-            // radioButton55
-            // 
-            this.radioButton55.AutoSize = true;
-            this.radioButton55.Location = new System.Drawing.Point(391, 42);
-            this.radioButton55.Name = "radioButton55";
-            this.radioButton55.Size = new System.Drawing.Size(46, 17);
-            this.radioButton55.TabIndex = 94;
-            this.radioButton55.TabStop = true;
-            this.radioButton55.Text = "ANL";
-            this.radioButton55.UseVisualStyleBackColor = true;
-            // 
-            // radioButton56
-            // 
-            this.radioButton56.AutoSize = true;
-            this.radioButton56.Location = new System.Drawing.Point(154, 42);
-            this.radioButton56.Name = "radioButton56";
-            this.radioButton56.Size = new System.Drawing.Size(46, 17);
-            this.radioButton56.TabIndex = 91;
-            this.radioButton56.TabStop = true;
-            this.radioButton56.Text = "ANL";
-            this.radioButton56.UseVisualStyleBackColor = true;
-            // 
-            // label98
-            // 
-            this.label98.AutoSize = true;
-            this.label98.Location = new System.Drawing.Point(222, 44);
-            this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(126, 13);
-            this.label98.TabIndex = 95;
-            this.label98.Text = "INCLINACION LATERAL";
-            // 
-            // radioButton57
-            // 
-            this.radioButton57.AutoSize = true;
-            this.radioButton57.Location = new System.Drawing.Point(112, 42);
-            this.radioButton57.Name = "radioButton57";
-            this.radioButton57.Size = new System.Drawing.Size(36, 17);
-            this.radioButton57.TabIndex = 90;
-            this.radioButton57.TabStop = true;
-            this.radioButton57.Text = "NI";
-            this.radioButton57.UseVisualStyleBackColor = true;
-            // 
-            // radioButton58
-            // 
-            this.radioButton58.AutoSize = true;
-            this.radioButton58.Location = new System.Drawing.Point(349, 42);
-            this.radioButton58.Name = "radioButton58";
-            this.radioButton58.Size = new System.Drawing.Size(36, 17);
-            this.radioButton58.TabIndex = 93;
-            this.radioButton58.TabStop = true;
-            this.radioButton58.Text = "NI";
-            this.radioButton58.UseVisualStyleBackColor = true;
-            // 
-            // label99
-            // 
-            this.label99.AutoSize = true;
-            this.label99.Location = new System.Drawing.Point(15, 44);
-            this.label99.Name = "label99";
-            this.label99.Size = new System.Drawing.Size(63, 13);
-            this.label99.TabIndex = 92;
-            this.label99.Text = "ROTACION";
-            // 
-            // radioButton51
-            // 
-            this.radioButton51.AutoSize = true;
-            this.radioButton51.Location = new System.Drawing.Point(391, 19);
-            this.radioButton51.Name = "radioButton51";
-            this.radioButton51.Size = new System.Drawing.Size(46, 17);
-            this.radioButton51.TabIndex = 88;
-            this.radioButton51.TabStop = true;
-            this.radioButton51.Text = "ANL";
-            this.radioButton51.UseVisualStyleBackColor = true;
-            // 
-            // radioButton53
-            // 
-            this.radioButton53.AutoSize = true;
-            this.radioButton53.Location = new System.Drawing.Point(154, 19);
-            this.radioButton53.Name = "radioButton53";
-            this.radioButton53.Size = new System.Drawing.Size(46, 17);
-            this.radioButton53.TabIndex = 85;
-            this.radioButton53.TabStop = true;
-            this.radioButton53.Text = "ANL";
-            this.radioButton53.UseVisualStyleBackColor = true;
-            // 
-            // label96
-            // 
-            this.label96.AutoSize = true;
-            this.label96.Location = new System.Drawing.Point(256, 21);
-            this.label96.Name = "label96";
-            this.label96.Size = new System.Drawing.Size(72, 13);
-            this.label96.TabIndex = 89;
-            this.label96.Text = "EXTENSION:";
-            // 
-            // radioButton54
-            // 
-            this.radioButton54.AutoSize = true;
-            this.radioButton54.Location = new System.Drawing.Point(112, 19);
-            this.radioButton54.Name = "radioButton54";
-            this.radioButton54.Size = new System.Drawing.Size(36, 17);
-            this.radioButton54.TabIndex = 84;
-            this.radioButton54.TabStop = true;
-            this.radioButton54.Text = "NI";
-            this.radioButton54.UseVisualStyleBackColor = true;
-            // 
-            // radioButton52
-            // 
-            this.radioButton52.AutoSize = true;
-            this.radioButton52.Location = new System.Drawing.Point(349, 19);
-            this.radioButton52.Name = "radioButton52";
-            this.radioButton52.Size = new System.Drawing.Size(36, 17);
-            this.radioButton52.TabIndex = 87;
-            this.radioButton52.TabStop = true;
-            this.radioButton52.Text = "NI";
-            this.radioButton52.UseVisualStyleBackColor = true;
-            // 
-            // label97
-            // 
-            this.label97.AutoSize = true;
-            this.label97.Location = new System.Drawing.Point(13, 21);
-            this.label97.Name = "label97";
-            this.label97.Size = new System.Drawing.Size(52, 13);
-            this.label97.TabIndex = 86;
-            this.label97.Text = "FLEXION";
-            // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.radioButton21);
-            this.groupBox7.Controls.Add(this.radioButton22);
-            this.groupBox7.Controls.Add(this.label81);
-            this.groupBox7.Controls.Add(this.radioButton19);
-            this.groupBox7.Controls.Add(this.radioButton20);
-            this.groupBox7.Controls.Add(this.label80);
-            this.groupBox7.Controls.Add(this.radioButton17);
-            this.groupBox7.Controls.Add(this.radioButton18);
-            this.groupBox7.Controls.Add(this.label79);
-            this.groupBox7.Controls.Add(this.radioButton15);
-            this.groupBox7.Controls.Add(this.radioButton16);
-            this.groupBox7.Controls.Add(this.label78);
-            this.groupBox7.Controls.Add(this.radioButton13);
-            this.groupBox7.Controls.Add(this.radioButton14);
-            this.groupBox7.Controls.Add(this.label77);
-            this.groupBox7.Controls.Add(this.radioButton11);
-            this.groupBox7.Controls.Add(this.radioButton12);
-            this.groupBox7.Controls.Add(this.label76);
+            this.groupBox7.Controls.Add(this.groupBox48);
+            this.groupBox7.Controls.Add(this.groupBox47);
+            this.groupBox7.Controls.Add(this.groupBox46);
+            this.groupBox7.Controls.Add(this.groupBox45);
+            this.groupBox7.Controls.Add(this.groupBox44);
+            this.groupBox7.Controls.Add(this.groupBox43);
             this.groupBox7.Location = new System.Drawing.Point(508, 24);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(458, 104);
+            this.groupBox7.Size = new System.Drawing.Size(458, 119);
             this.groupBox7.TabIndex = 4;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "REFLEJOS";
             // 
-            // radioButton21
-            // 
-            this.radioButton21.AutoSize = true;
-            this.radioButton21.Location = new System.Drawing.Point(175, 72);
-            this.radioButton21.Name = "radioButton21";
-            this.radioButton21.Size = new System.Drawing.Size(46, 17);
-            this.radioButton21.TabIndex = 40;
-            this.radioButton21.TabStop = true;
-            this.radioButton21.Text = "ANL";
-            this.radioButton21.UseVisualStyleBackColor = true;
-            // 
-            // radioButton22
-            // 
-            this.radioButton22.AutoSize = true;
-            this.radioButton22.Location = new System.Drawing.Point(133, 72);
-            this.radioButton22.Name = "radioButton22";
-            this.radioButton22.Size = new System.Drawing.Size(36, 17);
-            this.radioButton22.TabIndex = 39;
-            this.radioButton22.TabStop = true;
-            this.radioButton22.Text = "NI";
-            this.radioButton22.UseVisualStyleBackColor = true;
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(6, 74);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(112, 13);
-            this.label81.TabIndex = 41;
-            this.label81.Text = "ALQUILEANO DCHO:";
-            // 
-            // radioButton19
-            // 
-            this.radioButton19.AutoSize = true;
-            this.radioButton19.Location = new System.Drawing.Point(413, 70);
-            this.radioButton19.Name = "radioButton19";
-            this.radioButton19.Size = new System.Drawing.Size(46, 17);
-            this.radioButton19.TabIndex = 37;
-            this.radioButton19.TabStop = true;
-            this.radioButton19.Text = "ANL";
-            this.radioButton19.UseVisualStyleBackColor = true;
-            // 
-            // radioButton20
-            // 
-            this.radioButton20.AutoSize = true;
-            this.radioButton20.Location = new System.Drawing.Point(371, 70);
-            this.radioButton20.Name = "radioButton20";
-            this.radioButton20.Size = new System.Drawing.Size(36, 17);
-            this.radioButton20.TabIndex = 36;
-            this.radioButton20.TabStop = true;
-            this.radioButton20.Text = "NI";
-            this.radioButton20.UseVisualStyleBackColor = true;
-            // 
-            // label80
-            // 
-            this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(244, 72);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(99, 13);
-            this.label80.TabIndex = 38;
-            this.label80.Text = "ALQUILEANO IZQ:";
-            // 
-            // radioButton17
-            // 
-            this.radioButton17.AutoSize = true;
-            this.radioButton17.Location = new System.Drawing.Point(413, 48);
-            this.radioButton17.Name = "radioButton17";
-            this.radioButton17.Size = new System.Drawing.Size(46, 17);
-            this.radioButton17.TabIndex = 34;
-            this.radioButton17.TabStop = true;
-            this.radioButton17.Text = "ANL";
-            this.radioButton17.UseVisualStyleBackColor = true;
-            // 
-            // radioButton18
-            // 
-            this.radioButton18.AutoSize = true;
-            this.radioButton18.Location = new System.Drawing.Point(371, 48);
-            this.radioButton18.Name = "radioButton18";
-            this.radioButton18.Size = new System.Drawing.Size(36, 17);
-            this.radioButton18.TabIndex = 33;
-            this.radioButton18.TabStop = true;
-            this.radioButton18.Text = "NI";
-            this.radioButton18.UseVisualStyleBackColor = true;
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(244, 50);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(122, 13);
-            this.label79.TabIndex = 35;
-            this.label79.Text = "PATELAR IZQUIERDO:";
-            // 
-            // radioButton15
-            // 
-            this.radioButton15.AutoSize = true;
-            this.radioButton15.Location = new System.Drawing.Point(175, 47);
-            this.radioButton15.Name = "radioButton15";
-            this.radioButton15.Size = new System.Drawing.Size(46, 17);
-            this.radioButton15.TabIndex = 31;
-            this.radioButton15.TabStop = true;
-            this.radioButton15.Text = "ANL";
-            this.radioButton15.UseVisualStyleBackColor = true;
-            // 
-            // radioButton16
-            // 
-            this.radioButton16.AutoSize = true;
-            this.radioButton16.Location = new System.Drawing.Point(133, 47);
-            this.radioButton16.Name = "radioButton16";
-            this.radioButton16.Size = new System.Drawing.Size(36, 17);
-            this.radioButton16.TabIndex = 30;
-            this.radioButton16.TabStop = true;
-            this.radioButton16.Text = "NI";
-            this.radioButton16.UseVisualStyleBackColor = true;
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(6, 49);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(115, 13);
-            this.label78.TabIndex = 32;
-            this.label78.Text = "PATELAR DERECHO:";
-            // 
-            // radioButton13
-            // 
-            this.radioButton13.AutoSize = true;
-            this.radioButton13.Location = new System.Drawing.Point(413, 24);
-            this.radioButton13.Name = "radioButton13";
-            this.radioButton13.Size = new System.Drawing.Size(46, 17);
-            this.radioButton13.TabIndex = 28;
-            this.radioButton13.TabStop = true;
-            this.radioButton13.Text = "ANL";
-            this.radioButton13.UseVisualStyleBackColor = true;
-            // 
-            // radioButton14
-            // 
-            this.radioButton14.AutoSize = true;
-            this.radioButton14.Location = new System.Drawing.Point(371, 24);
-            this.radioButton14.Name = "radioButton14";
-            this.radioButton14.Size = new System.Drawing.Size(36, 17);
-            this.radioButton14.TabIndex = 27;
-            this.radioButton14.TabStop = true;
-            this.radioButton14.Text = "NI";
-            this.radioButton14.UseVisualStyleBackColor = true;
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(244, 26);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(123, 13);
-            this.label77.TabIndex = 29;
-            this.label77.Text = "BICIPITAL IZQUIERDO:";
-            // 
-            // radioButton11
-            // 
-            this.radioButton11.AutoSize = true;
-            this.radioButton11.Location = new System.Drawing.Point(175, 24);
-            this.radioButton11.Name = "radioButton11";
-            this.radioButton11.Size = new System.Drawing.Size(46, 17);
-            this.radioButton11.TabIndex = 21;
-            this.radioButton11.TabStop = true;
-            this.radioButton11.Text = "ANL";
-            this.radioButton11.UseVisualStyleBackColor = true;
-            // 
-            // radioButton12
-            // 
-            this.radioButton12.AutoSize = true;
-            this.radioButton12.Location = new System.Drawing.Point(133, 24);
-            this.radioButton12.Name = "radioButton12";
-            this.radioButton12.Size = new System.Drawing.Size(36, 17);
-            this.radioButton12.TabIndex = 20;
-            this.radioButton12.TabStop = true;
-            this.radioButton12.Text = "NI";
-            this.radioButton12.UseVisualStyleBackColor = true;
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(6, 26);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(116, 13);
-            this.label76.TabIndex = 26;
-            this.label76.Text = "BICIPITAL DERECHO:";
-            // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.textBox9);
+            this.groupBox5.Controls.Add(this.txtPiernaIzq);
             this.groupBox5.Controls.Add(this.label74);
-            this.groupBox5.Controls.Add(this.textBox10);
+            this.groupBox5.Controls.Add(this.txtPiernaDer);
             this.groupBox5.Controls.Add(this.label75);
-            this.groupBox5.Controls.Add(this.textBox8);
+            this.groupBox5.Controls.Add(this.txtBrazoIzq);
             this.groupBox5.Controls.Add(this.label73);
-            this.groupBox5.Controls.Add(this.textBox7);
+            this.groupBox5.Controls.Add(this.txtBrazoDech);
             this.groupBox5.Controls.Add(this.label72);
             this.groupBox5.Location = new System.Drawing.Point(4, 385);
             this.groupBox5.Name = "groupBox5";
@@ -2235,12 +2230,13 @@
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "FUERZA MUSCULAR";
             // 
-            // textBox9
+            // txtPiernaIzq
             // 
-            this.textBox9.Location = new System.Drawing.Point(379, 52);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 31;
+            this.txtPiernaIzq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPiernaIzq.Location = new System.Drawing.Point(379, 52);
+            this.txtPiernaIzq.Name = "txtPiernaIzq";
+            this.txtPiernaIzq.Size = new System.Drawing.Size(100, 20);
+            this.txtPiernaIzq.TabIndex = 31;
             // 
             // label74
             // 
@@ -2251,12 +2247,13 @@
             this.label74.TabIndex = 30;
             this.label74.Text = "PIERNA IZQUIERDA:";
             // 
-            // textBox10
+            // txtPiernaDer
             // 
-            this.textBox10.Location = new System.Drawing.Point(379, 25);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 29;
+            this.txtPiernaDer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPiernaDer.Location = new System.Drawing.Point(379, 25);
+            this.txtPiernaDer.Name = "txtPiernaDer";
+            this.txtPiernaDer.Size = new System.Drawing.Size(100, 20);
+            this.txtPiernaDer.TabIndex = 29;
             // 
             // label75
             // 
@@ -2267,12 +2264,13 @@
             this.label75.TabIndex = 28;
             this.label75.Text = "PIERNA DERECHA:";
             // 
-            // textBox8
+            // txtBrazoIzq
             // 
-            this.textBox8.Location = new System.Drawing.Point(135, 52);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 27;
+            this.txtBrazoIzq.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBrazoIzq.Location = new System.Drawing.Point(135, 52);
+            this.txtBrazoIzq.Name = "txtBrazoIzq";
+            this.txtBrazoIzq.Size = new System.Drawing.Size(100, 20);
+            this.txtBrazoIzq.TabIndex = 27;
             // 
             // label73
             // 
@@ -2283,12 +2281,13 @@
             this.label73.TabIndex = 26;
             this.label73.Text = "BRAZO IZQUIERDO:";
             // 
-            // textBox7
+            // txtBrazoDech
             // 
-            this.textBox7.Location = new System.Drawing.Point(135, 25);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 25;
+            this.txtBrazoDech.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtBrazoDech.Location = new System.Drawing.Point(135, 25);
+            this.txtBrazoDech.Name = "txtBrazoDech";
+            this.txtBrazoDech.Size = new System.Drawing.Size(100, 20);
+            this.txtBrazoDech.TabIndex = 25;
             // 
             // label72
             // 
@@ -2301,10 +2300,10 @@
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.textBox3);
+            this.groupBox6.Controls.Add(this.txtObservacionesSE);
             this.groupBox6.Controls.Add(this.label71);
-            this.groupBox6.Controls.Add(this.textBox1);
-            this.groupBox6.Controls.Add(this.textBox2);
+            this.groupBox6.Controls.Add(this.txtPeso);
+            this.groupBox6.Controls.Add(this.txtTalla);
             this.groupBox6.Controls.Add(this.label70);
             this.groupBox6.Controls.Add(this.label69);
             this.groupBox6.Location = new System.Drawing.Point(8, 227);
@@ -2314,13 +2313,14 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "SISTEMA MUSCOESQUELETICO";
             // 
-            // textBox3
+            // txtObservacionesSE
             // 
-            this.textBox3.Location = new System.Drawing.Point(120, 45);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(364, 74);
-            this.textBox3.TabIndex = 21;
+            this.txtObservacionesSE.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtObservacionesSE.Location = new System.Drawing.Point(120, 45);
+            this.txtObservacionesSE.Multiline = true;
+            this.txtObservacionesSE.Name = "txtObservacionesSE";
+            this.txtObservacionesSE.Size = new System.Drawing.Size(364, 74);
+            this.txtObservacionesSE.TabIndex = 21;
             // 
             // label71
             // 
@@ -2331,19 +2331,21 @@
             this.label71.TabIndex = 20;
             this.label71.Text = "OBSERVACIONES";
             // 
-            // textBox1
+            // txtPeso
             // 
-            this.textBox1.Location = new System.Drawing.Point(342, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 23;
+            this.txtPeso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtPeso.Location = new System.Drawing.Point(342, 19);
+            this.txtPeso.Name = "txtPeso";
+            this.txtPeso.Size = new System.Drawing.Size(100, 20);
+            this.txtPeso.TabIndex = 23;
             // 
-            // textBox2
+            // txtTalla
             // 
-            this.textBox2.Location = new System.Drawing.Point(135, 18);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 22;
+            this.txtTalla.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtTalla.Location = new System.Drawing.Point(135, 18);
+            this.txtTalla.Name = "txtTalla";
+            this.txtTalla.Size = new System.Drawing.Size(100, 20);
+            this.txtTalla.TabIndex = 22;
             // 
             // label70
             // 
@@ -2365,23 +2367,13 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.txtObservacionesEx);
-            this.groupBox4.Controls.Add(this.radioButton9);
-            this.groupBox4.Controls.Add(this.radioButton10);
+            this.groupBox4.Controls.Add(this.groupBox37);
+            this.groupBox4.Controls.Add(this.groupBox36);
+            this.groupBox4.Controls.Add(this.groupBox35);
+            this.groupBox4.Controls.Add(this.groupBox34);
+            this.groupBox4.Controls.Add(this.groupBox33);
+            this.groupBox4.Controls.Add(this.txtObservacionesSC);
             this.groupBox4.Controls.Add(this.label57);
-            this.groupBox4.Controls.Add(this.radioButton7);
-            this.groupBox4.Controls.Add(this.radioButton8);
-            this.groupBox4.Controls.Add(this.radioButton5);
-            this.groupBox4.Controls.Add(this.radioButton6);
-            this.groupBox4.Controls.Add(this.radioButton3);
-            this.groupBox4.Controls.Add(this.radioButton4);
-            this.groupBox4.Controls.Add(this.radioButton2);
-            this.groupBox4.Controls.Add(this.label56);
-            this.groupBox4.Controls.Add(this.radioButton1);
-            this.groupBox4.Controls.Add(this.label55);
-            this.groupBox4.Controls.Add(this.label54);
-            this.groupBox4.Controls.Add(this.label53);
-            this.groupBox4.Controls.Add(this.label52);
             this.groupBox4.Controls.Add(this.txtPresionArterial);
             this.groupBox4.Controls.Add(this.txtPulso);
             this.groupBox4.Controls.Add(this.label51);
@@ -2393,180 +2385,27 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "SISTEMA CARDIOVASCULAR";
             // 
-            // txtObservacionesEx
+            // txtObservacionesSC
             // 
-            this.txtObservacionesEx.Location = new System.Drawing.Point(120, 134);
-            this.txtObservacionesEx.Multiline = true;
-            this.txtObservacionesEx.Name = "txtObservacionesEx";
-            this.txtObservacionesEx.Size = new System.Drawing.Size(359, 44);
-            this.txtObservacionesEx.TabIndex = 19;
-            // 
-            // radioButton9
-            // 
-            this.radioButton9.AutoSize = true;
-            this.radioButton9.Location = new System.Drawing.Point(443, 22);
-            this.radioButton9.Name = "radioButton9";
-            this.radioButton9.Size = new System.Drawing.Size(41, 17);
-            this.radioButton9.TabIndex = 18;
-            this.radioButton9.TabStop = true;
-            this.radioButton9.Text = "NO";
-            this.radioButton9.UseVisualStyleBackColor = true;
-            // 
-            // radioButton10
-            // 
-            this.radioButton10.AutoSize = true;
-            this.radioButton10.Location = new System.Drawing.Point(387, 22);
-            this.radioButton10.Name = "radioButton10";
-            this.radioButton10.Size = new System.Drawing.Size(35, 17);
-            this.radioButton10.TabIndex = 17;
-            this.radioButton10.TabStop = true;
-            this.radioButton10.Text = "SI";
-            this.radioButton10.UseVisualStyleBackColor = true;
+            this.txtObservacionesSC.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtObservacionesSC.Location = new System.Drawing.Point(120, 141);
+            this.txtObservacionesSC.Multiline = true;
+            this.txtObservacionesSC.Name = "txtObservacionesSC";
+            this.txtObservacionesSC.Size = new System.Drawing.Size(366, 44);
+            this.txtObservacionesSC.TabIndex = 19;
             // 
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(10, 138);
+            this.label57.Location = new System.Drawing.Point(10, 145);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(98, 13);
             this.label57.TabIndex = 9;
             this.label57.Text = "OBSERVACIONES";
             // 
-            // radioButton7
-            // 
-            this.radioButton7.AutoSize = true;
-            this.radioButton7.Location = new System.Drawing.Point(443, 75);
-            this.radioButton7.Name = "radioButton7";
-            this.radioButton7.Size = new System.Drawing.Size(41, 17);
-            this.radioButton7.TabIndex = 16;
-            this.radioButton7.TabStop = true;
-            this.radioButton7.Text = "NO";
-            this.radioButton7.UseVisualStyleBackColor = true;
-            // 
-            // radioButton8
-            // 
-            this.radioButton8.AutoSize = true;
-            this.radioButton8.Location = new System.Drawing.Point(387, 75);
-            this.radioButton8.Name = "radioButton8";
-            this.radioButton8.Size = new System.Drawing.Size(35, 17);
-            this.radioButton8.TabIndex = 15;
-            this.radioButton8.TabStop = true;
-            this.radioButton8.Text = "SI";
-            this.radioButton8.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(443, 51);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(41, 17);
-            this.radioButton5.TabIndex = 14;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "NO";
-            this.radioButton5.UseVisualStyleBackColor = true;
-            // 
-            // radioButton6
-            // 
-            this.radioButton6.AutoSize = true;
-            this.radioButton6.Location = new System.Drawing.Point(387, 51);
-            this.radioButton6.Name = "radioButton6";
-            this.radioButton6.Size = new System.Drawing.Size(35, 17);
-            this.radioButton6.TabIndex = 13;
-            this.radioButton6.TabStop = true;
-            this.radioButton6.Text = "SI";
-            this.radioButton6.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(443, 102);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(41, 17);
-            this.radioButton3.TabIndex = 12;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "NO";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            // 
-            // radioButton4
-            // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(387, 102);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(35, 17);
-            this.radioButton4.TabIndex = 11;
-            this.radioButton4.TabStop = true;
-            this.radioButton4.Text = "SI";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(191, 90);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(41, 17);
-            this.radioButton2.TabIndex = 10;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "NO";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(261, 26);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(120, 13);
-            this.label56.TabIndex = 8;
-            this.label56.Text = "DOLOR PRECORDIAL:";
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(135, 90);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(35, 17);
-            this.radioButton1.TabIndex = 1;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "SI";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(261, 79);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(69, 13);
-            this.label55.TabIndex = 7;
-            this.label55.Text = "ARRITMIAS:";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(261, 53);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(55, 13);
-            this.label54.TabIndex = 6;
-            this.label54.Text = "EDEMAS:";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(261, 104);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(50, 13);
-            this.label53.TabIndex = 5;
-            this.label53.Text = "DISNEA:";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(10, 90);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(53, 13);
-            this.label52.TabIndex = 4;
-            this.label52.Text = "SOPLOS:";
-            // 
             // txtPresionArterial
             // 
+            this.txtPresionArterial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPresionArterial.Location = new System.Drawing.Point(135, 50);
             this.txtPresionArterial.Name = "txtPresionArterial";
             this.txtPresionArterial.Size = new System.Drawing.Size(100, 20);
@@ -2574,6 +2413,7 @@
             // 
             // txtPulso
             // 
+            this.txtPulso.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPulso.Location = new System.Drawing.Point(135, 26);
             this.txtPulso.Name = "txtPulso";
             this.txtPulso.Size = new System.Drawing.Size(100, 20);
@@ -2607,7 +2447,7 @@
             this.tabPageExFisicoII.Location = new System.Drawing.Point(4, 22);
             this.tabPageExFisicoII.Name = "tabPageExFisicoII";
             this.tabPageExFisicoII.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageExFisicoII.Size = new System.Drawing.Size(970, 513);
+            this.tabPageExFisicoII.Size = new System.Drawing.Size(970, 547);
             this.tabPageExFisicoII.TabIndex = 4;
             this.tabPageExFisicoII.Text = "EXAMEN FISICO II";
             this.tabPageExFisicoII.UseVisualStyleBackColor = true;
@@ -3099,12 +2939,684 @@
             this.radioButton62.Text = "NI";
             this.radioButton62.UseVisualStyleBackColor = true;
             // 
+            // groupBox33
+            // 
+            this.groupBox33.Controls.Add(this.radioButton9);
+            this.groupBox33.Controls.Add(this.radioButton10);
+            this.groupBox33.Controls.Add(this.label56);
+            this.groupBox33.Location = new System.Drawing.Point(254, 17);
+            this.groupBox33.Name = "groupBox33";
+            this.groupBox33.Size = new System.Drawing.Size(236, 31);
+            this.groupBox33.TabIndex = 8;
+            this.groupBox33.TabStop = false;
+            // 
+            // radioButton9
+            // 
+            this.radioButton9.AutoSize = true;
+            this.radioButton9.Location = new System.Drawing.Point(189, 8);
+            this.radioButton9.Name = "radioButton9";
+            this.radioButton9.Size = new System.Drawing.Size(41, 17);
+            this.radioButton9.TabIndex = 21;
+            this.radioButton9.TabStop = true;
+            this.radioButton9.Text = "NO";
+            this.radioButton9.UseVisualStyleBackColor = true;
+            // 
+            // radioButton10
+            // 
+            this.radioButton10.AutoSize = true;
+            this.radioButton10.Location = new System.Drawing.Point(133, 8);
+            this.radioButton10.Name = "radioButton10";
+            this.radioButton10.Size = new System.Drawing.Size(35, 17);
+            this.radioButton10.TabIndex = 20;
+            this.radioButton10.TabStop = true;
+            this.radioButton10.Text = "SI";
+            this.radioButton10.UseVisualStyleBackColor = true;
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Location = new System.Drawing.Point(7, 12);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(120, 13);
+            this.label56.TabIndex = 19;
+            this.label56.Text = "DOLOR PRECORDIAL:";
+            // 
+            // groupBox34
+            // 
+            this.groupBox34.Controls.Add(this.radioButton5);
+            this.groupBox34.Controls.Add(this.radioButton6);
+            this.groupBox34.Controls.Add(this.label54);
+            this.groupBox34.Location = new System.Drawing.Point(254, 47);
+            this.groupBox34.Name = "groupBox34";
+            this.groupBox34.Size = new System.Drawing.Size(236, 28);
+            this.groupBox34.TabIndex = 22;
+            this.groupBox34.TabStop = false;
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(189, 8);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(41, 17);
+            this.radioButton5.TabIndex = 17;
+            this.radioButton5.TabStop = true;
+            this.radioButton5.Text = "NO";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // radioButton6
+            // 
+            this.radioButton6.AutoSize = true;
+            this.radioButton6.Location = new System.Drawing.Point(133, 8);
+            this.radioButton6.Name = "radioButton6";
+            this.radioButton6.Size = new System.Drawing.Size(35, 17);
+            this.radioButton6.TabIndex = 16;
+            this.radioButton6.TabStop = true;
+            this.radioButton6.Text = "SI";
+            this.radioButton6.UseVisualStyleBackColor = true;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(7, 10);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(55, 13);
+            this.label54.TabIndex = 15;
+            this.label54.Text = "EDEMAS:";
+            // 
+            // groupBox35
+            // 
+            this.groupBox35.Controls.Add(this.radioButton7);
+            this.groupBox35.Controls.Add(this.radioButton8);
+            this.groupBox35.Controls.Add(this.label55);
+            this.groupBox35.Location = new System.Drawing.Point(254, 76);
+            this.groupBox35.Name = "groupBox35";
+            this.groupBox35.Size = new System.Drawing.Size(236, 31);
+            this.groupBox35.TabIndex = 23;
+            this.groupBox35.TabStop = false;
+            // 
+            // radioButton7
+            // 
+            this.radioButton7.AutoSize = true;
+            this.radioButton7.Location = new System.Drawing.Point(189, 7);
+            this.radioButton7.Name = "radioButton7";
+            this.radioButton7.Size = new System.Drawing.Size(41, 17);
+            this.radioButton7.TabIndex = 19;
+            this.radioButton7.TabStop = true;
+            this.radioButton7.Text = "NO";
+            this.radioButton7.UseVisualStyleBackColor = true;
+            // 
+            // radioButton8
+            // 
+            this.radioButton8.AutoSize = true;
+            this.radioButton8.Location = new System.Drawing.Point(133, 7);
+            this.radioButton8.Name = "radioButton8";
+            this.radioButton8.Size = new System.Drawing.Size(35, 17);
+            this.radioButton8.TabIndex = 18;
+            this.radioButton8.TabStop = true;
+            this.radioButton8.Text = "SI";
+            this.radioButton8.UseVisualStyleBackColor = true;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(7, 11);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(69, 13);
+            this.label55.TabIndex = 17;
+            this.label55.Text = "ARRITMIAS:";
+            // 
+            // groupBox36
+            // 
+            this.groupBox36.Controls.Add(this.radioButton3);
+            this.groupBox36.Controls.Add(this.radioButton4);
+            this.groupBox36.Controls.Add(this.label53);
+            this.groupBox36.Location = new System.Drawing.Point(255, 106);
+            this.groupBox36.Name = "groupBox36";
+            this.groupBox36.Size = new System.Drawing.Size(236, 31);
+            this.groupBox36.TabIndex = 24;
+            this.groupBox36.TabStop = false;
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Location = new System.Drawing.Point(189, 7);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(41, 17);
+            this.radioButton3.TabIndex = 15;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "NO";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(133, 7);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(35, 17);
+            this.radioButton4.TabIndex = 14;
+            this.radioButton4.TabStop = true;
+            this.radioButton4.Text = "SI";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(7, 9);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(50, 13);
+            this.label53.TabIndex = 13;
+            this.label53.Text = "DISNEA:";
+            // 
+            // groupBox37
+            // 
+            this.groupBox37.Controls.Add(this.radioButton2);
+            this.groupBox37.Controls.Add(this.radioButton1);
+            this.groupBox37.Controls.Add(this.label52);
+            this.groupBox37.Location = new System.Drawing.Point(13, 76);
+            this.groupBox37.Name = "groupBox37";
+            this.groupBox37.Size = new System.Drawing.Size(236, 31);
+            this.groupBox37.TabIndex = 25;
+            this.groupBox37.TabStop = false;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(188, 7);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(41, 17);
+            this.radioButton2.TabIndex = 13;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "NO";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(132, 7);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(35, 17);
+            this.radioButton1.TabIndex = 11;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "SI";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(8, 9);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(53, 13);
+            this.label52.TabIndex = 12;
+            this.label52.Text = "SOPLOS:";
+            // 
+            // groupBox38
+            // 
+            this.groupBox38.Controls.Add(this.radioButton23);
+            this.groupBox38.Controls.Add(this.label82);
+            this.groupBox38.Controls.Add(this.radioButton24);
+            this.groupBox38.Location = new System.Drawing.Point(8, 19);
+            this.groupBox38.Name = "groupBox38";
+            this.groupBox38.Size = new System.Drawing.Size(254, 31);
+            this.groupBox38.TabIndex = 26;
+            this.groupBox38.TabStop = false;
+            // 
+            // radioButton23
+            // 
+            this.radioButton23.AutoSize = true;
+            this.radioButton23.Location = new System.Drawing.Point(190, 8);
+            this.radioButton23.Name = "radioButton23";
+            this.radioButton23.Size = new System.Drawing.Size(46, 17);
+            this.radioButton23.TabIndex = 85;
+            this.radioButton23.TabStop = true;
+            this.radioButton23.Text = "ANL";
+            this.radioButton23.UseVisualStyleBackColor = true;
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(7, 11);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(98, 13);
+            this.label82.TabIndex = 86;
+            this.label82.Text = "OBSERVACIONES";
+            // 
+            // radioButton24
+            // 
+            this.radioButton24.AutoSize = true;
+            this.radioButton24.Location = new System.Drawing.Point(148, 8);
+            this.radioButton24.Name = "radioButton24";
+            this.radioButton24.Size = new System.Drawing.Size(36, 17);
+            this.radioButton24.TabIndex = 84;
+            this.radioButton24.TabStop = true;
+            this.radioButton24.Text = "NI";
+            this.radioButton24.UseVisualStyleBackColor = true;
+            // 
+            // groupBox39
+            // 
+            this.groupBox39.Controls.Add(this.radioButton53);
+            this.groupBox39.Controls.Add(this.radioButton54);
+            this.groupBox39.Controls.Add(this.label97);
+            this.groupBox39.Location = new System.Drawing.Point(11, 11);
+            this.groupBox39.Name = "groupBox39";
+            this.groupBox39.Size = new System.Drawing.Size(206, 31);
+            this.groupBox39.TabIndex = 26;
+            this.groupBox39.TabStop = false;
+            // 
+            // radioButton53
+            // 
+            this.radioButton53.AutoSize = true;
+            this.radioButton53.Location = new System.Drawing.Point(143, 7);
+            this.radioButton53.Name = "radioButton53";
+            this.radioButton53.Size = new System.Drawing.Size(46, 17);
+            this.radioButton53.TabIndex = 88;
+            this.radioButton53.TabStop = true;
+            this.radioButton53.Text = "ANL";
+            this.radioButton53.UseVisualStyleBackColor = true;
+            // 
+            // radioButton54
+            // 
+            this.radioButton54.AutoSize = true;
+            this.radioButton54.Location = new System.Drawing.Point(101, 9);
+            this.radioButton54.Name = "radioButton54";
+            this.radioButton54.Size = new System.Drawing.Size(36, 17);
+            this.radioButton54.TabIndex = 87;
+            this.radioButton54.TabStop = true;
+            this.radioButton54.Text = "NI";
+            this.radioButton54.UseVisualStyleBackColor = true;
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Location = new System.Drawing.Point(4, 11);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(52, 13);
+            this.label97.TabIndex = 89;
+            this.label97.Text = "FLEXION";
+            // 
+            // groupBox40
+            // 
+            this.groupBox40.Controls.Add(this.radioButton56);
+            this.groupBox40.Controls.Add(this.radioButton57);
+            this.groupBox40.Controls.Add(this.label99);
+            this.groupBox40.Location = new System.Drawing.Point(10, 41);
+            this.groupBox40.Name = "groupBox40";
+            this.groupBox40.Size = new System.Drawing.Size(206, 31);
+            this.groupBox40.TabIndex = 90;
+            this.groupBox40.TabStop = false;
+            // 
+            // radioButton56
+            // 
+            this.radioButton56.AutoSize = true;
+            this.radioButton56.Location = new System.Drawing.Point(144, 7);
+            this.radioButton56.Name = "radioButton56";
+            this.radioButton56.Size = new System.Drawing.Size(46, 17);
+            this.radioButton56.TabIndex = 94;
+            this.radioButton56.TabStop = true;
+            this.radioButton56.Text = "ANL";
+            this.radioButton56.UseVisualStyleBackColor = true;
+            // 
+            // radioButton57
+            // 
+            this.radioButton57.AutoSize = true;
+            this.radioButton57.Location = new System.Drawing.Point(102, 8);
+            this.radioButton57.Name = "radioButton57";
+            this.radioButton57.Size = new System.Drawing.Size(36, 17);
+            this.radioButton57.TabIndex = 93;
+            this.radioButton57.TabStop = true;
+            this.radioButton57.Text = "NI";
+            this.radioButton57.UseVisualStyleBackColor = true;
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Location = new System.Drawing.Point(5, 9);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(63, 13);
+            this.label99.TabIndex = 95;
+            this.label99.Text = "ROTACION";
+            // 
+            // groupBox41
+            // 
+            this.groupBox41.Controls.Add(this.radioButton51);
+            this.groupBox41.Controls.Add(this.label96);
+            this.groupBox41.Controls.Add(this.radioButton52);
+            this.groupBox41.Location = new System.Drawing.Point(223, 11);
+            this.groupBox41.Name = "groupBox41";
+            this.groupBox41.Size = new System.Drawing.Size(206, 31);
+            this.groupBox41.TabIndex = 90;
+            this.groupBox41.TabStop = false;
+            // 
+            // radioButton51
+            // 
+            this.radioButton51.AutoSize = true;
+            this.radioButton51.Location = new System.Drawing.Point(150, 8);
+            this.radioButton51.Name = "radioButton51";
+            this.radioButton51.Size = new System.Drawing.Size(46, 17);
+            this.radioButton51.TabIndex = 91;
+            this.radioButton51.TabStop = true;
+            this.radioButton51.Text = "ANL";
+            this.radioButton51.UseVisualStyleBackColor = true;
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Location = new System.Drawing.Point(8, 11);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(72, 13);
+            this.label96.TabIndex = 92;
+            this.label96.Text = "EXTENSION:";
+            // 
+            // radioButton52
+            // 
+            this.radioButton52.AutoSize = true;
+            this.radioButton52.Location = new System.Drawing.Point(108, 8);
+            this.radioButton52.Name = "radioButton52";
+            this.radioButton52.Size = new System.Drawing.Size(36, 17);
+            this.radioButton52.TabIndex = 90;
+            this.radioButton52.TabStop = true;
+            this.radioButton52.Text = "NI";
+            this.radioButton52.UseVisualStyleBackColor = true;
+            // 
+            // groupBox42
+            // 
+            this.groupBox42.Controls.Add(this.radioButton55);
+            this.groupBox42.Controls.Add(this.label98);
+            this.groupBox42.Controls.Add(this.radioButton58);
+            this.groupBox42.Location = new System.Drawing.Point(222, 41);
+            this.groupBox42.Name = "groupBox42";
+            this.groupBox42.Size = new System.Drawing.Size(228, 31);
+            this.groupBox42.TabIndex = 93;
+            this.groupBox42.TabStop = false;
+            // 
+            // radioButton55
+            // 
+            this.radioButton55.AutoSize = true;
+            this.radioButton55.Location = new System.Drawing.Point(177, 8);
+            this.radioButton55.Name = "radioButton55";
+            this.radioButton55.Size = new System.Drawing.Size(46, 17);
+            this.radioButton55.TabIndex = 97;
+            this.radioButton55.TabStop = true;
+            this.radioButton55.Text = "ANL";
+            this.radioButton55.UseVisualStyleBackColor = true;
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Location = new System.Drawing.Point(2, 11);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(126, 13);
+            this.label98.TabIndex = 98;
+            this.label98.Text = "INCLINACION LATERAL";
+            // 
+            // radioButton58
+            // 
+            this.radioButton58.AutoSize = true;
+            this.radioButton58.Location = new System.Drawing.Point(135, 8);
+            this.radioButton58.Name = "radioButton58";
+            this.radioButton58.Size = new System.Drawing.Size(36, 17);
+            this.radioButton58.TabIndex = 96;
+            this.radioButton58.TabStop = true;
+            this.radioButton58.Text = "NI";
+            this.radioButton58.UseVisualStyleBackColor = true;
+            // 
+            // groupBox43
+            // 
+            this.groupBox43.Controls.Add(this.radioButton11);
+            this.groupBox43.Controls.Add(this.radioButton12);
+            this.groupBox43.Controls.Add(this.label76);
+            this.groupBox43.Location = new System.Drawing.Point(4, 15);
+            this.groupBox43.Name = "groupBox43";
+            this.groupBox43.Size = new System.Drawing.Size(217, 31);
+            this.groupBox43.TabIndex = 90;
+            this.groupBox43.TabStop = false;
+            // 
+            // radioButton11
+            // 
+            this.radioButton11.AutoSize = true;
+            this.radioButton11.Location = new System.Drawing.Point(169, 8);
+            this.radioButton11.Name = "radioButton11";
+            this.radioButton11.Size = new System.Drawing.Size(46, 17);
+            this.radioButton11.TabIndex = 28;
+            this.radioButton11.TabStop = true;
+            this.radioButton11.Text = "ANL";
+            this.radioButton11.UseVisualStyleBackColor = true;
+            // 
+            // radioButton12
+            // 
+            this.radioButton12.AutoSize = true;
+            this.radioButton12.Location = new System.Drawing.Point(128, 7);
+            this.radioButton12.Name = "radioButton12";
+            this.radioButton12.Size = new System.Drawing.Size(36, 17);
+            this.radioButton12.TabIndex = 27;
+            this.radioButton12.TabStop = true;
+            this.radioButton12.Text = "NI";
+            this.radioButton12.UseVisualStyleBackColor = true;
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(4, 11);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(116, 13);
+            this.label76.TabIndex = 29;
+            this.label76.Text = "BICIPITAL DERECHO:";
+            // 
+            // groupBox44
+            // 
+            this.groupBox44.Controls.Add(this.radioButton15);
+            this.groupBox44.Controls.Add(this.radioButton16);
+            this.groupBox44.Controls.Add(this.label78);
+            this.groupBox44.Location = new System.Drawing.Point(4, 48);
+            this.groupBox44.Name = "groupBox44";
+            this.groupBox44.Size = new System.Drawing.Size(217, 31);
+            this.groupBox44.TabIndex = 91;
+            this.groupBox44.TabStop = false;
+            // 
+            // radioButton15
+            // 
+            this.radioButton15.AutoSize = true;
+            this.radioButton15.Location = new System.Drawing.Point(169, 8);
+            this.radioButton15.Name = "radioButton15";
+            this.radioButton15.Size = new System.Drawing.Size(46, 17);
+            this.radioButton15.TabIndex = 34;
+            this.radioButton15.TabStop = true;
+            this.radioButton15.Text = "ANL";
+            this.radioButton15.UseVisualStyleBackColor = true;
+            // 
+            // radioButton16
+            // 
+            this.radioButton16.AutoSize = true;
+            this.radioButton16.Location = new System.Drawing.Point(128, 7);
+            this.radioButton16.Name = "radioButton16";
+            this.radioButton16.Size = new System.Drawing.Size(36, 17);
+            this.radioButton16.TabIndex = 33;
+            this.radioButton16.TabStop = true;
+            this.radioButton16.Text = "NI";
+            this.radioButton16.UseVisualStyleBackColor = true;
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(7, 9);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(115, 13);
+            this.label78.TabIndex = 35;
+            this.label78.Text = "PATELAR DERECHO:";
+            // 
+            // groupBox45
+            // 
+            this.groupBox45.Controls.Add(this.radioButton21);
+            this.groupBox45.Controls.Add(this.radioButton22);
+            this.groupBox45.Controls.Add(this.label81);
+            this.groupBox45.Location = new System.Drawing.Point(4, 79);
+            this.groupBox45.Name = "groupBox45";
+            this.groupBox45.Size = new System.Drawing.Size(217, 31);
+            this.groupBox45.TabIndex = 92;
+            this.groupBox45.TabStop = false;
+            // 
+            // radioButton21
+            // 
+            this.radioButton21.AutoSize = true;
+            this.radioButton21.Location = new System.Drawing.Point(169, 8);
+            this.radioButton21.Name = "radioButton21";
+            this.radioButton21.Size = new System.Drawing.Size(46, 17);
+            this.radioButton21.TabIndex = 43;
+            this.radioButton21.TabStop = true;
+            this.radioButton21.Text = "ANL";
+            this.radioButton21.UseVisualStyleBackColor = true;
+            // 
+            // radioButton22
+            // 
+            this.radioButton22.AutoSize = true;
+            this.radioButton22.Location = new System.Drawing.Point(128, 7);
+            this.radioButton22.Name = "radioButton22";
+            this.radioButton22.Size = new System.Drawing.Size(36, 17);
+            this.radioButton22.TabIndex = 42;
+            this.radioButton22.TabStop = true;
+            this.radioButton22.Text = "NI";
+            this.radioButton22.UseVisualStyleBackColor = true;
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(7, 9);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(112, 13);
+            this.label81.TabIndex = 44;
+            this.label81.Text = "ALQUILEANO DCHO:";
+            // 
+            // groupBox46
+            // 
+            this.groupBox46.Controls.Add(this.radioButton13);
+            this.groupBox46.Controls.Add(this.radioButton14);
+            this.groupBox46.Controls.Add(this.label77);
+            this.groupBox46.Location = new System.Drawing.Point(234, 16);
+            this.groupBox46.Name = "groupBox46";
+            this.groupBox46.Size = new System.Drawing.Size(217, 31);
+            this.groupBox46.TabIndex = 91;
+            this.groupBox46.TabStop = false;
+            // 
+            // radioButton13
+            // 
+            this.radioButton13.AutoSize = true;
+            this.radioButton13.Location = new System.Drawing.Point(169, 7);
+            this.radioButton13.Name = "radioButton13";
+            this.radioButton13.Size = new System.Drawing.Size(46, 17);
+            this.radioButton13.TabIndex = 31;
+            this.radioButton13.TabStop = true;
+            this.radioButton13.Text = "ANL";
+            this.radioButton13.UseVisualStyleBackColor = true;
+            // 
+            // radioButton14
+            // 
+            this.radioButton14.AutoSize = true;
+            this.radioButton14.Location = new System.Drawing.Point(128, 7);
+            this.radioButton14.Name = "radioButton14";
+            this.radioButton14.Size = new System.Drawing.Size(36, 17);
+            this.radioButton14.TabIndex = 30;
+            this.radioButton14.TabStop = true;
+            this.radioButton14.Text = "NI";
+            this.radioButton14.UseVisualStyleBackColor = true;
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(1, 9);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(123, 13);
+            this.label77.TabIndex = 32;
+            this.label77.Text = "BICIPITAL IZQUIERDO:";
+            // 
+            // groupBox47
+            // 
+            this.groupBox47.Controls.Add(this.radioButton17);
+            this.groupBox47.Controls.Add(this.radioButton18);
+            this.groupBox47.Controls.Add(this.label79);
+            this.groupBox47.Location = new System.Drawing.Point(234, 48);
+            this.groupBox47.Name = "groupBox47";
+            this.groupBox47.Size = new System.Drawing.Size(217, 31);
+            this.groupBox47.TabIndex = 92;
+            this.groupBox47.TabStop = false;
+            // 
+            // radioButton17
+            // 
+            this.radioButton17.AutoSize = true;
+            this.radioButton17.Location = new System.Drawing.Point(169, 7);
+            this.radioButton17.Name = "radioButton17";
+            this.radioButton17.Size = new System.Drawing.Size(46, 17);
+            this.radioButton17.TabIndex = 37;
+            this.radioButton17.TabStop = true;
+            this.radioButton17.Text = "ANL";
+            this.radioButton17.UseVisualStyleBackColor = true;
+            // 
+            // radioButton18
+            // 
+            this.radioButton18.AutoSize = true;
+            this.radioButton18.Location = new System.Drawing.Point(128, 7);
+            this.radioButton18.Name = "radioButton18";
+            this.radioButton18.Size = new System.Drawing.Size(36, 17);
+            this.radioButton18.TabIndex = 36;
+            this.radioButton18.TabStop = true;
+            this.radioButton18.Text = "NI";
+            this.radioButton18.UseVisualStyleBackColor = true;
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(1, 9);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(122, 13);
+            this.label79.TabIndex = 38;
+            this.label79.Text = "PATELAR IZQUIERDO:";
+            // 
+            // groupBox48
+            // 
+            this.groupBox48.Controls.Add(this.radioButton19);
+            this.groupBox48.Controls.Add(this.radioButton20);
+            this.groupBox48.Controls.Add(this.label80);
+            this.groupBox48.Location = new System.Drawing.Point(234, 82);
+            this.groupBox48.Name = "groupBox48";
+            this.groupBox48.Size = new System.Drawing.Size(217, 31);
+            this.groupBox48.TabIndex = 93;
+            this.groupBox48.TabStop = false;
+            // 
+            // radioButton19
+            // 
+            this.radioButton19.AutoSize = true;
+            this.radioButton19.Location = new System.Drawing.Point(169, 7);
+            this.radioButton19.Name = "radioButton19";
+            this.radioButton19.Size = new System.Drawing.Size(46, 17);
+            this.radioButton19.TabIndex = 40;
+            this.radioButton19.TabStop = true;
+            this.radioButton19.Text = "ANL";
+            this.radioButton19.UseVisualStyleBackColor = true;
+            // 
+            // radioButton20
+            // 
+            this.radioButton20.AutoSize = true;
+            this.radioButton20.Location = new System.Drawing.Point(128, 7);
+            this.radioButton20.Name = "radioButton20";
+            this.radioButton20.Size = new System.Drawing.Size(36, 17);
+            this.radioButton20.TabIndex = 39;
+            this.radioButton20.TabStop = true;
+            this.radioButton20.Text = "NI";
+            this.radioButton20.UseVisualStyleBackColor = true;
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(1, 9);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(99, 13);
+            this.label80.TabIndex = 41;
+            this.label80.Text = "ALQUILEANO IZQ:";
+            // 
             // frm_ExpedienteMG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(1018, 648);
+            this.ClientSize = new System.Drawing.Size(1018, 683);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.btnVerExp);
@@ -3120,12 +3632,47 @@
             this.tabPageEpicrisis.PerformLayout();
             this.tbPageAnamnesis.ResumeLayout(false);
             this.tbPageAnamnesis.PerformLayout();
+            this.groupBox28.ResumeLayout(false);
+            this.groupBox28.PerformLayout();
+            this.groupBox27.ResumeLayout(false);
+            this.groupBox27.PerformLayout();
+            this.groupBox24.ResumeLayout(false);
+            this.groupBox24.PerformLayout();
+            this.groupBox22.ResumeLayout(false);
+            this.groupBox22.PerformLayout();
+            this.groupBox20.ResumeLayout(false);
+            this.groupBox20.PerformLayout();
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox17.PerformLayout();
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.groupBox26.ResumeLayout(false);
+            this.groupBox26.PerformLayout();
+            this.groupBox25.ResumeLayout(false);
+            this.groupBox25.PerformLayout();
+            this.groupBox23.ResumeLayout(false);
+            this.groupBox23.PerformLayout();
+            this.groupBox21.ResumeLayout(false);
+            this.groupBox21.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox32.ResumeLayout(false);
+            this.groupBox32.PerformLayout();
+            this.groupBox31.ResumeLayout(false);
+            this.groupBox31.PerformLayout();
+            this.groupBox30.ResumeLayout(false);
+            this.groupBox30.PerformLayout();
+            this.groupBox29.ResumeLayout(false);
+            this.groupBox29.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBox19.ResumeLayout(false);
+            this.groupBox19.PerformLayout();
+            this.groupBox18.ResumeLayout(false);
+            this.groupBox18.PerformLayout();
             this.tabPageInfoPersonal.ResumeLayout(false);
             this.tabPageInfoPersonal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPaciente)).EndInit();
@@ -3136,7 +3683,6 @@
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -3154,6 +3700,38 @@
             this.groupBox12.PerformLayout();
             this.groupBox11.ResumeLayout(false);
             this.groupBox11.PerformLayout();
+            this.groupBox33.ResumeLayout(false);
+            this.groupBox33.PerformLayout();
+            this.groupBox34.ResumeLayout(false);
+            this.groupBox34.PerformLayout();
+            this.groupBox35.ResumeLayout(false);
+            this.groupBox35.PerformLayout();
+            this.groupBox36.ResumeLayout(false);
+            this.groupBox36.PerformLayout();
+            this.groupBox37.ResumeLayout(false);
+            this.groupBox37.PerformLayout();
+            this.groupBox38.ResumeLayout(false);
+            this.groupBox38.PerformLayout();
+            this.groupBox39.ResumeLayout(false);
+            this.groupBox39.PerformLayout();
+            this.groupBox40.ResumeLayout(false);
+            this.groupBox40.PerformLayout();
+            this.groupBox41.ResumeLayout(false);
+            this.groupBox41.PerformLayout();
+            this.groupBox42.ResumeLayout(false);
+            this.groupBox42.PerformLayout();
+            this.groupBox43.ResumeLayout(false);
+            this.groupBox43.PerformLayout();
+            this.groupBox44.ResumeLayout(false);
+            this.groupBox44.PerformLayout();
+            this.groupBox45.ResumeLayout(false);
+            this.groupBox45.PerformLayout();
+            this.groupBox46.ResumeLayout(false);
+            this.groupBox46.PerformLayout();
+            this.groupBox47.ResumeLayout(false);
+            this.groupBox47.PerformLayout();
+            this.groupBox48.ResumeLayout(false);
+            this.groupBox48.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3188,30 +3766,15 @@
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox txtAlergias;
-        private System.Windows.Forms.Label label68;
-        private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label67;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label lblTratAsma;
         private System.Windows.Forms.TextBox txtTratAsma;
-        private System.Windows.Forms.Label lblasma;
         private System.Windows.Forms.Label lblTratHipertension;
         private System.Windows.Forms.TextBox txtTratHipertension;
-        private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox txtTratDiabetes;
         private System.Windows.Forms.Label lblTratamiento;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TabPage tabPageInfoPersonal;
@@ -3225,7 +3788,7 @@
         private System.Windows.Forms.TextBox txtApe2;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label59;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbEmpresa;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label44;
@@ -3261,79 +3824,34 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPageExFisico;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtPeso;
+        private System.Windows.Forms.TextBox txtTalla;
         private System.Windows.Forms.Label label70;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.TextBox txtObservacionesEx;
-        private System.Windows.Forms.RadioButton radioButton9;
-        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.TextBox txtObservacionesSC;
         private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.RadioButton radioButton7;
-        private System.Windows.Forms.RadioButton radioButton8;
-        private System.Windows.Forms.RadioButton radioButton5;
-        private System.Windows.Forms.RadioButton radioButton6;
-        private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.Label label52;
         private System.Windows.Forms.TextBox txtPresionArterial;
         private System.Windows.Forms.TextBox txtPulso;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txtObservacionesSE;
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.GroupBox groupBox5;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtPiernaIzq;
         private System.Windows.Forms.Label label74;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox txtPiernaDer;
         private System.Windows.Forms.Label label75;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox txtBrazoIzq;
         private System.Windows.Forms.Label label73;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox txtBrazoDech;
         private System.Windows.Forms.Label label72;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Label label76;
-        private System.Windows.Forms.RadioButton radioButton13;
-        private System.Windows.Forms.RadioButton radioButton14;
-        private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.RadioButton radioButton11;
-        private System.Windows.Forms.RadioButton radioButton12;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox txtMalformaciones;
         private System.Windows.Forms.Label label101;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox txtObservacionesCC;
         private System.Windows.Forms.Label label100;
-        private System.Windows.Forms.RadioButton radioButton55;
-        private System.Windows.Forms.RadioButton radioButton56;
-        private System.Windows.Forms.Label label98;
-        private System.Windows.Forms.RadioButton radioButton57;
-        private System.Windows.Forms.RadioButton radioButton58;
-        private System.Windows.Forms.Label label99;
-        private System.Windows.Forms.RadioButton radioButton51;
-        private System.Windows.Forms.RadioButton radioButton53;
-        private System.Windows.Forms.Label label96;
-        private System.Windows.Forms.RadioButton radioButton54;
-        private System.Windows.Forms.RadioButton radioButton52;
-        private System.Windows.Forms.Label label97;
-        private System.Windows.Forms.RadioButton radioButton21;
-        private System.Windows.Forms.RadioButton radioButton22;
-        private System.Windows.Forms.Label label81;
-        private System.Windows.Forms.RadioButton radioButton19;
-        private System.Windows.Forms.RadioButton radioButton20;
-        private System.Windows.Forms.Label label80;
-        private System.Windows.Forms.RadioButton radioButton17;
-        private System.Windows.Forms.RadioButton radioButton18;
-        private System.Windows.Forms.Label label79;
-        private System.Windows.Forms.RadioButton radioButton15;
-        private System.Windows.Forms.RadioButton radioButton16;
-        private System.Windows.Forms.Label label78;
         private System.Windows.Forms.TabPage tabPageExFisicoII;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.RadioButton radioButton67;
@@ -3380,47 +3898,154 @@
         private System.Windows.Forms.TextBox textBox18;
         private System.Windows.Forms.Label label116;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.RadioButton radioButton23;
-        private System.Windows.Forms.Label label82;
-        private System.Windows.Forms.RadioButton radioButton24;
-        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox txtObservacionesCDL;
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.Label label85;
         private System.Windows.Forms.TextBox textBox13;
         private System.Windows.Forms.Label label84;
-        private System.Windows.Forms.RadioButton r26;
-        private System.Windows.Forms.RadioButton r25;
-        private System.Windows.Forms.RadioButton r24;
-        private System.Windows.Forms.RadioButton r23;
-        private System.Windows.Forms.RadioButton r22;
-        private System.Windows.Forms.RadioButton r21;
-        private System.Windows.Forms.RadioButton r20;
-        private System.Windows.Forms.RadioButton r19;
-        private System.Windows.Forms.RadioButton r18;
-        private System.Windows.Forms.RadioButton r17;
-        private System.Windows.Forms.RadioButton r16;
-        private System.Windows.Forms.RadioButton r15;
-        private System.Windows.Forms.RadioButton r14;
-        private System.Windows.Forms.RadioButton r13;
-        private System.Windows.Forms.RadioButton r12;
-        private System.Windows.Forms.RadioButton r11;
-        private System.Windows.Forms.RadioButton r10;
-        private System.Windows.Forms.RadioButton r9;
-        private System.Windows.Forms.RadioButton r34;
-        private System.Windows.Forms.RadioButton r33;
-        private System.Windows.Forms.RadioButton r32;
-        private System.Windows.Forms.RadioButton r31;
-        private System.Windows.Forms.RadioButton r30;
-        private System.Windows.Forms.RadioButton r29;
-        private System.Windows.Forms.RadioButton r8;
-        private System.Windows.Forms.RadioButton r7;
-        private System.Windows.Forms.RadioButton r6;
-        private System.Windows.Forms.RadioButton r5;
         private System.Windows.Forms.RadioButton r4;
         private System.Windows.Forms.RadioButton r3;
         private System.Windows.Forms.RadioButton r2;
         private System.Windows.Forms.RadioButton r1;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.TextBox txtCancerHeredo;
+        private System.Windows.Forms.TextBox txtDiabetesHeredo;
+        private System.Windows.Forms.TextBox txtHipertensionHeredo;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.TextBox txtOtrosHeredo;
+        private System.Windows.Forms.TextBox txtAsmaHeredo;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.Label label86;
+        private System.Windows.Forms.TextBox txtTiroidesHeredo;
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox groupBox20;
+        private System.Windows.Forms.RadioButton r10;
+        private System.Windows.Forms.RadioButton r9;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox17;
+        private System.Windows.Forms.GroupBox groupBox19;
+        private System.Windows.Forms.RadioButton r8;
+        private System.Windows.Forms.RadioButton r7;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.GroupBox groupBox18;
+        private System.Windows.Forms.RadioButton r6;
+        private System.Windows.Forms.RadioButton r5;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.GroupBox groupBox28;
+        private System.Windows.Forms.RadioButton r26;
+        private System.Windows.Forms.RadioButton r25;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.GroupBox groupBox27;
+        private System.Windows.Forms.RadioButton r24;
+        private System.Windows.Forms.RadioButton r23;
+        private System.Windows.Forms.Label label63;
+        private System.Windows.Forms.GroupBox groupBox24;
+        private System.Windows.Forms.RadioButton r18;
+        private System.Windows.Forms.RadioButton r17;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.GroupBox groupBox22;
+        private System.Windows.Forms.RadioButton r14;
+        private System.Windows.Forms.RadioButton r13;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.GroupBox groupBox26;
+        private System.Windows.Forms.RadioButton r22;
+        private System.Windows.Forms.RadioButton r21;
+        private System.Windows.Forms.Label label62;
+        private System.Windows.Forms.GroupBox groupBox25;
+        private System.Windows.Forms.RadioButton r20;
+        private System.Windows.Forms.RadioButton r19;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.GroupBox groupBox23;
+        private System.Windows.Forms.RadioButton r16;
+        private System.Windows.Forms.RadioButton r15;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.GroupBox groupBox21;
+        private System.Windows.Forms.RadioButton r12;
+        private System.Windows.Forms.RadioButton r11;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.GroupBox groupBox32;
+        private System.Windows.Forms.RadioButton r34;
+        private System.Windows.Forms.RadioButton r33;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.GroupBox groupBox31;
+        private System.Windows.Forms.RadioButton r32;
+        private System.Windows.Forms.RadioButton r31;
+        private System.Windows.Forms.Label lblasma;
+        private System.Windows.Forms.GroupBox groupBox30;
+        private System.Windows.Forms.RadioButton r30;
+        private System.Windows.Forms.RadioButton r29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.GroupBox groupBox29;
         private System.Windows.Forms.RadioButton r28;
         private System.Windows.Forms.RadioButton r27;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox groupBox36;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.GroupBox groupBox35;
+        private System.Windows.Forms.RadioButton radioButton7;
+        private System.Windows.Forms.RadioButton radioButton8;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.GroupBox groupBox34;
+        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton radioButton6;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.GroupBox groupBox33;
+        private System.Windows.Forms.RadioButton radioButton9;
+        private System.Windows.Forms.RadioButton radioButton10;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.GroupBox groupBox37;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.GroupBox groupBox38;
+        private System.Windows.Forms.RadioButton radioButton23;
+        private System.Windows.Forms.Label label82;
+        private System.Windows.Forms.RadioButton radioButton24;
+        private System.Windows.Forms.GroupBox groupBox40;
+        private System.Windows.Forms.RadioButton radioButton56;
+        private System.Windows.Forms.RadioButton radioButton57;
+        private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.GroupBox groupBox39;
+        private System.Windows.Forms.RadioButton radioButton53;
+        private System.Windows.Forms.RadioButton radioButton54;
+        private System.Windows.Forms.Label label97;
+        private System.Windows.Forms.GroupBox groupBox42;
+        private System.Windows.Forms.RadioButton radioButton55;
+        private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.RadioButton radioButton58;
+        private System.Windows.Forms.GroupBox groupBox41;
+        private System.Windows.Forms.RadioButton radioButton51;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.RadioButton radioButton52;
+        private System.Windows.Forms.GroupBox groupBox45;
+        private System.Windows.Forms.RadioButton radioButton21;
+        private System.Windows.Forms.RadioButton radioButton22;
+        private System.Windows.Forms.Label label81;
+        private System.Windows.Forms.GroupBox groupBox44;
+        private System.Windows.Forms.RadioButton radioButton15;
+        private System.Windows.Forms.RadioButton radioButton16;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.GroupBox groupBox43;
+        private System.Windows.Forms.RadioButton radioButton11;
+        private System.Windows.Forms.RadioButton radioButton12;
+        private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.GroupBox groupBox48;
+        private System.Windows.Forms.RadioButton radioButton19;
+        private System.Windows.Forms.RadioButton radioButton20;
+        private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.GroupBox groupBox47;
+        private System.Windows.Forms.RadioButton radioButton17;
+        private System.Windows.Forms.RadioButton radioButton18;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.GroupBox groupBox46;
+        private System.Windows.Forms.RadioButton radioButton13;
+        private System.Windows.Forms.RadioButton radioButton14;
+        private System.Windows.Forms.Label label77;
     }
 }
