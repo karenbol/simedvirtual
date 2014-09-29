@@ -85,11 +85,12 @@ namespace SIMEDVirtual
         }
 
 
-
+        //llena todos los campos segun la consulta hecha por cedula
         private void btnReconsulta_Click(object sender, EventArgs e)
         {
             //prueba lleva la cedula que es global 
-            List<ClienteEntity> lista = ClienteIT.selectClienteAnamnesis(prueba);
+            //me trae todo del cliente segun la cedula
+            List<ClienteEntity> lista = ClienteIT.selectClientePorCedula(prueba);
 
             //informacion personal
             string nombre = lista.ElementAt(0).nombre.ToString();
@@ -106,40 +107,44 @@ namespace SIMEDVirtual
             string email = lista.ElementAt(0).email.ToString();
             string direccion = lista.ElementAt(0).direccion.ToString();
 
-            //anamnesis
-            char tabaquismo = Convert.ToChar(lista.ElementAt(0).tabaquismo);
-            char ingesta = Convert.ToChar(lista.ElementAt(0).ingesta_medicamentos);
-            char alcoholismo = Convert.ToChar(lista.ElementAt(0).alcoholismo);
-            char rehabilitacion = Convert.ToChar(lista.ElementAt(0).rehabilitacion);
-            char diabetes = Convert.ToChar(lista.ElementAt(0).diabetes);
-            char hipertension = Convert.ToChar(lista.ElementAt(0).hipertension);
-            char dolor_cabeza = Convert.ToChar(lista.ElementAt(0).dolor_Cabeza);
-            char epilepsia = Convert.ToChar(lista.ElementAt(0).epilepsia);
-            char vertigo = Convert.ToChar(lista.ElementAt(0).vertigo);
-            char depresion = Convert.ToChar(lista.ElementAt(0).depre);
-            char falta_aire = Convert.ToChar(lista.ElementAt(0).falta_aire);
-            char enf_ojos_oidos = Convert.ToChar(lista.ElementAt(0).enf_ojos_oidos);
-            char dolor_pecho = Convert.ToChar(lista.ElementAt(0).dolor_pecho);
-            char enf_nerviosas = Convert.ToChar(lista.ElementAt(0).enf_nerviosas);
-            char alergia = Convert.ToChar(lista.ElementAt(0).alergias);
-            string alergia_trat = Convert.ToString(lista.ElementAt(0).alergias_tratamiento);
-            string diabetes_trat = Convert.ToString(lista.ElementAt(0).diabetes_trat);
-            string hipertension_trat = Convert.ToString(lista.ElementAt(0).hipertension_trat);
-            char asma = Convert.ToChar(lista.ElementAt(0).asma);
-            string asma_trat = Convert.ToString(lista.ElementAt(0).asma_tratamiento);
-            char tiroides = Convert.ToChar(lista.ElementAt(0).tiroides);
-            string tiroides_trat = Convert.ToString(lista.ElementAt(0).tiroides_tratamiento);
-
-            string hipertension_heredo = Convert.ToString(lista.ElementAt(0).hipertension_heredo);
-            string diabetes_heredo = Convert.ToString(lista.ElementAt(0).diabetes_heredo);
-            string cancer_heredo = Convert.ToString(lista.ElementAt(0).cancer_heredo);
-            string tiroides_heredo = Convert.ToString(lista.ElementAt(0).tiroides_heredo);
-            string asma_heredo = Convert.ToString(lista.ElementAt(0).asma_heredo);
-            string otros_heredo = Convert.ToString(lista.ElementAt(0).otros_heredo);
             string edad = Convert.ToString(lista.ElementAt(0).edad);
             string empresa = Convert.ToString(lista.ElementAt(0).empresa);
 
-            string observaciones = Convert.ToString(lista.ElementAt(0).observaciones);
+            //falta llamar a la anamnesis
+            //me devuelve toda la anam
+            List<anamnesis> listaAnamnesis = anamnesisIT.selectAnamnesisPorCedula(prueba);
+            //anamnesis
+            char tabaquismo = Convert.ToChar(listaAnamnesis.ElementAt(0).tabaquismo);
+            char ingesta = Convert.ToChar(listaAnamnesis.ElementAt(0).ingesta_medicamentos);
+            char alcoholismo = Convert.ToChar(listaAnamnesis.ElementAt(0).alcoholismo);
+            char rehabilitacion = Convert.ToChar(listaAnamnesis.ElementAt(0).rehabilitacion);
+            char diabetes = Convert.ToChar(listaAnamnesis.ElementAt(0).diabetes);
+            char hipertension = Convert.ToChar(listaAnamnesis.ElementAt(0).hipertension);
+            char dolor_cabeza = Convert.ToChar(listaAnamnesis.ElementAt(0).dolor_Cabeza);
+            char epilepsia = Convert.ToChar(listaAnamnesis.ElementAt(0).epilepsia);
+            char vertigo = Convert.ToChar(listaAnamnesis.ElementAt(0).vertigo);
+            char depresion = Convert.ToChar(listaAnamnesis.ElementAt(0).depre);
+            char falta_aire = Convert.ToChar(listaAnamnesis.ElementAt(0).falta_aire);
+            char enf_ojos_oidos = Convert.ToChar(listaAnamnesis.ElementAt(0).enf_ojos_oidos);
+            char dolor_pecho = Convert.ToChar(listaAnamnesis.ElementAt(0).dolor_pecho);
+            char enf_nerviosas = Convert.ToChar(listaAnamnesis.ElementAt(0).enf_nerviosas);
+            char alergia = Convert.ToChar(listaAnamnesis.ElementAt(0).alergias);
+            string alergia_trat = Convert.ToString(listaAnamnesis.ElementAt(0).alergias_tratamiento);
+            string diabetes_trat = Convert.ToString(listaAnamnesis.ElementAt(0).diabetes_trat);
+            string hipertension_trat = Convert.ToString(listaAnamnesis.ElementAt(0).hipertension_trat);
+            char asma = Convert.ToChar(listaAnamnesis.ElementAt(0).asma);
+            string asma_trat = Convert.ToString(listaAnamnesis.ElementAt(0).asma_tratamiento);
+            char tiroides = Convert.ToChar(listaAnamnesis.ElementAt(0).tiroides);
+            string tiroides_trat = Convert.ToString(listaAnamnesis.ElementAt(0).tiroides_tratamiento);
+
+            string hipertension_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).hipertension_heredo);
+            string diabetes_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).diabetes_heredo);
+            string cancer_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).cancer_heredo);
+            string tiroides_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).tiroides_heredo);
+            string asma_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).asma_heredo);
+            string otros_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).otros_heredo);
+
+            string observaciones = Convert.ToString(listaAnamnesis.ElementAt(0).observaciones);
             this.Hide();
 
             frm_ExpedienteMG frm = new frm_ExpedienteMG(nombre, apellido1, apellido2, cedula, fecha, sexo, estado_Civil, grupo,

@@ -33,10 +33,350 @@ namespace SIMEDVirtual
         char asma = ' ';
         char tiroides = ' ';
 
+        //************************ variables del expediente********************************************8
+        string pulso;
+        string presion_arterial;
+        char soplos;
+        char dolor_precordial;
+        char edemas;
+        char arritmias;
+        char disnea;
+        string observaciones_sc;
+        string talla;
+        string peso;
+        string observaciones_sm;
+        string brazo_derecho;
+        string brazo_izquierdo;
+        string pierna_derecha;
+        string pierna_izquierda;
+        char bicipal_derecho;
+        char bicipal_izquierdo;
+        char patelar_derecho;
+        char patelar_izquierdo;
+        char alquileano_derecho;
+        char alquileano_izquierdo;
+        char flexion;
+        char extensiones;
+        char rotacion;
+        char inclinacion_lateral;
+        string observaciones_cc;
+        string malformaciones;
+        char observaciones_dl;
+        string observaciones_dl_txt;
+        char petequias;
+        char equimosis;
+        char sangrado;
+        string observaciones_sh;
+        string examen_neurologico;
+        string orl;
+        string abdomen;
+        char auscultacion;
+        string observaciones_sr;
+        char convulciones;
+        char espasmos;
+        char temblores;
+        char movimientos_anormales;
+        string otros_sn;
+        string observaciones_sn;
+        string otros_examen2;
+        DateTime fecha;
+        string diagnostico;
+        string terapeutica;
+        string observaciones_generales;
+        string cedula;
+        string cedula_medico;
+
         //parametro que me dice si guardo toda la info o solo la reconsulta
         public bool expOreconsulta;
         public string cedulaPublica = "";
         public string usuarioPublico = "";
+
+
+        public void determinaExpediente()
+        {
+            pulso = txtPulso.Text;
+            presion_arterial = txtPresionArterial.Text;
+
+            //soplos
+            if (rx1.Checked)
+            {
+                soplos = 's';
+            }
+            else if (rx2.Checked)
+            {
+                soplos = 'n';
+            }
+
+            //dolor precordial
+            if (rx3.Checked)
+            {
+                dolor_precordial = 's';
+            }
+            else if (rx4.Checked)
+            {
+                dolor_precordial = 'n';
+            }
+
+            //edemas
+            if (rx5.Checked)
+            {
+                edemas = 's';
+            }
+            else if (rx6.Checked)
+            {
+                edemas = 'n';
+            }
+
+            //arritmias
+            if (rx7.Checked)
+            {
+                arritmias = 's';
+            }
+            else if (rx8.Checked)
+            {
+                arritmias = 'n';
+            }
+
+            //disneas
+            if (rx9.Checked)
+            {
+                disnea = 's';
+            }
+            else if (rx10.Checked)
+            {
+                disnea = 'n';
+            }
+
+            observaciones_sc = txtObservacionesSC.Text;
+            talla = txtTalla.Text;
+            peso = txtPeso.Text;
+            observaciones_sm = txtObservacionesSE.Text;
+            brazo_derecho = txtBrazoDech.Text;
+            brazo_izquierdo = txtBrazoIzq.Text;
+            pierna_derecha = txtPiernaDer.Text;
+            pierna_izquierda = txtPiernaIzq.Text;
+
+            //bicipal derecho
+            if (rx11.Checked)
+            {
+                bicipal_derecho = 'n';
+            }
+            else if (rx12.Checked)
+            {
+                bicipal_derecho = 'a';
+            }
+
+            //bicipal izq
+            if (rx13.Checked)
+            {
+                bicipal_izquierdo = 'n';
+            }
+            else if (rx14.Checked)
+            {
+                bicipal_izquierdo = 'a';
+            }
+
+            //patelar derch
+            if (rx15.Checked)
+            {
+                patelar_derecho = 'n';
+            }
+            else if (rx16.Checked)
+            {
+                patelar_derecho = 'a';
+            }
+
+            //patelar izq
+            if (rx17.Checked)
+            {
+                patelar_izquierdo = 'n';
+            }
+            else if (rx18.Checked)
+            {
+                patelar_izquierdo = 'a';
+            }
+
+            //alquieano derch
+            if (rx19.Checked)
+            {
+                alquileano_derecho = 'n';
+            }
+            else if (rx20.Checked)
+            {
+                alquileano_derecho = 'a';
+            }
+
+            //alquieano izq
+            if (rx21.Checked)
+            {
+                alquileano_izquierdo = 'n';
+            }
+            else if (rx22.Checked)
+            {
+                alquileano_izquierdo = 'a';
+            }
+
+            //flexion
+            if (rx23.Checked)
+            {
+                alquileano_izquierdo = 'n';
+            }
+            else if (rx24.Checked)
+            {
+                alquileano_izquierdo = 'a';
+            }
+
+            //extensiones
+            if (rx25.Checked)
+            {
+                extensiones = 'n';
+            }
+            else if (rx26.Checked)
+            {
+                extensiones = 'a';
+            }
+
+            //rotacion
+            if (rx27.Checked)
+            {
+                extensiones = 'n';
+            }
+            else if (rx28.Checked)
+            {
+                extensiones = 'a';
+            }
+
+            //inclinacion lateral
+            if (rx29.Checked)
+            {
+                inclinacion_lateral = 'n';
+            }
+            else if (rx30.Checked)
+            {
+                inclinacion_lateral = 'a';
+            }
+
+            observaciones_cc = txtObservacionesCC.Text;
+            malformaciones = txtMalformaciones.Text;
+
+            //observaciones dl
+            if (rx31.Checked)
+            {
+                observaciones_dl = 'n';
+            }
+            else if (rx32.Checked)
+            {
+                observaciones_dl = 'a';
+            }
+
+            observaciones_dl_txt = txtObservacionesCDL.Text;
+
+            //**************** examen fisico 2*********************
+
+            //petequias
+            if (rx33.Checked)
+            {
+                petequias = 's';
+            }
+            else if (rx34.Checked)
+            {
+                petequias = 'n';
+            }
+
+            //equimosis
+            if (rx35.Checked)
+            {
+                equimosis = 's';
+            }
+            else if (rx36.Checked)
+            {
+                equimosis = 'n';
+            }
+
+            //sangrado
+            if (rx37.Checked)
+            {
+                sangrado = 's';
+            }
+            else if (rx38.Checked)
+            {
+                sangrado = 'n';
+            }
+
+            observaciones_sh = txtObservacionesSH.Text;
+            examen_neurologico = txtExamenNeurologico.Text;
+            orl = txtOrl.Text;
+            abdomen = txtAbdomen.Text;
+
+            //auscultacion
+            if (rx39.Checked)
+            {
+                auscultacion = 'n';
+            }
+            else if (rx40.Checked)
+            {
+                auscultacion = 'a';
+            }
+
+            observaciones_sr = txtObservacionesSR.Text;
+
+            //convulciones
+            if (rx41.Checked)
+            {
+                convulciones = 's';
+            }
+            else if (rx42.Checked)
+            {
+                convulciones = 'n';
+            }
+
+            //espasmos
+            if (rx43.Checked)
+            {
+                espasmos = 's';
+            }
+            else if (rx44.Checked)
+            {
+                espasmos = 'n';
+            }
+
+            //temblores
+            if (rx45.Checked)
+            {
+                temblores = 's';
+            }
+            else if (rx46.Checked)
+            {
+                temblores = 'n';
+            }
+
+            //mov anormales
+            if (rx47.Checked)
+            {
+                movimientos_anormales = 's';
+            }
+            else if (rx48.Checked)
+            {
+                movimientos_anormales = 'n';
+            }
+
+            otros_sn = txtOtrosSN.Text;
+            observaciones_sn = txtObservacionesSN.Text;
+            otros_examen2 = txtOtrosExamen2.Text;
+
+            fecha = Convert.ToDateTime(dtFechaConsulta.Text);
+            diagnostico = txtDiagnostico.Text;
+            terapeutica = txtTerapeutica.Text;
+            observaciones_generales = txtObservaciones.Text;
+            //falta la cedula y el id medico 
+        }
+
+
+
+
+
+
+
 
         public frm_ExpedienteMG(string datosUsuario)
         {
@@ -68,7 +408,7 @@ namespace SIMEDVirtual
             cbEstado.SelectedIndex = 0;
             cbSangre.SelectedIndex = 0;
             cbSexo.SelectedIndex = 0;
-            
+
             cargaComboEmpresas();
         }
 
@@ -463,6 +803,8 @@ namespace SIMEDVirtual
             }
         }
 
+
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (expOreconsulta == true)
@@ -470,7 +812,10 @@ namespace SIMEDVirtual
                 if (txtTerapeutica.Text != string.Empty || txtDiagnostico.Text != string.Empty || txtObs.Text != string.Empty)
                 {
                     //guardamos solo en el expediente
-                    if (ExpedienteIT.InsertaExpediente(cedulaPublica, Convert.ToDateTime(dtFechaConsulta.Text), txtTerapeutica.Text, txtObs.Text))
+                    if (ExpedienteIT.InsertaExpediente())
+
+
+                    //cedulaPublica, Convert.ToDateTime(dtFechaConsulta.Text), txtTerapeutica.Text, txtObs.Text
                     {
                         MessageBox.Show("Reconsulta Insertada con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Hide();
@@ -516,12 +861,14 @@ namespace SIMEDVirtual
                         cbEstado.Text != string.Empty && cbSangre.Text != string.Empty && txtProfesion.Text != string.Empty &&
                         txtDireccion.Text != string.Empty) && (txtTerapeutica.Text != string.Empty || txtObs.Text != string.Empty))
                     {
+                        //si se inserto bn en el cliente y la anamnesis
                         if (ClienteIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, cedula, fecha,
      sexo, estado, grupo, txtProfesion.Text, Convert.ToInt32(txtTelefono.Text), Convert.ToInt32(txtMovil.Text),
-  txtEmail.Text, txtDireccion.Text, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, hipertension, dolor_cabeza,
+  txtEmail.Text, txtDireccion.Text, txtEdad.Text, empresa) &&
+                            anamnesisIT.InsertaAnamnesis(cedula, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, hipertension, dolor_cabeza,
  epilepsia, vertigo, depresion, falta_aire, oidos_ojos, dolor_pecho, enf_nerviosas, alergia, txtAlergias.Text, txtTratDiabetes.Text,
  txtTratHipertension.Text, asma, txtTratAsma.Text, tiroides, txtTratTiroides.Text, txtHipertensionHeredo.Text, txtDiabetesHeredo.Text,
- txtCancerHeredo.Text, txtTiroidesHeredo.Text, txtAsmaHeredo.Text, txtOtrosHeredo.Text, txtEdad.Text, empresa, txtObservaciones.Text))
+ txtCancerHeredo.Text, txtTiroidesHeredo.Text, txtAsmaHeredo.Text, txtOtrosHeredo.Text, txtObservaciones.Text))
                         {
                             MessageBox.Show("Expediente Guardado con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Hide();
@@ -807,6 +1154,11 @@ namespace SIMEDVirtual
         {
             txtTratTiroides.Visible = false;
             lblTratTiroides.Visible = false;
+        }
+
+        private void rx288_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
