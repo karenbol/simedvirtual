@@ -23,7 +23,7 @@ namespace SIMEDVirtual
         private void Frm_Registro_Secretaria_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Hide();
-            Frm_Splash splash = new Frm_Splash(usuarioPublico);
+            Frm_Splash splash = new Frm_Splash();
             splash.ShowDialog();
         }
 

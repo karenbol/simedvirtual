@@ -34,64 +34,64 @@ namespace SIMEDVirtual
         char tiroides = ' ';
 
         //************************ variables del expediente********************************************8
-        string pulso;
-        string presion_arterial;
-        char soplos;
-        char dolor_precordial;
-        char edemas;
-        char arritmias;
-        char disnea;
-        string observaciones_sc;
-        string talla;
-        string peso;
-        string observaciones_sm;
-        string brazo_derecho;
-        string brazo_izquierdo;
-        string pierna_derecha;
-        string pierna_izquierda;
-        char bicipal_derecho;
-        char bicipal_izquierdo;
-        char patelar_derecho;
-        char patelar_izquierdo;
-        char alquileano_derecho;
-        char alquileano_izquierdo;
-        char flexion;
-        char extensiones;
-        char rotacion;
-        char inclinacion_lateral;
-        string observaciones_cc;
-        string malformaciones;
-        char observaciones_dl;
-        string observaciones_dl_txt;
-        char petequias;
-        char equimosis;
-        char sangrado;
-        string observaciones_sh;
-        string examen_neurologico;
-        string orl;
-        string abdomen;
-        char auscultacion;
-        string observaciones_sr;
-        char convulciones;
-        char espasmos;
-        char temblores;
-        char movimientos_anormales;
-        string otros_sn;
-        string observaciones_sn;
-        string otros_examen2;
+        string pulso = "";
+        string presion_arterial = "";
+        char soplos = ' ';
+        char dolor_precordial = ' ';
+        char edemas = ' ';
+        char arritmias = ' ';
+        char disnea = ' ';
+        string observaciones_sc = "";
+        string talla = "";
+        string peso = "";
+        string observaciones_sm = "";
+        string brazo_derecho = "";
+        string brazo_izquierdo = "";
+        string pierna_derecha = "";
+        string pierna_izquierda = "";
+        char bicipal_derecho = ' ';
+        char bicipal_izquierdo = ' ';
+        char patelar_derecho = ' ';
+        char patelar_izquierdo = ' ';
+        char alquileano_derecho = ' ';
+        char alquileano_izquierdo = ' ';
+        char flexion = ' ';
+        char extensiones = ' ';
+        char rotacion = ' ';
+        char inclinacion_lateral = ' ';
+        string observaciones_cc = "";
+        string malformaciones = "";
+        char observaciones_dl = ' ';
+        string observaciones_dl_txt = "";
+        char petequias = ' ';
+        char equimosis = ' ';
+        char sangrado = ' ';
+        string observaciones_sh = "";
+        string examen_neurologico = "";
+        string orl = "";
+        string abdomen = "";
+        char auscultacion = ' ';
+        string observaciones_sr = "";
+        char convulciones = ' ';
+        char espasmos = ' ';
+        char temblores = ' ';
+        char movimientos_anormales = ' ';
+        string otros_sn = "";
+        string observaciones_sn = "";
+        string otros_examen2 = "";
         DateTime fecha;
-        string diagnostico;
-        string terapeutica;
-        string observaciones_generales;
-        string cedula;
-        string cedula_medico;
+        string diagnostico = "";
+        string terapeutica = "";
+        string observaciones_generales = "";
+        string cedula = "";
+        string cedula_medico = "";
 
         //parametro que me dice si guardo toda la info o solo la reconsulta
         public bool expOreconsulta;
         public string cedulaPublica = "";
         public string usuarioPublico = "";
 
-
+        //da valor a los parametros para llenar el expediente medico
         public void determinaExpediente()
         {
             pulso = txtPulso.Text;
@@ -367,22 +367,16 @@ namespace SIMEDVirtual
             fecha = Convert.ToDateTime(dtFechaConsulta.Text);
             diagnostico = txtDiagnostico.Text;
             terapeutica = txtTerapeutica.Text;
-            observaciones_generales = txtObservaciones.Text;
+            observaciones_generales = txtObs.Text;
             //falta la cedula y el id medico 
         }
 
 
-
-
-
-
-
-
-        public frm_ExpedienteMG(string datosUsuario)
+        public frm_ExpedienteMG()//datos usuario me trae el nombre y apellido del usuario
         {
             InitializeComponent();
-            label29.Text = datosUsuario;  //asignamos el nombre del usuario
-            usuarioPublico = datosUsuario;
+            label29.Text = Frm_Ingreso.datosUsuario;  //asignamos el nombre del usuario
+            usuarioPublico = Frm_Ingreso.datosUsuario;
 
             //vamos a guardar en el cliente y en el expediente
             expOreconsulta = false;
@@ -471,9 +465,9 @@ namespace SIMEDVirtual
             {
                 cbEstado.SelectedIndex = 3;
             }
-            else
+            else if (estado_Civil == "UNION LIBRE")
             {
-                cbEstado.SelectedIndex = 2;
+                cbEstado.SelectedIndex = 4;
             }
 
             //combo de la sangre
@@ -714,6 +708,8 @@ namespace SIMEDVirtual
             }
 
         }
+
+
         //deshabilita los campos de info personal
         public void DisableInfoPersonal()
         {
@@ -809,17 +805,22 @@ namespace SIMEDVirtual
         {
             if (expOreconsulta == true)
             {
+                //se guarda el expediente solo si estos campos estan llenos
                 if (txtTerapeutica.Text != string.Empty || txtDiagnostico.Text != string.Empty || txtObs.Text != string.Empty)
                 {
+                    determinaExpediente();//metodo que da valor a parametros para el expediente
                     //guardamos solo en el expediente
-                    if (ExpedienteIT.InsertaExpediente())
-
-
-                    //cedulaPublica, Convert.ToDateTime(dtFechaConsulta.Text), txtTerapeutica.Text, txtObs.Text
+                    if (ExpedienteIT.InsertaExpediente(pulso, presion_arterial, soplos, dolor_precordial, edemas, arritmias, disnea,
+                        observaciones_sc, talla, peso, observaciones_sm, brazo_derecho, brazo_izquierdo, pierna_derecha, pierna_izquierda,
+                        bicipal_derecho, bicipal_izquierdo, patelar_derecho, patelar_izquierdo, alquileano_derecho, alquileano_izquierdo,
+                        flexion, extensiones, rotacion, inclinacion_lateral, observaciones_cc, malformaciones, observaciones_dl,
+                        observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
+                        auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
+                        observaciones_sn, otros_examen2, fecha, diagnostico, terapeutica, observaciones_generales, cedulaPublica, Frm_Ingreso.cedulaUsuario))
                     {
                         MessageBox.Show("Reconsulta Insertada con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Hide();
-                        frmVerExpediente splash = new frmVerExpediente(usuarioPublico);
+                        frmVerExpediente splash = new frmVerExpediente();
                         splash.ShowDialog();
                     }
                 }
@@ -861,18 +862,26 @@ namespace SIMEDVirtual
                         cbEstado.Text != string.Empty && cbSangre.Text != string.Empty && txtProfesion.Text != string.Empty &&
                         txtDireccion.Text != string.Empty) && (txtTerapeutica.Text != string.Empty || txtObs.Text != string.Empty))
                     {
-                        //si se inserto bn en el cliente y la anamnesis
+                        determinaExpediente();//metodo que da valor a parametros para el expediente
+                        //si se inserto bn en el cliente y la anamnesis y el expediente
                         if (ClienteIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, cedula, fecha,
-     sexo, estado, grupo, txtProfesion.Text, Convert.ToInt32(txtTelefono.Text), Convert.ToInt32(txtMovil.Text),
-  txtEmail.Text, txtDireccion.Text, txtEdad.Text, empresa) &&
+                        sexo, estado, grupo, txtProfesion.Text, Convert.ToInt32(txtTelefono.Text), Convert.ToInt32(txtMovil.Text),
+                        txtEmail.Text, txtDireccion.Text, txtEdad.Text, empresa) &&
                             anamnesisIT.InsertaAnamnesis(cedula, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, hipertension, dolor_cabeza,
- epilepsia, vertigo, depresion, falta_aire, oidos_ojos, dolor_pecho, enf_nerviosas, alergia, txtAlergias.Text, txtTratDiabetes.Text,
- txtTratHipertension.Text, asma, txtTratAsma.Text, tiroides, txtTratTiroides.Text, txtHipertensionHeredo.Text, txtDiabetesHeredo.Text,
- txtCancerHeredo.Text, txtTiroidesHeredo.Text, txtAsmaHeredo.Text, txtOtrosHeredo.Text, txtObservaciones.Text))
+                        epilepsia, vertigo, depresion, falta_aire, oidos_ojos, dolor_pecho, enf_nerviosas, alergia, txtAlergias.Text, txtTratDiabetes.Text,
+                        txtTratHipertension.Text, asma, txtTratAsma.Text, tiroides, txtTratTiroides.Text, txtHipertensionHeredo.Text, txtDiabetesHeredo.Text,
+                        txtCancerHeredo.Text, txtTiroidesHeredo.Text, txtAsmaHeredo.Text, txtOtrosHeredo.Text, txtObservaciones.Text) &&
+                            (ExpedienteIT.InsertaExpediente(pulso, presion_arterial, soplos, dolor_precordial, edemas, arritmias, disnea,
+                        observaciones_sc, talla, peso, observaciones_sm, brazo_derecho, brazo_izquierdo, pierna_derecha, pierna_izquierda,
+                        bicipal_derecho, bicipal_izquierdo, patelar_derecho, patelar_izquierdo, alquileano_derecho, alquileano_izquierdo,
+                        flexion, extensiones, rotacion, inclinacion_lateral, observaciones_cc, malformaciones, observaciones_dl,
+                        observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
+                        auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
+                        observaciones_sn, otros_examen2, fecha, diagnostico, terapeutica, observaciones_generales, cedula, Frm_Ingreso.cedulaUsuario)))
                         {
                             MessageBox.Show("Expediente Guardado con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Hide();
-                            frmVerExpediente splash = new frmVerExpediente(usuarioPublico);
+                            frmVerExpediente splash = new frmVerExpediente();
                             splash.ShowDialog();
                         }
                     }
@@ -1061,14 +1070,14 @@ namespace SIMEDVirtual
         private void frm_ExpedienteMG_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Hide();
-            frmVerExpediente splash = new frmVerExpediente(usuarioPublico);
+            frmVerExpediente splash = new frmVerExpediente();
             splash.ShowDialog();
         }
 
         private void btnVerExp_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmVerExpediente frm = new frmVerExpediente(usuarioPublico);
+            frmVerExpediente frm = new frmVerExpediente();
             frm.ShowDialog();
         }
 

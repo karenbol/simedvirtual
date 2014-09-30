@@ -84,7 +84,7 @@ namespace SIMEDVirtual
         private void Frm_Registro_Medico_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Hide();
-            Frm_Medico splash = new Frm_Medico(usuarioPublico);
+            Frm_Medico splash = new Frm_Medico();
             splash.ShowDialog();
         }
 
@@ -129,7 +129,7 @@ namespace SIMEDVirtual
                             {
                                 MessageBox.Show("Los Datos han sido Insertados Correctamente !", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                                 this.Close();
-                                Frm_Splash frm = new Frm_Splash(usuarioPublico);
+                                Frm_Splash frm = new Frm_Splash();
                                 frm.ShowDialog();
                             }
                             else
@@ -157,7 +157,7 @@ namespace SIMEDVirtual
                     {
                         MessageBox.Show("Los Datos han sido Actualizados Correctamente!", "Actualizacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Close();
-                        Frm_Splash frm = new Frm_Splash(usuarioPublico);
+                        Frm_Splash frm = new Frm_Splash();
                         frm.ShowDialog();
                     }
                 }

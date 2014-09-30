@@ -1,4 +1,5 @@
-﻿using SIMEDVirtual.Entity;
+﻿using SIMEDVirtual.DA;
+using SIMEDVirtual.Entity;
 using SIMEDVirtual.IT;
 using System;
 using System.Collections.Generic;
@@ -16,13 +17,13 @@ namespace SIMEDVirtual
         string prueba = "";
         string usuarioPublico = "";
 
-        public frmVerExpediente(string usuario)
+        public frmVerExpediente()
         {
             InitializeComponent();
             //usuario
-            usuarioPublico = usuario;
-            label4.Text = usuario;
-            ////////////////////////
+            usuarioPublico = Frm_Ingreso.datosUsuario;
+            label4.Text = Frm_Ingreso.datosUsuario;
+            //propiedades del label de division
             label3.AutoSize = false;
             label3.Height = 2;
             label3.BorderStyle = BorderStyle.Fixed3D;
@@ -31,6 +32,7 @@ namespace SIMEDVirtual
 
         private void frmVerExpediente_Load(object sender, EventArgs e)
         {
+            //llena la tabla con los clientes
             this.cargarDataGrid();
 
             toolTip1.InitialDelay = 1;
@@ -64,7 +66,7 @@ namespace SIMEDVirtual
         private void btnCrearExp_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frm_ExpedienteMG splash = new frm_ExpedienteMG(usuarioPublico);
+            frm_ExpedienteMG splash = new frm_ExpedienteMG();
             splash.ShowDialog();
         }
 
@@ -76,7 +78,25 @@ namespace SIMEDVirtual
                 //toma el valor de la cedula
                 string cedula = Convert.ToString(dgClientes.Rows[e.RowIndex].Cells[0].Value);
                 prueba = cedula;
-                dgReconsultas.DataSource = ExpedienteIT.selectExpediente(cedula);
+
+                //cargamos todos la info de drs en el datagrid
+                var pts = new BindingList<ExpedienteEntity>(ExpedienteIT.selectExpediente(cedula));
+                dgReconsultas.AutoGenerateColumns = false;
+                dgReconsultas.DataSource = pts;
+
+                //se asignan datos al datagrid de reconsultas
+                for (int j = 0; j < pts.Count; j++)
+                {
+                    dgReconsultas.Rows[j].Cells[0].Value = pts.ElementAt(j).fecha.ToString();
+                    dgReconsultas.Rows[j].Cells[1].Value = MedicoIT.getApellidoMedico(pts.ElementAt(j).cedula_medico.ToString());
+                    dgReconsultas.Rows[j].Cells[2].Value = pts.ElementAt(j).diagnostico.ToString();
+                    dgReconsultas.Rows[j].Cells[3].Value = pts.ElementAt(j).terapeutica.ToString();
+                    dgReconsultas.Rows[j].Cells[4].Value = pts.ElementAt(j).observaciones_generales.ToString();
+                }
+            }
+            else
+            {
+                MessageBox.Show("seleccion no valida");
             }
         }
 
@@ -217,7 +237,7 @@ namespace SIMEDVirtual
         private void btnCrearPaciente_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frm_ExpedienteMG frm = new frm_ExpedienteMG(usuarioPublico);
+            frm_ExpedienteMG frm = new frm_ExpedienteMG();
             frm.ShowDialog();
         }
 

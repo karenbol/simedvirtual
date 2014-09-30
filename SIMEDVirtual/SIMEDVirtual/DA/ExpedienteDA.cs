@@ -37,14 +37,14 @@ namespace SIMEDVirtual.DA
                     "rotacion,inclinacion_lateral,observaciones_cc,malformaciones,observaciones_dl,observaciones_dl_txt,"
                     + "petequias,equimosis,sangrado,observaciones_sh,examen_neurologico,orl,abdomen,auscultacion,observaciones_sr," +
                     "convulciones,espasmos,temblores,movimientos_anormales,otros_sn,observaciones_sn,otros_examen2,fecha," +
-                    "diagnostico,terapeutica,observaciones_generales,cedula,cedula_medico) "+
-                    "values(@pulso,@presion_arterial,@soplos,@dolor_precordial,@edemas,@arritmias,@disnea,@observaciones_sc,"+
-                    "@talla,@peso,@observaciones_sm,@brazo_derecho,@brazo_izquierdo,@pierna_derecha,@pierna_izquierda,"+
+                    "diagnostico,terapeutica,observaciones_generales,cedula,cedula_medico) " +
+                    "values(@pulso,@presion_arterial,@soplos,@dolor_precordial,@edemas,@arritmias,@disnea,@observaciones_sc," +
+                    "@talla,@peso,@observaciones_sm,@brazo_derecho,@brazo_izquierdo,@pierna_derecha,@pierna_izquierda," +
                     "@bicipal_derecho,@bicipal_izquierdo,@patelar_derecho,@patelar_izquierdo,@alquileano_derecho,"
-                    + "@alquileano_izquierdo,@flexion,@extensiones,@rotacion,@inclinacion_lateral,@observaciones_cc,"+
-                    "@malformaciones,@observaciones_dl,@observaciones_dl_txt,@petequias,@equimosis,@sangrado,"+
-                    "@observaciones_sh,@examen_neurologico,@orl,@abdomen,@auscultacion,@observaciones_sr,@convulciones,"+
-                    "@espasmos,@temblores,@movimientos_anormales,@otros_sn,@observaciones_sn,@otros_examen2,"+
+                    + "@alquileano_izquierdo,@flexion,@extensiones,@rotacion,@inclinacion_lateral,@observaciones_cc," +
+                    "@malformaciones,@observaciones_dl,@observaciones_dl_txt,@petequias,@equimosis,@sangrado," +
+                    "@observaciones_sh,@examen_neurologico,@orl,@abdomen,@auscultacion,@observaciones_sr,@convulciones," +
+                    "@espasmos,@temblores,@movimientos_anormales,@otros_sn,@observaciones_sn,@otros_examen2," +
                     "@fecha,@diagnostico,@terapeutica,@observaciones_generales,@cedula,@cedula_medico)";
 
                     command.Parameters.AddWithValue("@pulso", pulso);
@@ -77,30 +77,29 @@ namespace SIMEDVirtual.DA
                     command.Parameters.AddWithValue("@observaciones_dl", observaciones_dl);
                     command.Parameters.AddWithValue("@observaciones_dl_txt", observaciones_dl_txt);
                     command.Parameters.AddWithValue("@petequias", petequias);
-                    command.Parameters.AddWithValue("@equimosis", petequias);
-                    command.Parameters.AddWithValue("@sangrado", petequias);
-                    command.Parameters.AddWithValue("@observaciones_sh", petequias);
-                    command.Parameters.AddWithValue("@examen_neurologico", petequias);
-                    command.Parameters.AddWithValue("@orl", petequias);
-                    command.Parameters.AddWithValue("@abdomen", petequias);
-                    command.Parameters.AddWithValue("@auscultacion", petequias);
-                    command.Parameters.AddWithValue("@observaciones_sr", petequias);
-                    command.Parameters.AddWithValue("@convulciones", petequias);
-                    command.Parameters.AddWithValue("@espasmos", petequias);
-                    command.Parameters.AddWithValue("@temblores", petequias);
-                    command.Parameters.AddWithValue("@movimientos_anormales", petequias);
-                    command.Parameters.AddWithValue("@otros_sn", petequias);
-                    command.Parameters.AddWithValue("@observaciones_sn", petequias);
-                    command.Parameters.AddWithValue("@otros_examen2", petequias);
+                    command.Parameters.AddWithValue("@equimosis", equimosis);
+                    command.Parameters.AddWithValue("@sangrado", sangrado);
+                    command.Parameters.AddWithValue("@observaciones_sh", observaciones_sh);
+                    command.Parameters.AddWithValue("@examen_neurologico", examen_neurologico);
+                    command.Parameters.AddWithValue("@orl", orl);
+                    command.Parameters.AddWithValue("@abdomen", abdomen);
+                    command.Parameters.AddWithValue("@auscultacion", auscultacion);
+                    command.Parameters.AddWithValue("@observaciones_sr", observaciones_sr);
+                    command.Parameters.AddWithValue("@convulciones", convulciones);
+                    command.Parameters.AddWithValue("@espasmos", espasmos);
+                    command.Parameters.AddWithValue("@temblores", temblores);
+                    command.Parameters.AddWithValue("@movimientos_anormales", movimientos_anormales);
+                    command.Parameters.AddWithValue("@otros_sn", otros_sn);
+                    command.Parameters.AddWithValue("@observaciones_sn", observaciones_sn);
+                    command.Parameters.AddWithValue("@otros_examen2", otros_examen2);
 
-                    command.Parameters.AddWithValue("@fecha", petequias);
-                    command.Parameters.AddWithValue("@diagnostico", petequias);
-                    command.Parameters.AddWithValue("@terapeutica", petequias);
-                    command.Parameters.AddWithValue("@observaciones_generales", petequias);
-                    command.Parameters.AddWithValue("@cedula", petequias);
-                    command.Parameters.AddWithValue("@cedula_medico", petequias);
-
-
+                    command.Parameters.AddWithValue("@fecha", fecha);
+                    command.Parameters.AddWithValue("@diagnostico", diagnostico);
+                    command.Parameters.AddWithValue("@terapeutica", terapeutica);
+                    command.Parameters.AddWithValue("@observaciones_generales", observaciones_generales);
+                    command.Parameters.AddWithValue("@cedula", cedula);
+                    command.Parameters.AddWithValue("@cedula_medico", cedula_medico);
+                    
                     x = command.ExecuteNonQuery();
                 }
                 catch
@@ -137,16 +136,70 @@ namespace SIMEDVirtual.DA
                 while (dr.Read())
                 {
                     ExpedienteEntity expediente = new ExpedienteEntity();
-                    expediente.fecha_consulta = Convert.ToDateTime(dr["fecha_consulta"]);
+
+                    //expediente.pulso = Convert.ToString(dr["pulso"]);
+                    //expediente.presion_arterial = Convert.ToString(dr["presion_arterial"]);
+                    //expediente.soplos = Convert.ToChar(dr["soplos"]);
+                    //expediente.dolor_precordial = Convert.ToChar(dr["dolor_precordial"]);
+                    //expediente.edemas = Convert.ToChar(dr["edemas"]);
+                    //expediente.arritmias = Convert.ToChar(dr["arritmias"]);
+                    //expediente.disnea = Convert.ToChar(dr["disnea"]);
+                    //expediente.observaciones_sc = Convert.ToString(dr["observaciones_sc"]);
+                    //expediente.talla = Convert.ToString(dr["talla"]);
+                    //expediente.peso = Convert.ToString(dr["peso"]);
+                    //expediente.observaciones_sm = Convert.ToString(dr["observaciones_sm"]);
+                    //expediente.brazo_derecho = Convert.ToString(dr["brazo_derecho"]);
+                    //expediente.brazo_izquierdo = Convert.ToString(dr["brazo_izquierdo"]);
+                    //expediente.pierna_derecha = Convert.ToString(dr["pierna_derecha"]);
+                    //expediente.pierna_izquierda = Convert.ToString(dr["pierna_izquierda"]);
+
+                    //expediente.bicipal_derecho = Convert.ToChar(dr["bicipal_derecho"]);
+                    //expediente.bicipal_izquierdo = Convert.ToChar(dr["bicipal_izquierdo"]);
+                    //expediente.patelar_derecho = Convert.ToChar(dr["patelar_derecho"]);
+                    //expediente.patelar_izquierdo = Convert.ToChar(dr["patelar_izquierdo"]);
+                    //expediente.alquileano_derecho = Convert.ToChar(dr["alquileano_derecho"]);
+                    //expediente.alquileano_izquierdo = Convert.ToChar(dr["alquileano_izquierdo"]);
+
+                    //expediente.flexion = Convert.ToChar(dr["flexion"]);
+                    //expediente.extensiones = Convert.ToChar(dr["extensiones"]);
+                    //expediente.rotacion = Convert.ToChar(dr["rotacion"]);
+                    //expediente.inclinacion_lateral = Convert.ToChar(dr["inclinacion_lateral"]);
+
+                    //expediente.observaciones_cc = Convert.ToString(dr["observaciones_cc"]);
+                    //expediente.malformaciones = Convert.ToString(dr["malformaciones"]);
+
+                    //expediente.observaciones_dl = Convert.ToChar(dr["observaciones_dl"]);
+                    //expediente.observaciones_dl_txt = Convert.ToString(dr["observaciones_dl_txt"]);
+                    //expediente.petequias = Convert.ToChar(dr["petequias"]);
+                    //expediente.equimosis = Convert.ToChar(dr["equimosis"]);
+                    //expediente.sangrado = Convert.ToChar(dr["sangrado"]);
+
+                    //expediente.observaciones_sh = Convert.ToString(dr["observaciones_sh"]);
+                    //expediente.examen_neurologico = Convert.ToString(dr["examen_neurologico"]);
+                    //expediente.orl = Convert.ToString(dr["orl"]);
+                    //expediente.abdomen = Convert.ToString(dr["abdomen"]);
+
+                    //expediente.auscultacion = Convert.ToChar(dr["auscultacion"]);
+                    //expediente.observaciones_sr = Convert.ToString(dr["observaciones_sr"]);
+                    //expediente.convulciones = Convert.ToChar(dr["convulciones"]);
+                    //expediente.espasmos = Convert.ToChar(dr["espasmos"]);
+                    //expediente.temblores = Convert.ToChar(dr["temblores"]);
+                    //expediente.movimientos_anormales = Convert.ToChar(dr["movimientos_anormales"]);
+
+                    //expediente.otros_sn = Convert.ToString(dr["otros_sn"]);
+                    //expediente.observaciones_sn = Convert.ToString(dr["observaciones_sn"]);
+                    //expediente.otros_examen2 = Convert.ToString(dr["otros_examen2"]);
+                    expediente.fecha = Convert.ToDateTime(dr["fecha"]);
+                    //expediente.cedula = Convert.ToString(dr["cedula"]);
+                    expediente.cedula_medico = Convert.ToString(dr["cedula_medico"]);
+                    expediente.diagnostico = Convert.ToString(dr["diagnostico"]);
                     expediente.terapeutica = Convert.ToString(dr["terapeutica"]);
-                    expediente.observaciones = Convert.ToString(dr["observaciones"]);
+                    expediente.observaciones_generales = Convert.ToString(dr["observaciones_generales"]);
+                   
                     list.Add(expediente);
                 }
             }
             return list;
         }
-
-
-
     }
 }

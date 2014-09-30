@@ -64,7 +64,6 @@ namespace SIMEDVirtual.DA
             int x = 0;
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
-
                 NpgsqlCommand command = new NpgsqlCommand();
                 command.Connection = conn;
                 conn.Open();
@@ -237,6 +236,29 @@ namespace SIMEDVirtual.DA
                 }
             }
             return list;
+        }
+
+
+        //metodo join que me devuelve apellido segun cedula del medico
+        public static String getApellidoMedico(string cedula)
+        {
+            string apellido = "";
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                conn.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT apellido1 FROM medicos WHERE cedula = @cedula", conn);
+
+                cmd.Parameters.AddWithValue("@cedula", cedula);
+
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+
+                    apellido = Convert.ToString(dr["apellido1"]);
+                }
+            }
+            return apellido;
         }
     }
 }

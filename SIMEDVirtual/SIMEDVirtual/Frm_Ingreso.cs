@@ -17,7 +17,10 @@ namespace SIMEDVirtual
 {
     public partial class Frm_Ingreso : Form
     {
-        string datosUsuario = "karen probando";
+        public static String datosUsuario = "karen probando";
+        //variable estatico con la cedula del usuario
+        public static String cedulaUsuario = "";
+
         public Frm_Ingreso()
         {
             InitializeComponent();
@@ -58,8 +61,14 @@ namespace SIMEDVirtual
                     //determina si los datos de ingreso son correctos
                     if (UsuarioIT.Ingreso(Convert.ToInt32(txtUsuario.Text.Trim()), txtContrasena.Text.Trim()))
                     {
-                        //determinamos nombre y apellido del usuario
-                        //recibe por el nombre de usuario y me trae la informacion
+                        //guardo la cedula del usuario
+                        cedulaUsuario = txtUsuario.Text.Trim();
+
+
+
+
+                        //determinamos nombre y apellido del usuario en una variable statica
+                        //recibe el nombre de usuario y me trae la informacion
                         List<MedicoEntity> doctor = UsuarioIT.getNombreApeDr(txtUsuario.Text.Trim());
                         //concatenamos nombre y apellido del usuario
                         datosUsuario = doctor.ElementAt(0).nombre.ToString();
@@ -70,16 +79,15 @@ namespace SIMEDVirtual
                         {
                             this.Hide();
                             //si es adm lo lleva a la pantalla principal
-                            Frm_Splash pr = new Frm_Splash(datosUsuario);
+                            Frm_Splash pr = new Frm_Splash();
                             pr.ShowDialog();
-
                         }
                         else if (tipoUsuario == 'm')
                         {
                             //si es medico lo lleva a los expedientes
                             //MessageBox.Show("eres Medico");
                             this.Hide();
-                            frm_ExpedienteMG pr = new frm_ExpedienteMG(datosUsuario);
+                            frm_ExpedienteMG pr = new frm_ExpedienteMG();
                             pr.ShowDialog();
 
                         }

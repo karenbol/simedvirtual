@@ -15,11 +15,11 @@ namespace SIMEDVirtual
     {
         string usuarioPublico = "";
 
-        public Frm_Medico(string usuario)
+        public Frm_Medico()
         {
             InitializeComponent();
-            usuarioPublico = usuario;
-            label4.Text = usuario;
+            usuarioPublico = Frm_Ingreso.datosUsuario;
+            label4.Text = Frm_Ingreso.datosUsuario;
         }
 
         private void Frm_Medico_Load(object sender, EventArgs e)
@@ -87,7 +87,7 @@ namespace SIMEDVirtual
         {
             //al cerrar nos devolvemos a pantalla principal
             this.Hide();
-            Frm_Splash frm = new Frm_Splash(usuarioPublico);
+            Frm_Splash frm = new Frm_Splash();
             frm.ShowDialog();
         }
 

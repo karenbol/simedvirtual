@@ -42,5 +42,11 @@ namespace SIMEDVirtual.IT
         {
             return MedicoDa.deleteUsuario(cedula);
         }
+
+        public static String getApellidoMedico(string cedula)
+        {
+            return MedicoDa.getApellidoMedico(cedula);
+        }
+
     }
 }

@@ -62,7 +62,7 @@
             this.menuStrip1.Size = new System.Drawing.Size(738, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
-            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            
             // 
             // reToolStripMenuItem
             // 
@@ -73,7 +73,7 @@
             this.reToolStripMenuItem.Name = "reToolStripMenuItem";
             this.reToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
             this.reToolStripMenuItem.Text = "Registro";
-            this.reToolStripMenuItem.Click += new System.EventHandler(this.reToolStripMenuItem_Click);
+            
             // 
             // verToolStripMenuItem
             // 
@@ -89,7 +89,7 @@
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
             this.verToolStripMenuItem.Size = new System.Drawing.Size(45, 24);
             this.verToolStripMenuItem.Text = "Ver";
-            this.verToolStripMenuItem.Click += new System.EventHandler(this.verToolStripMenuItem_Click);
+            
             // 
             // ayudaToolStripMenuItem
             // 
@@ -121,7 +121,7 @@
             this.label2.Size = new System.Drawing.Size(51, 20);
             this.label2.TabIndex = 3;
             this.label2.Text = "label2";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            
             // 
             // btnSalir
             // 
@@ -145,7 +145,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            
             // 
             // medicoToolStripMenuItem
             // 
@@ -235,7 +235,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Bienvenido a SIMED Virtual";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Splash_FormClosing);
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Frm_Splash_FormClosed);
+            
             this.Load += new System.EventHandler(this.Frm_Splash_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

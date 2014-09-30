@@ -22,12 +22,12 @@ namespace SIMEDVirtual
         private DataTable dt = new DataTable();
         string usuarioPublico = "";
 
-        public Frm_Splash(string usuario)
+        public Frm_Splash()
         {
             InitializeComponent();
             //label1.Text = usuario;
-            usuarioPublico = usuario;
-            label2.Text = usuario;
+            usuarioPublico = Frm_Ingreso.datosUsuario;
+            label2.Text = Frm_Ingreso.datosUsuario;
         }
 
         private void Frm_Splash_Load(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace SIMEDVirtual
         private void medicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_Medico mem = new Frm_Medico(usuarioPublico);
+            Frm_Medico mem = new Frm_Medico();
             mem.ShowDialog();
 
         }
@@ -61,23 +61,8 @@ namespace SIMEDVirtual
         private void expedientesMedicosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frm_ExpedienteMG mem = new frm_ExpedienteMG(usuarioPublico);
+            frm_ExpedienteMG mem = new frm_ExpedienteMG();
             mem.ShowDialog();
-
-        }
-
-        private void Frm_Splash_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            //this.Close();
-        }
-
-        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
-
-        private void infoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
 
         }
 
@@ -86,21 +71,6 @@ namespace SIMEDVirtual
             this.Hide();
             Frm_Membresia x = new Frm_Membresia(usuarioPublico);
             x.ShowDialog();
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void reToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void verToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void Frm_Splash_FormClosing(object sender, FormClosingEventArgs e)
@@ -113,13 +83,8 @@ namespace SIMEDVirtual
         private void expedientesMedicosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            frmVerExpediente x = new frmVerExpediente(usuarioPublico);
+            frmVerExpediente x = new frmVerExpediente();
             x.ShowDialog();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

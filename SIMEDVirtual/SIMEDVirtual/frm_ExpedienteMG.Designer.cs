@@ -647,7 +647,7 @@
             this.r26.Location = new System.Drawing.Point(274, 4);
             this.r26.Name = "r26";
             this.r26.Size = new System.Drawing.Size(41, 17);
-            this.r26.TabIndex = 45;
+            this.r26.TabIndex = 1;
             this.r26.TabStop = true;
             this.r26.Text = "NO";
             this.r26.UseVisualStyleBackColor = true;
@@ -659,7 +659,7 @@
             this.r25.Location = new System.Drawing.Point(223, 5);
             this.r25.Name = "r25";
             this.r25.Size = new System.Drawing.Size(35, 17);
-            this.r25.TabIndex = 44;
+            this.r25.TabIndex = 0;
             this.r25.TabStop = true;
             this.r25.Text = "SI";
             this.r25.UseVisualStyleBackColor = true;
@@ -691,7 +691,7 @@
             this.r24.Location = new System.Drawing.Point(274, 4);
             this.r24.Name = "r24";
             this.r24.Size = new System.Drawing.Size(41, 17);
-            this.r24.TabIndex = 42;
+            this.r24.TabIndex = 1;
             this.r24.TabStop = true;
             this.r24.Text = "NO";
             this.r24.UseVisualStyleBackColor = true;
@@ -702,7 +702,7 @@
             this.r23.Location = new System.Drawing.Point(223, 5);
             this.r23.Name = "r23";
             this.r23.Size = new System.Drawing.Size(35, 17);
-            this.r23.TabIndex = 41;
+            this.r23.TabIndex = 0;
             this.r23.TabStop = true;
             this.r23.Text = "SI";
             this.r23.UseVisualStyleBackColor = true;
@@ -733,7 +733,7 @@
             this.r18.Location = new System.Drawing.Point(274, 6);
             this.r18.Name = "r18";
             this.r18.Size = new System.Drawing.Size(41, 17);
-            this.r18.TabIndex = 22;
+            this.r18.TabIndex = 1;
             this.r18.TabStop = true;
             this.r18.Text = "NO";
             this.r18.UseVisualStyleBackColor = true;
@@ -744,7 +744,7 @@
             this.r17.Location = new System.Drawing.Point(223, 7);
             this.r17.Name = "r17";
             this.r17.Size = new System.Drawing.Size(35, 17);
-            this.r17.TabIndex = 21;
+            this.r17.TabIndex = 0;
             this.r17.TabStop = true;
             this.r17.Text = "SI";
             this.r17.UseVisualStyleBackColor = true;
@@ -775,7 +775,7 @@
             this.r14.Location = new System.Drawing.Point(274, 4);
             this.r14.Name = "r14";
             this.r14.Size = new System.Drawing.Size(41, 17);
-            this.r14.TabIndex = 19;
+            this.r14.TabIndex = 1;
             this.r14.TabStop = true;
             this.r14.Text = "NO";
             this.r14.UseVisualStyleBackColor = true;
@@ -786,7 +786,7 @@
             this.r13.Location = new System.Drawing.Point(223, 5);
             this.r13.Name = "r13";
             this.r13.Size = new System.Drawing.Size(35, 17);
-            this.r13.TabIndex = 18;
+            this.r13.TabIndex = 0;
             this.r13.TabStop = true;
             this.r13.Text = "SI";
             this.r13.UseVisualStyleBackColor = true;
@@ -817,7 +817,7 @@
             this.r10.Location = new System.Drawing.Point(274, 7);
             this.r10.Name = "r10";
             this.r10.Size = new System.Drawing.Size(41, 17);
-            this.r10.TabIndex = 17;
+            this.r10.TabIndex = 1;
             this.r10.TabStop = true;
             this.r10.Text = "NO";
             this.r10.UseVisualStyleBackColor = true;
@@ -828,7 +828,7 @@
             this.r9.Location = new System.Drawing.Point(223, 7);
             this.r9.Name = "r9";
             this.r9.Size = new System.Drawing.Size(35, 17);
-            this.r9.TabIndex = 16;
+            this.r9.TabIndex = 0;
             this.r9.TabStop = true;
             this.r9.Text = "SI";
             this.r9.UseVisualStyleBackColor = true;
@@ -868,7 +868,7 @@
             this.r3.Location = new System.Drawing.Point(227, 10);
             this.r3.Name = "r3";
             this.r3.Size = new System.Drawing.Size(35, 17);
-            this.r3.TabIndex = 2;
+            this.r3.TabIndex = 0;
             this.r3.TabStop = true;
             this.r3.Text = "SI";
             this.r3.UseVisualStyleBackColor = true;
@@ -879,7 +879,7 @@
             this.r4.Location = new System.Drawing.Point(278, 9);
             this.r4.Name = "r4";
             this.r4.Size = new System.Drawing.Size(41, 17);
-            this.r4.TabIndex = 3;
+            this.r4.TabIndex = 1;
             this.r4.TabStop = true;
             this.r4.Text = "NO";
             this.r4.UseVisualStyleBackColor = true;
@@ -952,14 +952,14 @@
             this.txtOtrosHeredo.Location = new System.Drawing.Point(386, 71);
             this.txtOtrosHeredo.Name = "txtOtrosHeredo";
             this.txtOtrosHeredo.Size = new System.Drawing.Size(164, 20);
-            this.txtOtrosHeredo.TabIndex = 11;
+            this.txtOtrosHeredo.TabIndex = 5;
             // 
             // txtAsmaHeredo
             // 
             this.txtAsmaHeredo.Location = new System.Drawing.Point(386, 47);
             this.txtAsmaHeredo.Name = "txtAsmaHeredo";
             this.txtAsmaHeredo.Size = new System.Drawing.Size(164, 20);
-            this.txtAsmaHeredo.TabIndex = 10;
+            this.txtAsmaHeredo.TabIndex = 4;
             // 
             // label87
             // 
@@ -984,7 +984,7 @@
             this.txtTiroidesHeredo.Location = new System.Drawing.Point(386, 18);
             this.txtTiroidesHeredo.Name = "txtTiroidesHeredo";
             this.txtTiroidesHeredo.Size = new System.Drawing.Size(164, 20);
-            this.txtTiroidesHeredo.TabIndex = 7;
+            this.txtTiroidesHeredo.TabIndex = 3;
             // 
             // label66
             // 
@@ -1000,21 +1000,21 @@
             this.txtCancerHeredo.Location = new System.Drawing.Point(104, 76);
             this.txtCancerHeredo.Name = "txtCancerHeredo";
             this.txtCancerHeredo.Size = new System.Drawing.Size(171, 20);
-            this.txtCancerHeredo.TabIndex = 5;
+            this.txtCancerHeredo.TabIndex = 2;
             // 
             // txtDiabetesHeredo
             // 
             this.txtDiabetesHeredo.Location = new System.Drawing.Point(104, 49);
             this.txtDiabetesHeredo.Name = "txtDiabetesHeredo";
             this.txtDiabetesHeredo.Size = new System.Drawing.Size(171, 20);
-            this.txtDiabetesHeredo.TabIndex = 4;
+            this.txtDiabetesHeredo.TabIndex = 1;
             // 
             // txtHipertensionHeredo
             // 
             this.txtHipertensionHeredo.Location = new System.Drawing.Point(104, 21);
             this.txtHipertensionHeredo.Name = "txtHipertensionHeredo";
             this.txtHipertensionHeredo.Size = new System.Drawing.Size(171, 20);
-            this.txtHipertensionHeredo.TabIndex = 3;
+            this.txtHipertensionHeredo.TabIndex = 0;
             // 
             // label65
             // 
@@ -1050,7 +1050,7 @@
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(525, 77);
-            this.txtObservaciones.TabIndex = 18;
+            this.txtObservaciones.TabIndex = 0;
             // 
             // label28
             // 
@@ -1092,7 +1092,7 @@
             this.r22.Location = new System.Drawing.Point(274, 4);
             this.r22.Name = "r22";
             this.r22.Size = new System.Drawing.Size(41, 17);
-            this.r22.TabIndex = 39;
+            this.r22.TabIndex = 1;
             this.r22.TabStop = true;
             this.r22.Text = "NO";
             this.r22.UseVisualStyleBackColor = true;
@@ -1103,7 +1103,7 @@
             this.r21.Location = new System.Drawing.Point(223, 5);
             this.r21.Name = "r21";
             this.r21.Size = new System.Drawing.Size(35, 17);
-            this.r21.TabIndex = 38;
+            this.r21.TabIndex = 0;
             this.r21.TabStop = true;
             this.r21.Text = "SI";
             this.r21.UseVisualStyleBackColor = true;
@@ -1134,7 +1134,7 @@
             this.r20.Location = new System.Drawing.Point(274, 6);
             this.r20.Name = "r20";
             this.r20.Size = new System.Drawing.Size(41, 17);
-            this.r20.TabIndex = 23;
+            this.r20.TabIndex = 1;
             this.r20.TabStop = true;
             this.r20.Text = "NO";
             this.r20.UseVisualStyleBackColor = true;
@@ -1145,7 +1145,7 @@
             this.r19.Location = new System.Drawing.Point(223, 7);
             this.r19.Name = "r19";
             this.r19.Size = new System.Drawing.Size(35, 17);
-            this.r19.TabIndex = 22;
+            this.r19.TabIndex = 0;
             this.r19.TabStop = true;
             this.r19.Text = "SI";
             this.r19.UseVisualStyleBackColor = true;
@@ -1176,7 +1176,7 @@
             this.r16.Location = new System.Drawing.Point(274, 7);
             this.r16.Name = "r16";
             this.r16.Size = new System.Drawing.Size(41, 17);
-            this.r16.TabIndex = 20;
+            this.r16.TabIndex = 1;
             this.r16.TabStop = true;
             this.r16.Text = "NO";
             this.r16.UseVisualStyleBackColor = true;
@@ -1187,7 +1187,7 @@
             this.r15.Location = new System.Drawing.Point(223, 8);
             this.r15.Name = "r15";
             this.r15.Size = new System.Drawing.Size(35, 17);
-            this.r15.TabIndex = 19;
+            this.r15.TabIndex = 0;
             this.r15.TabStop = true;
             this.r15.Text = "SI";
             this.r15.UseVisualStyleBackColor = true;
@@ -1218,7 +1218,7 @@
             this.r12.Location = new System.Drawing.Point(274, 4);
             this.r12.Name = "r12";
             this.r12.Size = new System.Drawing.Size(41, 17);
-            this.r12.TabIndex = 18;
+            this.r12.TabIndex = 1;
             this.r12.TabStop = true;
             this.r12.Text = "NO";
             this.r12.UseVisualStyleBackColor = true;
@@ -1229,7 +1229,7 @@
             this.r11.Location = new System.Drawing.Point(223, 5);
             this.r11.Name = "r11";
             this.r11.Size = new System.Drawing.Size(35, 17);
-            this.r11.TabIndex = 17;
+            this.r11.TabIndex = 0;
             this.r11.TabStop = true;
             this.r11.Text = "SI";
             this.r11.UseVisualStyleBackColor = true;
@@ -1290,7 +1290,7 @@
             this.r34.Location = new System.Drawing.Point(159, 6);
             this.r34.Name = "r34";
             this.r34.Size = new System.Drawing.Size(41, 17);
-            this.r34.TabIndex = 31;
+            this.r34.TabIndex = 1;
             this.r34.TabStop = true;
             this.r34.Text = "NO";
             this.r34.UseVisualStyleBackColor = true;
@@ -1302,7 +1302,7 @@
             this.r33.Location = new System.Drawing.Point(108, 7);
             this.r33.Name = "r33";
             this.r33.Size = new System.Drawing.Size(35, 17);
-            this.r33.TabIndex = 30;
+            this.r33.TabIndex = 0;
             this.r33.TabStop = true;
             this.r33.Text = "SI";
             this.r33.UseVisualStyleBackColor = true;
@@ -1334,7 +1334,7 @@
             this.r32.Location = new System.Drawing.Point(160, 6);
             this.r32.Name = "r32";
             this.r32.Size = new System.Drawing.Size(41, 17);
-            this.r32.TabIndex = 26;
+            this.r32.TabIndex = 1;
             this.r32.TabStop = true;
             this.r32.Text = "NO";
             this.r32.UseVisualStyleBackColor = true;
@@ -1346,7 +1346,7 @@
             this.r31.Location = new System.Drawing.Point(109, 7);
             this.r31.Name = "r31";
             this.r31.Size = new System.Drawing.Size(35, 17);
-            this.r31.TabIndex = 25;
+            this.r31.TabIndex = 0;
             this.r31.TabStop = true;
             this.r31.Text = "SI";
             this.r31.UseVisualStyleBackColor = true;
@@ -1378,7 +1378,7 @@
             this.r30.Location = new System.Drawing.Point(160, 6);
             this.r30.Name = "r30";
             this.r30.Size = new System.Drawing.Size(41, 17);
-            this.r30.TabIndex = 21;
+            this.r30.TabIndex = 1;
             this.r30.TabStop = true;
             this.r30.Text = "NO";
             this.r30.UseVisualStyleBackColor = true;
@@ -1390,7 +1390,7 @@
             this.r29.Location = new System.Drawing.Point(109, 7);
             this.r29.Name = "r29";
             this.r29.Size = new System.Drawing.Size(35, 17);
-            this.r29.TabIndex = 20;
+            this.r29.TabIndex = 0;
             this.r29.TabStop = true;
             this.r29.Text = "SI";
             this.r29.UseVisualStyleBackColor = true;
@@ -1422,7 +1422,7 @@
             this.r28.Location = new System.Drawing.Point(161, 10);
             this.r28.Name = "r28";
             this.r28.Size = new System.Drawing.Size(41, 17);
-            this.r28.TabIndex = 38;
+            this.r28.TabIndex = 1;
             this.r28.TabStop = true;
             this.r28.Text = "NO";
             this.r28.UseVisualStyleBackColor = true;
@@ -1434,7 +1434,7 @@
             this.r27.Location = new System.Drawing.Point(110, 11);
             this.r27.Name = "r27";
             this.r27.Size = new System.Drawing.Size(35, 17);
-            this.r27.TabIndex = 37;
+            this.r27.TabIndex = 0;
             this.r27.TabStop = true;
             this.r27.Text = "SI";
             this.r27.UseVisualStyleBackColor = true;
@@ -1474,7 +1474,7 @@
             this.txtTratAsma.Multiline = true;
             this.txtTratAsma.Name = "txtTratAsma";
             this.txtTratAsma.Size = new System.Drawing.Size(455, 41);
-            this.txtTratAsma.TabIndex = 27;
+            this.txtTratAsma.TabIndex = 2;
             // 
             // txtTratTiroides
             // 
@@ -1483,7 +1483,7 @@
             this.txtTratTiroides.Multiline = true;
             this.txtTratTiroides.Name = "txtTratTiroides";
             this.txtTratTiroides.Size = new System.Drawing.Size(455, 41);
-            this.txtTratTiroides.TabIndex = 32;
+            this.txtTratTiroides.TabIndex = 3;
             // 
             // lblTratHipertension
             // 
@@ -1501,7 +1501,7 @@
             this.txtTratHipertension.Multiline = true;
             this.txtTratHipertension.Name = "txtTratHipertension";
             this.txtTratHipertension.Size = new System.Drawing.Size(455, 41);
-            this.txtTratHipertension.TabIndex = 22;
+            this.txtTratHipertension.TabIndex = 1;
             // 
             // txtTratDiabetes
             // 
@@ -1510,7 +1510,7 @@
             this.txtTratDiabetes.Multiline = true;
             this.txtTratDiabetes.Name = "txtTratDiabetes";
             this.txtTratDiabetes.Size = new System.Drawing.Size(455, 41);
-            this.txtTratDiabetes.TabIndex = 18;
+            this.txtTratDiabetes.TabIndex = 0;
             // 
             // lblTratamiento
             // 
@@ -1558,7 +1558,7 @@
             this.r8.Location = new System.Drawing.Point(278, 4);
             this.r8.Name = "r8";
             this.r8.Size = new System.Drawing.Size(41, 17);
-            this.r8.TabIndex = 10;
+            this.r8.TabIndex = 1;
             this.r8.TabStop = true;
             this.r8.Text = "NO";
             this.r8.UseVisualStyleBackColor = true;
@@ -1569,7 +1569,7 @@
             this.r7.Location = new System.Drawing.Point(227, 5);
             this.r7.Name = "r7";
             this.r7.Size = new System.Drawing.Size(35, 17);
-            this.r7.TabIndex = 9;
+            this.r7.TabIndex = 0;
             this.r7.TabStop = true;
             this.r7.Text = "SI";
             this.r7.UseVisualStyleBackColor = true;
@@ -1600,7 +1600,7 @@
             this.r6.Location = new System.Drawing.Point(278, 4);
             this.r6.Name = "r6";
             this.r6.Size = new System.Drawing.Size(41, 17);
-            this.r6.TabIndex = 8;
+            this.r6.TabIndex = 1;
             this.r6.TabStop = true;
             this.r6.Text = "NO";
             this.r6.UseVisualStyleBackColor = true;
@@ -1611,7 +1611,7 @@
             this.r5.Location = new System.Drawing.Point(227, 5);
             this.r5.Name = "r5";
             this.r5.Size = new System.Drawing.Size(35, 17);
-            this.r5.TabIndex = 7;
+            this.r5.TabIndex = 0;
             this.r5.TabStop = true;
             this.r5.Text = "SI";
             this.r5.UseVisualStyleBackColor = true;
