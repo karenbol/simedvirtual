@@ -83,7 +83,7 @@ namespace SIMEDVirtual
         string diagnostico = "";
         string terapeutica = "";
         string observaciones_generales = "";
-     
+
 
         //parametro que me dice si guardo toda la info o solo la reconsulta
         public bool expOreconsulta;
@@ -370,105 +370,9 @@ namespace SIMEDVirtual
             //falta la cedula y el id medico 
         }
 
-
-        public frm_ExpedienteMG()//datos usuario me trae el nombre y apellido del usuario
+        //determina el tipo se sangre y lo asigna al combo
+        public void determinaTipoSangre(string grupo)
         {
-            InitializeComponent();
-            label29.Text = Frm_Ingreso.datosUsuario;  //asignamos el nombre del usuario
-            usuarioPublico = Frm_Ingreso.datosUsuario;
-
-            //vamos a guardar en el cliente y en el expediente
-            expOreconsulta = false;
-
-            txtTratDiabetes.Visible = false;
-            lblTratamiento.Visible = false;
-
-            txtTratHipertension.Visible = false;
-            lblTratHipertension.Visible = false;
-
-            txtTratAsma.Visible = false;
-            lblTratAsma.Visible = false;
-
-            txtTratTiroides.Visible = false;
-            lblTratTiroides.Visible = false;
-
-            txtAlergias.Visible = false;
-
-            fecha_nacimiento.Format = DateTimePickerFormat.Custom;
-            fecha_nacimiento.CustomFormat = "yyyy/MM/dd";
-
-            //iniciamos los combos
-            cbEstado.SelectedIndex = 0;
-            cbSangre.SelectedIndex = 0;
-            cbSexo.SelectedIndex = 0;
-
-            cargaComboEmpresas();
-        }
-
-        //************************************************************************
-        //segundo metodo constructor para la RECONSULTA
-        //aqui tengo todos los datos personales y de amannesis para quemarlos en la pantalla
-        public frm_ExpedienteMG(
-            string nombre, string apellido1, string apellido2, string cedula, DateTime fecha, char sexo, string estado_Civil,
-            string grupo, string profesion, int telefono, int movil, string email, string direccion, char tabaquismo,
-            char ingesta, char alcoholismo, char rehabilitacion, char diabetes, char hipertension, char dolor_cabeza,
-            char epilepsia, char vertigo, char depresion, char falta_aire, char enf_ojos_oidos, char dolor_pecho,
-            char enf_nerviosas, char alergia, string alergia_trat, string diabetes_trat, string hipertension_trat,
-            char asma, string asma_trat, char tiroides, string tiroides_trat, string hipertension_heredo, string diabetes_heredo,
-            string cancer_heredo, string tiroides_heredo, string asma_heredo, string otros_heredo, string edad, string empresa,
-            string observaciones, bool editar)
-        {
-            InitializeComponent();
-
-            //vamos a guardar solo en el exp xq es reconsulta
-            expOreconsulta = true;
-            cedulaPublica = cedula;
-
-            txtNombre.Text = nombre;
-            txtApe1.Text = apellido1;
-            txtApe2.Text = apellido2;
-            txtCedula.Text = cedula;
-            fecha_nacimiento.Value = fecha;
-            txtEdad.Text = edad;
-
-            //combo de empresa
-            cargaComboEmpresas();
-
-            int x = cbEmpresa.Items.IndexOf(empresa);
-            cbEmpresa.SelectedIndex = x;
-
-            //combo del sexo
-            if (sexo == 'f')
-            {
-                cbSexo.SelectedIndex = 0;
-            }
-            else
-            {
-                cbSexo.SelectedIndex = 1;
-            }
-
-            //combo de estado civil
-            if (estado_Civil == "SOLTERO")
-            {
-                cbEstado.SelectedIndex = 0;
-            }
-            else if (estado_Civil == "CASADO")
-            {
-                cbEstado.SelectedIndex = 1;
-            }
-            else if (estado_Civil == "VIUDO")
-            {
-                cbEstado.SelectedIndex = 2;
-            }
-            else if (estado_Civil == "DIVORCIADO")
-            {
-                cbEstado.SelectedIndex = 3;
-            }
-            else if (estado_Civil == "UNION LIBRE")
-            {
-                cbEstado.SelectedIndex = 4;
-            }
-
             //combo de la sangre
             if (grupo == "A+")
             {
@@ -502,15 +406,68 @@ namespace SIMEDVirtual
             {
                 cbSangre.SelectedIndex = 7;
             }
+        }
 
-            txtProfesion.Text = profesion;
-            txtTelefono.Text = telefono.ToString();
-            txtMovil.Text = movil.ToString();
-            txtEmail.Text = email;
-            txtDireccion.Text = direccion;
-            txtObservaciones.Text = observaciones;
+        public void determinaEstadoCivil(string estado_Civil)
+        {
+            //combo de estado civil
+            if (estado_Civil == "SOLTERO")
+            {
+                cbEstado.SelectedIndex = 0;
+            }
+            else if (estado_Civil == "CASADO")
+            {
+                cbEstado.SelectedIndex = 1;
+            }
+            else if (estado_Civil == "VIUDO")
+            {
+                cbEstado.SelectedIndex = 2;
+            }
+            else if (estado_Civil == "DIVORCIADO")
+            {
+                cbEstado.SelectedIndex = 3;
+            }
+            else if (estado_Civil == "UNION LIBRE")
+            {
+                cbEstado.SelectedIndex = 4;
+            }
+        }
 
-            //----------------------------anamnesis----------------------
+        public void determinaAnamnesis(string cedula)
+        {
+            List<anamnesis> listaAnamnesis = anamnesisIT.selectAnamnesisPorCedula(cedula);
+            //anamnesis
+            char tabaquismo = Convert.ToChar(listaAnamnesis.ElementAt(0).tabaquismo);
+            char ingesta = Convert.ToChar(listaAnamnesis.ElementAt(0).ingesta_medicamentos);
+            char alcoholismo = Convert.ToChar(listaAnamnesis.ElementAt(0).alcoholismo);
+            char rehabilitacion = Convert.ToChar(listaAnamnesis.ElementAt(0).rehabilitacion);
+            char diabetes = Convert.ToChar(listaAnamnesis.ElementAt(0).diabetes);
+            char hipertension = Convert.ToChar(listaAnamnesis.ElementAt(0).hipertension);
+            char dolor_cabeza = Convert.ToChar(listaAnamnesis.ElementAt(0).dolor_Cabeza);
+            char epilepsia = Convert.ToChar(listaAnamnesis.ElementAt(0).epilepsia);
+            char vertigo = Convert.ToChar(listaAnamnesis.ElementAt(0).vertigo);
+            char depresion = Convert.ToChar(listaAnamnesis.ElementAt(0).depre);
+            char falta_aire = Convert.ToChar(listaAnamnesis.ElementAt(0).falta_aire);
+            char enf_ojos_oidos = Convert.ToChar(listaAnamnesis.ElementAt(0).enf_ojos_oidos);
+            char dolor_pecho = Convert.ToChar(listaAnamnesis.ElementAt(0).dolor_pecho);
+            char enf_nerviosas = Convert.ToChar(listaAnamnesis.ElementAt(0).enf_nerviosas);
+            char alergia = Convert.ToChar(listaAnamnesis.ElementAt(0).alergias);
+            string alergia_trat = Convert.ToString(listaAnamnesis.ElementAt(0).alergias_tratamiento);
+            string diabetes_trat = Convert.ToString(listaAnamnesis.ElementAt(0).diabetes_trat);
+            string hipertension_trat = Convert.ToString(listaAnamnesis.ElementAt(0).hipertension_trat);
+            char asma = Convert.ToChar(listaAnamnesis.ElementAt(0).asma);
+            string asma_trat = Convert.ToString(listaAnamnesis.ElementAt(0).asma_tratamiento);
+            char tiroides = Convert.ToChar(listaAnamnesis.ElementAt(0).tiroides);
+            string tiroides_trat = Convert.ToString(listaAnamnesis.ElementAt(0).tiroides_tratamiento);
+
+            string hipertension_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).hipertension_heredo);
+            string diabetes_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).diabetes_heredo);
+            string cancer_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).cancer_heredo);
+            string tiroides_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).tiroides_heredo);
+            string asma_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).asma_heredo);
+            string otros_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).otros_heredo);
+
+            string observaciones = Convert.ToString(listaAnamnesis.ElementAt(0).observaciones);
 
             // revision de combo boxes anamnesis
             if (tabaquismo == 's')
@@ -694,8 +651,207 @@ namespace SIMEDVirtual
             txtTiroidesHeredo.Text = tiroides_heredo;
             txtAsmaHeredo.Text = asma_heredo;
             txtOtrosHeredo.Text = otros_heredo;
+        }
 
-            //aqui no se puede editar nada
+        public void determinaExpediente(string cedula_paciente)
+        {
+            List<ExpedienteEntity> listaExpediente = ExpedienteIT.selectExpediente(cedula_paciente);
+            //anamnesis
+            string pulso = listaExpediente.ElementAt(0).pulso.ToString();
+            string presion_arterial = listaExpediente.ElementAt(0).presion_arterial.ToString();
+            char soplos = Convert.ToChar(listaExpediente.ElementAt(0).soplos);
+            char dolor_precordial = Convert.ToChar(listaExpediente.ElementAt(0).dolor_precordial);
+            char edemas = Convert.ToChar(listaExpediente.ElementAt(0).edemas);
+            char arritmias = Convert.ToChar(listaExpediente.ElementAt(0).arritmias);
+            char disnea = Convert.ToChar(listaExpediente.ElementAt(0).disnea);
+            string observaciones_sc = listaExpediente.ElementAt(0).observaciones_sc.ToString();
+            string talla = listaExpediente.ElementAt(0).talla.ToString();
+            string peso = listaExpediente.ElementAt(0).peso.ToString();
+            string observaciones_sm = listaExpediente.ElementAt(0).observaciones_sm.ToString();
+            string brazo_derecho = listaExpediente.ElementAt(0).brazo_derecho.ToString();
+            string brazo_izquierdo = listaExpediente.ElementAt(0).brazo_izquierdo.ToString();
+            string pierna_derecha = listaExpediente.ElementAt(0).pierna_derecha.ToString();
+            string pierna_izquierda = listaExpediente.ElementAt(0).pierna_izquierda.ToString();
+            char bicipal_derecho = Convert.ToChar(listaExpediente.ElementAt(0).bicipal_derecho);
+            char bicipal_izquierdo = Convert.ToChar(listaExpediente.ElementAt(0).bicipal_izquierdo);
+            char patelar_derecho = Convert.ToChar(listaExpediente.ElementAt(0).patelar_derecho);
+            char patelar_izquierdo = Convert.ToChar(listaExpediente.ElementAt(0).patelar_izquierdo);
+            char alquileano_derecho = Convert.ToChar(listaExpediente.ElementAt(0).alquileano_derecho);
+            char alquileano_izquierdo = Convert.ToChar(listaExpediente.ElementAt(0).alquileano_izquierdo);
+            char flexion = Convert.ToChar(listaExpediente.ElementAt(0).flexion);
+
+            char extensiones = Convert.ToChar(listaExpediente.ElementAt(0).extensiones);
+            char rotacion = Convert.ToChar(listaExpediente.ElementAt(0).rotacion);
+            char inclinacion_lateral = Convert.ToChar(listaExpediente.ElementAt(0).inclinacion_lateral);
+            string observaciones_cc = Convert.ToString(listaExpediente.ElementAt(0).observaciones_cc);
+            string malformaciones = Convert.ToString(listaExpediente.ElementAt(0).malformaciones);
+            char observaciones_dl = Convert.ToChar(listaExpediente.ElementAt(0).observaciones_dl);
+
+            string observaciones_dl_txt = Convert.ToString(listaExpediente.ElementAt(0).observaciones_dl_txt);
+            char petequias = Convert.ToChar(listaExpediente.ElementAt(0).petequias);
+            char equimosis = Convert.ToChar(listaExpediente.ElementAt(0).equimosis);
+            char sangrado = Convert.ToChar(listaExpediente.ElementAt(0).sangrado);
+            string observaciones_sh = Convert.ToString(listaExpediente.ElementAt(0).observaciones_sh);
+            string examen_neurologico = Convert.ToString(listaExpediente.ElementAt(0).examen_neurologico);
+            string orl = Convert.ToString(listaExpediente.ElementAt(0).orl);
+            string abdomen = Convert.ToString(listaExpediente.ElementAt(0).abdomen);
+            char auscultacion = Convert.ToChar(listaExpediente.ElementAt(0).auscultacion);
+            string observaciones_sr = Convert.ToString(listaExpediente.ElementAt(0).observaciones_sr);
+            char convulciones = Convert.ToChar(listaExpediente.ElementAt(0).convulciones);
+            char espasmos = Convert.ToChar(listaExpediente.ElementAt(0).espasmos);
+            char temblores = Convert.ToChar(listaExpediente.ElementAt(0).temblores);
+            char movimientos_anormales = Convert.ToChar(listaExpediente.ElementAt(0).movimientos_anormales);
+            string otros_sn = Convert.ToString(listaExpediente.ElementAt(0).otros_sn);
+            string observaciones_sn = Convert.ToString(listaExpediente.ElementAt(0).observaciones_sn);
+            string otros_examen2 = Convert.ToString(listaExpediente.ElementAt(0).otros_examen2);
+            DateTime fecha = Convert.ToDateTime(listaExpediente.ElementAt(0).fecha);
+            string diagnostico = Convert.ToString(listaExpediente.ElementAt(0).diagnostico);
+
+            string terapeutica = Convert.ToString(listaExpediente.ElementAt(0).terapeutica);
+            string observaciones_generales = Convert.ToString(listaExpediente.ElementAt(0).observaciones_generales);
+            string cedula = Convert.ToString(listaExpediente.ElementAt(0).cedula);
+            string cedula_medico = Convert.ToString(listaExpediente.ElementAt(0).cedula_medico);
+
+            txtPulso.Text = pulso;
+            txtPresionArterial.Text = presion_arterial;
+            txtObservacionesSC.Text = observaciones_sc;
+            txtTalla.Text = talla;
+            txtPeso.Text = peso;
+            txtObservacionesSE.Text = observaciones_sm;
+            txtBrazoDech.Text = brazo_derecho;
+            txtBrazoIzq.Text = brazo_izquierdo;
+            txtPiernaDer.Text = brazo_izquierdo;
+            txtPiernaIzq.Text = brazo_izquierdo;
+            txtObservacionesCC.Text = observaciones_cc;
+            txtMalformaciones.Text = malformaciones;
+            txtObservacionesCDL.Text = observaciones_dl_txt;
+            txtObservacionesSH.Text = observaciones_sh;
+            txtExamenNeurologico.Text = examen_neurologico;
+            txtOrl.Text = orl;
+            txtAbdomen.Text = abdomen;
+            txtObservacionesSR.Text = observaciones_sr;
+            txtOtrosSN.Text = otros_sn;
+            txtObservacionesSN.Text = observaciones_sn;
+            txtOtrosExamen2.Text = otros_examen2;
+
+               
+
+            // revision de combo boxes anamnesis
+            if (tabaquismo == 's')
+            {
+                r1.Checked = true;
+            }
+            else if (tabaquismo == 'n')
+            {
+                r2.Checked = true;
+            }
+        }
+                
+
+        //constructor en blanco
+        public frm_ExpedienteMG()//datos usuario me trae el nombre y apellido del usuario
+        {
+            InitializeComponent();
+            label29.Text = Frm_Ingreso.datosUsuario;  //asignamos el nombre del usuario
+            usuarioPublico = Frm_Ingreso.datosUsuario;
+
+            //vamos a guardar en el cliente y en el expediente
+            expOreconsulta = false;
+
+            txtTratDiabetes.Visible = false;
+            lblTratamiento.Visible = false;
+
+            txtTratHipertension.Visible = false;
+            lblTratHipertension.Visible = false;
+
+            txtTratAsma.Visible = false;
+            lblTratAsma.Visible = false;
+
+            txtTratTiroides.Visible = false;
+            lblTratTiroides.Visible = false;
+
+            txtAlergias.Visible = false;
+
+            fecha_nacimiento.Format = DateTimePickerFormat.Custom;
+            fecha_nacimiento.CustomFormat = "yyyy/MM/dd";
+
+            //iniciamos los combos
+            cbEstado.SelectedIndex = 0;
+            cbSangre.SelectedIndex = 0;
+            cbSexo.SelectedIndex = 0;
+
+            cargaComboEmpresas();
+        }
+
+
+        //************************************************************************
+        //segundo metodo constructor para la RECONSULTA
+        //aqui tengo todos los datos personales y de amannesis para quemarlos en la pantalla
+        //public frm_ExpedienteMG(
+        //    string nombre, string apellido1, string apellido2, string cedula, DateTime fecha, char sexo, string estado_Civil,
+        //    string grupo, string profesion, int telefono, int movil, string email, string direccion, char tabaquismo,
+        //    char ingesta, char alcoholismo, char rehabilitacion, char diabetes, char hipertension, char dolor_cabeza,
+        //    char epilepsia, char vertigo, char depresion, char falta_aire, char enf_ojos_oidos, char dolor_pecho,
+        //    char enf_nerviosas, char alergia, string alergia_trat, string diabetes_trat, string hipertension_trat,
+        //    char asma, string asma_trat, char tiroides, string tiroides_trat, string hipertension_heredo, string diabetes_heredo,
+        //    string cancer_heredo, string tiroides_heredo, string asma_heredo, string otros_heredo, string edad, string empresa,
+        //    string observaciones, bool editar, bool verExpediente)
+        //{
+        public frm_ExpedienteMG(string cedula_paciente, bool editar, bool verExpediente)
+        {
+            InitializeComponent();
+
+            //vamos a guardar solo en el exp xq es reconsulta
+            expOreconsulta = true;
+            cedulaPublica = cedula_paciente;
+
+            //me trae todo del cliente segun la cedula
+            List<ClienteEntity> lista = ClienteIT.selectClientePorCedula(cedula_paciente);
+
+            Char sexo = lista.ElementAt(0).sexo;
+            string estado_Civil = lista.ElementAt(0).estado_civil.ToString();
+            string grupo = lista.ElementAt(0).grupo_sanguineo.ToString();
+            int telefono = Convert.ToInt32(lista.ElementAt(0).telefono_fijo);
+            int movil = Convert.ToInt32(lista.ElementAt(0).telefono_movil);
+            string empresa = Convert.ToString(lista.ElementAt(0).empresa);
+
+            txtNombre.Text = lista.ElementAt(0).nombre.ToString();
+            txtApe1.Text = lista.ElementAt(0).ape1.ToString();
+            txtApe2.Text = lista.ElementAt(0).ape2.ToString();
+            txtCedula.Text = lista.ElementAt(0).cedula.ToString();
+            fecha_nacimiento.Value = lista.ElementAt(0).fecha;
+            txtEdad.Text = lista.ElementAt(0).edad.ToString();
+
+            //combo de empresa
+            cargaComboEmpresas();
+
+            int x = cbEmpresa.Items.IndexOf(empresa);
+            cbEmpresa.SelectedIndex = x;
+
+            //combo del sexo
+            if (sexo == 'f')
+            {
+                cbSexo.SelectedIndex = 0;
+            }
+            else
+            {
+                cbSexo.SelectedIndex = 1;
+            }
+
+            //determina el estado civil y lo asigna
+            determinaEstadoCivil(estado_Civil);
+            //determina el tipo de sangre y lo asigna al combo
+            determinaTipoSangre(grupo);
+            txtProfesion.Text = lista.ElementAt(0).profesion.ToString();
+            txtTelefono.Text = telefono.ToString();
+            txtMovil.Text = movil.ToString();
+            txtEmail.Text = lista.ElementAt(0).email.ToString();
+            txtDireccion.Text = lista.ElementAt(0).direccion.ToString();
+            //----------------------------anamnesis----------------------
+            //me devuelve toda la anam
+            this.determinaAnamnesis(cedula_paciente);
+
+            //aqui no se puede editar nada xq voy a reconsultar
             if (editar == false)
             {
                 ((Control)this.tbPageAnamnesis).Enabled = false;
@@ -703,110 +859,16 @@ namespace SIMEDVirtual
                 //this.DisableAnamnesis();
                 //this.DisableInfoPersonal();
             }
+            else if (verExpediente)
+            {
+                determinaExpediente(cedula_paciente);
+            }
             else
             {
                 txtCedula.Enabled = false;
             }
-
         }
 
-
-        //metodo constructor para ver el expediente, recibe la cedula
-        public frm_ExpedienteMG(string cedula)
-        {
-            InitializeComponent();
-            //llamo al cliente
-            ClienteIT.selectClientePorCedula(cedula);
-            //llamo a la anamnesis
-            anamnesisIT.selectAnamnesisPorCedula(cedula);
-            //llamo al expediente
-            ExpedienteIT.selectExpedienteAll(cedula);
-
-            //deshabilitar la edicion
-            ((Control)this.tabPageInfoPersonal).Enabled = false;
-            ((Control)this.tbPageAnamnesis).Enabled = false;
-            ((Control)this.tabPageExFisico).Enabled = false;
-            ((Control)this.tabPageExFisicoII).Enabled = false;
-            ((Control)this.tabPageEpicrisis).Enabled = false;
-        }
-        
-
-        //deshabilita los campos de info personal
-        //public void DisableInfoPersonal()
-        //{
-        //    this.txtNombre.Enabled = false;
-        //    this.txtApe1.Enabled = false;
-        //    this.txtApe2.Enabled = false;
-        //    this.txtCedula.Enabled = false;
-        //    this.fecha_nacimiento.Enabled = false;
-        //    this.cbSexo.Enabled = false;
-        //    this.cbEstado.Enabled = false;
-        //    this.cbSangre.Enabled = false;
-        //    this.cbEmpresa.Enabled = false;
-        //    this.txtProfesion.Enabled = false;
-        //    this.txtTelefono.Enabled = false;
-        //    this.txtMovil.Enabled = false;
-        //    this.txtEmail.Enabled = false;
-        //    this.txtDireccion.Enabled = false;
-        //}
-        //deshabilita los campos de anamnesis
-        //public void DisableAnamnesis()
-        //{
-        //    this.r1.Enabled = false;
-        //    this.r2.Enabled = false;
-        //    this.r3.Enabled = false;
-        //    this.r4.Enabled = false;
-        //    this.r5.Enabled = false;
-        //    this.r6.Enabled = false;
-        //    this.r7.Enabled = false;
-        //    this.r8.Enabled = false;
-        //    this.r9.Enabled = false;
-        //    this.r10.Enabled = false;
-        //    this.r11.Enabled = false;
-        //    this.r12.Enabled = false;
-        //    this.r13.Enabled = false;
-        //    this.r14.Enabled = false;
-        //    this.r15.Enabled = false;
-        //    this.r16.Enabled = false;
-        //    this.r17.Enabled = false;
-        //    this.r18.Enabled = false;
-        //    this.r19.Enabled = false;
-        //    this.r20.Enabled = false;
-        //    this.r21.Enabled = false;
-        //    this.r22.Enabled = false;
-        //    this.r23.Enabled = false;
-        //    this.r24.Enabled = false;
-        //    this.r25.Enabled = false;
-        //    this.r26.Enabled = false;
-        //    this.r27.Enabled = false;
-        //    this.r28.Enabled = false;
-        //    this.r29.Enabled = false;
-        //    this.r30.Enabled = false;
-        //    this.r31.Enabled = false;
-        //    this.r32.Enabled = false;
-        //    this.r33.Enabled = false;
-        //    this.r34.Enabled = false;
-
-
-        //    txtTratDiabetes.Enabled = false;
-        //    txtTratHipertension.Enabled = false;
-        //    txtAlergias.Enabled = false;
-        //    txtTratAsma.Enabled = false;
-        //    txtTratTiroides.Enabled = false;
-
-        //    txtHipertensionHeredo.Enabled = false;
-        //    txtDiabetesHeredo.Enabled = false;
-        //    txtCancerHeredo.Enabled = false;
-        //    txtTiroidesHeredo.Enabled = false;
-        //    txtAsmaHeredo.Enabled = false;
-        //    txtOtrosHeredo.Enabled = false;
-
-        //    txtEdad.Enabled = false;
-
-        //    txtObservaciones.Enabled = false;
-        //}
-        //deshabilita el expediente
-       
 
         //opciond de cargar foto de paciente
         private void pbPaciente_Click(object sender, EventArgs e)
@@ -821,7 +883,7 @@ namespace SIMEDVirtual
                 pbPaciente.ImageLocation = x;
             }
         }
-        
+
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -1111,9 +1173,6 @@ namespace SIMEDVirtual
             toolTip1.SetToolTip(btnGuardar, "Guardar la Informacion del Paciente");
 
             toolTip1.SetToolTip(pbPaciente, "Cargar Foto de Paciente");
-
-            //carga todas las empresas en el combo box
-            //cargaComboEmpresas();
         }
 
         //metodo que carga TODAS LAS EMPRESAS registradas EN EL  COMBO BOX
