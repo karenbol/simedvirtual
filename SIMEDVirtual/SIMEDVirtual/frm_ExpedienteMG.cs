@@ -83,8 +83,7 @@ namespace SIMEDVirtual
         string diagnostico = "";
         string terapeutica = "";
         string observaciones_generales = "";
-        string cedula = "";
-        string cedula_medico = "";
+     
 
         //parametro que me dice si guardo toda la info o solo la reconsulta
         public bool expOreconsulta;
@@ -699,8 +698,10 @@ namespace SIMEDVirtual
             //aqui no se puede editar nada
             if (editar == false)
             {
-                this.DisableAnamnesis();
-                this.DisableInfoPersonal();
+                ((Control)this.tbPageAnamnesis).Enabled = false;
+                ((Control)this.tabPageInfoPersonal).Enabled = false;
+                //this.DisableAnamnesis();
+                //this.DisableInfoPersonal();
             }
             else
             {
@@ -710,80 +711,102 @@ namespace SIMEDVirtual
         }
 
 
+        //metodo constructor para ver el expediente, recibe la cedula
+        public frm_ExpedienteMG(string cedula)
+        {
+            InitializeComponent();
+            //llamo al cliente
+            ClienteIT.selectClientePorCedula(cedula);
+            //llamo a la anamnesis
+            anamnesisIT.selectAnamnesisPorCedula(cedula);
+            //llamo al expediente
+            ExpedienteIT.selectExpedienteAll(cedula);
+
+            //deshabilitar la edicion
+            ((Control)this.tabPageInfoPersonal).Enabled = false;
+            ((Control)this.tbPageAnamnesis).Enabled = false;
+            ((Control)this.tabPageExFisico).Enabled = false;
+            ((Control)this.tabPageExFisicoII).Enabled = false;
+            ((Control)this.tabPageEpicrisis).Enabled = false;
+        }
+        
+
         //deshabilita los campos de info personal
-        public void DisableInfoPersonal()
-        {
-            this.txtNombre.Enabled = false;
-            this.txtApe1.Enabled = false;
-            this.txtApe2.Enabled = false;
-            this.txtCedula.Enabled = false;
-            this.fecha_nacimiento.Enabled = false;
-            this.cbSexo.Enabled = false;
-            this.cbEstado.Enabled = false;
-            this.cbSangre.Enabled = false;
-            this.cbEmpresa.Enabled = false;
-            this.txtProfesion.Enabled = false;
-            this.txtTelefono.Enabled = false;
-            this.txtMovil.Enabled = false;
-            this.txtEmail.Enabled = false;
-            this.txtDireccion.Enabled = false;
-        }
+        //public void DisableInfoPersonal()
+        //{
+        //    this.txtNombre.Enabled = false;
+        //    this.txtApe1.Enabled = false;
+        //    this.txtApe2.Enabled = false;
+        //    this.txtCedula.Enabled = false;
+        //    this.fecha_nacimiento.Enabled = false;
+        //    this.cbSexo.Enabled = false;
+        //    this.cbEstado.Enabled = false;
+        //    this.cbSangre.Enabled = false;
+        //    this.cbEmpresa.Enabled = false;
+        //    this.txtProfesion.Enabled = false;
+        //    this.txtTelefono.Enabled = false;
+        //    this.txtMovil.Enabled = false;
+        //    this.txtEmail.Enabled = false;
+        //    this.txtDireccion.Enabled = false;
+        //}
         //deshabilita los campos de anamnesis
-        public void DisableAnamnesis()
-        {
-            this.r1.Enabled = false;
-            this.r2.Enabled = false;
-            this.r3.Enabled = false;
-            this.r4.Enabled = false;
-            this.r5.Enabled = false;
-            this.r6.Enabled = false;
-            this.r7.Enabled = false;
-            this.r8.Enabled = false;
-            this.r9.Enabled = false;
-            this.r10.Enabled = false;
-            this.r11.Enabled = false;
-            this.r12.Enabled = false;
-            this.r13.Enabled = false;
-            this.r14.Enabled = false;
-            this.r15.Enabled = false;
-            this.r16.Enabled = false;
-            this.r17.Enabled = false;
-            this.r18.Enabled = false;
-            this.r19.Enabled = false;
-            this.r20.Enabled = false;
-            this.r21.Enabled = false;
-            this.r22.Enabled = false;
-            this.r23.Enabled = false;
-            this.r24.Enabled = false;
-            this.r25.Enabled = false;
-            this.r26.Enabled = false;
-            this.r27.Enabled = false;
-            this.r28.Enabled = false;
-            this.r29.Enabled = false;
-            this.r30.Enabled = false;
-            this.r31.Enabled = false;
-            this.r32.Enabled = false;
-            this.r33.Enabled = false;
-            this.r34.Enabled = false;
+        //public void DisableAnamnesis()
+        //{
+        //    this.r1.Enabled = false;
+        //    this.r2.Enabled = false;
+        //    this.r3.Enabled = false;
+        //    this.r4.Enabled = false;
+        //    this.r5.Enabled = false;
+        //    this.r6.Enabled = false;
+        //    this.r7.Enabled = false;
+        //    this.r8.Enabled = false;
+        //    this.r9.Enabled = false;
+        //    this.r10.Enabled = false;
+        //    this.r11.Enabled = false;
+        //    this.r12.Enabled = false;
+        //    this.r13.Enabled = false;
+        //    this.r14.Enabled = false;
+        //    this.r15.Enabled = false;
+        //    this.r16.Enabled = false;
+        //    this.r17.Enabled = false;
+        //    this.r18.Enabled = false;
+        //    this.r19.Enabled = false;
+        //    this.r20.Enabled = false;
+        //    this.r21.Enabled = false;
+        //    this.r22.Enabled = false;
+        //    this.r23.Enabled = false;
+        //    this.r24.Enabled = false;
+        //    this.r25.Enabled = false;
+        //    this.r26.Enabled = false;
+        //    this.r27.Enabled = false;
+        //    this.r28.Enabled = false;
+        //    this.r29.Enabled = false;
+        //    this.r30.Enabled = false;
+        //    this.r31.Enabled = false;
+        //    this.r32.Enabled = false;
+        //    this.r33.Enabled = false;
+        //    this.r34.Enabled = false;
 
 
-            txtTratDiabetes.Enabled = false;
-            txtTratHipertension.Enabled = false;
-            txtAlergias.Enabled = false;
-            txtTratAsma.Enabled = false;
-            txtTratTiroides.Enabled = false;
+        //    txtTratDiabetes.Enabled = false;
+        //    txtTratHipertension.Enabled = false;
+        //    txtAlergias.Enabled = false;
+        //    txtTratAsma.Enabled = false;
+        //    txtTratTiroides.Enabled = false;
 
-            txtHipertensionHeredo.Enabled = false;
-            txtDiabetesHeredo.Enabled = false;
-            txtCancerHeredo.Enabled = false;
-            txtTiroidesHeredo.Enabled = false;
-            txtAsmaHeredo.Enabled = false;
-            txtOtrosHeredo.Enabled = false;
+        //    txtHipertensionHeredo.Enabled = false;
+        //    txtDiabetesHeredo.Enabled = false;
+        //    txtCancerHeredo.Enabled = false;
+        //    txtTiroidesHeredo.Enabled = false;
+        //    txtAsmaHeredo.Enabled = false;
+        //    txtOtrosHeredo.Enabled = false;
 
-            txtEdad.Enabled = false;
+        //    txtEdad.Enabled = false;
 
-            txtObservaciones.Enabled = false;
-        }
+        //    txtObservaciones.Enabled = false;
+        //}
+        //deshabilita el expediente
+       
 
         //opciond de cargar foto de paciente
         private void pbPaciente_Click(object sender, EventArgs e)
@@ -798,8 +821,7 @@ namespace SIMEDVirtual
                 pbPaciente.ImageLocation = x;
             }
         }
-
-
+        
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -1163,11 +1185,6 @@ namespace SIMEDVirtual
         {
             txtTratTiroides.Visible = false;
             lblTratTiroides.Visible = false;
-        }
-
-        private void rx288_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

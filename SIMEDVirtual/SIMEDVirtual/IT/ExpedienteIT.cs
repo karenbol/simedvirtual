@@ -19,18 +19,23 @@ namespace SIMEDVirtual.IT
          char movimientos_anormales, string otros_sn, string observaciones_sn, string otros_examen2, DateTime fecha,
          string diagnostico, string terapeutica, string observaciones_generales, string cedula, string cedula_medico)
         {
-            return ExpedienteDA.InsertaExpediente(pulso, presion_arterial, soplos, dolor_precordia,edemas,arritmias,disnea,
-                observaciones_sc,talla, peso,observaciones_sm,brazo_derecho,brazo_izquierdo,pierna_derecha,pierna_izquierda,
-                bicipal_derecho,bicipal_izquierdo,patelar_derecho,patelar_izquierdo,alquileano_derecho, alquileano_izquierdo,
-                flexion,extensiones,rotacion,inclinacion_lateral,observaciones_cc,malformaciones,observaciones_dl,
-                observaciones_dl_txt,petequias,equimosis,sangrado,observaciones_sh,examen_neurologico,orl,abdomen,auscultacion,
-                observaciones_sr,convulciones,espasmos,temblores,movimientos_anormales,otros_sn,observaciones_sn,otros_examen2,
-                fecha,diagnostico,terapeutica,observaciones_generales,cedula,cedula_medico);
+            return ExpedienteDA.InsertaExpediente(pulso, presion_arterial, soplos, dolor_precordia, edemas, arritmias, disnea,
+                observaciones_sc, talla, peso, observaciones_sm, brazo_derecho, brazo_izquierdo, pierna_derecha, pierna_izquierda,
+                bicipal_derecho, bicipal_izquierdo, patelar_derecho, patelar_izquierdo, alquileano_derecho, alquileano_izquierdo,
+                flexion, extensiones, rotacion, inclinacion_lateral, observaciones_cc, malformaciones, observaciones_dl,
+                observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen, auscultacion,
+                observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn, observaciones_sn, otros_examen2,
+                fecha, diagnostico, terapeutica, observaciones_generales, cedula, cedula_medico);
         }
 
         public static List<ExpedienteEntity> selectExpediente(string cedula_cliente)
         {
             return ExpedienteDA.selectExpediente(cedula_cliente);
+        }
+
+        public static List<ExpedienteEntity> selectExpedienteAll (string cedula_cliente)
+        {
+            return ExpedienteDA.selectExpedienteAll(cedula_cliente);
         }
     }
 }

@@ -2325,7 +2325,6 @@
             this.rx28.TabStop = true;
             this.rx28.Text = "ANL";
             this.rx28.UseVisualStyleBackColor = true;
-            this.rx28.CheckedChanged += new System.EventHandler(this.rx288_CheckedChanged);
             // 
             // rx27
             // 

@@ -87,11 +87,12 @@ namespace SIMEDVirtual
                 //se asignan datos al datagrid de reconsultas
                 for (int j = 0; j < pts.Count; j++)
                 {
-                    dgReconsultas.Rows[j].Cells[0].Value = pts.ElementAt(j).fecha.ToString();
-                    dgReconsultas.Rows[j].Cells[1].Value = MedicoIT.getApellidoMedico(pts.ElementAt(j).cedula_medico.ToString());
-                    dgReconsultas.Rows[j].Cells[2].Value = pts.ElementAt(j).diagnostico.ToString();
-                    dgReconsultas.Rows[j].Cells[3].Value = pts.ElementAt(j).terapeutica.ToString();
-                    dgReconsultas.Rows[j].Cells[4].Value = pts.ElementAt(j).observaciones_generales.ToString();
+                    dgReconsultas.Rows[j].Cells[0].Value = pts.ElementAt(j).cedula.ToString();
+                    dgReconsultas.Rows[j].Cells[1].Value = pts.ElementAt(j).fecha.ToString();
+                    dgReconsultas.Rows[j].Cells[2].Value = MedicoIT.getApellidoMedico(pts.ElementAt(j).cedula_medico.ToString());
+                    dgReconsultas.Rows[j].Cells[3].Value = pts.ElementAt(j).diagnostico.ToString();
+                    dgReconsultas.Rows[j].Cells[4].Value = pts.ElementAt(j).terapeutica.ToString();
+                    dgReconsultas.Rows[j].Cells[5].Value = pts.ElementAt(j).observaciones_generales.ToString();
                 }
             }
             else
@@ -241,9 +242,17 @@ namespace SIMEDVirtual
             frm.ShowDialog();
         }
 
-        private void btnEliminarPaciente_Click(object sender, EventArgs e)
+        //con el doble click enla tabla reconsulta muestro el expediente completo
+        private void dgReconsultas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            //obtngo el id de la row seleccionada
+            string cedula_paciente = Convert.ToString(dgReconsultas.Rows[e.RowIndex].Cells[0].Value);
+            //ahora debo hacer un select
 
+           //llamar al otro frm
+            this.Hide();
+            frm_ExpedienteMG frm = new frm_ExpedienteMG(cedula_paciente);
+            frm.ShowDialog();
         }
     }
 }

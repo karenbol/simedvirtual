@@ -7,6 +7,7 @@ namespace SIMEDVirtual.Entity
 {
     class ExpedienteEntity
     {
+        public string id_expediente { get; set; }
         public string pulso { get; set; }
         public string presion_arterial { get; set; }
         public char soplos { get; set; }

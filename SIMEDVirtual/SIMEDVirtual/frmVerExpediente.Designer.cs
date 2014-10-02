@@ -48,6 +48,7 @@
             this.btnReconsulta = new System.Windows.Forms.Button();
             this.btnEditarPaciente = new System.Windows.Forms.Button();
             this.btnCrearPaciente = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cedula_medico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diagnostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -147,6 +148,7 @@
             this.dgReconsultas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgReconsultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgReconsultas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.fecha,
             this.cedula_medico,
             this.diagnostico,
@@ -162,8 +164,9 @@
             this.dgReconsultas.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgReconsultas.Location = new System.Drawing.Point(149, 385);
             this.dgReconsultas.Name = "dgReconsultas";
-            this.dgReconsultas.Size = new System.Drawing.Size(585, 150);
+            this.dgReconsultas.Size = new System.Drawing.Size(637, 150);
             this.dgReconsultas.TabIndex = 6;
+            this.dgReconsultas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgReconsultas_CellDoubleClick);
             // 
             // label2
             // 
@@ -243,6 +246,14 @@
             this.btnCrearPaciente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnCrearPaciente.UseVisualStyleBackColor = true;
             this.btnCrearPaciente.Click += new System.EventHandler(this.btnCrearPaciente_Click);
+            // 
+            // id
+            // 
+            this.id.Frozen = true;
+            this.id.HeaderText = "Cedula";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 84;
             // 
             // fecha
             // 
@@ -329,6 +340,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn cedula_medico;
         private System.Windows.Forms.DataGridViewTextBoxColumn diagnostico;
