@@ -143,6 +143,7 @@ namespace SIMEDVirtual.DA
 
                     list.Add(anamnesis);
                 }
+                conn.Close();
             }
             return list;
         }

@@ -37,5 +37,10 @@ namespace SIMEDVirtual.IT
         {
             return ExpedienteDA.selectExpedienteAll(cedula_cliente);
         }
+
+        public static List<ExpedienteEntity> selectExpedienteById(string cedula_cliente, int id)
+        {
+            return ExpedienteDA.selectExpedienteById(cedula_cliente, id);
+        }
     }
 }

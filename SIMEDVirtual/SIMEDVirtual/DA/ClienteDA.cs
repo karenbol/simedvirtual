@@ -101,6 +101,7 @@ namespace SIMEDVirtual.DA
 
                     list.Add(cliente);
                 }
+                conn.Close();
             }
             return list;
         }
@@ -141,6 +142,7 @@ namespace SIMEDVirtual.DA
 
                     list.Add(cliente);
                 }
+                conn.Close();
             }
             return list;
         }

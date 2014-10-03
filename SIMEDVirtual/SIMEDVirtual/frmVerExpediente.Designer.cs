@@ -49,8 +49,9 @@
             this.btnEditarPaciente = new System.Windows.Forms.Button();
             this.btnCrearPaciente = new System.Windows.Forms.Button();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cedula_paciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cedula_medico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.diagnostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.terapeutica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,6 +90,7 @@
             this.dgClientes.MultiSelect = false;
             this.dgClientes.Name = "dgClientes";
             this.dgClientes.ReadOnly = true;
+            this.dgClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgClientes.Size = new System.Drawing.Size(517, 250);
             this.dgClientes.TabIndex = 0;
             this.dgClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellClick);
@@ -149,8 +151,9 @@
             this.dgReconsultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgReconsultas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
+            this.cedula_paciente,
             this.fecha,
-            this.cedula_medico,
+            this.medico,
             this.diagnostico,
             this.terapeutica,
             this.observaciones});
@@ -162,9 +165,10 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgReconsultas.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgReconsultas.Location = new System.Drawing.Point(149, 385);
+            this.dgReconsultas.Location = new System.Drawing.Point(81, 385);
             this.dgReconsultas.Name = "dgReconsultas";
-            this.dgReconsultas.Size = new System.Drawing.Size(637, 150);
+            this.dgReconsultas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgReconsultas.Size = new System.Drawing.Size(722, 150);
             this.dgReconsultas.TabIndex = 6;
             this.dgReconsultas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgReconsultas_CellDoubleClick);
             // 
@@ -250,10 +254,18 @@
             // id
             // 
             this.id.Frozen = true;
-            this.id.HeaderText = "Cedula";
+            this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
-            this.id.Width = 84;
+            this.id.Width = 51;
+            // 
+            // cedula_paciente
+            // 
+            this.cedula_paciente.Frozen = true;
+            this.cedula_paciente.HeaderText = "Cedula";
+            this.cedula_paciente.Name = "cedula_paciente";
+            this.cedula_paciente.ReadOnly = true;
+            this.cedula_paciente.Width = 84;
             // 
             // fecha
             // 
@@ -263,13 +275,13 @@
             this.fecha.ReadOnly = true;
             this.fecha.Width = 79;
             // 
-            // cedula_medico
+            // medico
             // 
-            this.cedula_medico.Frozen = true;
-            this.cedula_medico.HeaderText = "Medico";
-            this.cedula_medico.Name = "cedula_medico";
-            this.cedula_medico.ReadOnly = true;
-            this.cedula_medico.Width = 85;
+            this.medico.Frozen = true;
+            this.medico.HeaderText = "Medico";
+            this.medico.Name = "medico";
+            this.medico.ReadOnly = true;
+            this.medico.Width = 85;
             // 
             // diagnostico
             // 
@@ -314,7 +326,7 @@
             this.Name = "frmVerExpediente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control del Expedientes";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmVerExpediente_FormClosing);
+            
             this.Load += new System.EventHandler(this.frmVerExpediente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgReconsultas)).EndInit();
@@ -341,8 +353,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cedula_paciente;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cedula_medico;
+        private System.Windows.Forms.DataGridViewTextBoxColumn medico;
         private System.Windows.Forms.DataGridViewTextBoxColumn diagnostico;
         private System.Windows.Forms.DataGridViewTextBoxColumn terapeutica;
         private System.Windows.Forms.DataGridViewTextBoxColumn observaciones;

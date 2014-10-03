@@ -218,11 +218,11 @@ namespace SIMEDVirtual
             //flexion
             if (rx23.Checked)
             {
-                alquileano_izquierdo = 'n';
+                flexion = 'n';
             }
             else if (rx24.Checked)
             {
-                alquileano_izquierdo = 'a';
+                flexion = 'a';
             }
 
             //extensiones
@@ -238,11 +238,11 @@ namespace SIMEDVirtual
             //rotacion
             if (rx27.Checked)
             {
-                extensiones = 'n';
+                rotacion = 'n';
             }
             else if (rx28.Checked)
             {
-                extensiones = 'a';
+                rotacion = 'a';
             }
 
             //inclinacion lateral
@@ -653,100 +653,293 @@ namespace SIMEDVirtual
             txtOtrosHeredo.Text = otros_heredo;
         }
 
-        public void determinaExpediente(string cedula_paciente)
+        public void determinaExpediente(string cedula_paciente, int id_paciente)
         {
-            List<ExpedienteEntity> listaExpediente = ExpedienteIT.selectExpediente(cedula_paciente);
+            //me trae el expediente segun la cedula y el id
+            List<ExpedienteEntity> listaExpediente = ExpedienteIT.selectExpedienteById(cedula_paciente, id_paciente);
             //anamnesis
-            string pulso = listaExpediente.ElementAt(0).pulso.ToString();
-            string presion_arterial = listaExpediente.ElementAt(0).presion_arterial.ToString();
+            txtPulso.Text = listaExpediente.ElementAt(0).pulso.ToString();
+            txtPresionArterial.Text = listaExpediente.ElementAt(0).presion_arterial.ToString();
+
             char soplos = Convert.ToChar(listaExpediente.ElementAt(0).soplos);
+            if (soplos == 's')
+            {
+                rx1.Checked = true;
+            }
+            else if (soplos == 'n')
+            {
+                rx2.Checked = true;
+            }
+
             char dolor_precordial = Convert.ToChar(listaExpediente.ElementAt(0).dolor_precordial);
+            if (dolor_precordial == 's')
+            {
+                rx3.Checked = true;
+            }
+            else if (soplos == 'n')
+            {
+                rx4.Checked = true;
+            }
+
             char edemas = Convert.ToChar(listaExpediente.ElementAt(0).edemas);
+            if (edemas == 's')
+            {
+                rx5.Checked = true;
+            }
+            else if (edemas == 'n')
+            {
+                rx6.Checked = true;
+            }
+
             char arritmias = Convert.ToChar(listaExpediente.ElementAt(0).arritmias);
+            if (arritmias == 's')
+            {
+                rx7.Checked = true;
+            }
+            else if (arritmias == 'n')
+            {
+                rx8.Checked = true;
+            }
+
             char disnea = Convert.ToChar(listaExpediente.ElementAt(0).disnea);
-            string observaciones_sc = listaExpediente.ElementAt(0).observaciones_sc.ToString();
-            string talla = listaExpediente.ElementAt(0).talla.ToString();
-            string peso = listaExpediente.ElementAt(0).peso.ToString();
-            string observaciones_sm = listaExpediente.ElementAt(0).observaciones_sm.ToString();
-            string brazo_derecho = listaExpediente.ElementAt(0).brazo_derecho.ToString();
-            string brazo_izquierdo = listaExpediente.ElementAt(0).brazo_izquierdo.ToString();
-            string pierna_derecha = listaExpediente.ElementAt(0).pierna_derecha.ToString();
-            string pierna_izquierda = listaExpediente.ElementAt(0).pierna_izquierda.ToString();
+            if (disnea == 's')
+            {
+                rx9.Checked = true;
+            }
+            else if (disnea == 'n')
+            {
+                rx10.Checked = true;
+            }
+
+            txtObservacionesSC.Text = listaExpediente.ElementAt(0).observaciones_sc.ToString();
+
+            txtTalla.Text = listaExpediente.ElementAt(0).talla.ToString();
+            txtPeso.Text = listaExpediente.ElementAt(0).peso.ToString();
+
+            txtObservacionesSE.Text = listaExpediente.ElementAt(0).observaciones_sm.ToString();
+
+            txtBrazoDech.Text = listaExpediente.ElementAt(0).brazo_derecho.ToString();
+            txtBrazoIzq.Text = listaExpediente.ElementAt(0).brazo_izquierdo.ToString();
+            txtPiernaDer.Text = listaExpediente.ElementAt(0).pierna_derecha.ToString();
+            txtPiernaIzq.Text = listaExpediente.ElementAt(0).pierna_izquierda.ToString();
+
             char bicipal_derecho = Convert.ToChar(listaExpediente.ElementAt(0).bicipal_derecho);
+            if (bicipal_derecho == 'n')
+            {
+                rx11.Checked = true;
+            }
+            else if (bicipal_derecho == 'a')
+            {
+                rx12.Checked = true;
+            }
             char bicipal_izquierdo = Convert.ToChar(listaExpediente.ElementAt(0).bicipal_izquierdo);
+            if (bicipal_izquierdo == 'n')
+            {
+                rx13.Checked = true;
+            }
+            else if (bicipal_izquierdo == 'a')
+            {
+                rx14.Checked = true;
+            }
             char patelar_derecho = Convert.ToChar(listaExpediente.ElementAt(0).patelar_derecho);
+            if (patelar_derecho == 'n')
+            {
+                rx15.Checked = true;
+            }
+            else if (patelar_derecho == 'a')
+            {
+                rx16.Checked = true;
+            }
+
             char patelar_izquierdo = Convert.ToChar(listaExpediente.ElementAt(0).patelar_izquierdo);
+            if (patelar_izquierdo == 'n')
+            {
+                rx17.Checked = true;
+            }
+            else if (patelar_izquierdo == 'a')
+            {
+                rx18.Checked = true;
+            }
+
             char alquileano_derecho = Convert.ToChar(listaExpediente.ElementAt(0).alquileano_derecho);
+            if (alquileano_derecho == 'n')
+            {
+                rx19.Checked = true;
+            }
+            else if (alquileano_derecho == 'a')
+            {
+                rx20.Checked = true;
+            }
+
             char alquileano_izquierdo = Convert.ToChar(listaExpediente.ElementAt(0).alquileano_izquierdo);
+            if (alquileano_izquierdo == 'n')
+            {
+                rx21.Checked = true;
+            }
+            else if (alquileano_izquierdo == 'a')
+            {
+                rx22.Checked = true;
+            }
+
             char flexion = Convert.ToChar(listaExpediente.ElementAt(0).flexion);
+            if (alquileano_izquierdo == 'n')
+            {
+                rx23.Checked = true;
+            }
+            else if (alquileano_izquierdo == 'a')
+            {
+                rx24.Checked = true;
+            }
 
             char extensiones = Convert.ToChar(listaExpediente.ElementAt(0).extensiones);
+            if (extensiones == 'n')
+            {
+                rx25.Checked = true;
+            }
+            else if (extensiones == 'a')
+            {
+                rx26.Checked = true;
+            }
+
             char rotacion = Convert.ToChar(listaExpediente.ElementAt(0).rotacion);
+            if (rotacion == 'n')
+            {
+                rx27.Checked = true;
+            }
+            else if (rotacion == 'a')
+            {
+                rx28.Checked = true;
+            }
+
             char inclinacion_lateral = Convert.ToChar(listaExpediente.ElementAt(0).inclinacion_lateral);
-            string observaciones_cc = Convert.ToString(listaExpediente.ElementAt(0).observaciones_cc);
-            string malformaciones = Convert.ToString(listaExpediente.ElementAt(0).malformaciones);
+            if (inclinacion_lateral == 'n')
+            {
+                rx29.Checked = true;
+            }
+            else if (inclinacion_lateral == 'a')
+            {
+                rx30.Checked = true;
+            }
+
+            txtObservacionesCC.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_cc);
+            txtMalformaciones.Text = Convert.ToString(listaExpediente.ElementAt(0).malformaciones);
+
             char observaciones_dl = Convert.ToChar(listaExpediente.ElementAt(0).observaciones_dl);
+            if (observaciones_dl == 'n')
+            {
+                rx31.Checked = true;
+            }
+            else if (observaciones_dl == 'a')
+            {
+                rx32.Checked = true;
+            }
+            
+            txtObservacionesCDL.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_dl_txt);
 
-            string observaciones_dl_txt = Convert.ToString(listaExpediente.ElementAt(0).observaciones_dl_txt);
+            //------------------------examen fisico 2----------------------
             char petequias = Convert.ToChar(listaExpediente.ElementAt(0).petequias);
-            char equimosis = Convert.ToChar(listaExpediente.ElementAt(0).equimosis);
-            char sangrado = Convert.ToChar(listaExpediente.ElementAt(0).sangrado);
-            string observaciones_sh = Convert.ToString(listaExpediente.ElementAt(0).observaciones_sh);
-            string examen_neurologico = Convert.ToString(listaExpediente.ElementAt(0).examen_neurologico);
-            string orl = Convert.ToString(listaExpediente.ElementAt(0).orl);
-            string abdomen = Convert.ToString(listaExpediente.ElementAt(0).abdomen);
-            char auscultacion = Convert.ToChar(listaExpediente.ElementAt(0).auscultacion);
-            string observaciones_sr = Convert.ToString(listaExpediente.ElementAt(0).observaciones_sr);
-            char convulciones = Convert.ToChar(listaExpediente.ElementAt(0).convulciones);
-            char espasmos = Convert.ToChar(listaExpediente.ElementAt(0).espasmos);
-            char temblores = Convert.ToChar(listaExpediente.ElementAt(0).temblores);
-            char movimientos_anormales = Convert.ToChar(listaExpediente.ElementAt(0).movimientos_anormales);
-            string otros_sn = Convert.ToString(listaExpediente.ElementAt(0).otros_sn);
-            string observaciones_sn = Convert.ToString(listaExpediente.ElementAt(0).observaciones_sn);
-            string otros_examen2 = Convert.ToString(listaExpediente.ElementAt(0).otros_examen2);
-            DateTime fecha = Convert.ToDateTime(listaExpediente.ElementAt(0).fecha);
-            string diagnostico = Convert.ToString(listaExpediente.ElementAt(0).diagnostico);
+            if (petequias == 's')
+            {
+                rx33.Checked = true;
+            }
+            else if (petequias == 'n')
+            {
+                rx34.Checked = true;
+            }
 
-            string terapeutica = Convert.ToString(listaExpediente.ElementAt(0).terapeutica);
-            string observaciones_generales = Convert.ToString(listaExpediente.ElementAt(0).observaciones_generales);
+            char equimosis = Convert.ToChar(listaExpediente.ElementAt(0).equimosis);
+            if (equimosis == 's')
+            {
+                rx35.Checked = true;
+            }
+            else if (equimosis == 'n')
+            {
+                rx36.Checked = true;
+            }
+
+            char sangrado = Convert.ToChar(listaExpediente.ElementAt(0).sangrado);
+            if (sangrado == 's')
+            {
+                rx37.Checked = true;
+            }
+            else if (sangrado == 'n')
+            {
+                rx38.Checked = true;
+            }
+
+            txtObservacionesSH.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_sh);
+            txtExamenNeurologico.Text = Convert.ToString(listaExpediente.ElementAt(0).examen_neurologico);
+            txtOrl.Text = Convert.ToString(listaExpediente.ElementAt(0).orl);
+            txtAbdomen.Text = Convert.ToString(listaExpediente.ElementAt(0).abdomen);
+
+            char auscultacion = Convert.ToChar(listaExpediente.ElementAt(0).auscultacion);
+            if (auscultacion == 's')
+            {
+                rx39.Checked = true;
+            }
+            else if (auscultacion == 'n')
+            {
+                rx40.Checked = true;
+            }
+
+
+            txtObservacionesSR.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_sr);
+
+            char convulciones = Convert.ToChar(listaExpediente.ElementAt(0).convulciones);
+            if (convulciones == 's')
+            {
+                rx41.Checked = true;
+            }
+            else if (convulciones == 'n')
+            {
+                rx42.Checked = true;
+            }
+
+            char espasmos = Convert.ToChar(listaExpediente.ElementAt(0).espasmos);
+            if (espasmos == 's')
+            {
+                rx43.Checked = true;
+            }
+            else if (espasmos == 'n')
+            {
+                rx44.Checked = true;
+            }
+
+            char temblores = Convert.ToChar(listaExpediente.ElementAt(0).temblores);
+            if (temblores == 's')
+            {
+                rx45.Checked = true;
+            }
+            else if (temblores == 'n')
+            {
+                rx46.Checked = true;
+            }
+
+            char movimientos_anormales = Convert.ToChar(listaExpediente.ElementAt(0).movimientos_anormales);
+            if (movimientos_anormales == 's')
+            {
+                rx47.Checked = true;
+            }
+            else if (movimientos_anormales == 'n')
+            {
+                rx48.Checked = true;
+            }
+
+
+            txtOtrosSN.Text = Convert.ToString(listaExpediente.ElementAt(0).otros_sn);
+            txtObservacionesSN.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_sn);
+            txtOtrosExamen2.Text = Convert.ToString(listaExpediente.ElementAt(0).otros_examen2);
+
+            DateTime fecha = Convert.ToDateTime(listaExpediente.ElementAt(0).fecha);
+
+            txtDiagnostico.Text = Convert.ToString(listaExpediente.ElementAt(0).diagnostico);
+
+            txtTerapeutica.Text = Convert.ToString(listaExpediente.ElementAt(0).terapeutica);
+            txtObservaciones.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_generales);
             string cedula = Convert.ToString(listaExpediente.ElementAt(0).cedula);
             string cedula_medico = Convert.ToString(listaExpediente.ElementAt(0).cedula_medico);
-
-            txtPulso.Text = pulso;
-            txtPresionArterial.Text = presion_arterial;
-            txtObservacionesSC.Text = observaciones_sc;
-            txtTalla.Text = talla;
-            txtPeso.Text = peso;
-            txtObservacionesSE.Text = observaciones_sm;
-            txtBrazoDech.Text = brazo_derecho;
-            txtBrazoIzq.Text = brazo_izquierdo;
-            txtPiernaDer.Text = brazo_izquierdo;
-            txtPiernaIzq.Text = brazo_izquierdo;
-            txtObservacionesCC.Text = observaciones_cc;
-            txtMalformaciones.Text = malformaciones;
-            txtObservacionesCDL.Text = observaciones_dl_txt;
-            txtObservacionesSH.Text = observaciones_sh;
-            txtExamenNeurologico.Text = examen_neurologico;
-            txtOrl.Text = orl;
-            txtAbdomen.Text = abdomen;
-            txtObservacionesSR.Text = observaciones_sr;
-            txtOtrosSN.Text = otros_sn;
-            txtObservacionesSN.Text = observaciones_sn;
-            txtOtrosExamen2.Text = otros_examen2;
-
-               
-
-            // revision de combo boxes anamnesis
-            if (tabaquismo == 's')
-            {
-                r1.Checked = true;
-            }
-            else if (tabaquismo == 'n')
-            {
-                r2.Checked = true;
-            }
         }
-                
+
 
         //constructor en blanco
         public frm_ExpedienteMG()//datos usuario me trae el nombre y apellido del usuario
@@ -783,21 +976,8 @@ namespace SIMEDVirtual
             cargaComboEmpresas();
         }
 
-
-        //************************************************************************
-        //segundo metodo constructor para la RECONSULTA
-        //aqui tengo todos los datos personales y de amannesis para quemarlos en la pantalla
-        //public frm_ExpedienteMG(
-        //    string nombre, string apellido1, string apellido2, string cedula, DateTime fecha, char sexo, string estado_Civil,
-        //    string grupo, string profesion, int telefono, int movil, string email, string direccion, char tabaquismo,
-        //    char ingesta, char alcoholismo, char rehabilitacion, char diabetes, char hipertension, char dolor_cabeza,
-        //    char epilepsia, char vertigo, char depresion, char falta_aire, char enf_ojos_oidos, char dolor_pecho,
-        //    char enf_nerviosas, char alergia, string alergia_trat, string diabetes_trat, string hipertension_trat,
-        //    char asma, string asma_trat, char tiroides, string tiroides_trat, string hipertension_heredo, string diabetes_heredo,
-        //    string cancer_heredo, string tiroides_heredo, string asma_heredo, string otros_heredo, string edad, string empresa,
-        //    string observaciones, bool editar, bool verExpediente)
-        //{
-        public frm_ExpedienteMG(string cedula_paciente, bool editar, bool verExpediente)
+        //prueba, false, true,0);
+        public frm_ExpedienteMG(string cedula_paciente, bool editar, bool verExpediente, int id_paciente)
         {
             InitializeComponent();
 
@@ -852,17 +1032,27 @@ namespace SIMEDVirtual
             this.determinaAnamnesis(cedula_paciente);
 
             //aqui no se puede editar nada xq voy a reconsultar
-            if (editar == false)
+            if (verExpediente)
+            //dehabilito todo xq solo puedo ver
+            {
+                determinaExpediente(cedula_paciente, id_paciente);
+
+                ((Control)this.tabPageInfoPersonal).Enabled = false;
+                ((Control)this.tbPageAnamnesis).Enabled = false;
+                ((Control)this.tabPageExFisico).Enabled = false;
+                ((Control)this.tabPageExFisicoII).Enabled = false;
+                ((Control)this.tabPageEpicrisis).Enabled = false;
+
+            }
+            else if (editar == false)
+            //dehabilito la anamnesis y la info personal, para realizar reconsulta
             {
                 ((Control)this.tbPageAnamnesis).Enabled = false;
                 ((Control)this.tabPageInfoPersonal).Enabled = false;
                 //this.DisableAnamnesis();
                 //this.DisableInfoPersonal();
             }
-            else if (verExpediente)
-            {
-                determinaExpediente(cedula_paciente);
-            }
+
             else
             {
                 txtCedula.Enabled = false;

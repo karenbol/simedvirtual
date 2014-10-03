@@ -247,6 +247,7 @@ namespace SIMEDVirtual.DA
             {
                 conn.Open();
                 NpgsqlCommand cmd = new NpgsqlCommand("SELECT apellido1 FROM medicos WHERE cedula = @cedula", conn);
+                //cmd.CommandTimeout = 20;
 
                 cmd.Parameters.AddWithValue("@cedula", cedula);
 
@@ -257,6 +258,7 @@ namespace SIMEDVirtual.DA
 
                     apellido = Convert.ToString(dr["apellido1"]);
                 }
+                conn.Close();
             }
             return apellido;
         }

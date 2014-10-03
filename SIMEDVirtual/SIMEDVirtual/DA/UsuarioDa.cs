@@ -29,8 +29,8 @@ namespace SIMEDVirtual.DA
                     user.nombre_usuario = Convert.ToInt32(dr[0]);
                     user.password = dr[1].ToString();
                     usuarios.Add(user);
-
                 }
+                conn.Close();
             }
             return usuarios;
         }
@@ -64,6 +64,7 @@ namespace SIMEDVirtual.DA
                     return false;
                 }
             }
+            conn.Close();
         }
 
         /// <summary>
@@ -90,6 +91,7 @@ namespace SIMEDVirtual.DA
                     return tipo;
                 }
             }
+            conn.Close();
         }
 
 
@@ -147,6 +149,7 @@ namespace SIMEDVirtual.DA
                     doctor.apellido1 = Convert.ToString(dr["apellido1"]);
                     medico.Add(doctor);
                 }
+                conn.Close();
             }
             return medico;
         }

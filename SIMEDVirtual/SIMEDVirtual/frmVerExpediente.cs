@@ -87,12 +87,13 @@ namespace SIMEDVirtual
                 //se asignan datos al datagrid de reconsultas
                 for (int j = 0; j < pts.Count; j++)
                 {
-                    dgReconsultas.Rows[j].Cells[0].Value = pts.ElementAt(j).cedula.ToString();
-                    dgReconsultas.Rows[j].Cells[1].Value = pts.ElementAt(j).fecha.ToString();
-                    dgReconsultas.Rows[j].Cells[2].Value = MedicoIT.getApellidoMedico(pts.ElementAt(j).cedula_medico.ToString());
-                    dgReconsultas.Rows[j].Cells[3].Value = pts.ElementAt(j).diagnostico.ToString();
-                    dgReconsultas.Rows[j].Cells[4].Value = pts.ElementAt(j).terapeutica.ToString();
-                    dgReconsultas.Rows[j].Cells[5].Value = pts.ElementAt(j).observaciones_generales.ToString();
+                    dgReconsultas.Rows[j].Cells[0].Value = pts.ElementAt(j).id_expediente.ToString();
+                    dgReconsultas.Rows[j].Cells[1].Value = pts.ElementAt(j).cedula.ToString();
+                    dgReconsultas.Rows[j].Cells[2].Value = pts.ElementAt(j).fecha.ToString();
+                    dgReconsultas.Rows[j].Cells[3].Value = MedicoIT.getApellidoMedico(pts.ElementAt(j).cedula_medico.ToString());
+                    dgReconsultas.Rows[j].Cells[4].Value = pts.ElementAt(j).diagnostico.ToString();
+                    dgReconsultas.Rows[j].Cells[5].Value = pts.ElementAt(j).terapeutica.ToString();
+                    dgReconsultas.Rows[j].Cells[6].Value = pts.ElementAt(j).observaciones_generales.ToString();
                 }
             }
             else
@@ -100,11 +101,6 @@ namespace SIMEDVirtual
                 MessageBox.Show("seleccion no valida");
             }
         }
-
-        private void frmVerExpediente_FormClosing(object sender, FormClosingEventArgs e)
-        {
-        }
-
 
         //llena todos los campos segun la consulta hecha por cedula
         private void btnReconsulta_Click(object sender, EventArgs e)
@@ -168,12 +164,7 @@ namespace SIMEDVirtual
             //string observaciones = Convert.ToString(listaAnamnesis.ElementAt(0).observaciones);
             this.Hide();
 
-            //frm_ExpedienteMG frm = new frm_ExpedienteMG(nombre, apellido1, apellido2, cedula, fecha, sexo, estado_Civil, grupo,
-            // profesion, telefono, movil, email, direccion, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, hipertension,
-            // dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, enf_ojos_oidos, dolor_pecho, enf_nerviosas, alergia, alergia_trat,
-            // diabetes_trat, hipertension_trat, asma, asma_trat, tiroides, tiroides_trat, hipertension_heredo, diabetes_heredo, cancer_heredo,
-            // tiroides_heredo, asma_heredo, otros_heredo, edad, empresa, observaciones, false);
-            frm_ExpedienteMG frm = new frm_ExpedienteMG(prueba, false, true);
+            frm_ExpedienteMG frm = new frm_ExpedienteMG(prueba, false, false, 0);
             frm.ShowDialog();
         }
 
@@ -246,12 +237,13 @@ namespace SIMEDVirtual
         private void dgReconsultas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //obtngo el id de la row seleccionada
-            string cedula_paciente = Convert.ToString(dgReconsultas.Rows[e.RowIndex].Cells[0].Value);
+            string cedula_paciente = Convert.ToString(dgReconsultas.Rows[e.RowIndex].Cells[1].Value);
+            int id_paciente = Convert.ToInt32(dgReconsultas.Rows[e.RowIndex].Cells[0].Value);
             //ahora debo hacer un select
 
-           //llamar al otro frm
+            //llamar al otro frm
             this.Hide();
-            frm_ExpedienteMG frm = new frm_ExpedienteMG(cedula_paciente, false, false);
+            frm_ExpedienteMG frm = new frm_ExpedienteMG(cedula_paciente, false, true, id_paciente);
             frm.ShowDialog();
         }
     }
