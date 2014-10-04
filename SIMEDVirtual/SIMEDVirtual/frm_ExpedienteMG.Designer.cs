@@ -638,7 +638,7 @@
             this.groupBox28.Location = new System.Drawing.Point(23, 395);
             this.groupBox28.Name = "groupBox28";
             this.groupBox28.Size = new System.Drawing.Size(336, 27);
-            this.groupBox28.TabIndex = 44;
+            this.groupBox28.TabIndex = 3;
             this.groupBox28.TabStop = false;
             // 
             // r26
@@ -682,7 +682,7 @@
             this.groupBox27.Location = new System.Drawing.Point(23, 369);
             this.groupBox27.Name = "groupBox27";
             this.groupBox27.Size = new System.Drawing.Size(336, 27);
-            this.groupBox27.TabIndex = 41;
+            this.groupBox27.TabIndex = 2;
             this.groupBox27.TabStop = false;
             // 
             // r24
@@ -724,7 +724,7 @@
             this.groupBox24.Location = new System.Drawing.Point(23, 292);
             this.groupBox24.Name = "groupBox24";
             this.groupBox24.Size = new System.Drawing.Size(336, 27);
-            this.groupBox24.TabIndex = 38;
+            this.groupBox24.TabIndex = 1;
             this.groupBox24.TabStop = false;
             // 
             // r18
@@ -766,7 +766,7 @@
             this.groupBox22.Location = new System.Drawing.Point(23, 241);
             this.groupBox22.Name = "groupBox22";
             this.groupBox22.Size = new System.Drawing.Size(336, 27);
-            this.groupBox22.TabIndex = 36;
+            this.groupBox22.TabIndex = 0;
             this.groupBox22.TabStop = false;
             // 
             // r14
@@ -808,7 +808,7 @@
             this.groupBox20.Location = new System.Drawing.Point(23, 192);
             this.groupBox20.Name = "groupBox20";
             this.groupBox20.Size = new System.Drawing.Size(336, 27);
-            this.groupBox20.TabIndex = 39;
+            this.groupBox20.TabIndex = 13;
             this.groupBox20.TabStop = false;
             // 
             // r10
@@ -850,7 +850,7 @@
             this.groupBox17.Location = new System.Drawing.Point(23, 65);
             this.groupBox17.Name = "groupBox17";
             this.groupBox17.Size = new System.Drawing.Size(336, 27);
-            this.groupBox17.TabIndex = 36;
+            this.groupBox17.TabIndex = 12;
             this.groupBox17.TabStop = false;
             // 
             // label9
@@ -892,7 +892,7 @@
             this.groupBox16.Location = new System.Drawing.Point(23, 32);
             this.groupBox16.Name = "groupBox16";
             this.groupBox16.Size = new System.Drawing.Size(336, 27);
-            this.groupBox16.TabIndex = 26;
+            this.groupBox16.TabIndex = 11;
             this.groupBox16.TabStop = false;
             // 
             // r1
@@ -952,14 +952,14 @@
             this.txtOtrosHeredo.Location = new System.Drawing.Point(386, 71);
             this.txtOtrosHeredo.Name = "txtOtrosHeredo";
             this.txtOtrosHeredo.Size = new System.Drawing.Size(164, 20);
-            this.txtOtrosHeredo.TabIndex = 5;
+            this.txtOtrosHeredo.TabIndex = 0;
             // 
             // txtAsmaHeredo
             // 
             this.txtAsmaHeredo.Location = new System.Drawing.Point(386, 47);
             this.txtAsmaHeredo.Name = "txtAsmaHeredo";
             this.txtAsmaHeredo.Size = new System.Drawing.Size(164, 20);
-            this.txtAsmaHeredo.TabIndex = 4;
+            this.txtAsmaHeredo.TabIndex = 11;
             // 
             // label87
             // 
@@ -984,7 +984,7 @@
             this.txtTiroidesHeredo.Location = new System.Drawing.Point(386, 18);
             this.txtTiroidesHeredo.Name = "txtTiroidesHeredo";
             this.txtTiroidesHeredo.Size = new System.Drawing.Size(164, 20);
-            this.txtTiroidesHeredo.TabIndex = 3;
+            this.txtTiroidesHeredo.TabIndex = 10;
             // 
             // label66
             // 
@@ -1000,21 +1000,21 @@
             this.txtCancerHeredo.Location = new System.Drawing.Point(104, 76);
             this.txtCancerHeredo.Name = "txtCancerHeredo";
             this.txtCancerHeredo.Size = new System.Drawing.Size(171, 20);
-            this.txtCancerHeredo.TabIndex = 2;
+            this.txtCancerHeredo.TabIndex = 9;
             // 
             // txtDiabetesHeredo
             // 
             this.txtDiabetesHeredo.Location = new System.Drawing.Point(104, 49);
             this.txtDiabetesHeredo.Name = "txtDiabetesHeredo";
             this.txtDiabetesHeredo.Size = new System.Drawing.Size(171, 20);
-            this.txtDiabetesHeredo.TabIndex = 1;
+            this.txtDiabetesHeredo.TabIndex = 8;
             // 
             // txtHipertensionHeredo
             // 
             this.txtHipertensionHeredo.Location = new System.Drawing.Point(104, 21);
             this.txtHipertensionHeredo.Name = "txtHipertensionHeredo";
             this.txtHipertensionHeredo.Size = new System.Drawing.Size(171, 20);
-            this.txtHipertensionHeredo.TabIndex = 0;
+            this.txtHipertensionHeredo.TabIndex = 7;
             // 
             // label65
             // 
@@ -1050,7 +1050,7 @@
             this.txtObservaciones.Multiline = true;
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(525, 77);
-            this.txtObservaciones.TabIndex = 0;
+            this.txtObservaciones.TabIndex = 12;
             // 
             // label28
             // 
@@ -1083,7 +1083,7 @@
             this.groupBox26.Location = new System.Drawing.Point(17, 170);
             this.groupBox26.Name = "groupBox26";
             this.groupBox26.Size = new System.Drawing.Size(336, 27);
-            this.groupBox26.TabIndex = 40;
+            this.groupBox26.TabIndex = 3;
             this.groupBox26.TabStop = false;
             // 
             // r22
@@ -1125,7 +1125,7 @@
             this.groupBox25.Location = new System.Drawing.Point(17, 144);
             this.groupBox25.Name = "groupBox25";
             this.groupBox25.Size = new System.Drawing.Size(336, 27);
-            this.groupBox25.TabIndex = 39;
+            this.groupBox25.TabIndex = 2;
             this.groupBox25.TabStop = false;
             // 
             // r20
@@ -1167,7 +1167,7 @@
             this.groupBox23.Location = new System.Drawing.Point(17, 93);
             this.groupBox23.Name = "groupBox23";
             this.groupBox23.Size = new System.Drawing.Size(336, 27);
-            this.groupBox23.TabIndex = 37;
+            this.groupBox23.TabIndex = 1;
             this.groupBox23.TabStop = false;
             // 
             // r16
@@ -1209,7 +1209,7 @@
             this.groupBox21.Location = new System.Drawing.Point(17, 42);
             this.groupBox21.Name = "groupBox21";
             this.groupBox21.Size = new System.Drawing.Size(336, 27);
-            this.groupBox21.TabIndex = 40;
+            this.groupBox21.TabIndex = 0;
             this.groupBox21.TabStop = false;
             // 
             // r12
@@ -1250,7 +1250,7 @@
             this.txtAlergias.Multiline = true;
             this.txtAlergias.Name = "txtAlergias";
             this.txtAlergias.Size = new System.Drawing.Size(335, 58);
-            this.txtAlergias.TabIndex = 46;
+            this.txtAlergias.TabIndex = 4;
             // 
             // groupBox2
             // 
@@ -1413,7 +1413,7 @@
             this.groupBox29.Location = new System.Drawing.Point(8, 15);
             this.groupBox29.Name = "groupBox29";
             this.groupBox29.Size = new System.Drawing.Size(212, 31);
-            this.groupBox29.TabIndex = 36;
+            this.groupBox29.TabIndex = 0;
             this.groupBox29.TabStop = false;
             // 
             // r28
@@ -1474,7 +1474,7 @@
             this.txtTratAsma.Multiline = true;
             this.txtTratAsma.Name = "txtTratAsma";
             this.txtTratAsma.Size = new System.Drawing.Size(455, 41);
-            this.txtTratAsma.TabIndex = 2;
+            this.txtTratAsma.TabIndex = 3;
             // 
             // txtTratTiroides
             // 
@@ -1483,7 +1483,7 @@
             this.txtTratTiroides.Multiline = true;
             this.txtTratTiroides.Name = "txtTratTiroides";
             this.txtTratTiroides.Size = new System.Drawing.Size(455, 41);
-            this.txtTratTiroides.TabIndex = 3;
+            this.txtTratTiroides.TabIndex = 4;
             // 
             // lblTratHipertension
             // 
@@ -1501,7 +1501,7 @@
             this.txtTratHipertension.Multiline = true;
             this.txtTratHipertension.Name = "txtTratHipertension";
             this.txtTratHipertension.Size = new System.Drawing.Size(455, 41);
-            this.txtTratHipertension.TabIndex = 1;
+            this.txtTratHipertension.TabIndex = 2;
             // 
             // txtTratDiabetes
             // 
@@ -1510,7 +1510,7 @@
             this.txtTratDiabetes.Multiline = true;
             this.txtTratDiabetes.Name = "txtTratDiabetes";
             this.txtTratDiabetes.Size = new System.Drawing.Size(455, 41);
-            this.txtTratDiabetes.TabIndex = 0;
+            this.txtTratDiabetes.TabIndex = 1;
             // 
             // lblTratamiento
             // 
@@ -1549,7 +1549,7 @@
             this.groupBox19.Location = new System.Drawing.Point(0, 104);
             this.groupBox19.Name = "groupBox19";
             this.groupBox19.Size = new System.Drawing.Size(336, 27);
-            this.groupBox19.TabIndex = 38;
+            this.groupBox19.TabIndex = 1;
             this.groupBox19.TabStop = false;
             // 
             // r8
@@ -1591,7 +1591,7 @@
             this.groupBox18.Location = new System.Drawing.Point(0, 72);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Size = new System.Drawing.Size(336, 27);
-            this.groupBox18.TabIndex = 37;
+            this.groupBox18.TabIndex = 0;
             this.groupBox18.TabStop = false;
             // 
             // r6
