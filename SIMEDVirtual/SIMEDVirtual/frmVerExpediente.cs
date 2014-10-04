@@ -246,5 +246,10 @@ namespace SIMEDVirtual
             frm_ExpedienteMG frm = new frm_ExpedienteMG(cedula_paciente, false, true, id_paciente);
             frm.ShowDialog();
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

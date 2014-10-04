@@ -772,7 +772,7 @@
             // r14
             // 
             this.r14.AutoSize = true;
-            this.r14.Location = new System.Drawing.Point(274, 4);
+            this.r14.Location = new System.Drawing.Point(274, 6);
             this.r14.Name = "r14";
             this.r14.Size = new System.Drawing.Size(41, 17);
             this.r14.TabIndex = 1;
@@ -783,7 +783,7 @@
             // r13
             // 
             this.r13.AutoSize = true;
-            this.r13.Location = new System.Drawing.Point(223, 5);
+            this.r13.Location = new System.Drawing.Point(223, 7);
             this.r13.Name = "r13";
             this.r13.Size = new System.Drawing.Size(35, 17);
             this.r13.TabIndex = 0;
@@ -865,7 +865,7 @@
             // r3
             // 
             this.r3.AutoSize = true;
-            this.r3.Location = new System.Drawing.Point(227, 10);
+            this.r3.Location = new System.Drawing.Point(227, 7);
             this.r3.Name = "r3";
             this.r3.Size = new System.Drawing.Size(35, 17);
             this.r3.TabIndex = 0;
@@ -876,7 +876,7 @@
             // r4
             // 
             this.r4.AutoSize = true;
-            this.r4.Location = new System.Drawing.Point(278, 9);
+            this.r4.Location = new System.Drawing.Point(278, 6);
             this.r4.Name = "r4";
             this.r4.Size = new System.Drawing.Size(41, 17);
             this.r4.TabIndex = 1;
@@ -901,7 +901,7 @@
             this.r1.Location = new System.Drawing.Point(227, 7);
             this.r1.Name = "r1";
             this.r1.Size = new System.Drawing.Size(35, 17);
-            this.r1.TabIndex = 0;
+            this.r1.TabIndex = 2;
             this.r1.TabStop = true;
             this.r1.Text = "SI";
             this.r1.UseVisualStyleBackColor = true;
@@ -1215,7 +1215,7 @@
             // r12
             // 
             this.r12.AutoSize = true;
-            this.r12.Location = new System.Drawing.Point(274, 4);
+            this.r12.Location = new System.Drawing.Point(274, 6);
             this.r12.Name = "r12";
             this.r12.Size = new System.Drawing.Size(41, 17);
             this.r12.TabIndex = 1;
@@ -1226,7 +1226,7 @@
             // r11
             // 
             this.r11.AutoSize = true;
-            this.r11.Location = new System.Drawing.Point(223, 5);
+            this.r11.Location = new System.Drawing.Point(223, 7);
             this.r11.Name = "r11";
             this.r11.Size = new System.Drawing.Size(35, 17);
             this.r11.TabIndex = 0;
@@ -1555,7 +1555,7 @@
             // r8
             // 
             this.r8.AutoSize = true;
-            this.r8.Location = new System.Drawing.Point(278, 4);
+            this.r8.Location = new System.Drawing.Point(278, 6);
             this.r8.Name = "r8";
             this.r8.Size = new System.Drawing.Size(41, 17);
             this.r8.TabIndex = 1;
@@ -1566,7 +1566,7 @@
             // r7
             // 
             this.r7.AutoSize = true;
-            this.r7.Location = new System.Drawing.Point(227, 5);
+            this.r7.Location = new System.Drawing.Point(227, 7);
             this.r7.Name = "r7";
             this.r7.Size = new System.Drawing.Size(35, 17);
             this.r7.TabIndex = 0;
@@ -1597,7 +1597,7 @@
             // r6
             // 
             this.r6.AutoSize = true;
-            this.r6.Location = new System.Drawing.Point(278, 4);
+            this.r6.Location = new System.Drawing.Point(278, 6);
             this.r6.Name = "r6";
             this.r6.Size = new System.Drawing.Size(41, 17);
             this.r6.TabIndex = 1;
@@ -1608,7 +1608,7 @@
             // r5
             // 
             this.r5.AutoSize = true;
-            this.r5.Location = new System.Drawing.Point(227, 5);
+            this.r5.Location = new System.Drawing.Point(227, 7);
             this.r5.Name = "r5";
             this.r5.Size = new System.Drawing.Size(35, 17);
             this.r5.TabIndex = 0;

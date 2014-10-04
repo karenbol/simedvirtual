@@ -369,7 +369,6 @@ namespace SIMEDVirtual
             observaciones_generales = txtObs.Text;
             //falta la cedula y el id medico 
         }
-
         //determina el tipo se sangre y lo asigna al combo
         public void determinaTipoSangre(string grupo)
         {
@@ -676,7 +675,7 @@ namespace SIMEDVirtual
             {
                 rx3.Checked = true;
             }
-            else if (soplos == 'n')
+            else if (dolor_precordial == 'n')
             {
                 rx4.Checked = true;
             }
@@ -782,11 +781,11 @@ namespace SIMEDVirtual
             }
 
             char flexion = Convert.ToChar(listaExpediente.ElementAt(0).flexion);
-            if (alquileano_izquierdo == 'n')
+            if (flexion == 'n')
             {
                 rx23.Checked = true;
             }
-            else if (alquileano_izquierdo == 'a')
+            else if (flexion == 'a')
             {
                 rx24.Checked = true;
             }
@@ -833,7 +832,7 @@ namespace SIMEDVirtual
             {
                 rx32.Checked = true;
             }
-            
+
             txtObservacionesCDL.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_dl_txt);
 
             //------------------------examen fisico 2----------------------
@@ -873,11 +872,11 @@ namespace SIMEDVirtual
             txtAbdomen.Text = Convert.ToString(listaExpediente.ElementAt(0).abdomen);
 
             char auscultacion = Convert.ToChar(listaExpediente.ElementAt(0).auscultacion);
-            if (auscultacion == 's')
+            if (auscultacion == 'n')
             {
                 rx39.Checked = true;
             }
-            else if (auscultacion == 'n')
+            else if (auscultacion == 'a')
             {
                 rx40.Checked = true;
             }
@@ -935,7 +934,7 @@ namespace SIMEDVirtual
             txtDiagnostico.Text = Convert.ToString(listaExpediente.ElementAt(0).diagnostico);
 
             txtTerapeutica.Text = Convert.ToString(listaExpediente.ElementAt(0).terapeutica);
-            txtObservaciones.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_generales);
+            txtObs.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_generales);
             string cedula = Convert.ToString(listaExpediente.ElementAt(0).cedula);
             string cedula_medico = Convert.ToString(listaExpediente.ElementAt(0).cedula_medico);
         }
@@ -980,6 +979,8 @@ namespace SIMEDVirtual
         public frm_ExpedienteMG(string cedula_paciente, bool editar, bool verExpediente, int id_paciente)
         {
             InitializeComponent();
+
+            this.label29.Text = Frm_Ingreso.datosUsuario;
 
             //vamos a guardar solo en el exp xq es reconsulta
             expOreconsulta = true;
@@ -1078,7 +1079,7 @@ namespace SIMEDVirtual
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (expOreconsulta == true)
-            {
+            {//guardo la reconsulta
                 //se guarda el expediente solo si estos campos estan llenos
                 if (txtTerapeutica.Text != string.Empty || txtDiagnostico.Text != string.Empty || txtObs.Text != string.Empty)
                 {
@@ -1103,6 +1104,7 @@ namespace SIMEDVirtual
                     MessageBox.Show("No se puede insertar un Expediente con Campos Vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
+            //creo que cliente, anamnesis y expediente
             else
             {
                 //determinar la fecha de nacimiento
@@ -1116,7 +1118,7 @@ namespace SIMEDVirtual
                 string estado = cbEstado.SelectedItem.ToString();
                 string grupo = cbSangre.SelectedItem.ToString();
 
-                //se verifican cuales checks estan seleccionados
+                //se verifican cuales checks estan seleccionados de la anamnesis
                 seleccionChecks();
 
                 //guardamos la cedula en una variable
@@ -1126,7 +1128,6 @@ namespace SIMEDVirtual
                 string empresa = cbEmpresa.SelectedItem.ToString();
 
                 //--------------------------------------------------------insertar---------------
-
                 //llamamos al metodo para insertar clientes
                 try
                 {
@@ -1137,9 +1138,27 @@ namespace SIMEDVirtual
                         txtDireccion.Text != string.Empty) && (txtTerapeutica.Text != string.Empty || txtObs.Text != string.Empty))
                     {
                         determinaExpediente();//metodo que da valor a parametros para el expediente
+                        //determinar si el telefono esta vacio para insertar un 0 
+                        //string x = txtTelefono.Text;
+                        int telefono = 0;
+                        int movil = 0;
+
+
+                        //bool f1 = CheckNullOrEmpty(telefono); 
+                        if (txtTelefono.Text.Length != 0)
+                        {
+                            telefono = Convert.ToInt32(txtTelefono.Text);
+                        }
+                      
+                        if (txtMovil.Text.Length != 0)
+                        {
+                            movil = Convert.ToInt32(txtMovil.Text);
+                        }
+
+
                         //si se inserto bn en el cliente y la anamnesis y el expediente
                         if (ClienteIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, cedula, fecha,
-                        sexo, estado, grupo, txtProfesion.Text, Convert.ToInt32(txtTelefono.Text), Convert.ToInt32(txtMovil.Text),
+                        sexo, estado, grupo, txtProfesion.Text, telefono, movil,
                         txtEmail.Text, txtDireccion.Text, txtEdad.Text, empresa) &&
                             anamnesisIT.InsertaAnamnesis(cedula, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, hipertension, dolor_cabeza,
                         epilepsia, vertigo, depresion, falta_aire, oidos_ojos, dolor_pecho, enf_nerviosas, alergia, txtAlergias.Text, txtTratDiabetes.Text,

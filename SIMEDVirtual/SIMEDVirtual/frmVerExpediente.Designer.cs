@@ -40,6 +40,13 @@
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.dgReconsultas = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cedula_paciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.diagnostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.terapeutica = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,19 +55,18 @@
             this.btnReconsulta = new System.Windows.Forms.Button();
             this.btnEditarPaciente = new System.Windows.Forms.Button();
             this.btnCrearPaciente = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cedula_paciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diagnostico = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.terapeutica = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgReconsultas)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgClientes
             // 
+            this.dgClientes.AllowUserToAddRows = false;
+            this.dgClientes.AllowUserToDeleteRows = false;
+            this.dgClientes.AllowUserToResizeColumns = false;
+            this.dgClientes.AllowUserToResizeRows = false;
             this.dgClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
             this.dgClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
@@ -86,12 +92,12 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgClientes.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgClientes.Location = new System.Drawing.Point(184, 49);
+            this.dgClientes.Location = new System.Drawing.Point(212, 73);
             this.dgClientes.MultiSelect = false;
             this.dgClientes.Name = "dgClientes";
             this.dgClientes.ReadOnly = true;
             this.dgClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgClientes.Size = new System.Drawing.Size(517, 250);
+            this.dgClientes.Size = new System.Drawing.Size(521, 250);
             this.dgClientes.TabIndex = 0;
             this.dgClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellClick);
             // 
@@ -128,7 +134,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(290, 12);
+            this.label1.Location = new System.Drawing.Point(304, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(278, 29);
             this.label1.TabIndex = 5;
@@ -165,91 +171,12 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgReconsultas.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgReconsultas.Location = new System.Drawing.Point(81, 385);
+            this.dgReconsultas.Location = new System.Drawing.Point(111, 418);
             this.dgReconsultas.Name = "dgReconsultas";
             this.dgReconsultas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgReconsultas.Size = new System.Drawing.Size(722, 150);
             this.dgReconsultas.TabIndex = 6;
             this.dgReconsultas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgReconsultas_CellDoubleClick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label2.Location = new System.Drawing.Point(238, 344);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(395, 29);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "RECONSULTAS DEL PACIENTE";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(6, 315);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(57, 20);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "wwww";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(79, 549);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(51, 20);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "label4";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(6, 549);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(67, 20);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Usuario:";
-            // 
-            // btnReconsulta
-            // 
-            this.btnReconsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReconsulta.Image = global::SIMEDVirtual.Properties.Resources.reconsulta32;
-            this.btnReconsulta.Location = new System.Drawing.Point(753, 12);
-            this.btnReconsulta.Name = "btnReconsulta";
-            this.btnReconsulta.Size = new System.Drawing.Size(89, 69);
-            this.btnReconsulta.TabIndex = 4;
-            this.btnReconsulta.Text = "Reconsulta";
-            this.btnReconsulta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnReconsulta.UseVisualStyleBackColor = true;
-            this.btnReconsulta.Click += new System.EventHandler(this.btnReconsulta_Click);
-            // 
-            // btnEditarPaciente
-            // 
-            this.btnEditarPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEditarPaciente.Image = global::SIMEDVirtual.Properties.Resources.edit32;
-            this.btnEditarPaciente.Location = new System.Drawing.Point(42, 152);
-            this.btnEditarPaciente.Name = "btnEditarPaciente";
-            this.btnEditarPaciente.Size = new System.Drawing.Size(75, 58);
-            this.btnEditarPaciente.TabIndex = 2;
-            this.btnEditarPaciente.Text = "Editar";
-            this.btnEditarPaciente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnEditarPaciente.UseVisualStyleBackColor = true;
-            // 
-            // btnCrearPaciente
-            // 
-            this.btnCrearPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCrearPaciente.Image = global::SIMEDVirtual.Properties.Resources.add28;
-            this.btnCrearPaciente.Location = new System.Drawing.Point(42, 89);
-            this.btnCrearPaciente.Name = "btnCrearPaciente";
-            this.btnCrearPaciente.Size = new System.Drawing.Size(75, 57);
-            this.btnCrearPaciente.TabIndex = 1;
-            this.btnCrearPaciente.Text = "Crear";
-            this.btnCrearPaciente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnCrearPaciente.UseVisualStyleBackColor = true;
-            this.btnCrearPaciente.Click += new System.EventHandler(this.btnCrearPaciente_Click);
             // 
             // id
             // 
@@ -307,12 +234,103 @@
             this.observaciones.ReadOnly = true;
             this.observaciones.Width = 139;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.label2.Location = new System.Drawing.Point(246, 368);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(395, 29);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "RECONSULTAS DEL PACIENTE";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(6, 337);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 20);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "wwww";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(79, 578);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 20);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "label4";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(6, 578);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(67, 20);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Usuario:";
+            // 
+            // btnReconsulta
+            // 
+            this.btnReconsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReconsulta.Image = global::SIMEDVirtual.Properties.Resources.reconsulta32;
+            this.btnReconsulta.Location = new System.Drawing.Point(802, 12);
+            this.btnReconsulta.Name = "btnReconsulta";
+            this.btnReconsulta.Size = new System.Drawing.Size(102, 69);
+            this.btnReconsulta.TabIndex = 4;
+            this.btnReconsulta.Text = "Reconsulta";
+            this.btnReconsulta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnReconsulta.UseVisualStyleBackColor = true;
+            this.btnReconsulta.Click += new System.EventHandler(this.btnReconsulta_Click);
+            // 
+            // btnEditarPaciente
+            // 
+            this.btnEditarPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEditarPaciente.Image = global::SIMEDVirtual.Properties.Resources.edit32;
+            this.btnEditarPaciente.Location = new System.Drawing.Point(16, 110);
+            this.btnEditarPaciente.Name = "btnEditarPaciente";
+            this.btnEditarPaciente.Size = new System.Drawing.Size(75, 58);
+            this.btnEditarPaciente.TabIndex = 2;
+            this.btnEditarPaciente.Text = "Editar";
+            this.btnEditarPaciente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEditarPaciente.UseVisualStyleBackColor = true;
+            // 
+            // btnCrearPaciente
+            // 
+            this.btnCrearPaciente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCrearPaciente.Image = global::SIMEDVirtual.Properties.Resources.add28;
+            this.btnCrearPaciente.Location = new System.Drawing.Point(16, 25);
+            this.btnCrearPaciente.Name = "btnCrearPaciente";
+            this.btnCrearPaciente.Size = new System.Drawing.Size(75, 57);
+            this.btnCrearPaciente.TabIndex = 1;
+            this.btnCrearPaciente.Text = "Crear";
+            this.btnCrearPaciente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnCrearPaciente.UseVisualStyleBackColor = true;
+            this.btnCrearPaciente.Click += new System.EventHandler(this.btnCrearPaciente_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnEditarPaciente);
+            this.groupBox1.Controls.Add(this.btnCrearPaciente);
+            this.groupBox1.Location = new System.Drawing.Point(47, 98);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(106, 186);
+            this.groupBox1.TabIndex = 15;
+            this.groupBox1.TabStop = false;
+            // 
             // frmVerExpediente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(888, 578);
+            this.ClientSize = new System.Drawing.Size(936, 607);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -320,16 +338,14 @@
             this.Controls.Add(this.dgReconsultas);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnReconsulta);
-            this.Controls.Add(this.btnEditarPaciente);
-            this.Controls.Add(this.btnCrearPaciente);
             this.Controls.Add(this.dgClientes);
             this.Name = "frmVerExpediente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Control del Expedientes";
-            
             this.Load += new System.EventHandler(this.frmVerExpediente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgReconsultas)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -359,5 +375,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn diagnostico;
         private System.Windows.Forms.DataGridViewTextBoxColumn terapeutica;
         private System.Windows.Forms.DataGridViewTextBoxColumn observaciones;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
