@@ -64,3 +64,4 @@ C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Properties.Reso
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.csproj.GenerateResource.Cache
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_ExpedienteMG.resources
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frmVerExpediente.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_Cliente.resources

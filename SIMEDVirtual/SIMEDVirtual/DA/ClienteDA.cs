@@ -15,7 +15,7 @@ namespace SIMEDVirtual.DA
         public static Boolean InsertaCliente(
             string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, char sexo, string estado_civil, string grupo_sanguineo, string profesion,
-            int telefono_fijo, int movil, string correo, string direccion, string edad, string empresa)
+            int telefono_fijo, int movil, string correo, string direccion, string edad, string empresa, byte[]fotoBinaria)
         {
             int x = 0;
             string g = "";
@@ -28,9 +28,9 @@ namespace SIMEDVirtual.DA
                 {
                     command.CommandText =
                         "insert into clientes(nombre,apellido1,apellido2,cedula,fecha_nacimiento,sexo," +
-                    "estado_civil,grupo_sanguineo,profesion,telefono_fijo,telefono_movil,email,direccion,edad,empresa) " +
+                    "estado_civil,grupo_sanguineo,profesion,telefono_fijo,telefono_movil,email,direccion,edad,empresa,foto) " +
                     "values (@nombre,@ape1,@ape2,@cedula,@fecha,@sexo,@estado,@grupo,@profesion,@telefono,@movil,@email,@direccion," +
-                    "@edad,@empresa)";
+                    "@edad,@empresa,@foto)";
 
                     command.Parameters.AddWithValue("@nombre", nombre);
                     command.Parameters.AddWithValue("@ape1", apellido1);
@@ -47,6 +47,7 @@ namespace SIMEDVirtual.DA
                     command.Parameters.AddWithValue("@direccion", direccion);
                     command.Parameters.AddWithValue("@edad", edad);
                     command.Parameters.AddWithValue("@empresa", empresa);
+                    command.Parameters.AddWithValue("@foto", fotoBinaria);
 
                     x = command.ExecuteNonQuery();
                 }
@@ -54,8 +55,9 @@ namespace SIMEDVirtual.DA
                 catch (Exception exp)
                 {
                     g = exp.ToString();
-                    Console.Write(g);
-                    throw;
+                    return false;
+                    //Console.Write(g);
+                    //throw;
                 }
                 conn.Close();
 
@@ -146,6 +148,81 @@ namespace SIMEDVirtual.DA
             }
             return list;
         }
+
+
+        public static Boolean UpdateCliente(string nombre, string apellido1, string apellido2, string cedula, DateTime fecha,
+            string edad, char sexo, string direccion, string estado, string grupo, string empresa, string profesion,
+           int telefono1, int telefono2, string email)
+        {
+            int x = 0;
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                NpgsqlCommand command = new NpgsqlCommand();
+                command.Connection = conn;
+                conn.Open();
+                try
+                {
+                    string cadena = "update clientes set nombre=@nombre, apellido1=@apellido1,apellido2=@apellido2," +
+                    "fecha_nacimiento=@fecha_nacimiento,sexo=@sexo,estado_civil=@estado_civil, grupo_sanguineo=@grupo_sanguineo," +
+                    "profesion=@profesion,telefono_fijo=@telefono_fijo,telefono_movil=@telefono_movil, email=@email," +
+                    "direccion=@direccion, edad=@edad, empresa=@empresa where cedula=@cedula";
+
+                    command.CommandText = cadena;
+
+                    command.Parameters.AddWithValue("@nombre", nombre);
+                    command.Parameters.AddWithValue("@apellido1", apellido1);
+                    command.Parameters.AddWithValue("@apellido2", apellido2);
+                    command.Parameters.AddWithValue("@cedula", cedula);
+                    command.Parameters.AddWithValue("@fecha_nacimiento", fecha);
+                    command.Parameters.AddWithValue("@edad", edad);
+                    command.Parameters.AddWithValue("@sexo", sexo);
+                    command.Parameters.AddWithValue("@estado_civil", estado);
+                    command.Parameters.AddWithValue("@grupo_sanguineo", grupo);
+                    command.Parameters.AddWithValue("@direccion", direccion);
+                    command.Parameters.AddWithValue("@empresa", empresa);
+                    command.Parameters.AddWithValue("@profesion", profesion);
+                    command.Parameters.AddWithValue("@telefono_fijo", telefono1);
+                    command.Parameters.AddWithValue("@telefono_movil", telefono2);
+                    command.Parameters.AddWithValue("@email", email);
+
+                    x = command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    throw;
+                    return false;
+                }
+
+                if (x != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
         /* public static List<int> IdEmpresa(int idEmpresa)

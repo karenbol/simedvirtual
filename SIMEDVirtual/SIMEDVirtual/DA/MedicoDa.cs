@@ -57,6 +57,8 @@ namespace SIMEDVirtual.DA
             }
         }
         //metodo que edita la informacion
+
+
         public static Boolean UpdateMedico(string nombre, string apellido1, string apellido2, string cedula,
            DateTime fecha, string direccion, int codigo, string universidad, string especialidad, string correo,
             int telefono1, int telefono2)

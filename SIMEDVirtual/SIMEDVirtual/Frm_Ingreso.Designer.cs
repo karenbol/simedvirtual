@@ -130,6 +130,7 @@
             this.Name = "Frm_Ingreso";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ingreso";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Ingreso_FormClosing);
             this.Load += new System.EventHandler(this.Frm_Ingreso_Load);
             this.gbIngreso.ResumeLayout(false);
             this.gbIngreso.PerformLayout();

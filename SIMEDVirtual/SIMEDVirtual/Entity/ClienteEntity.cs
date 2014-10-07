@@ -21,11 +21,9 @@ namespace SIMEDVirtual.Entity
         public string email { get; set; }
         public string direccion { get; set; }
 
-       
-
         public string edad { get; set; }
         public string empresa { get; set; }
 
-       
+        public byte[] fotoBinaria { get; set; }
     }
 }

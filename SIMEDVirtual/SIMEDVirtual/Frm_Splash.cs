@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Configuration;
 using SIMEDVirtual.Entity;
 using SIMEDVirtual.DA;
+using System.IO;
 
 
 namespace SIMEDVirtual
@@ -75,9 +76,12 @@ namespace SIMEDVirtual
 
         private void Frm_Splash_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Frm_Ingreso frm = new Frm_Ingreso();
-            frm.Close();
-            Application.Exit();
+            //Frm_Ingreso frm = new Frm_Ingreso();
+            //frm.Close();
+            //Application.Exit();
+            this.Hide();
+            Frm_Ingreso x = new Frm_Ingreso();
+            x.ShowDialog();
         }
 
         private void expedientesMedicosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -93,5 +97,57 @@ namespace SIMEDVirtual
             Frm_Ingreso pantalla = new Frm_Ingreso();
             pantalla.ShowDialog();
         }
+
+        private void medicosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_Medico pantalla = new Frm_Medico();
+            pantalla.ShowDialog();
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frm_Cliente pantalla = new frm_Cliente();
+            pantalla.ShowDialog();
+        }
+
+
+
+        public void SaveProduct(string productName, string productImageFilePath)
+        {
+            using (NpgsqlConnection pgConnection = new NpgsqlConnection("server=192.168.2.103;user id=postgres;password=123;database=simedvirtual"))
+            {
+                try
+                {
+                    using (FileStream pgFileStream = new FileStream(productImageFilePath, FileMode.Open, FileAccess.Read))
+                    {
+                        using (BinaryReader pgReader = new BinaryReader(new BufferedStream(pgFileStream)))
+                        {
+                            byte[] pgByteA = pgReader.ReadBytes(Convert.ToInt32(pgFileStream.Length));
+                            using (NpgsqlCommand pgCommand = new NpgsqlCommand("INSERT INTO fotos(product_name, product_image) SELECT @ProductName, @ProductImage", pgConnection))
+                            {
+                                pgCommand.Parameters.AddWithValue("@ProductName", productName);
+                                pgCommand.Parameters.AddWithValue("@ProductImage", pgByteA);
+                                try
+                                {
+                                    pgConnection.Open();
+                                    pgCommand.ExecuteNonQuery();
+                                }
+                                catch
+                                {
+                                    throw;
+                                }
+                            }
+                        }
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+        }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using SIMEDVirtual.DA;
+﻿using Npgsql;
+using SIMEDVirtual.DA;
 using SIMEDVirtual.Entity;
 using SIMEDVirtual.IT;
 using System;
@@ -6,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -14,6 +16,9 @@ namespace SIMEDVirtual
 {
     public partial class frm_ExpedienteMG : Form
     {
+        public byte[] fotoBinaria;
+        public string rutaDefault="C:\\SIMEDVirtual\\SIMEDVirtual\\SIMEDVirtual\\Properties\\camera.png";
+
         char sexo = 'f';
         char tabaquismo = ' ';
         char ingesta = ' ';
@@ -654,6 +659,9 @@ namespace SIMEDVirtual
 
         public void determinaExpediente(string cedula_paciente, int id_paciente)
         {
+            pbPaciente.Image = GetProductImage(cedula_paciente);
+
+
             //me trae el expediente segun la cedula y el id
             List<ExpedienteEntity> listaExpediente = ExpedienteIT.selectExpedienteById(cedula_paciente, id_paciente);
             //anamnesis
@@ -1037,6 +1045,7 @@ namespace SIMEDVirtual
             //dehabilito todo xq solo puedo ver
             {
                 determinaExpediente(cedula_paciente, id_paciente);
+                btnGuardar.Enabled = false;
 
                 ((Control)this.tabPageInfoPersonal).Enabled = false;
                 ((Control)this.tbPageAnamnesis).Enabled = false;
@@ -1064,18 +1073,95 @@ namespace SIMEDVirtual
         //opciond de cargar foto de paciente
         private void pbPaciente_Click(object sender, EventArgs e)
         {
-            //lblPb.Visible = false;
             opFile.Title = "Cargar Foto Médico";
             if (opFile.ShowDialog() == DialogResult.OK)
             {
-                string x = opFile.FileName;
-                MessageBox.Show(x);
+                string ruta = opFile.FileName;
+
                 opFile.Dispose();
-                pbPaciente.ImageLocation = x;
+                pbPaciente.ImageLocation = ruta;
+
+                MessageBox.Show(ruta);
+                //guardamos la imagen
+                fotoBinaria = this.saveImage(ruta);
+            }
+        }
+
+        //guardar la imagen, ocupo la ruta
+        public byte[] saveImage(string productImageFilePath)
+        {
+            using (NpgsqlConnection pgConnection = new NpgsqlConnection("server=192.168.2.103;user id=postgres;password=123;database=simedvirtual"))
+            {
+                try
+                {
+                    using (FileStream pgFileStream = new FileStream(productImageFilePath, FileMode.Open, FileAccess.Read))
+                    {
+                        using (BinaryReader pgReader = new BinaryReader(new BufferedStream(pgFileStream)))
+                        {
+                            byte[] pgByteA = pgReader.ReadBytes(Convert.ToInt32(pgFileStream.Length));
+                            using (NpgsqlCommand pgCommand = new NpgsqlCommand("INSERT INTO fotos(foto) values (@ProductImage)", pgConnection))
+                            {
+                                //pgCommand.Parameters.AddWithValue("@ProductName", productName);
+                                pgCommand.Parameters.AddWithValue("@ProductImage", pgByteA);
+                                try
+                                {
+                                    pgConnection.Open();
+                                    pgCommand.ExecuteNonQuery();
+                                }
+                                catch
+                                {
+                                    throw;
+                                }
+                            }
+                            return pgByteA;
+                        }
+                    }
+
+                }
+                catch
+                {
+                    throw;
+                }
             }
         }
 
 
+        public Image GetProductImage(string cedula)
+        {
+            using (NpgsqlConnection pgConnection = new NpgsqlConnection("server=192.168.2.103;user id=postgres;password=123;database=simedvirtual"))
+            {
+                try
+                {
+                    using (NpgsqlCommand pgCommand = new NpgsqlCommand("SELECT foto FROM clientes WHERE cedula=@id;", pgConnection))
+                    {
+                        pgCommand.Parameters.AddWithValue("@id", cedula);
+                        try
+                        {
+                            pgConnection.Open();
+                            Byte[] productImageByte = (Byte[])pgCommand.ExecuteScalar();
+                            if (productImageByte != null)
+                            {
+                                using (Stream productImageStream = new System.IO.MemoryStream(productImageByte))
+                                {
+                                    return Image.FromStream(productImageStream);
+                                }
+                            }
+                        }
+                        catch
+                        {
+                            throw;
+                        }
+                    }
+                }
+                catch
+                {
+                    throw;
+                }
+            }
+            return null;
+        }
+
+        
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (expOreconsulta == true)
@@ -1093,7 +1179,7 @@ namespace SIMEDVirtual
                         auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
                         observaciones_sn, otros_examen2, fecha, diagnostico, terapeutica, observaciones_generales, cedulaPublica, Frm_Ingreso.cedulaUsuario))
                     {
-                        MessageBox.Show("Reconsulta Insertada con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("Consulta Insertada con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Hide();
                         frmVerExpediente splash = new frmVerExpediente();
                         splash.ShowDialog();
@@ -1101,7 +1187,7 @@ namespace SIMEDVirtual
                 }
                 else
                 {
-                    MessageBox.Show("No se puede insertar un Expediente con Campos Vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("No se puede Insertar un Expediente con Campos Vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
             //creo que cliente, anamnesis y expediente
@@ -1149,7 +1235,7 @@ namespace SIMEDVirtual
                         {
                             telefono = Convert.ToInt32(txtTelefono.Text);
                         }
-                      
+
                         if (txtMovil.Text.Length != 0)
                         {
                             movil = Convert.ToInt32(txtMovil.Text);
@@ -1157,9 +1243,17 @@ namespace SIMEDVirtual
 
 
                         //si se inserto bn en el cliente y la anamnesis y el expediente
+                        if (fotoBinaria == null)
+                        {
+                            MessageBox.Show("no se dijo foto");
+                            //string x = pbPaciente.ImageLocation;
+                            fotoBinaria = this.saveImage(rutaDefault);
+                        }
+
+
                         if (ClienteIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, cedula, fecha,
                         sexo, estado, grupo, txtProfesion.Text, telefono, movil,
-                        txtEmail.Text, txtDireccion.Text, txtEdad.Text, empresa) &&
+                        txtEmail.Text, txtDireccion.Text, txtEdad.Text, empresa, fotoBinaria) &&
                             anamnesisIT.InsertaAnamnesis(cedula, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, hipertension, dolor_cabeza,
                         epilepsia, vertigo, depresion, falta_aire, oidos_ojos, dolor_pecho, enf_nerviosas, alergia, txtAlergias.Text, txtTratDiabetes.Text,
                         txtTratHipertension.Text, asma, txtTratAsma.Text, tiroides, txtTratTiroides.Text, txtHipertensionHeredo.Text, txtDiabetesHeredo.Text,
@@ -1372,6 +1466,7 @@ namespace SIMEDVirtual
             this.Hide();
             frmVerExpediente frm = new frmVerExpediente();
             frm.ShowDialog();
+            this.Dispose();
         }
 
         private void frm_ExpedienteMG_Load(object sender, EventArgs e)
@@ -1453,6 +1548,11 @@ namespace SIMEDVirtual
         {
             txtTratTiroides.Visible = false;
             lblTratTiroides.Visible = false;
+        }
+
+        private void btnEliminarFoto_Click(object sender, EventArgs e)
+        {
+            pbPaciente.ImageLocation = rutaDefault;
         }
     }
 }

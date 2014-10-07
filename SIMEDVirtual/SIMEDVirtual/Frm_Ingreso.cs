@@ -20,29 +20,16 @@ namespace SIMEDVirtual
         public static String datosUsuario = "karen probando";
         //variable estatico con la cedula del usuario
         public static String cedulaUsuario = "";
+        public static Char tipoUsuario;
 
         public Frm_Ingreso()
         {
             InitializeComponent();
         }
 
-        //private void medicoToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    //this.Hide();
-        //    Frm_Registro_Medico rm = new Frm_Registro_Medico();
-        //    rm.ShowDialog();
-        //}
-
-        //private void secretariaToolStripMenuItem_Click(object sender, EventArgs e)
-        //{
-        //    //this.Hide();
-        //    Frm_Registro_Secretaria rm = new Frm_Registro_Secretaria();
-        //    rm.ShowDialog();
-        //}
-
         private void button1_Click(object sender, EventArgs e)
         {
-            Char tipoUsuario;
+
             int parsedValue;
 
             //validamos que no hayan campos vacios al ingresar
@@ -64,9 +51,6 @@ namespace SIMEDVirtual
                         //guardo la cedula del usuario
                         cedulaUsuario = txtUsuario.Text.Trim();
 
-
-
-
                         //determinamos nombre y apellido del usuario en una variable statica
                         //recibe el nombre de usuario y me trae la informacion
                         List<MedicoEntity> doctor = UsuarioIT.getNombreApeDr(txtUsuario.Text.Trim());
@@ -81,6 +65,8 @@ namespace SIMEDVirtual
                             //si es adm lo lleva a la pantalla principal
                             Frm_Splash pr = new Frm_Splash();
                             pr.ShowDialog();
+
+
                         }
                         else if (tipoUsuario == 'm')
                         {
@@ -89,7 +75,6 @@ namespace SIMEDVirtual
                             this.Hide();
                             frm_ExpedienteMG pr = new frm_ExpedienteMG();
                             pr.ShowDialog();
-
                         }
                         else
                         {
@@ -119,6 +104,11 @@ namespace SIMEDVirtual
         private void Frm_Ingreso_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Frm_Ingreso_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.ExitThread();
         }
     }
 }

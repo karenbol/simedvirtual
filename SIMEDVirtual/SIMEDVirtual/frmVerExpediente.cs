@@ -27,7 +27,7 @@ namespace SIMEDVirtual
             label3.AutoSize = false;
             label3.Height = 2;
             label3.BorderStyle = BorderStyle.Fixed3D;
-            label3.Width = 850;
+            label3.Width = 952;
         }
 
         private void frmVerExpediente_Load(object sender, EventArgs e)
@@ -105,65 +105,7 @@ namespace SIMEDVirtual
         //llena todos los campos segun la consulta hecha por cedula
         private void btnReconsulta_Click(object sender, EventArgs e)
         {
-            //prueba lleva la cedula que es global 
-            ////me trae todo del cliente segun la cedula
-            //List<ClienteEntity> lista = ClienteIT.selectClientePorCedula(prueba);
-
-            ////informacion personal
-            //string nombre = lista.ElementAt(0).nombre.ToString();
-            //string apellido1 = lista.ElementAt(0).ape1.ToString();
-            //string apellido2 = lista.ElementAt(0).ape2.ToString();
-            //string cedula = lista.ElementAt(0).cedula.ToString();
-            //DateTime fecha = lista.ElementAt(0).fecha;
-            //Char sexo = lista.ElementAt(0).sexo;
-            //string estado_Civil = lista.ElementAt(0).estado_civil.ToString();
-            //string grupo = lista.ElementAt(0).grupo_sanguineo.ToString();
-            //string profesion = lista.ElementAt(0).profesion.ToString(); ;
-            //int telefono = Convert.ToInt32(lista.ElementAt(0).telefono_fijo);
-            //int movil = Convert.ToInt32(lista.ElementAt(0).telefono_movil);
-            //string email = lista.ElementAt(0).email.ToString();
-            //string direccion = lista.ElementAt(0).direccion.ToString();
-
-            //string edad = Convert.ToString(lista.ElementAt(0).edad);
-            //string empresa = Convert.ToString(lista.ElementAt(0).empresa);
-
-            //falta llamar a la anamnesis
-            ////me devuelve toda la anam
-            //List<anamnesis> listaAnamnesis = anamnesisIT.selectAnamnesisPorCedula(prueba);
-            ////anamnesis
-            //char tabaquismo = Convert.ToChar(listaAnamnesis.ElementAt(0).tabaquismo);
-            //char ingesta = Convert.ToChar(listaAnamnesis.ElementAt(0).ingesta_medicamentos);
-            //char alcoholismo = Convert.ToChar(listaAnamnesis.ElementAt(0).alcoholismo);
-            //char rehabilitacion = Convert.ToChar(listaAnamnesis.ElementAt(0).rehabilitacion);
-            //char diabetes = Convert.ToChar(listaAnamnesis.ElementAt(0).diabetes);
-            //char hipertension = Convert.ToChar(listaAnamnesis.ElementAt(0).hipertension);
-            //char dolor_cabeza = Convert.ToChar(listaAnamnesis.ElementAt(0).dolor_Cabeza);
-            //char epilepsia = Convert.ToChar(listaAnamnesis.ElementAt(0).epilepsia);
-            //char vertigo = Convert.ToChar(listaAnamnesis.ElementAt(0).vertigo);
-            //char depresion = Convert.ToChar(listaAnamnesis.ElementAt(0).depre);
-            //char falta_aire = Convert.ToChar(listaAnamnesis.ElementAt(0).falta_aire);
-            //char enf_ojos_oidos = Convert.ToChar(listaAnamnesis.ElementAt(0).enf_ojos_oidos);
-            //char dolor_pecho = Convert.ToChar(listaAnamnesis.ElementAt(0).dolor_pecho);
-            //char enf_nerviosas = Convert.ToChar(listaAnamnesis.ElementAt(0).enf_nerviosas);
-            //char alergia = Convert.ToChar(listaAnamnesis.ElementAt(0).alergias);
-            //string alergia_trat = Convert.ToString(listaAnamnesis.ElementAt(0).alergias_tratamiento);
-            //string diabetes_trat = Convert.ToString(listaAnamnesis.ElementAt(0).diabetes_trat);
-            //string hipertension_trat = Convert.ToString(listaAnamnesis.ElementAt(0).hipertension_trat);
-            //char asma = Convert.ToChar(listaAnamnesis.ElementAt(0).asma);
-            //string asma_trat = Convert.ToString(listaAnamnesis.ElementAt(0).asma_tratamiento);
-            //char tiroides = Convert.ToChar(listaAnamnesis.ElementAt(0).tiroides);
-            //string tiroides_trat = Convert.ToString(listaAnamnesis.ElementAt(0).tiroides_tratamiento);
-
-            //string hipertension_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).hipertension_heredo);
-            //string diabetes_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).diabetes_heredo);
-            //string cancer_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).cancer_heredo);
-            //string tiroides_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).tiroides_heredo);
-            //string asma_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).asma_heredo);
-            //string otros_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).otros_heredo);
-
-            //string observaciones = Convert.ToString(listaAnamnesis.ElementAt(0).observaciones);
             this.Hide();
-
             frm_ExpedienteMG frm = new frm_ExpedienteMG(prueba, false, false, 0);
             frm.ShowDialog();
         }
@@ -250,6 +192,50 @@ namespace SIMEDVirtual
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        //veo la info personal del cliente
+        private void dgClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ////obtngo el id de la row seleccionada
+            //string cedula_paciente = Convert.ToString(dgClientes.Rows[e.RowIndex].Cells[0].Value);
+
+
+            ////llamar al otro frm
+            //this.Hide();
+            //frm_Cliente frm = new frm_Cliente(cedula_paciente, 1);
+            //frm.ShowDialog();
+        }
+
+        private void btnEditarPaciente_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgClientes.Rows[dgClientes.SelectedCells[0].RowIndex];
+            string cedula_paciente = Convert.ToString(selectedRow.Cells["Cedula"].Value);
+
+            this.Hide();
+            frm_Cliente frm = new frm_Cliente(cedula_paciente, 2);
+            frm.ShowDialog();
+        }
+
+        private void frmVerExpediente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+
+            switch (Frm_Ingreso.tipoUsuario)
+            {
+
+                case 'm':
+                    Frm_Ingreso frm = new Frm_Ingreso();
+                    frm.ShowDialog();
+                    break;
+
+                case 'a':
+                    Frm_Splash pantalla = new Frm_Splash();
+                    pantalla.ShowDialog();
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
