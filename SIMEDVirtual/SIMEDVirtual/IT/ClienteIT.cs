@@ -2,6 +2,7 @@
 using SIMEDVirtual.Entity;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -38,5 +39,11 @@ namespace SIMEDVirtual.IT
             return ClienteDA.UpdateCliente(nombre, apellido1, apellido2, cedula, fecha, edad, sexo, direccion,
                 estado, grupo, empresa, profesion, telefono1, telefono2, email);
         }
+
+        public static Image GetImagePacient(string cedula)
+        {
+            return ClienteDA.GetImagePacient(cedula);
+        }
+
     }
 }

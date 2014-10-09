@@ -53,7 +53,7 @@ namespace SIMEDVirtual
             if (dataGridView1.SelectedCells.Count > 0)
             {
                 DataGridViewRow selectedRow = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex];
-                int ced = Convert.ToInt32(selectedRow.Cells["Cedula"].Value);
+                string ced = (selectedRow.Cells["Cedula"].Value.ToString());
                 //devuelve datos del medico segun la cedula
                 var pts = new BindingList<MedicoEntity>(MedicoIT.selectMedico2(Convert.ToString(ced)));
 
@@ -68,6 +68,7 @@ namespace SIMEDVirtual
                 String correo = pts.ElementAt(0).correo.ToString();
                 int telefono1 = Convert.ToInt32(pts.ElementAt(0).telefono1.ToString());
                 int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono2.ToString());
+                byte foto = Convert.ToByte(pts.ElementAt(0).foto);
 
                 this.Hide();
                 Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, ced, fecha, direccion,
@@ -118,10 +119,11 @@ namespace SIMEDVirtual
             }
         }
 
+        //doble click para ver la info del medico
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             //cargamos todos la info de drs en el datagrid
-            int cedula = Convert.ToInt32(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+            string cedula = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             //selecciona el medico dependiento de la cedula
             var pts = new BindingList<MedicoEntity>(MedicoIT.selectMedico2(Convert.ToString(cedula)));
             dataGridView1.AutoGenerateColumns = false;
@@ -138,6 +140,7 @@ namespace SIMEDVirtual
             String correo = pts.ElementAt(0).correo.ToString();
             int telefono1 = Convert.ToInt32(pts.ElementAt(0).telefono1.ToString());
             int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono2.ToString());
+            //byte foto = Convert.ToByte(pts.ElementAt(0).foto);
 
 
             this.Hide();

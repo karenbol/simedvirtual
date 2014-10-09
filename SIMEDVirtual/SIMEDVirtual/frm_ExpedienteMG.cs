@@ -5,6 +5,7 @@ using SIMEDVirtual.IT;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.IO;
@@ -17,7 +18,7 @@ namespace SIMEDVirtual
     public partial class frm_ExpedienteMG : Form
     {
         public byte[] fotoBinaria;
-        public string rutaDefault="C:\\SIMEDVirtual\\SIMEDVirtual\\SIMEDVirtual\\Properties\\camera.png";
+        public static string rutaDefault = "C:\\SIMEDVirtual\\SIMEDVirtual\\SIMEDVirtual\\Properties\\camera.png";
 
         char sexo = 'f';
         char tabaquismo = ' ';
@@ -659,7 +660,7 @@ namespace SIMEDVirtual
 
         public void determinaExpediente(string cedula_paciente, int id_paciente)
         {
-            pbPaciente.Image = GetProductImage(cedula_paciente);
+            pbPaciente.Image = ClienteIT.GetImagePacient(cedula_paciente);
 
 
             //me trae el expediente segun la cedula y el id
@@ -931,8 +932,7 @@ namespace SIMEDVirtual
             {
                 rx48.Checked = true;
             }
-
-
+            
             txtOtrosSN.Text = Convert.ToString(listaExpediente.ElementAt(0).otros_sn);
             txtObservacionesSN.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_sn);
             txtOtrosExamen2.Text = Convert.ToString(listaExpediente.ElementAt(0).otros_examen2);
@@ -1081,7 +1081,7 @@ namespace SIMEDVirtual
                 opFile.Dispose();
                 pbPaciente.ImageLocation = ruta;
 
-                MessageBox.Show(ruta);
+                //MessageBox.Show(ruta);
                 //guardamos la imagen
                 fotoBinaria = this.saveImage(ruta);
             }
@@ -1090,78 +1090,23 @@ namespace SIMEDVirtual
         //guardar la imagen, ocupo la ruta
         public byte[] saveImage(string productImageFilePath)
         {
-            using (NpgsqlConnection pgConnection = new NpgsqlConnection("server=192.168.2.103;user id=postgres;password=123;database=simedvirtual"))
+            try
             {
-                try
+                using (FileStream pgFileStream = new FileStream(productImageFilePath, FileMode.Open, FileAccess.Read))
                 {
-                    using (FileStream pgFileStream = new FileStream(productImageFilePath, FileMode.Open, FileAccess.Read))
+                    using (BinaryReader pgReader = new BinaryReader(new BufferedStream(pgFileStream)))
                     {
-                        using (BinaryReader pgReader = new BinaryReader(new BufferedStream(pgFileStream)))
-                        {
-                            byte[] pgByteA = pgReader.ReadBytes(Convert.ToInt32(pgFileStream.Length));
-                            using (NpgsqlCommand pgCommand = new NpgsqlCommand("INSERT INTO fotos(foto) values (@ProductImage)", pgConnection))
-                            {
-                                //pgCommand.Parameters.AddWithValue("@ProductName", productName);
-                                pgCommand.Parameters.AddWithValue("@ProductImage", pgByteA);
-                                try
-                                {
-                                    pgConnection.Open();
-                                    pgCommand.ExecuteNonQuery();
-                                }
-                                catch
-                                {
-                                    throw;
-                                }
-                            }
-                            return pgByteA;
-                        }
+                        byte[] pgByteA = pgReader.ReadBytes(Convert.ToInt32(pgFileStream.Length));
+                        return pgByteA;
                     }
-
                 }
-                catch
-                {
-                    throw;
-                }
+            }
+            catch
+            {
+                throw;
             }
         }
 
-
-        public Image GetProductImage(string cedula)
-        {
-            using (NpgsqlConnection pgConnection = new NpgsqlConnection("server=192.168.2.103;user id=postgres;password=123;database=simedvirtual"))
-            {
-                try
-                {
-                    using (NpgsqlCommand pgCommand = new NpgsqlCommand("SELECT foto FROM clientes WHERE cedula=@id;", pgConnection))
-                    {
-                        pgCommand.Parameters.AddWithValue("@id", cedula);
-                        try
-                        {
-                            pgConnection.Open();
-                            Byte[] productImageByte = (Byte[])pgCommand.ExecuteScalar();
-                            if (productImageByte != null)
-                            {
-                                using (Stream productImageStream = new System.IO.MemoryStream(productImageByte))
-                                {
-                                    return Image.FromStream(productImageStream);
-                                }
-                            }
-                        }
-                        catch
-                        {
-                            throw;
-                        }
-                    }
-                }
-                catch
-                {
-                    throw;
-                }
-            }
-            return null;
-        }
-
-        
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             if (expOreconsulta == true)

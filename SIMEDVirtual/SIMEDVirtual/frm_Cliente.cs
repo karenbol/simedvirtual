@@ -16,6 +16,7 @@ namespace SIMEDVirtual
     public partial class frm_Cliente : Form
     {
         public int editar;
+        public byte[] fotoBinaria;
 
         public frm_Cliente()
         {
@@ -90,77 +91,24 @@ namespace SIMEDVirtual
         }
 
 
+        //guardar la imagen, ocupo la ruta
         public byte[] saveImage(string productImageFilePath)
         {
-            using (NpgsqlConnection pgConnection = new NpgsqlConnection("server=192.168.2.103;user id=postgres;password=123;database=simedvirtual"))
+            try
             {
-                try
+                using (FileStream pgFileStream = new FileStream(productImageFilePath, FileMode.Open, FileAccess.Read))
                 {
-                    using (FileStream pgFileStream = new FileStream(productImageFilePath, FileMode.Open, FileAccess.Read))
+                    using (BinaryReader pgReader = new BinaryReader(new BufferedStream(pgFileStream)))
                     {
-                        using (BinaryReader pgReader = new BinaryReader(new BufferedStream(pgFileStream)))
-                        {
-                            byte[] pgByteA = pgReader.ReadBytes(Convert.ToInt32(pgFileStream.Length));
-                            using (NpgsqlCommand pgCommand = new NpgsqlCommand("INSERT INTO fotos(foto) values (@ProductImage)", pgConnection))
-                            {
-                                //pgCommand.Parameters.AddWithValue("@ProductName", productName);
-                                pgCommand.Parameters.AddWithValue("@ProductImage", pgByteA);
-                                try
-                                {
-                                    pgConnection.Open();
-                                    pgCommand.ExecuteNonQuery();
-                                }
-                                catch
-                                {
-                                    throw;
-                                }
-                            }
-                            return pgByteA;
-                        }
-                    }
-
-                }
-                catch
-                {
-                    throw;
-                }
-            }
-        }
-
-
-        public Image GetProductImage(string cedula)
-        {
-            using (NpgsqlConnection pgConnection = new NpgsqlConnection("server=192.168.2.103;user id=postgres;password=123;database=simedvirtual"))
-            {
-                try
-                {
-                    using (NpgsqlCommand pgCommand = new NpgsqlCommand("SELECT foto FROM clientes WHERE cedula=@id;", pgConnection))
-                    {
-                        pgCommand.Parameters.AddWithValue("@id", cedula);
-                        try
-                        {
-                            pgConnection.Open();
-                            Byte[] productImageByte = (Byte[])pgCommand.ExecuteScalar();
-                            if (productImageByte != null)
-                            {
-                                using (Stream productImageStream = new System.IO.MemoryStream(productImageByte))
-                                {
-                                    return Image.FromStream(productImageStream);
-                                }
-                            }
-                        }
-                        catch
-                        {
-                            throw;
-                        }
+                        byte[] pgByteA = pgReader.ReadBytes(Convert.ToInt32(pgFileStream.Length));
+                        return pgByteA;
                     }
                 }
-                catch
-                {
-                    throw;
-                }
             }
-            return null;
+            catch
+            {
+                throw;
+            }
         }
 
         private void pbFotoCliente_Click(object sender, EventArgs e)
@@ -170,9 +118,10 @@ namespace SIMEDVirtual
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string x = openFileDialog1.FileName;
-                MessageBox.Show(x);
+
                 openFileDialog1.Dispose();
                 pbFotoCliente.ImageLocation = x;
+                fotoBinaria = this.saveImage(x);
             }
         }
 

@@ -29,13 +29,12 @@ namespace SIMEDVirtual
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             int parsedValue;
 
             //validamos que no hayan campos vacios al ingresar
             if (txtUsuario.Text != string.Empty && txtContrasena.Text != string.Empty)
             {
-                //valido que se escriban solo numeros en el campo usuario
+                //valido que no se escriban carecteres especiales en el campo usuario
                 if (!int.TryParse(txtUsuario.Text, out parsedValue))
                 {
                     txtUsuario.Text = string.Empty;
@@ -45,7 +44,7 @@ namespace SIMEDVirtual
                 }
                 else
                 {
-                    //determina si los datos de ingreso son correctos
+                    //determina si los datos de ingreso  estan en la tabla usuarios
                     if (UsuarioIT.Ingreso(Convert.ToInt32(txtUsuario.Text.Trim()), txtContrasena.Text.Trim()))
                     {
                         //guardo la cedula del usuario
@@ -55,31 +54,41 @@ namespace SIMEDVirtual
                         //recibe el nombre de usuario y me trae la informacion
                         List<MedicoEntity> doctor = UsuarioIT.getNombreApeDr(txtUsuario.Text.Trim());
                         //concatenamos nombre y apellido del usuario
-                        datosUsuario = doctor.ElementAt(0).nombre.ToString();
-                        datosUsuario += " " + doctor.ElementAt(0).apellido1.ToString();
 
-                        tipoUsuario = UsuarioIT.TipoUsuario(Convert.ToInt32(txtUsuario.Text));
-                        if (tipoUsuario == 'a')
+                        if (doctor.Count != 0)
                         {
-                            this.Hide();
-                            //si es adm lo lleva a la pantalla principal
-                            Frm_Splash pr = new Frm_Splash();
-                            pr.ShowDialog();
+                            datosUsuario = doctor.ElementAt(0).nombre.ToString();
+                            datosUsuario += " " + doctor.ElementAt(0).apellido1.ToString();
+
+                            tipoUsuario = UsuarioIT.TipoUsuario(Convert.ToInt32(txtUsuario.Text));
+                            if (tipoUsuario == 'a')
+                            {
+                                this.Hide();
+                                //si es adm lo lleva a la pantalla principal
+                                Frm_Splash pr = new Frm_Splash();
+                                pr.ShowDialog();
 
 
-                        }
-                        else if (tipoUsuario == 'm')
-                        {
-                            //si es medico lo lleva a los expedientes
-                            //MessageBox.Show("eres Medico");
-                            this.Hide();
-                            frm_ExpedienteMG pr = new frm_ExpedienteMG();
-                            pr.ShowDialog();
+                            }
+                            else if (tipoUsuario == 'm')
+                            {
+                                //si es medico lo lleva a los expedientes
+                                //MessageBox.Show("eres Medico");
+                                this.Hide();
+                                frm_ExpedienteMG pr = new frm_ExpedienteMG();
+                                pr.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("Ha ocurrido un error con el tipo de usuario");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("Ha ocurrido un error con el tipo de usuario");
+                            MessageBox.Show("No se Encuentra registrado el Usuario");
                         }
+
+
                     }
                     else
                     //si la informacion de ingreso no es correcta

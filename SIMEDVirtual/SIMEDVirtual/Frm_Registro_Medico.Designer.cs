@@ -123,7 +123,6 @@
             this.label6.Size = new System.Drawing.Size(60, 18);
             this.label6.TabIndex = 4;
             this.label6.Text = "Cédula";
-            
             // 
             // label7
             // 
@@ -205,7 +204,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDireccion.Size = new System.Drawing.Size(324, 70);
-            this.txtDireccion.TabIndex = 5;
+            this.txtDireccion.TabIndex = 10;
             // 
             // txtU
             // 
@@ -214,7 +213,7 @@
             this.txtU.Location = new System.Drawing.Point(146, 315);
             this.txtU.Name = "txtU";
             this.txtU.Size = new System.Drawing.Size(200, 22);
-            this.txtU.TabIndex = 7;
+            this.txtU.TabIndex = 6;
             // 
             // txtCorreo
             // 
@@ -223,7 +222,7 @@
             this.txtCorreo.Location = new System.Drawing.Point(146, 267);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(200, 22);
-            this.txtCorreo.TabIndex = 9;
+            this.txtCorreo.TabIndex = 5;
             // 
             // lblTitle
             // 
@@ -243,7 +242,7 @@
             this.txtEspecialidad.Location = new System.Drawing.Point(561, 315);
             this.txtEspecialidad.Name = "txtEspecialidad";
             this.txtEspecialidad.Size = new System.Drawing.Size(205, 22);
-            this.txtEspecialidad.TabIndex = 8;
+            this.txtEspecialidad.TabIndex = 11;
             // 
             // label12
             // 
@@ -264,7 +263,7 @@
             this.txtcontrasena.Name = "txtcontrasena";
             this.txtcontrasena.PasswordChar = '*';
             this.txtcontrasena.Size = new System.Drawing.Size(200, 22);
-            this.txtcontrasena.TabIndex = 12;
+            this.txtcontrasena.TabIndex = 8;
             // 
             // lblpass
             // 
@@ -284,7 +283,7 @@
             this.fecha_nacimiento.Location = new System.Drawing.Point(561, 173);
             this.fecha_nacimiento.Name = "fecha_nacimiento";
             this.fecha_nacimiento.Size = new System.Drawing.Size(324, 22);
-            this.fecha_nacimiento.TabIndex = 3;
+            this.fecha_nacimiento.TabIndex = 9;
             // 
             // mtcedula
             // 
@@ -294,8 +293,7 @@
             this.mtcedula.Mask = "99999999999999999999999";
             this.mtcedula.Name = "mtcedula";
             this.mtcedula.Size = new System.Drawing.Size(200, 22);
-            this.mtcedula.TabIndex = 4;
-            
+            this.mtcedula.TabIndex = 3;
             // 
             // codigo
             // 
@@ -305,7 +303,7 @@
             this.codigo.Mask = "9999999";
             this.codigo.Name = "codigo";
             this.codigo.Size = new System.Drawing.Size(200, 22);
-            this.codigo.TabIndex = 6;
+            this.codigo.TabIndex = 4;
             // 
             // telefono1
             // 
@@ -315,7 +313,7 @@
             this.telefono1.Mask = "99999999999999999999999";
             this.telefono1.Name = "telefono1";
             this.telefono1.Size = new System.Drawing.Size(200, 22);
-            this.telefono1.TabIndex = 10;
+            this.telefono1.TabIndex = 7;
             // 
             // txtconfirmacion
             // 
@@ -394,7 +392,7 @@
             this.telefono2.Mask = "99999999999999999999999";
             this.telefono2.Name = "telefono2";
             this.telefono2.Size = new System.Drawing.Size(205, 22);
-            this.telefono2.TabIndex = 11;
+            this.telefono2.TabIndex = 12;
             // 
             // label3
             // 

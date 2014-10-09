@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,6 +16,7 @@ namespace SIMEDVirtual
     {
         private Boolean edicion = false;
         string usuarioPublico = "";
+        public byte[] fotoBinaria;
 
         public Frm_Registro_Medico(string usuario)
         {
@@ -22,7 +24,7 @@ namespace SIMEDVirtual
             usuarioPublico = usuario;
         }
 
-        public Frm_Registro_Medico(string nombre, string apellido1, string apellido2, int cedula,
+        public Frm_Registro_Medico(string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, int codigon, string universidad,
             string especialidad, string correo, int telefono1p, int telefono2p, Boolean ver)
         {
@@ -42,18 +44,21 @@ namespace SIMEDVirtual
             telefono2.Text = telefono2p.ToString();
             txtcontrasena.Visible = false;
             txtconfirmacion.Visible = false;
+            pbFotoDr.Image = MedicoIT.GetImageMedico(cedula);
+
             //si lo que quiero es ver la info
             if (ver)
             {
                 //deshabilito edicion xq solo quiero ver
                 ReadOnlyTxt();
-                this.Text = "Información de Médicos";
-                this.lblTitle.Text = "Información de Médicos";
+                this.Text = "INFORMACION DE MÉDICOS";
+                this.lblTitle.Text = "INFORMACION DE MÉDICOS";
                 lblpass.Visible = false;
                 lblconfirmapass.Visible = false;
                 btnGuardar.Visible = false;
             }
             else
+                //edito al medico
             {
                 edicion = true;
                 this.Text = "Editar Información de Médicos";
@@ -122,7 +127,7 @@ namespace SIMEDVirtual
                         if (MedicoIT.InsertaMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
                 Convert.ToString(mtcedula.Text), Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text,
                 Convert.ToInt32(codigo.Text), txtU.Text, txtEspecialidad.Text, txtCorreo.Text, Convert.ToInt32(telefono1.Text),
-                Convert.ToInt32(telefono2.Text)))
+                Convert.ToInt32(telefono2.Text), fotoBinaria))
                         {
                             //insertamos en la tabla de usuario
                             if (UsuarioIT.InsertaUsuario(txtcontrasena.Text, Convert.ToInt32(mtcedula.Text), 'm'))
@@ -153,7 +158,7 @@ namespace SIMEDVirtual
                     if (MedicoIT.UpdateMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
             Convert.ToString(mtcedula.Text), Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text,
             Convert.ToInt32(codigo.Text), txtU.Text, txtEspecialidad.Text, txtCorreo.Text,
-            Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text))) ;
+            Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text),fotoBinaria))
                     {
                         MessageBox.Show("Los Datos han sido Actualizados Correctamente!", "Actualizacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Close();
@@ -170,6 +175,7 @@ namespace SIMEDVirtual
 
         private void Frm_Registro_Medico_Load(object sender, EventArgs e)
         {
+            fotoBinaria = saveImage(frm_ExpedienteMG.rutaDefault);
 
         }
         //accion del picture Box
@@ -179,11 +185,34 @@ namespace SIMEDVirtual
             if (opFile.ShowDialog() == DialogResult.OK)
             {
                 string x = opFile.FileName;
-                MessageBox.Show(x);
+                //MessageBox.Show(x);
                 opFile.Dispose();
                 pbFotoDr.ImageLocation = x;
+                fotoBinaria = this.saveImage(x);
             }
         }
-              
+
+
+        //guardar la imagen, ocupo la ruta
+        public byte[] saveImage(string productImageFilePath)
+        {
+            try
+            {
+                using (FileStream pgFileStream = new FileStream(productImageFilePath, FileMode.Open, FileAccess.Read))
+                {
+                    using (BinaryReader pgReader = new BinaryReader(new BufferedStream(pgFileStream)))
+                    {
+                        byte[] pgByteA = pgReader.ReadBytes(Convert.ToInt32(pgFileStream.Length));
+                        return pgByteA;
+                    }
+                }
+            }
+            catch
+            {
+                throw;
+            }
+        }
+
+
     }
 }

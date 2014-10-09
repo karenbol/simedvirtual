@@ -19,5 +19,7 @@ namespace SIMEDVirtual.DA
         public string correo { get; set; }
         public int telefono1 { get; set; }
         public int telefono2 { get; set; }
+
+        public byte[] foto { get; set; }
     }
 }

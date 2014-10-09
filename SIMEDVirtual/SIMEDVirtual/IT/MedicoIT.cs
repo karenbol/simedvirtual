@@ -1,6 +1,7 @@
 ﻿using SIMEDVirtual.DA;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 
@@ -10,10 +11,10 @@ namespace SIMEDVirtual.IT
     {
         public static Boolean InsertaMedico(string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, int codigo, string universidad, string especialidad, string correo,
-            int telefono1, int telefono2)
+            int telefono1, int telefono2, byte[] foto)
         {
             return MedicoDa.InsertaMedico(nombre, apellido1, apellido2, cedula, fecha, direccion, codigo,
-                universidad, especialidad, correo, telefono1, telefono2);
+                universidad, especialidad, correo, telefono1, telefono2, foto);
         }
         public static List<MedicoEntity> selectMedico()
         {
@@ -22,10 +23,10 @@ namespace SIMEDVirtual.IT
 
         public static Boolean UpdateMedico(string nombre, string apellido1, string apellido2, string cedula,
           DateTime fecha, string direccion, int codigo, string universidad, string especialidad, string correo,
-            int telefono1, int telefono2)
+            int telefono1, int telefono2, byte[] foto)
         {
             return MedicoDa.UpdateMedico(nombre, apellido1, apellido2, cedula, fecha, direccion, codigo, universidad
-                , especialidad, correo, telefono1, telefono2);
+                , especialidad, correo, telefono1, telefono2, foto);
         }
 
         public static List<MedicoEntity> selectMedico2(string cedula)
@@ -46,6 +47,11 @@ namespace SIMEDVirtual.IT
         public static String getApellidoMedico(string cedula)
         {
             return MedicoDa.getApellidoMedico(cedula);
+        }
+
+        public static Image GetImageMedico(string cedula)
+        {
+            return MedicoDa.GetImageMedico(cedula);
         }
 
     }
