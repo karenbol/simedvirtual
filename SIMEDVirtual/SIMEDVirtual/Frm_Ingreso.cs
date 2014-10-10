@@ -20,13 +20,14 @@ namespace SIMEDVirtual
         public static String datosUsuario = "karen probando";
         //variable estatico con la cedula del usuario
         public static String cedulaUsuario = "";
-        public static Char tipoUsuario;
+        public static string tipoUsuario;
 
         public Frm_Ingreso()
         {
             InitializeComponent();
         }
 
+        //boton para ingresar
         private void button1_Click(object sender, EventArgs e)
         {
             int parsedValue;
@@ -45,23 +46,23 @@ namespace SIMEDVirtual
                 else
                 {
                     //determina si los datos de ingreso  estan en la tabla usuarios
-                    if (UsuarioIT.Ingreso(Convert.ToInt32(txtUsuario.Text.Trim()), txtContrasena.Text.Trim()))
+                    if (UsuarioIT.Ingreso(txtUsuario.Text.Trim(), txtContrasena.Text.Trim()))
                     {
                         //guardo la cedula del usuario
                         cedulaUsuario = txtUsuario.Text.Trim();
 
                         //determinamos nombre y apellido del usuario en una variable statica
                         //recibe el nombre de usuario y me trae la informacion
-                        List<MedicoEntity> doctor = UsuarioIT.getNombreApeDr(txtUsuario.Text.Trim());
+                        List<PersonaEntity> doctor = UsuarioIT.getNombreApeDr(txtUsuario.Text.Trim());
                         //concatenamos nombre y apellido del usuario
 
                         if (doctor.Count != 0)
                         {
                             datosUsuario = doctor.ElementAt(0).nombre.ToString();
-                            datosUsuario += " " + doctor.ElementAt(0).apellido1.ToString();
+                            datosUsuario += " " + doctor.ElementAt(0).ape1.ToString();
 
-                            tipoUsuario = UsuarioIT.TipoUsuario(Convert.ToInt32(txtUsuario.Text));
-                            if (tipoUsuario == 'a')
+                            tipoUsuario = UsuarioIT.TipoUsuario((txtUsuario.Text));
+                            if (tipoUsuario == "administrador")
                             {
                                 this.Hide();
                                 //si es adm lo lleva a la pantalla principal
@@ -70,7 +71,7 @@ namespace SIMEDVirtual
 
 
                             }
-                            else if (tipoUsuario == 'm')
+                            else if (tipoUsuario == "medico")
                             {
                                 //si es medico lo lleva a los expedientes
                                 //MessageBox.Show("eres Medico");

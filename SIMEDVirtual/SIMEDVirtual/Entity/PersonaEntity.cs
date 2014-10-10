@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SIMEDVirtual.Entity
 {
-    class ClienteEntity
+    class PersonaEntity
     {
         public string nombre { get; set; }
         public string ape1 { get; set; }
@@ -25,5 +25,10 @@ namespace SIMEDVirtual.Entity
         public string empresa { get; set; }
 
         public byte[] fotoBinaria { get; set; }
+        public int codigo { get; set; }
+        public string universidad { get; set; }
+        public string especialidad { get; set; }
+        //true si es medico, false si es administrador
+        public bool medico { get; set; }
     }
 }

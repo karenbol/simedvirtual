@@ -10,5 +10,6 @@ namespace SIMEDVirtual.Entity
     {
         public int nombre_usuario { get; set; }
         public string password { get; set; }
+        public string tipo_usuario { get; set; }
     }
 }

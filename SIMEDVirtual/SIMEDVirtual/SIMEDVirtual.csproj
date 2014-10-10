@@ -60,14 +60,14 @@
     <Compile Include="DA\Empresa.cs" />
     <Compile Include="DA\ExpedienteDA.cs" />
     <Compile Include="DA\MedicoDa.cs" />
+    <Compile Include="DA\PersonaDA.cs" />
     <Compile Include="DA\Planes_EmpresarialesDA.cs" />
     <Compile Include="Entity\AdministrativoEntity.cs" />
     <Compile Include="Entity\anamnesis.cs" />
-    <Compile Include="Entity\ClienteEntity.cs" />
     <Compile Include="Entity\EmpresaEntity.cs" />
     <Compile Include="Entity\ExpedienteEntity.cs" />
-    <Compile Include="Entity\MedicoEntity.cs" />
     <Compile Include="DA\UsuarioDa.cs" />
+    <Compile Include="Entity\PersonaEntity.cs" />
     <Compile Include="Entity\Planes_Empresariales.cs" />
     <Compile Include="Entity\UsuarioEntity.cs" />
     <Compile Include="frmVerExpediente.cs">
@@ -130,6 +130,7 @@
     <Compile Include="IT\EmpresaIT.cs" />
     <Compile Include="IT\ExpedienteIT.cs" />
     <Compile Include="IT\MedicoIT.cs" />
+    <Compile Include="IT\PersonaIT.cs" />
     <Compile Include="IT\Planes_EmpresarialIT.cs" />
     <Compile Include="IT\UsuarioIT.cs" />
     <Compile Include="Program.cs" />

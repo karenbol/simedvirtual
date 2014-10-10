@@ -1,4 +1,5 @@
 ﻿using SIMEDVirtual.DA;
+using SIMEDVirtual.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,22 +11,22 @@ namespace SIMEDVirtual.IT
 {
     class UsuarioIT
     {
-        public static Boolean Ingreso(int nombreUsuario, string contrasena)
+        public static Boolean Ingreso(string nombreUsuario, string contrasena)
         {
             return UsuarioDa.Ingreso(nombreUsuario, contrasena);
         }
 
-        public static Char TipoUsuario(int nombreUsuario)
+        public static String TipoUsuario(string nombreUsuario)
         {
             return UsuarioDa.TipoUsuario(nombreUsuario);
         }
 
-        public static Boolean InsertaUsuario(string pass, int usuario, Char tipo)
+        public static Boolean InsertaUsuario(string pass, string usuario, int tipo)
         {
             return UsuarioDa.InsertaUsuario(pass, usuario, tipo);
         }
         //retorna el nombre y apellido del medico segun la cedula
-        public static  List<MedicoEntity> getNombreApeDr(string cedula)
+        public static  List<PersonaEntity> getNombreApeDr(string cedula)
         {
             return UsuarioDa.getNombreApeDr(cedula);
         }

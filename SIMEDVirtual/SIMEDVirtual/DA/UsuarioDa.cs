@@ -20,7 +20,7 @@ namespace SIMEDVirtual.DA
             {
                 conn.Open();
 
-                NpgsqlCommand cmd = new NpgsqlCommand("select nombre_usuario, contrasena from usuario", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("select cedula, contrasena from usuario", conn);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
@@ -35,14 +35,15 @@ namespace SIMEDVirtual.DA
             return usuarios;
         }
 
-
-        public static Boolean Ingreso(int nombreUsuario, string contrasena)
+        //verifica si esta registrado en la bd
+        public static Boolean Ingreso(string nombreUsuario, string contrasena)
         {
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
                 conn.Open();
                 //seleccionamos la contrasena y el tipo de usuario segun el nombre de usuario ingresado
-                NpgsqlCommand cmd = new NpgsqlCommand("select contrasena, tipo from usuario where nombre_usuario=" + nombreUsuario,
+                //la cedula es el nombre de usuario
+                NpgsqlCommand cmd = new NpgsqlCommand("select contrasena, tipo from usuario where cedula=" + nombreUsuario,
     conn);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
@@ -63,8 +64,8 @@ namespace SIMEDVirtual.DA
                 {
                     return false;
                 }
+                conn.Close();
             }
-            conn.Close();
         }
 
         /// <summary>
@@ -72,18 +73,18 @@ namespace SIMEDVirtual.DA
         /// </summary>
         /// <param name="nombreUsuario">enviamos el nombre de usuario para saber el tipo</param>
         /// <returns>retorna el tipo m: medico a: administrador</returns>
-        public static Char TipoUsuario(int nombreUsuario)
+        public static String TipoUsuario(string nombreUsuario)
         {
-            Char tipo = ' ';
+            String tipo = "";
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("select tipo from usuario where nombre_usuario=" + nombreUsuario,
+                NpgsqlCommand cmd = new NpgsqlCommand("select tipo_usuario from usuario where cedula=" + nombreUsuario,
     conn);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    tipo = Convert.ToChar(dr[0].ToString().Trim());
+                    tipo = dr[0].ToString().Trim();
                     return tipo;
                 }
                 else
@@ -95,8 +96,8 @@ namespace SIMEDVirtual.DA
         }
 
 
-        //metodo que inserta usuarios
-        public static Boolean InsertaUsuario(string pass, int usuario, Char tipo)
+        //metodo que inserta usuarios, tipo es int xq es el id de la table role
+        public static Boolean InsertaUsuario(string pass, string usuario, int tipo)
         {
             int x;
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
@@ -107,9 +108,10 @@ namespace SIMEDVirtual.DA
                 try
                 {
                     command.CommandText =
-                        "insert into usuario (contrasena,nombre_usuario,tipo) values (@pass,@usuario,@tipo)";
-                    command.Parameters.AddWithValue("@pass", pass);
+                        "insert into usuario values (@usuario,@pass,@tipo)";
+                    
                     command.Parameters.AddWithValue("@usuario", usuario);
+                    command.Parameters.AddWithValue("@pass", pass);
                     command.Parameters.AddWithValue("@tipo", tipo);
                     x = command.ExecuteNonQuery();
                 }
@@ -131,29 +133,30 @@ namespace SIMEDVirtual.DA
         }
 
         //me trae el nombre y apellido del medico segun la la cedula
-        public static List<MedicoEntity> getNombreApeDr(string cedula)
+        public static List<PersonaEntity> getNombreApeDr(string cedula)
         {
-            List<MedicoEntity> medico = new List<MedicoEntity>();
+            List<PersonaEntity> persona = new List<PersonaEntity>();
             using (NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString()))
             {
                 conn.Open();
 
-                NpgsqlCommand cmd = new NpgsqlCommand("select nombre,apellido1 from medicos where cedula=@cedula", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("select nombre,apellido1 from persona where cedula=@cedula", conn);
                 cmd.Parameters.AddWithValue("@cedula", cedula);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 
                 if (dr.Read())
                 {
-                    MedicoEntity doctor = new MedicoEntity();
+                    PersonaEntity doctor = new PersonaEntity();
                     doctor.nombre = Convert.ToString(dr["nombre"]);
-                    doctor.apellido1 = Convert.ToString(dr["apellido1"]);
-                    medico.Add(doctor);
+                    doctor.ape1 = Convert.ToString(dr["apellido1"]);
+                    persona.Add(doctor);
                 }
                 conn.Close();
             }
-            return medico;
+            return persona;
         }
-        //elimina el medico
+
+        //elimina el usuario
         public static Boolean deleteUsuario(string cedula)
         {
             int x = 0;
@@ -164,7 +167,7 @@ namespace SIMEDVirtual.DA
                 conn.Open();
                 try
                 {
-                    string cadena = "delete from usuario where nombre_usuario=@cedula";
+                    string cadena = "delete from usuario where cedula=@cedula";
                     command.CommandText = cadena;
 
                     command.Parameters.AddWithValue("@cedula", cedula);

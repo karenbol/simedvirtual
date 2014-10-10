@@ -33,7 +33,7 @@ namespace SIMEDVirtual
             txtNombre.Text = nombre;
             txtApellido1.Text = apellido1;
             txtApellido2.Text = apellido2;
-            mtcedula.Text = cedula.ToString();
+            txtCedula.Text = cedula.ToString();
             fecha_nacimiento.Value = fecha;
             txtDireccion.Text = direccion;
             codigo.Text = codigon.ToString();
@@ -58,14 +58,14 @@ namespace SIMEDVirtual
                 btnGuardar.Visible = false;
             }
             else
-                //edito al medico
+            //edito al medico
             {
                 edicion = true;
                 this.Text = "Editar Información de Médicos";
                 this.lblTitle.Text = "EDITAR INFORMACION DE MÉDICOS";
                 btnGuardar.Visible = true;
                 btnGuardar.Image = Image.FromFile("update.png");
-                mtcedula.Enabled = false;
+                txtCedula.Enabled = false;
             }
         }
 
@@ -74,7 +74,7 @@ namespace SIMEDVirtual
             txtNombre.ReadOnly = true;
             txtApellido1.ReadOnly = true;
             txtApellido2.ReadOnly = true;
-            mtcedula.ReadOnly = true;
+            txtCedula.ReadOnly = true;
             fecha_nacimiento.Enabled = false;
             txtDireccion.ReadOnly = true;
             codigo.ReadOnly = true;
@@ -111,7 +111,7 @@ namespace SIMEDVirtual
         {
             //si todos los campos estan llenos 
             if (txtNombre.Text != string.Empty && txtApellido1.Text != string.Empty
-                 && txtApellido2.Text != string.Empty && mtcedula.Text != string.Empty
+                 && txtApellido2.Text != string.Empty && txtCedula.Text != string.Empty
                 && fecha_nacimiento.Text != string.Empty & txtDireccion.Text != string.Empty
                 && codigo.Text != string.Empty && txtU.Text != string.Empty && txtEspecialidad.Text != string.Empty
                 && txtCorreo.Text != string.Empty && telefono1.Text != string.Empty && telefono2.Text != string.Empty)
@@ -125,12 +125,12 @@ namespace SIMEDVirtual
                     {
                         //si se inserto bien imprime e inserta en la tabla usuario
                         if (MedicoIT.InsertaMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
-                Convert.ToString(mtcedula.Text), Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text,
+              txtCedula.Text, Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text,
                 Convert.ToInt32(codigo.Text), txtU.Text, txtEspecialidad.Text, txtCorreo.Text, Convert.ToInt32(telefono1.Text),
                 Convert.ToInt32(telefono2.Text), fotoBinaria))
                         {
-                            //insertamos en la tabla de usuario
-                            if (UsuarioIT.InsertaUsuario(txtcontrasena.Text, Convert.ToInt32(mtcedula.Text), 'm'))
+                            //insertamos en la tabla de usuario 1 adm 2 medico
+                            if (UsuarioIT.InsertaUsuario(txtcontrasena.Text, txtCedula.Text, 2))
                             {
                                 MessageBox.Show("Los Datos han sido Insertados Correctamente !", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                                 this.Close();
@@ -156,9 +156,9 @@ namespace SIMEDVirtual
                 else
                 {
                     if (MedicoIT.UpdateMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
-            Convert.ToString(mtcedula.Text), Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text,
+            txtCedula.Text, Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text,
             Convert.ToInt32(codigo.Text), txtU.Text, txtEspecialidad.Text, txtCorreo.Text,
-            Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text),fotoBinaria))
+            Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text), fotoBinaria))
                     {
                         MessageBox.Show("Los Datos han sido Actualizados Correctamente!", "Actualizacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Close();
@@ -212,7 +212,5 @@ namespace SIMEDVirtual
                 throw;
             }
         }
-
-
     }
 }
