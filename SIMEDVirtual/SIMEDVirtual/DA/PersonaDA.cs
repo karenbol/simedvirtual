@@ -198,7 +198,7 @@ namespace SIMEDVirtual.DA
                     throw;
                     return false;
                 }
-
+                conn.Close();
                 if (x != 0)
                 {
                     return true;
@@ -207,6 +207,7 @@ namespace SIMEDVirtual.DA
                 {
                     return false;
                 }
+              
             }
         }
 
@@ -242,6 +243,7 @@ namespace SIMEDVirtual.DA
                 {
                     throw;
                 }
+                conn.Close();
             }
             return null;
         }
@@ -456,6 +458,7 @@ namespace SIMEDVirtual.DA
                     //falta la foto
                     list.Add(doctor);
                 }
+                conn.Close();
             }
             return list;
         }
@@ -493,6 +496,7 @@ namespace SIMEDVirtual.DA
                     //falta la foto
                     list.Add(doctor);
                 }
+                conn.Close();
             }
             return list;
         }
@@ -563,6 +567,7 @@ namespace SIMEDVirtual.DA
                 {
                     throw;
                 }
+                conn.Close();
             }
             return null;
         }

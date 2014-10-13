@@ -1,4 +1,5 @@
-﻿using SIMEDVirtual.DA;
+﻿using Npgsql;
+using SIMEDVirtual.DA;
 using SIMEDVirtual.Entity;
 using SIMEDVirtual.IT;
 using System;
@@ -41,12 +42,17 @@ namespace SIMEDVirtual
             toolTip1.SetToolTip(btnEditarPaciente, "Edita Informacion del Paciente");
             toolTip1.SetToolTip(btnReconsulta, "Crea una Reconsulta del Paciente");
 
+            if (UsuarioIT.TipoUsuario(Frm_Ingreso.cedulaUsuario) == "1")
+            {
+                this.btnReconsulta.Enabled = false;
+                //MessageBox.Show("No eres medico para crear un expediente", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
         }
         //cargamos los clientes
         private void cargarDataGrid()
         {
             //cargamos todos la info de drs en el datagrid
-            var pts = new BindingList<ClienteEntity>(ClienteIT.selectCliente());
+            var pts = new BindingList<PersonaEntity>(PersonaIT.selectCliente());
             dgClientes.AutoGenerateColumns = false;
             dgClientes.DataSource = pts;
             //agregar el evento 
@@ -90,7 +96,7 @@ namespace SIMEDVirtual
                     dgReconsultas.Rows[j].Cells[0].Value = pts.ElementAt(j).id_expediente.ToString();
                     dgReconsultas.Rows[j].Cells[1].Value = pts.ElementAt(j).cedula.ToString();
                     dgReconsultas.Rows[j].Cells[2].Value = pts.ElementAt(j).fecha.ToString();
-                    dgReconsultas.Rows[j].Cells[3].Value = MedicoIT.getApellidoMedico(pts.ElementAt(j).cedula_medico.ToString());
+                    dgReconsultas.Rows[j].Cells[3].Value = PersonaIT.getApellidoMedico(pts.ElementAt(j).cedula_medico.ToString());
                     dgReconsultas.Rows[j].Cells[4].Value = pts.ElementAt(j).diagnostico.ToString();
                     dgReconsultas.Rows[j].Cells[5].Value = pts.ElementAt(j).terapeutica.ToString();
                     dgReconsultas.Rows[j].Cells[6].Value = pts.ElementAt(j).observaciones_generales.ToString();
@@ -105,9 +111,16 @@ namespace SIMEDVirtual
         //llena todos los campos segun la consulta hecha por cedula
         private void btnReconsulta_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            frm_ExpedienteMG frm = new frm_ExpedienteMG(prueba, false, false, 0);
-            frm.ShowDialog();
+            if (prueba != "")
+            {
+                this.Hide();
+                frm_ExpedienteMG frm = new frm_ExpedienteMG(prueba, false, false, 0);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("NO SE HA SELECCIONADO NINGUN PACIENTE\nPOR FAVOR SELECCIONE EL PACIENTE E INTENTELO DE NUEVO", "Seleccion Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         //editar un paciente
@@ -197,14 +210,14 @@ namespace SIMEDVirtual
         //veo la info personal del cliente
         private void dgClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            ////obtngo el id de la row seleccionada
-            //string cedula_paciente = Convert.ToString(dgClientes.Rows[e.RowIndex].Cells[0].Value);
+            //obtngo el id de la row seleccionada
+            string cedula_paciente = Convert.ToString(dgClientes.Rows[e.RowIndex].Cells[0].Value);
 
 
-            ////llamar al otro frm
-            //this.Hide();
-            //frm_Cliente frm = new frm_Cliente(cedula_paciente, 1);
-            //frm.ShowDialog();
+            //llamar al otro frm
+            this.Hide();
+            frm_Cliente frm = new frm_Cliente(cedula_paciente, 1);
+            frm.ShowDialog();
         }
 
         private void btnEditarPaciente_Click(object sender, EventArgs e)
@@ -224,18 +237,19 @@ namespace SIMEDVirtual
             switch (Frm_Ingreso.tipoUsuario)
             {
 
-                case 'm':
+                case "2":
                     Frm_Ingreso frm = new Frm_Ingreso();
                     frm.ShowDialog();
                     break;
 
-                case 'a':
+                case "1":
                     Frm_Splash pantalla = new Frm_Splash();
                     pantalla.ShowDialog();
                     break;
                 default:
                     break;
             }
+            NpgsqlConnection.ClearAllPools();
         }
     }
 }

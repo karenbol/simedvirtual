@@ -656,11 +656,12 @@ namespace SIMEDVirtual
             txtTiroidesHeredo.Text = tiroides_heredo;
             txtAsmaHeredo.Text = asma_heredo;
             txtOtrosHeredo.Text = otros_heredo;
+            txtObservaciones.Text = observaciones;
         }
 
         public void determinaExpediente(string cedula_paciente, int id_paciente)
         {
-            pbPaciente.Image = ClienteIT.GetImagePacient(cedula_paciente);
+            pbPaciente.Image = PersonaIT.GetImagePacient(cedula_paciente);
 
 
             //me trae el expediente segun la cedula y el id
@@ -932,7 +933,7 @@ namespace SIMEDVirtual
             {
                 rx48.Checked = true;
             }
-            
+
             txtOtrosSN.Text = Convert.ToString(listaExpediente.ElementAt(0).otros_sn);
             txtObservacionesSN.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_sn);
             txtOtrosExamen2.Text = Convert.ToString(listaExpediente.ElementAt(0).otros_examen2);
@@ -995,7 +996,7 @@ namespace SIMEDVirtual
             cedulaPublica = cedula_paciente;
 
             //me trae todo del cliente segun la cedula
-            List<ClienteEntity> lista = ClienteIT.selectClientePorCedula(cedula_paciente);
+            List<PersonaEntity> lista = PersonaIT.selectClientePorCedula(cedula_paciente);
 
             Char sexo = lista.ElementAt(0).sexo;
             string estado_Civil = lista.ElementAt(0).estado_civil.ToString();
@@ -1039,12 +1040,13 @@ namespace SIMEDVirtual
             //----------------------------anamnesis----------------------
             //me devuelve toda la anam
             this.determinaAnamnesis(cedula_paciente);
-
+            pbPaciente.Image = PersonaIT.GetImagePacient(cedula_paciente);
             //aqui no se puede editar nada xq voy a reconsultar
             if (verExpediente)
             //dehabilito todo xq solo puedo ver
             {
                 determinaExpediente(cedula_paciente, id_paciente);
+
                 btnGuardar.Enabled = false;
 
                 ((Control)this.tabPageInfoPersonal).Enabled = false;
@@ -1059,8 +1061,6 @@ namespace SIMEDVirtual
             {
                 ((Control)this.tbPageAnamnesis).Enabled = false;
                 ((Control)this.tabPageInfoPersonal).Enabled = false;
-                //this.DisableAnamnesis();
-                //this.DisableInfoPersonal();
             }
 
             else
@@ -1080,8 +1080,6 @@ namespace SIMEDVirtual
 
                 opFile.Dispose();
                 pbPaciente.ImageLocation = ruta;
-
-                //MessageBox.Show(ruta);
                 //guardamos la imagen
                 fotoBinaria = this.saveImage(ruta);
             }
@@ -1129,6 +1127,10 @@ namespace SIMEDVirtual
                         frmVerExpediente splash = new frmVerExpediente();
                         splash.ShowDialog();
                     }
+                    else
+                    {
+                        MessageBox.Show("Problemas al Insertar la Consulta", "Probelmas al Insertar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
                 }
                 else
                 {
@@ -1170,7 +1172,6 @@ namespace SIMEDVirtual
                     {
                         determinaExpediente();//metodo que da valor a parametros para el expediente
                         //determinar si el telefono esta vacio para insertar un 0 
-                        //string x = txtTelefono.Text;
                         int telefono = 0;
                         int movil = 0;
 
@@ -1185,20 +1186,12 @@ namespace SIMEDVirtual
                         {
                             movil = Convert.ToInt32(txtMovil.Text);
                         }
+                        //si no hay foto asignada, asigna la ruta x defecto
+                        this.verificaFoto();
 
-
-                        //si se inserto bn en el cliente y la anamnesis y el expediente
-                        if (fotoBinaria == null)
-                        {
-                            MessageBox.Show("no se dijo foto");
-                            //string x = pbPaciente.ImageLocation;
-                            fotoBinaria = this.saveImage(rutaDefault);
-                        }
-
-
-                        if (ClienteIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, cedula, fecha,
-                        sexo, estado, grupo, txtProfesion.Text, telefono, movil,
-                        txtEmail.Text, txtDireccion.Text, txtEdad.Text, empresa, fotoBinaria) &&
+                        if (PersonaIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, cedula, fecha,
+                        txtDireccion.Text, txtEdad.Text, sexo, estado, grupo, txtProfesion.Text, telefono, movil,
+                        txtEmail.Text, empresa, fotoBinaria, false) &&
                             anamnesisIT.InsertaAnamnesis(cedula, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, hipertension, dolor_cabeza,
                         epilepsia, vertigo, depresion, falta_aire, oidos_ojos, dolor_pecho, enf_nerviosas, alergia, txtAlergias.Text, txtTratDiabetes.Text,
                         txtTratHipertension.Text, asma, txtTratAsma.Text, tiroides, txtTratTiroides.Text, txtHipertensionHeredo.Text, txtDiabetesHeredo.Text,
@@ -1216,6 +1209,10 @@ namespace SIMEDVirtual
                             frmVerExpediente splash = new frmVerExpediente();
                             splash.ShowDialog();
                         }
+                        else
+                        {
+                            MessageBox.Show("Error al insertar el Cliente\nEs Posible que esa cedula ya exista", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
                     }
                     //si hay campos vacios imprime error
                     else
@@ -1229,6 +1226,19 @@ namespace SIMEDVirtual
                 }
             }
         }
+
+        public void verificaFoto()
+        {
+            if (fotoBinaria == null)
+            {
+                MessageBox.Show("no se dijo foto");
+                //string x = pbPaciente.ImageLocation;
+                fotoBinaria = this.saveImage(rutaDefault);
+            }
+        }
+
+
+
         //determina cuales checks de la amamnesis estan seleccionados y asigna valor a la variable
         public void seleccionChecks()
         {
@@ -1433,7 +1443,11 @@ namespace SIMEDVirtual
             {
                 cbEmpresa.Items.Add(listaEmpresas[i].nombre.ToUpper().ToString());
             }
-            cbEmpresa.SelectedIndex = 1;
+
+            if (cbEmpresa.Items.Count != 0)
+            {
+                cbEmpresa.SelectedIndex = 0;
+            }
         }
 
         //se activan los txt segun seleccion

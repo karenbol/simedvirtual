@@ -111,5 +111,12 @@ namespace SIMEDVirtual
             frm_Cliente pantalla = new frm_Cliente();
             pantalla.ShowDialog();
         }
+
+        private void empresasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            frm_empresa pantalla = new frm_empresa();
+            pantalla.ShowDialog();
+        }
     }
 }

@@ -17,6 +17,7 @@ namespace SIMEDVirtual
         private Boolean edicion = false;
         string usuarioPublico = "";
         public byte[] fotoBinaria;
+        char sexo = 'f';
 
         public Frm_Registro_Medico(string usuario)
         {
@@ -44,7 +45,7 @@ namespace SIMEDVirtual
             telefono2.Text = telefono2p.ToString();
             txtcontrasena.Visible = false;
             txtconfirmacion.Visible = false;
-            pbFotoDr.Image = MedicoIT.GetImageMedico(cedula);
+            pbFotoDr.Image = PersonaIT.GetImageMedico(cedula);
 
             //si lo que quiero es ver la info
             if (ver)
@@ -109,6 +110,11 @@ namespace SIMEDVirtual
         //guarda un nuevo medico
         private void button1_Click(object sender, EventArgs e)
         {
+        
+            if (this.cbSexo.SelectedIndex == 1)
+            {
+                sexo = 'm';
+            }
             //si todos los campos estan llenos 
             if (txtNombre.Text != string.Empty && txtApellido1.Text != string.Empty
                  && txtApellido2.Text != string.Empty && txtCedula.Text != string.Empty
@@ -124,10 +130,10 @@ namespace SIMEDVirtual
                         && txtcontrasena.Text != string.Empty && txtconfirmacion.Text != string.Empty)
                     {
                         //si se inserto bien imprime e inserta en la tabla usuario
-                        if (MedicoIT.InsertaMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
-              txtCedula.Text, Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text,
-                Convert.ToInt32(codigo.Text), txtU.Text, txtEspecialidad.Text, txtCorreo.Text, Convert.ToInt32(telefono1.Text),
-                Convert.ToInt32(telefono2.Text), fotoBinaria))
+                        if (PersonaIT.InsertaMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
+              txtCedula.Text, Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text, txtEdad.Text,sexo,
+                Convert.ToInt32(codigo.Text),Convert.ToInt32(telefono1.Text),
+                Convert.ToInt32(telefono2.Text),txtCorreo.Text, txtU.Text, txtEspecialidad.Text,fotoBinaria,true))
                         {
                             //insertamos en la tabla de usuario 1 adm 2 medico
                             if (UsuarioIT.InsertaUsuario(txtcontrasena.Text, txtCedula.Text, 2))
@@ -155,10 +161,10 @@ namespace SIMEDVirtual
                 }
                 else
                 {
-                    if (MedicoIT.UpdateMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
-            txtCedula.Text, Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text,
-            Convert.ToInt32(codigo.Text), txtU.Text, txtEspecialidad.Text, txtCorreo.Text,
-            Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text), fotoBinaria))
+                    if (PersonaIT.UpdateMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
+              txtCedula.Text, Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text, txtEdad.Text, sexo,
+                Convert.ToInt32(codigo.Text), Convert.ToInt32(telefono1.Text),
+                Convert.ToInt32(telefono2.Text), txtCorreo.Text, txtU.Text, txtEspecialidad.Text, fotoBinaria))
                     {
                         MessageBox.Show("Los Datos han sido Actualizados Correctamente!", "Actualizacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Close();

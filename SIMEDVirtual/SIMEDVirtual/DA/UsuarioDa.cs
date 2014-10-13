@@ -40,12 +40,17 @@ namespace SIMEDVirtual.DA
         {
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
+                NpgsqlCommand command = new NpgsqlCommand();
+                command.Connection = conn;
                 conn.Open();
                 //seleccionamos la contrasena y el tipo de usuario segun el nombre de usuario ingresado
                 //la cedula es el nombre de usuario
-                NpgsqlCommand cmd = new NpgsqlCommand("select contrasena, tipo from usuario where cedula=" + nombreUsuario,
-    conn);
-                NpgsqlDataReader dr = cmd.ExecuteReader();
+                command.CommandText = "select contrasena, tipo_usuario from usuario where cedula=@cedula";
+
+                command.Parameters.AddWithValue("@cedula", nombreUsuario);
+                NpgsqlDataReader dr = command.ExecuteReader();
+
+                
                 if (dr.Read())
                 {
                     //si la contrasena es correcta retorna true
@@ -78,10 +83,16 @@ namespace SIMEDVirtual.DA
             String tipo = "";
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
+                NpgsqlCommand command = new NpgsqlCommand();
+                command.Connection = conn;
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("select tipo_usuario from usuario where cedula=" + nombreUsuario,
-    conn);
-                NpgsqlDataReader dr = cmd.ExecuteReader();
+
+                command.CommandText = "select tipo_usuario from usuario where cedula=@cedula";
+
+                command.Parameters.AddWithValue("@cedula", nombreUsuario);
+
+                NpgsqlDataReader dr = command.ExecuteReader();
+                conn.Close();
                 if (dr.Read())
                 {
                     tipo = dr[0].ToString().Trim();
@@ -92,7 +103,7 @@ namespace SIMEDVirtual.DA
                     return tipo;
                 }
             }
-            conn.Close();
+        
         }
 
 
@@ -109,7 +120,7 @@ namespace SIMEDVirtual.DA
                 {
                     command.CommandText =
                         "insert into usuario values (@usuario,@pass,@tipo)";
-                    
+
                     command.Parameters.AddWithValue("@usuario", usuario);
                     command.Parameters.AddWithValue("@pass", pass);
                     command.Parameters.AddWithValue("@tipo", tipo);

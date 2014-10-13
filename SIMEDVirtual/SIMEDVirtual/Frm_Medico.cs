@@ -1,4 +1,5 @@
 ﻿using SIMEDVirtual.DA;
+using SIMEDVirtual.Entity;
 using SIMEDVirtual.IT;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace SIMEDVirtual
         private void cargarDataGrid()
         {
             //cargamos todos la info de drs en el datagrid
-            var pts = new BindingList<MedicoEntity>(MedicoIT.selectMedico());
+            var pts = new BindingList<PersonaEntity>(PersonaIT.selectMedico());
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = pts;
             //agregar el evento 
@@ -40,11 +41,11 @@ namespace SIMEDVirtual
             for (int j = 0; j < pts.Count; j++)
             {
                 dataGridView1.Rows[j].Cells[0].Value = pts.ElementAt(j).cedula.ToString();
-                dataGridView1.Rows[j].Cells[1].Value = pts.ElementAt(j).apellido1.ToString();
+                dataGridView1.Rows[j].Cells[1].Value = pts.ElementAt(j).ape1.ToString();
                 dataGridView1.Rows[j].Cells[2].Value = pts.ElementAt(j).nombre.ToString();
                 dataGridView1.Rows[j].Cells[3].Value = pts.ElementAt(j).codigo.ToString();
                 dataGridView1.Rows[j].Cells[4].Value = pts.ElementAt(j).especialidad.ToString();
-                dataGridView1.Rows[j].Cells[5].Value = pts.ElementAt(j).correo.ToString();
+                dataGridView1.Rows[j].Cells[5].Value = pts.ElementAt(j).email.ToString();
             }
         }
 
@@ -55,20 +56,20 @@ namespace SIMEDVirtual
                 DataGridViewRow selectedRow = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex];
                 string ced = (selectedRow.Cells["Cedula"].Value.ToString());
                 //devuelve datos del medico segun la cedula
-                var pts = new BindingList<MedicoEntity>(MedicoIT.selectMedico2(Convert.ToString(ced)));
+                var pts = new BindingList<PersonaEntity>(PersonaIT.selectMedico2(Convert.ToString(ced)));
 
                 string nombre = pts.ElementAt(0).nombre.ToString();
-                String ape1 = pts.ElementAt(0).apellido1.ToString();
-                String ape2 = pts.ElementAt(0).apellido2.ToString();
-                DateTime fecha = Convert.ToDateTime(pts.ElementAt(0).fecha_nacimiento.ToString());
+                String ape1 = pts.ElementAt(0).ape1.ToString();
+                String ape2 = pts.ElementAt(0).ape2.ToString();
+                DateTime fecha = Convert.ToDateTime(pts.ElementAt(0).fecha.ToString());
                 String direccion = pts.ElementAt(0).direccion.ToString();
                 int codigo = Convert.ToInt32(pts.ElementAt(0).codigo.ToString());
                 String u = pts.ElementAt(0).universidad.ToString();
                 String especialidad = pts.ElementAt(0).especialidad.ToString();
-                String correo = pts.ElementAt(0).correo.ToString();
-                int telefono1 = Convert.ToInt32(pts.ElementAt(0).telefono1.ToString());
-                int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono2.ToString());
-                byte foto = Convert.ToByte(pts.ElementAt(0).foto);
+                String correo = pts.ElementAt(0).email.ToString();
+                int telefono1 = Convert.ToInt32(pts.ElementAt(0).telefono_fijo.ToString());
+                int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono_movil.ToString());
+                byte foto = Convert.ToByte(pts.ElementAt(0).fotoBinaria);
 
                 this.Hide();
                 Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, ced, fecha, direccion,
@@ -106,7 +107,7 @@ namespace SIMEDVirtual
                     string ced = Convert.ToString(selectedRow.Cells["Cedula"].Value);
 
                     //eliminar dr y usuario
-                    if (MedicoIT.deleteMedico(ced) && (MedicoIT.deleteUsuario(ced)))
+                    if (PersonaIT.deleteMedico(ced) && (PersonaIT.deleteUsuario(ced)))
                     {
                         MessageBox.Show("El Registro se ha Eliminado Correctamente!", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.cargarDataGrid();
@@ -125,24 +126,23 @@ namespace SIMEDVirtual
             //cargamos todos la info de drs en el datagrid
             string cedula = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
             //selecciona el medico dependiento de la cedula
-            var pts = new BindingList<MedicoEntity>(MedicoIT.selectMedico2(Convert.ToString(cedula)));
+            var pts = new BindingList<PersonaEntity>(PersonaIT.selectMedico2(Convert.ToString(cedula)));
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = pts;
 
             string nombre = pts.ElementAt(0).nombre.ToString();
-            String ape1 = pts.ElementAt(0).apellido1.ToString();
-            String ape2 = pts.ElementAt(0).apellido2.ToString();
-            DateTime fecha = Convert.ToDateTime(pts.ElementAt(0).fecha_nacimiento.ToString());
+            String ape1 = pts.ElementAt(0).ape1.ToString();
+            String ape2 = pts.ElementAt(0).ape2.ToString();
+            DateTime fecha = Convert.ToDateTime(pts.ElementAt(0).fecha.ToString());
             String direccion = pts.ElementAt(0).direccion.ToString();
             int codigo = Convert.ToInt32(pts.ElementAt(0).codigo.ToString());
             String u = pts.ElementAt(0).universidad.ToString();
             String especialidad = pts.ElementAt(0).especialidad.ToString();
-            String correo = pts.ElementAt(0).correo.ToString();
-            int telefono1 = Convert.ToInt32(pts.ElementAt(0).telefono1.ToString());
-            int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono2.ToString());
+            String correo = pts.ElementAt(0).email.ToString();
+            int telefono1 = Convert.ToInt32(pts.ElementAt(0).telefono_fijo.ToString());
+            int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono_movil.ToString());
             //byte foto = Convert.ToByte(pts.ElementAt(0).foto);
-
-
+            
             this.Hide();
             Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, cedula, fecha, direccion,
                 codigo, u, especialidad, correo, telefono1, telefono2, true);

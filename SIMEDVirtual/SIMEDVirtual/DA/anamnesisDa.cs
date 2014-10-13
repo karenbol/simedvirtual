@@ -91,7 +91,7 @@ namespace SIMEDVirtual.DA
                 }
             }
         }
-        
+
         //me trae la anamnesis segun la cedula del cliente
         //me trae la ultima anamnesis creada
         public static List<anamnesis> selectAnamnesisPorCedula(string cedula)
@@ -139,7 +139,7 @@ namespace SIMEDVirtual.DA
                     anamnesis.asma_heredo = Convert.ToString(dr["asma_heredo"]);
                     anamnesis.otros_heredo = Convert.ToString(dr["otros_heredo"]);
                     anamnesis.observaciones = Convert.ToString(dr["observaciones"]);
-                                      
+
 
                     list.Add(anamnesis);
                 }

@@ -9,9 +9,13 @@ namespace SIMEDVirtual.Entity
     {
         public int id { get; set; }
         public string nombre { get; set; }
-        public int cedula { get; set; }
+        public string cedula { get; set; }
         public string direccion { get; set; }
-        public DateTime fecha { get; set; }
-        public string encargado { get; set; }
+        public string descripcion { get; set; }
+        public int telefono1 { get; set; }
+        public string encargado1 { get; set; }
+        public int telefono2 { get; set; }
+        public string encargado2 { get; set; }
+
     }
 }

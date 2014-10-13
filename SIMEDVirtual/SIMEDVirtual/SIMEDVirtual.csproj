@@ -56,10 +56,8 @@
   <ItemGroup>
     <Compile Include="DA\AdministrativoDa.cs" />
     <Compile Include="DA\anamnesisDa.cs" />
-    <Compile Include="DA\ClienteDA.cs" />
     <Compile Include="DA\Empresa.cs" />
     <Compile Include="DA\ExpedienteDA.cs" />
-    <Compile Include="DA\MedicoDa.cs" />
     <Compile Include="DA\PersonaDA.cs" />
     <Compile Include="DA\Planes_EmpresarialesDA.cs" />
     <Compile Include="Entity\AdministrativoEntity.cs" />
@@ -81,6 +79,12 @@
     </Compile>
     <Compile Include="frm_Cliente.Designer.cs">
       <DependentUpon>frm_Cliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_empresa.Designer.cs">
+      <DependentUpon>frm_empresa.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_ExpedienteMG.cs">
       <SubType>Form</SubType>
@@ -106,6 +110,12 @@
     <Compile Include="Frm_Membresia.Designer.cs">
       <DependentUpon>Frm_Membresia.cs</DependentUpon>
     </Compile>
+    <Compile Include="frm_registraEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_registraEmpresa.Designer.cs">
+      <DependentUpon>frm_registraEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Frm_Registro_Medico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,10 +136,8 @@
     </Compile>
     <Compile Include="IT\AdministrativoIT.cs" />
     <Compile Include="IT\anamnesisIT.cs" />
-    <Compile Include="IT\ClienteIT.cs" />
     <Compile Include="IT\EmpresaIT.cs" />
     <Compile Include="IT\ExpedienteIT.cs" />
-    <Compile Include="IT\MedicoIT.cs" />
     <Compile Include="IT\PersonaIT.cs" />
     <Compile Include="IT\Planes_EmpresarialIT.cs" />
     <Compile Include="IT\UsuarioIT.cs" />
@@ -140,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Cliente.resx">
       <DependentUpon>frm_Cliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_empresa.resx">
+      <DependentUpon>frm_empresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_ExpedienteMG.resx">
       <DependentUpon>frm_ExpedienteMG.cs</DependentUpon>
@@ -152,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Membresia.resx">
       <DependentUpon>Frm_Membresia.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_registraEmpresa.resx">
+      <DependentUpon>frm_registraEmpresa.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Frm_Registro_Medico.resx">
       <DependentUpon>Frm_Registro_Medico.cs</DependentUpon>
@@ -282,6 +296,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Properties\deletePhoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\enterprise.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

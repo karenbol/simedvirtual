@@ -503,7 +503,7 @@
             this.cbEstado.Items.AddRange(new object[] {
             "SOLTERO",
             "CASADO",
-            "VIUDO ",
+            "VIUDO",
             "DIVORCIADO",
             "UNION LIBRE"});
             this.cbEstado.Location = new System.Drawing.Point(604, 50);
@@ -621,6 +621,7 @@
             this.Name = "frm_Cliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registro de Clientes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_Cliente_FormClosing);
             this.Load += new System.EventHandler(this.frm_Cliente_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPageInfoPersonal.ResumeLayout(false);

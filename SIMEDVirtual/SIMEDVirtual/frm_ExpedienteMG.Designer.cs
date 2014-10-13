@@ -145,6 +145,7 @@
             this.r5 = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
             this.tabPageInfoPersonal = new System.Windows.Forms.TabPage();
+            this.btnEliminarFoto = new System.Windows.Forms.Button();
             this.txtEdad = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -178,6 +179,7 @@
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.pbPaciente = new System.Windows.Forms.PictureBox();
             this.cbEstado = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.cbSexo = new System.Windows.Forms.ComboBox();
@@ -344,8 +346,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnVerExp = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnEliminarFoto = new System.Windows.Forms.Button();
-            this.pbPaciente = new System.Windows.Forms.PictureBox();
             this.tabPageEpicrisis.SuspendLayout();
             this.tbPageAnamnesis.SuspendLayout();
             this.groupBox28.SuspendLayout();
@@ -370,6 +370,7 @@
             this.groupBox19.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.tabPageInfoPersonal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPaciente)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPageExFisico.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -408,7 +409,6 @@
             this.groupBox49.SuspendLayout();
             this.groupBox11.SuspendLayout();
             this.groupBox52.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPaciente)).BeginInit();
             this.SuspendLayout();
             // 
             // opFile
@@ -1652,6 +1652,20 @@
             this.tabPageInfoPersonal.Text = "INFORMACIÓN PERSONAL";
             this.tabPageInfoPersonal.UseVisualStyleBackColor = true;
             // 
+            // btnEliminarFoto
+            // 
+            this.btnEliminarFoto.AutoSize = true;
+            this.btnEliminarFoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarFoto.Image = global::SIMEDVirtual.Properties.Resources.deletePhoto;
+            this.btnEliminarFoto.Location = new System.Drawing.Point(870, 231);
+            this.btnEliminarFoto.Name = "btnEliminarFoto";
+            this.btnEliminarFoto.Size = new System.Drawing.Size(75, 58);
+            this.btnEliminarFoto.TabIndex = 86;
+            this.btnEliminarFoto.Text = "Eliminar";
+            this.btnEliminarFoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEliminarFoto.UseVisualStyleBackColor = true;
+            this.btnEliminarFoto.Click += new System.EventHandler(this.btnEliminarFoto_Click);
+            // 
             // txtEdad
             // 
             this.txtEdad.Location = new System.Drawing.Point(158, 266);
@@ -1731,7 +1745,7 @@
             this.label59.AutoSize = true;
             this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label59.ForeColor = System.Drawing.Color.Red;
-            this.label59.Location = new System.Drawing.Point(279, 310);
+            this.label59.Location = new System.Drawing.Point(355, 310);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(16, 20);
             this.label59.TabIndex = 82;
@@ -1741,9 +1755,9 @@
             // 
             this.cbEmpresa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.cbEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbEmpresa.Location = new System.Drawing.Point(152, 310);
+            this.cbEmpresa.Location = new System.Drawing.Point(158, 310);
             this.cbEmpresa.Name = "cbEmpresa";
-            this.cbEmpresa.Size = new System.Drawing.Size(121, 21);
+            this.cbEmpresa.Size = new System.Drawing.Size(193, 21);
             this.cbEmpresa.TabIndex = 6;
             // 
             // label58
@@ -1804,7 +1818,7 @@
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.ForeColor = System.Drawing.Color.Red;
-            this.label41.Location = new System.Drawing.Point(278, 352);
+            this.label41.Location = new System.Drawing.Point(355, 352);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(16, 20);
             this.label41.TabIndex = 75;
@@ -1973,6 +1987,19 @@
             this.label17.TabIndex = 57;
             this.label17.Text = "PROFESIÓN";
             // 
+            // pbPaciente
+            // 
+            this.pbPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pbPaciente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbPaciente.Image = global::SIMEDVirtual.Properties.Resources.camera;
+            this.pbPaciente.Location = new System.Drawing.Point(754, 42);
+            this.pbPaciente.Name = "pbPaciente";
+            this.pbPaciente.Size = new System.Drawing.Size(191, 179);
+            this.pbPaciente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbPaciente.TabIndex = 44;
+            this.pbPaciente.TabStop = false;
+            this.pbPaciente.Click += new System.EventHandler(this.pbPaciente_Click);
+            // 
             // cbEstado
             // 
             this.cbEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -2003,9 +2030,9 @@
             this.cbSexo.Items.AddRange(new object[] {
             "FEMENINO",
             "MASCULINO"});
-            this.cbSexo.Location = new System.Drawing.Point(151, 350);
+            this.cbSexo.Location = new System.Drawing.Point(158, 350);
             this.cbSexo.Name = "cbSexo";
-            this.cbSexo.Size = new System.Drawing.Size(121, 21);
+            this.cbSexo.Size = new System.Drawing.Size(193, 21);
             this.cbSexo.TabIndex = 7;
             // 
             // label14
@@ -3688,33 +3715,6 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // btnEliminarFoto
-            // 
-            this.btnEliminarFoto.AutoSize = true;
-            this.btnEliminarFoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarFoto.Image = global::SIMEDVirtual.Properties.Resources.deletePhoto;
-            this.btnEliminarFoto.Location = new System.Drawing.Point(870, 231);
-            this.btnEliminarFoto.Name = "btnEliminarFoto";
-            this.btnEliminarFoto.Size = new System.Drawing.Size(75, 58);
-            this.btnEliminarFoto.TabIndex = 86;
-            this.btnEliminarFoto.Text = "Eliminar";
-            this.btnEliminarFoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnEliminarFoto.UseVisualStyleBackColor = true;
-            this.btnEliminarFoto.Click += new System.EventHandler(this.btnEliminarFoto_Click);
-            // 
-            // pbPaciente
-            // 
-            this.pbPaciente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pbPaciente.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pbPaciente.Image = global::SIMEDVirtual.Properties.Resources.camera;
-            this.pbPaciente.Location = new System.Drawing.Point(754, 42);
-            this.pbPaciente.Name = "pbPaciente";
-            this.pbPaciente.Size = new System.Drawing.Size(191, 179);
-            this.pbPaciente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbPaciente.TabIndex = 44;
-            this.pbPaciente.TabStop = false;
-            this.pbPaciente.Click += new System.EventHandler(this.pbPaciente_Click);
-            // 
             // frm_ExpedienteMG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3779,6 +3779,7 @@
             this.groupBox18.PerformLayout();
             this.tabPageInfoPersonal.ResumeLayout(false);
             this.tabPageInfoPersonal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPaciente)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPageExFisico.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
@@ -3851,7 +3852,6 @@
             this.groupBox11.PerformLayout();
             this.groupBox52.ResumeLayout(false);
             this.groupBox52.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPaciente)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

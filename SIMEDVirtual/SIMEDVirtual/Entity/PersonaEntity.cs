@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SIMEDVirtual.Entity
 {
-    class PersonaEntity
+    public class PersonaEntity
     {
         public string nombre { get; set; }
         public string ape1 { get; set; }

@@ -17,6 +17,8 @@ namespace SIMEDVirtual
     {
         public int editar;
         public byte[] fotoBinaria;
+        public int accionArealizar = 0;
+
 
         public frm_Cliente()
         {
@@ -31,27 +33,32 @@ namespace SIMEDVirtual
         public frm_Cliente(string cedula, int pver)
         {
             InitializeComponent();
+            accionArealizar = pver;
+
 
             //igualo a la variable estatica
             editar = pver;
             determinaCliente(cedula);
+            pbFotoCliente.Image = PersonaIT.GetImagePacient(cedula);
             //si solo voy a ver deshabilito todo
             if (pver == 1)
             {
+                lblTitulo.Text = "INFORMACION DEL CLIENTE";
+                this.btnGuardar.Hide();
                 ((Control)this.tabPageInfoPersonal).Enabled = false;
             }
             else if (pver == 2)
             //si voy a editar deshabilito la cedula
             {
                 txtCedula.Enabled = false;
-                lblTitulo.Text = "EDITAR MÉDICOS";
+                lblTitulo.Text = "EDITAR CLIENTES";
             }
         }
 
         //quema la interfaz con los datos del cliente
         public void determinaCliente(string pCedula)
         {
-            List<ClienteEntity> listaCliente = ClienteIT.selectClientePorCedula(pCedula);
+            List<PersonaEntity> listaCliente = PersonaIT.selectClientePorCedula(pCedula);
 
             txtNombre.Text = listaCliente.ElementAt(0).nombre;
             txtApe1.Text = listaCliente.ElementAt(0).ape1;
@@ -87,7 +94,6 @@ namespace SIMEDVirtual
             txtTelefono.Text = listaCliente.ElementAt(0).telefono_fijo.ToString();
             txtMovil.Text = listaCliente.ElementAt(0).telefono_movil.ToString();
             txtEmail.Text = listaCliente.ElementAt(0).email.ToString();
-
         }
 
 
@@ -158,12 +164,15 @@ namespace SIMEDVirtual
                 string grupo = cbSangre.SelectedItem.ToString();
                 string empresa = cbEmpresa.SelectedItem.ToString();
 
+                this.verificaFoto();
+
+
                 switch (editar)
                 {
                     case 2:
                         //update
-                        if (ClienteIT.UpdateCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, txtCedula.Text, fecha, txtEdad.Text, sexo, txtDireccion.Text, estado, grupo, empresa,
-                            txtProfesion.Text, telefono, movil, txtEmail.Text))
+                        if (PersonaIT.UpdateCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, txtCedula.Text, fecha, txtDireccion.Text, txtEdad.Text, sexo,
+                            estado, grupo, txtProfesion.Text, telefono, movil, txtEmail.Text, empresa, fotoBinaria, false))
                         {
                             MessageBox.Show("El Cliente se ha Actualizado con Exito", "Actualizacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Hide();
@@ -179,20 +188,20 @@ namespace SIMEDVirtual
                     case 3:
                         //ingresar
                         //si se inserto bn en el cliente y la anamnesis y el expediente
-                        //if (ClienteIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, txtCedula.Text, fecha,
-                        //sexo, estado, grupo, txtProfesion.Text, telefono, movil,
-                        //txtEmail.Text, txtDireccion.Text, txtEdad.Text, empresa,fotoBinaria))
-                        //{
-                        //    MessageBox.Show("Cliente Guardado con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                        //    this.Hide();
-                        //    frmVerExpediente splash = new frmVerExpediente();
-                        //    splash.ShowDialog();
-                        //}
-                        ////si hay campos vacios imprime error
-                        //else
-                        //{
-                        //    MessageBox.Show("Error al insertar el Cliente\n Es Posible que esa cedula ya exista", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                        //}
+                        if (PersonaIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, txtCedula.Text, fecha,
+                        txtDireccion.Text, txtEdad.Text, sexo, estado, grupo, txtProfesion.Text, telefono, movil,
+                        txtEmail.Text, empresa, fotoBinaria, false))
+                        {
+                            MessageBox.Show("Cliente Guardado con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            this.Hide();
+                            frmVerExpediente splash = new frmVerExpediente();
+                            splash.ShowDialog();
+                        }
+                        //si hay campos vacios imprime error
+                        else
+                        {
+                            MessageBox.Show("Error al insertar el Cliente\nEs Posible que esa cedula ya exista", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        }
                         break;
                     default:
                         break;
@@ -218,7 +227,50 @@ namespace SIMEDVirtual
 
         private void frm_Cliente_Load(object sender, EventArgs e)
         {
+        }
 
+        public void verificaFoto()
+        {
+            if (fotoBinaria == null)
+            {
+                MessageBox.Show("no se dijo foto");
+                //string x = pbPaciente.ImageLocation;
+                fotoBinaria = this.saveImage(frm_ExpedienteMG.rutaDefault);
+            }
+        }
+
+        private void frm_Cliente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //si lo quiere es ver me devuelvo a ver los expedientes
+            if ((accionArealizar == 1) || (accionArealizar == 2))
+            {
+                this.Hide();
+                frmVerExpediente splash = new frmVerExpediente();
+                splash.ShowDialog();
+            }
+            //si soy adm e ingrese desde splash, me devuelvo a splash
+            else if (Frm_Ingreso.tipoUsuario == "1" && accionArealizar == 0)
+            {
+                this.Hide();
+                Frm_Splash splash = new Frm_Splash();
+                splash.ShowDialog();
+            }
+            //switch (Frm_Ingreso.tipoUsuario)
+            //{
+
+            //    case "2":
+            //        Frm_Ingreso frm = new Frm_Ingreso();
+            //        frm.ShowDialog();
+            //        break;
+
+            //    case "1":
+            //        this.Hide();
+            //        Frm_Splash splash = new Frm_Splash();
+            //        splash.ShowDialog();
+            //        break;
+            //    default:
+            //        break;
+            //}
         }
     }
 }
