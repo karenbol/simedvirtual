@@ -17,6 +17,36 @@ namespace SIMEDVirtual
             InitializeComponent();
         }
 
+
+        // 1 ver 2 editar
+        public frm_registraEmpresa(string cedula_juridica, string nombre, string descripcion, string direccion, int telefono1,
+              string encargado1, int telefono2, string encargado2, int accion)
+        {
+            InitializeComponent();
+
+            txtCedula_Juridica.Text = cedula_juridica;
+            txtNombre.Text = nombre;
+            txtDescripcion.Text = descripcion;
+            txtDireccion.Text = direccion;
+            txtTelefono1.Text = telefono1.ToString();
+            txtEncargado1.Text = encargado1;
+            txtTelefono2.Text = telefono2.ToString();
+            txtEncargado2.Text = encargado2;
+            
+            //ver
+            if (accion == 1)
+            {
+                lblTitle.Text = "VER EMPRESAS";
+                panel2.Enabled = false;
+                btnGuardar.Visible = false;
+            }
+            else if (accion == 2)
+            {
+                txtCedula_Juridica.Enabled = false;
+            }
+        }
+        
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
 
@@ -56,5 +86,13 @@ namespace SIMEDVirtual
         {
 
         }
-    }
+
+        private void frm_registraEmpresa_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            frm_empresa splash = new frm_empresa();
+            splash.ShowDialog();
+        }
+
+            }
 }

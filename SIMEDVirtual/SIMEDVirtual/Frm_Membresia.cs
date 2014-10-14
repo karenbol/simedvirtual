@@ -42,15 +42,15 @@ namespace SIMEDVirtual
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //aqui ocupamps empleados de la empresa selecionada
-            int id = EmpresaIT.IdEmpresa(comboBox1.SelectedItem.ToString());
+            ////aqui ocupamps empleados de la empresa selecionada
+            //int id = EmpresaIT.IdEmpresa(comboBox1.SelectedItem.ToString());
                         
-            dataGridView1.DataSource = x;
-            for (int j = 0; j < x.Count; j++)
-            {
-                dataGridView1.Rows[j].Cells[0].Value = x.ElementAt(j).nombre.ToString();
-                //dataGridView1.Rows[j].Cells[1].Value = x.ElementAt(j).ap.ToString();
-            }
+            //dataGridView1.DataSource = x;
+            //for (int j = 0; j < x.Count; j++)
+            //{
+            //    dataGridView1.Rows[j].Cells[0].Value = x.ElementAt(j).nombre.ToString();
+            //    //dataGridView1.Rows[j].Cells[1].Value = x.ElementAt(j).ap.ToString();
+            //}
 
 
         }
