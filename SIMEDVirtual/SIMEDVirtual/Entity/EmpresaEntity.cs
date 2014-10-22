@@ -14,8 +14,6 @@ namespace SIMEDVirtual.Entity
         public string descripcion { get; set; }
         public int telefono1 { get; set; }
         public string encargado1 { get; set; }
-        public int telefono2 { get; set; }
-        public string encargado2 { get; set; }
-
+   
     }
 }

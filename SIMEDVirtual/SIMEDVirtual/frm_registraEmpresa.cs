@@ -32,7 +32,7 @@ namespace SIMEDVirtual
             txtEncargado1.Text = encargado1;
             txtTelefono2.Text = telefono2.ToString();
             txtEncargado2.Text = encargado2;
-            
+
             //ver
             if (accion == 1)
             {
@@ -45,7 +45,7 @@ namespace SIMEDVirtual
                 txtCedula_Juridica.Enabled = false;
             }
         }
-        
+
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -67,7 +67,7 @@ namespace SIMEDVirtual
 
                     MessageBox.Show("La Empresa se ha Insertado con Exito", "Ingreso Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     this.Hide();
-                    Frm_Splash splash = new Frm_Splash();
+                    frm_empresa splash = new frm_empresa();
                     splash.ShowDialog();
                 }
                 else
@@ -93,6 +93,5 @@ namespace SIMEDVirtual
             frm_empresa splash = new frm_empresa();
             splash.ShowDialog();
         }
-
-            }
+    }
 }

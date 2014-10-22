@@ -131,7 +131,7 @@ namespace SIMEDVirtual.DA
         //selecciona el id de la empresa
         public static List<EmpresaEntity> getEmpresaByID(String cedula)
         {
-            
+
             List<EmpresaEntity> empresas = new List<EmpresaEntity>();
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
@@ -141,7 +141,7 @@ namespace SIMEDVirtual.DA
                 if (dr.Read())
                 {
                     EmpresaEntity entidad = new EmpresaEntity();
-                    entidad.nombre= Convert.ToString(dr[1].ToString());
+                    entidad.nombre = Convert.ToString(dr[1].ToString());
                     entidad.cedula = Convert.ToString(dr[2].ToString());
                     entidad.direccion = Convert.ToString(dr[3].ToString());
                     entidad.descripcion = Convert.ToString(dr[4].ToString());
@@ -165,10 +165,8 @@ namespace SIMEDVirtual.DA
                 while (dr.Read())
                 {
                     EmpresaEntity entidad = new EmpresaEntity();
-                    entidad.telefono1 = Convert.ToInt32(dr[0].ToString());
-                    entidad.encargado1 = Convert.ToString(dr[1].ToString());
-                    entidad.telefono2 = Convert.ToInt32(dr[2].ToString());
-                    entidad.encargado2 = Convert.ToString(dr[3].ToString());
+                    entidad.telefono1 = Convert.ToInt32(dr[2].ToString());
+                    entidad.encargado1 = Convert.ToString(dr[3].ToString());
                     empresa_telefono.Add(entidad);
 
                 }

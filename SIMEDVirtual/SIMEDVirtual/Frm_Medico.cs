@@ -26,6 +26,12 @@ namespace SIMEDVirtual
         private void Frm_Medico_Load(object sender, EventArgs e)
         {
             this.cargarDataGrid();
+            dataGridView1.Columns[0].Width = 50;
+            dataGridView1.Columns[1].Width = 350;
+            dataGridView1.Columns[2].Width = 150;
+            dataGridView1.Columns[3].Width = 50;
+            dataGridView1.Columns[4].Width = 150;
+            dataGridView1.Columns[4].Width = 150;
         }
 
         private void cargarDataGrid()

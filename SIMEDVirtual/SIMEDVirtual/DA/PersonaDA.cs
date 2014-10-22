@@ -452,7 +452,7 @@ namespace SIMEDVirtual.DA
                     doctor.codigo = Convert.ToInt32(dr["codigo"]);
                     doctor.universidad = Convert.ToString(dr["universidad"]);
                     doctor.especialidad = Convert.ToString(dr["especialidad"]);
-                    doctor.email = Convert.ToString(dr["correo"]);
+                    doctor.email = Convert.ToString(dr["email"]);
                     doctor.telefono_fijo = Convert.ToInt32(dr["telefono_fijo"]);
                     doctor.telefono_movil = Convert.ToInt32(dr["telefono_movil"]);
                     //falta la foto
@@ -490,7 +490,7 @@ namespace SIMEDVirtual.DA
                     doctor.codigo = Convert.ToInt32(dr["codigo"]);
                     doctor.universidad = Convert.ToString(dr["universidad"]);
                     doctor.especialidad = Convert.ToString(dr["especialidad"]);
-                    doctor.email = Convert.ToString(dr["correo"]);
+                    doctor.email = Convert.ToString(dr["email"]);
                     doctor.telefono_fijo = Convert.ToInt32(dr["telefono_fijo"]);
                     doctor.telefono_movil = Convert.ToInt32(dr["telefono_movil"]);
                     //falta la foto

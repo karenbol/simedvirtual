@@ -92,8 +92,8 @@ namespace SIMEDVirtual
 
                 if (empresa.Count == 2)
                 {
-                    telefono2 = empresa[1].telefono2;
-                    encargado2 = empresa[1].encargado2;
+                    telefono2 = empresa[1].telefono1;
+                    encargado2 = empresa[1].encargado1;
                 }
             }
 
