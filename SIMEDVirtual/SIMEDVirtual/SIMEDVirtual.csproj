@@ -143,7 +143,14 @@
     <Compile Include="IT\UsuarioIT.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Window.cs" />
+    <EmbeddedResource Include="frmVerExpediente.es.resx">
+      <DependentUpon>frmVerExpediente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVerExpediente.resx">
+      <DependentUpon>frmVerExpediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerExpediente.yo.resx">
       <DependentUpon>frmVerExpediente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Cliente.resx">

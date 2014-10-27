@@ -51,6 +51,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnEliminar1 = new System.Windows.Forms.Button();
+            this.btnEliminar2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -326,12 +328,34 @@
             this.label1.TabIndex = 40;
             this.label1.Text = "Nombre";
             // 
+            // btnEliminar1
+            // 
+            this.btnEliminar1.Image = global::SIMEDVirtual.Properties.Resources.deletePhoto;
+            this.btnEliminar1.Location = new System.Drawing.Point(984, 233);
+            this.btnEliminar1.Name = "btnEliminar1";
+            this.btnEliminar1.Size = new System.Drawing.Size(45, 40);
+            this.btnEliminar1.TabIndex = 34;
+            this.btnEliminar1.UseVisualStyleBackColor = true;
+            this.btnEliminar1.Click += new System.EventHandler(this.btnEliminar1_Click);
+            // 
+            // btnEliminar2
+            // 
+            this.btnEliminar2.Image = global::SIMEDVirtual.Properties.Resources.deletePhoto;
+            this.btnEliminar2.Location = new System.Drawing.Point(984, 272);
+            this.btnEliminar2.Name = "btnEliminar2";
+            this.btnEliminar2.Size = new System.Drawing.Size(45, 40);
+            this.btnEliminar2.TabIndex = 35;
+            this.btnEliminar2.UseVisualStyleBackColor = true;
+            this.btnEliminar2.Click += new System.EventHandler(this.btnEliminar2_Click);
+            // 
             // frm_registraEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1097, 555);
+            this.Controls.Add(this.btnEliminar2);
+            this.Controls.Add(this.btnEliminar1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label36);
@@ -379,5 +403,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnEliminar1;
+        private System.Windows.Forms.Button btnEliminar2;
     }
 }

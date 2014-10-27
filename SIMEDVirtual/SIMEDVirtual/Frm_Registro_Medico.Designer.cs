@@ -70,6 +70,7 @@
             this.txtCedula = new System.Windows.Forms.TextBox();
             this.txtEdad = new System.Windows.Forms.TextBox();
             this.label60 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoDr)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -499,12 +500,24 @@
             this.label60.TabIndex = 86;
             this.label60.Text = "Edad";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label13.Location = new System.Drawing.Point(52, 74);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(294, 18);
+            this.label13.TabIndex = 87;
+            this.label13.Text = "* NO DEJE NINGUN ESPACIO VACIO";
+            // 
             // Frm_Registro_Medico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(1120, 557);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.txtEdad);
             this.Controls.Add(this.label60);
             this.Controls.Add(this.txtCedula);
@@ -601,5 +614,6 @@
         private System.Windows.Forms.TextBox txtCedula;
         private System.Windows.Forms.TextBox txtEdad;
         private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.Label label13;
     }
 }

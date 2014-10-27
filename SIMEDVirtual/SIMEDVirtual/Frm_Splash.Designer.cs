@@ -142,6 +142,7 @@
             this.administrativosToolStripMenuItem.Name = "administrativosToolStripMenuItem";
             this.administrativosToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
             this.administrativosToolStripMenuItem.Text = "Administrativos";
+            this.administrativosToolStripMenuItem.Click += new System.EventHandler(this.administrativosToolStripMenuItem_Click);
             // 
             // planesFamiliaresToolStripMenuItem
             // 

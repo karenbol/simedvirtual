@@ -28,11 +28,29 @@ namespace SIMEDVirtual
             label3.AutoSize = false;
             label3.Height = 2;
             label3.BorderStyle = BorderStyle.Fixed3D;
-            label3.Width = 952;
+            label3.Width = 1366;
+
+            dgClientes.Columns[0].Width = 200;
+            dgClientes.Columns[1].Width = 200;
+            dgClientes.Columns[2].Width = 200;
+            dgClientes.Columns[3].Width = 200;
+
+
+            dgReconsultas.Columns[0].Width = 100;
+            dgReconsultas.Columns[1].Width = 100;
+            dgReconsultas.Columns[2].Width = 180;
+            dgReconsultas.Columns[3].Width = 200;
+            dgReconsultas.Columns[4].Width = 200;
+            dgReconsultas.Columns[5].Width = 200;
+            dgReconsultas.Columns[6].Width = 200;
+
+
         }
 
         private void frmVerExpediente_Load(object sender, EventArgs e)
         {
+                  
+
             //llena la tabla con los clientes
             this.cargarDataGrid();
 
@@ -95,7 +113,9 @@ namespace SIMEDVirtual
                 {
                     dgReconsultas.Rows[j].Cells[0].Value = pts.ElementAt(j).id_expediente.ToString();
                     dgReconsultas.Rows[j].Cells[1].Value = pts.ElementAt(j).cedula.ToString();
-                    dgReconsultas.Rows[j].Cells[2].Value = pts.ElementAt(j).fecha.ToString();
+                    dgReconsultas.Rows[j].Cells[2].Value = pts.ElementAt(j).fecha.ToString("dd/MM/yyyy");
+                    //.ToString("MM/dd/yyyy")
+
                     dgReconsultas.Rows[j].Cells[3].Value = PersonaIT.getApellidoMedico(pts.ElementAt(j).cedula_medico.ToString());
                     dgReconsultas.Rows[j].Cells[4].Value = pts.ElementAt(j).diagnostico.ToString();
                     dgReconsultas.Rows[j].Cells[5].Value = pts.ElementAt(j).terapeutica.ToString();

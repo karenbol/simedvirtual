@@ -320,7 +320,7 @@ namespace SIMEDVirtual.DA
                 try
                 {
                     string cadena = "update persona set nombre=@nombre, apellido1=@ape1,apellido2=@ape2," +
-                    "fecha_nacimiento= @fecha,direccion=@direccion,edad=@edad, sexo=@sexo,codigo=@codigo,universidad=@universidad, especialidad=@especialidad,correo=@correo, " +
+                    "fecha_nacimiento= @fecha,direccion=@direccion,edad=@edad, sexo=@sexo,codigo=@codigo,universidad=@universidad, especialidad=@especialidad,email=@correo, " +
                     "telefono_fijo=@telefono_fijo, telefono_movil=@telefono_movil, foto=@foto where cedula=@cedula";
                     command.CommandText = cadena;
 
@@ -540,8 +540,9 @@ namespace SIMEDVirtual.DA
                         try
                         {
                             conn.Open();
+                            var x = pgCommand.ExecuteScalar();
 
-                            if (pgCommand.ExecuteScalar() != null)
+                            if (pgCommand.ExecuteScalar() == null)
                             {
                                 Byte[] productImageByte = (Byte[])pgCommand.ExecuteScalar();
                                 if (productImageByte != null)

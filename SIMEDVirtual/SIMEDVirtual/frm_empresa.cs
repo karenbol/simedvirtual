@@ -102,5 +102,67 @@ namespace SIMEDVirtual
                 encargado1, telefono2, encargado2, 1);
             frm.ShowDialog();
         }
+
+        
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgEmpresas.Rows[dgEmpresas.SelectedCells[0].RowIndex];
+            string cedula_juridica = Convert.ToString(selectedRow.Cells["Cedula"].Value);
+                                  
+            //me trae todo de la empresa segun cedula juridica
+            var pts = new BindingList<EmpresaEntity>(EmpresaIT.getEmpresaByID(cedula_juridica));
+            dgEmpresas.AutoGenerateColumns = false;
+            dgEmpresas.DataSource = pts;
+
+            string nombre = pts.ElementAt(0).nombre.ToString();
+            string cedula = pts.ElementAt(0).cedula.ToString();
+            string descripcion = pts.ElementAt(0).descripcion.ToString();
+            string direccion = pts.ElementAt(0).direccion.ToString();
+
+            int telefono1 = 0;
+            int telefono2 = 0;
+            string encargado1 = "";
+            string encargado2 = "";
+
+            List<EmpresaEntity> empresa = EmpresaIT.getTelefono(cedula_juridica);
+
+
+            if (empresa.Count != 0)
+            {
+                telefono1 = Convert.ToInt32(empresa[0].telefono1);
+                encargado1 = empresa[0].encargado1;
+
+                if (empresa.Count == 2)
+                {
+                    telefono2 = empresa[1].telefono1;
+                    encargado2 = empresa[1].encargado1;
+                }
+            }
+
+            this.Hide();
+            frm_registraEmpresa frm = new frm_registraEmpresa(cedula_juridica, nombre, descripcion, direccion, telefono1,
+                encargado1, telefono2, encargado2, 2);
+            frm.ShowDialog();
+
+
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow selectedRow = dgEmpresas.Rows[dgEmpresas.SelectedCells[0].RowIndex];
+            string cedula_juridica = Convert.ToString(selectedRow.Cells["Cedula"].Value);
+
+            if (EmpresaIT.deleteEmpresa(cedula_juridica))
+            {
+                MessageBox.Show("La Empresa se ha Eliminado con Exito", "Eliminacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                cargarDataGrid();
+            }
+            else
+            {
+                MessageBox.Show("No se ha podido Eliminar La Empresa", "Error al Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
+        }
     }
 }

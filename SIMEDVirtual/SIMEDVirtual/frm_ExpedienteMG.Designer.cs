@@ -420,7 +420,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label10.Location = new System.Drawing.Point(349, 26);
+            this.label10.Location = new System.Drawing.Point(498, 27);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(320, 31);
             this.label10.TabIndex = 21;
@@ -430,7 +430,8 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label25.Location = new System.Drawing.Point(12, 655);
+            this.label25.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label25.Location = new System.Drawing.Point(12, 671);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(67, 20);
             this.label25.TabIndex = 24;
@@ -440,7 +441,8 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label29.Location = new System.Drawing.Point(81, 655);
+            this.label29.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label29.Location = new System.Drawing.Point(81, 671);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(60, 20);
             this.label29.TabIndex = 25;
@@ -1647,7 +1649,7 @@
             this.tabPageInfoPersonal.Location = new System.Drawing.Point(4, 22);
             this.tabPageInfoPersonal.Name = "tabPageInfoPersonal";
             this.tabPageInfoPersonal.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPageInfoPersonal.Size = new System.Drawing.Size(970, 547);
+            this.tabPageInfoPersonal.Size = new System.Drawing.Size(999, 547);
             this.tabPageInfoPersonal.TabIndex = 0;
             this.tabPageInfoPersonal.Text = "INFORMACIÓN PERSONAL";
             this.tabPageInfoPersonal.UseVisualStyleBackColor = true;
@@ -2097,10 +2099,10 @@
             this.tabControl1.Controls.Add(this.tabPageExFisico);
             this.tabControl1.Controls.Add(this.tabPageExFisicoII);
             this.tabControl1.Controls.Add(this.tabPageEpicrisis);
-            this.tabControl1.Location = new System.Drawing.Point(28, 79);
+            this.tabControl1.Location = new System.Drawing.Point(181, 82);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(978, 573);
+            this.tabControl1.Size = new System.Drawing.Size(1007, 573);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPageExFisico
@@ -3692,7 +3694,7 @@
             this.btnVerExp.BackColor = System.Drawing.Color.Transparent;
             this.btnVerExp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold);
             this.btnVerExp.Image = global::SIMEDVirtual.Properties.Resources.verExp;
-            this.btnVerExp.Location = new System.Drawing.Point(804, 11);
+            this.btnVerExp.Location = new System.Drawing.Point(1148, 12);
             this.btnVerExp.Name = "btnVerExp";
             this.btnVerExp.Size = new System.Drawing.Size(103, 73);
             this.btnVerExp.TabIndex = 23;
@@ -3706,7 +3708,7 @@
             this.btnGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::SIMEDVirtual.Properties.Resources.saveIcon;
-            this.btnGuardar.Location = new System.Drawing.Point(913, 11);
+            this.btnGuardar.Location = new System.Drawing.Point(1257, 12);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(76, 73);
             this.btnGuardar.TabIndex = 19;
@@ -3720,7 +3722,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(1018, 683);
+            this.ClientSize = new System.Drawing.Size(1350, 730);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.label25);
             this.Controls.Add(this.btnVerExp);

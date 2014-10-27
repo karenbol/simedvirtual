@@ -21,17 +21,19 @@ namespace SIMEDVirtual
             InitializeComponent();
             usuarioPublico = Frm_Ingreso.datosUsuario;
             label4.Text = Frm_Ingreso.datosUsuario;
+
+            dataGridView1.Columns[0].Width = 100;
+            dataGridView1.Columns[1].Width = 250;
+            dataGridView1.Columns[2].Width = 150;
+            dataGridView1.Columns[3].Width = 100;
+            dataGridView1.Columns[4].Width = 250;
+            dataGridView1.Columns[5].Width = 250;
+
         }
 
         private void Frm_Medico_Load(object sender, EventArgs e)
         {
             this.cargarDataGrid();
-            dataGridView1.Columns[0].Width = 50;
-            dataGridView1.Columns[1].Width = 350;
-            dataGridView1.Columns[2].Width = 150;
-            dataGridView1.Columns[3].Width = 50;
-            dataGridView1.Columns[4].Width = 150;
-            dataGridView1.Columns[4].Width = 150;
         }
 
         private void cargarDataGrid()
@@ -73,13 +75,15 @@ namespace SIMEDVirtual
                 String u = pts.ElementAt(0).universidad.ToString();
                 String especialidad = pts.ElementAt(0).especialidad.ToString();
                 String correo = pts.ElementAt(0).email.ToString();
+                char sexo = Convert.ToChar(pts.ElementAt(0).sexo);
+                String edad = pts.ElementAt(0).edad.ToString();
                 int telefono1 = Convert.ToInt32(pts.ElementAt(0).telefono_fijo.ToString());
                 int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono_movil.ToString());
                 byte foto = Convert.ToByte(pts.ElementAt(0).fotoBinaria);
 
                 this.Hide();
                 Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, ced, fecha, direccion,
-                    codigo, u, especialidad, correo, telefono1, telefono2, false);
+                    codigo, u, especialidad, correo,sexo, edad, telefono1, telefono2, false);
                 frm.ShowDialog();
             }
         }
@@ -95,8 +99,8 @@ namespace SIMEDVirtual
         {
             //al cerrar nos devolvemos a pantalla principal
             this.Hide();
-            Frm_Splash frm = new Frm_Splash();
-            frm.ShowDialog();
+            Frm_Splash x = new Frm_Splash();
+            x.ShowDialog();
         }
 
         //elimina el medico
@@ -145,13 +149,15 @@ namespace SIMEDVirtual
             String u = pts.ElementAt(0).universidad.ToString();
             String especialidad = pts.ElementAt(0).especialidad.ToString();
             String correo = pts.ElementAt(0).email.ToString();
+            char sexo = Convert.ToChar(pts.ElementAt(0).sexo);
+            String edad = pts.ElementAt(0).edad.ToString();
             int telefono1 = Convert.ToInt32(pts.ElementAt(0).telefono_fijo.ToString());
             int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono_movil.ToString());
             //byte foto = Convert.ToByte(pts.ElementAt(0).foto);
-            
+
             this.Hide();
             Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, cedula, fecha, direccion,
-                codigo, u, especialidad, correo, telefono1, telefono2, true);
+                codigo, u, especialidad, correo, sexo, edad, telefono1, telefono2, true);
             frm.ShowDialog();
         }
     }

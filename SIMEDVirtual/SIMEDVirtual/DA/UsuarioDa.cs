@@ -119,7 +119,7 @@ namespace SIMEDVirtual.DA
                 try
                 {
                     command.CommandText =
-                        "insert into usuario values (@usuario,@pass,@tipo)";
+                        "insert into usuario values (default,@usuario,@pass,@tipo)";
 
                     command.Parameters.AddWithValue("@usuario", usuario);
                     command.Parameters.AddWithValue("@pass", pass);

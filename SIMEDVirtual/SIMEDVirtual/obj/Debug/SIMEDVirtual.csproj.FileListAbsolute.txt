@@ -67,3 +67,9 @@ C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frmVerExpedient
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_Cliente.resources
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_empresa.resources
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_registraEmpresa.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\es\SIMEDVirtual.resources.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\yo\SIMEDVirtual.resources.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frmVerExpediente.es.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frmVerExpediente.yo.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\es\SIMEDVirtual.resources.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\yo\SIMEDVirtual.resources.dll

@@ -16,15 +16,12 @@ namespace SIMEDVirtual.IT
         }
 
 
-         //inserta datos en la tabla persona
+        //inserta datos en la tabla persona
         public static Boolean InsertaEmpresaTelefono(string cedula_juridica,
             int telefono, string encargado)
         {
             return Empresa.InsertaEmpresaTelefono(cedula_juridica, telefono, encargado);
         }
-
-
-
 
         public static List<EmpresaEntity> getAllEmpresas()
         {
@@ -41,6 +38,24 @@ namespace SIMEDVirtual.IT
             return Empresa.getTelefono(cedula_juridica);
         }
 
+        public static Boolean deleteTelefono(String cedula_juridica, int telefono)
+        {
+            return Empresa.deleteTelefono(cedula_juridica, telefono);
+        }
 
+        public static Boolean updateTelefono(String cedula_juridica, int telefono, string encargado)
+        {
+            return Empresa.updateTelefono(cedula_juridica, telefono, encargado);
+        }
+
+        public static Boolean updateEmpresa(String cedula_juridica, string nombre, string direccion, string descripcion)
+        {
+            return Empresa.updateEmpresa(cedula_juridica, nombre, direccion, descripcion);
+        }
+
+        public static Boolean deleteEmpresa(String cedula_juridica)
+        {
+            return Empresa.deleteEmpresa(cedula_juridica);
+        }
     }
 }

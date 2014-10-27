@@ -87,7 +87,7 @@
             // 
             this.tabControl1.AllowDrop = true;
             this.tabControl1.Controls.Add(this.tabPageInfoPersonal);
-            this.tabControl1.Location = new System.Drawing.Point(34, 72);
+            this.tabControl1.Location = new System.Drawing.Point(153, 111);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1074, 508);
@@ -592,7 +592,7 @@
             this.panel1.Controls.Add(this.lblTitulo);
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1153, 56);
+            this.panel1.Size = new System.Drawing.Size(1351, 56);
             this.panel1.TabIndex = 85;
             // 
             // lblTitulo
@@ -600,7 +600,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold);
             this.lblTitulo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lblTitulo.Location = new System.Drawing.Point(334, 9);
+            this.lblTitulo.Location = new System.Drawing.Point(465, 7);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(363, 31);
             this.lblTitulo.TabIndex = 0;
@@ -615,7 +615,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClientSize = new System.Drawing.Size(1152, 611);
+            this.ClientSize = new System.Drawing.Size(1350, 730);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
             this.Name = "frm_Cliente";

@@ -119,6 +119,7 @@ namespace SIMEDVirtual
         private void Frm_Ingreso_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.ExitThread();
+            
             NpgsqlConnection.ClearAllPools();
         }
     }

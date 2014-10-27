@@ -174,5 +174,207 @@ namespace SIMEDVirtual.DA
             }
             return empresa_telefono;
         }
+
+        //edita el telefono segun la cedula de la empresa
+        public static Boolean updateTelefono(String cedula_juridica, int telefono, string encargado)
+        {
+            int x = 0;
+            string g = "";
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                NpgsqlCommand command = new NpgsqlCommand();
+                command.Connection = conn;
+                conn.Open();
+                try
+                {
+                    command.CommandText =
+                        "update empresa_telefono set telefono=@telefono, encargado=@encargado where cedula_juridica=@cedula and telefono=@telefono;";
+
+                    command.Parameters.AddWithValue("@cedula", cedula_juridica);
+                    command.Parameters.AddWithValue("@telefono", telefono);
+                    command.Parameters.AddWithValue("@encargado", encargado);
+
+                    x = command.ExecuteNonQuery();
+                }
+
+                catch (Exception exp)
+                {
+                    g = exp.ToString();
+                    return false;
+                }
+                conn.Close();
+
+                if (x != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+
+        //update de empresa
+        public static Boolean updateEmpresa(String cedula_juridica, string nombre, string direccion, string descripcion)
+        {
+            int x = 0;
+            string g = "";
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                NpgsqlCommand command = new NpgsqlCommand();
+                command.Connection = conn;
+                conn.Open();
+                try
+                {
+                    command.CommandText =
+                        "update empresa set nombre=@nombre, direccion=@direccion, descripcion=@descripcion where cedula_juridica=@cedula;";
+
+                    command.Parameters.AddWithValue("@cedula", cedula_juridica);
+                    command.Parameters.AddWithValue("@nombre", nombre);
+                    command.Parameters.AddWithValue("@direccion", direccion);
+                    command.Parameters.AddWithValue("@descripcion", descripcion);
+
+                    x = command.ExecuteNonQuery();
+                }
+
+                catch (Exception exp)
+                {
+                    g = exp.ToString();
+                    return false;
+                }
+                conn.Close();
+
+                if (x != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+
+
+        //eliminar el telefono y el encargado segun cedula
+        public static Boolean deleteTelefono(String cedula_juridica, int telefono)
+        {
+            int x = 0;
+            string g = "";
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                NpgsqlCommand command = new NpgsqlCommand();
+                command.Connection = conn;
+                conn.Open();
+                try
+                {
+                    command.CommandText =
+                        "delete from empresa_telefono where cedula_juridica=@cedula and telefono=@telefono;";
+
+                    command.Parameters.AddWithValue("@cedula", cedula_juridica);
+                    command.Parameters.AddWithValue("@telefono", telefono);
+
+                    x = command.ExecuteNonQuery();
+                }
+
+                catch (Exception exp)
+                {
+                    g = exp.ToString();
+                    return false;
+                }
+                conn.Close();
+
+                if (x != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        //delete all telefonos
+        public static Boolean deleteAllTelefono(String cedula_juridica)
+        {
+            int x = 0;
+            string g = "";
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                NpgsqlCommand command = new NpgsqlCommand();
+                command.Connection = conn;
+                conn.Open();
+                try
+                {
+                    command.CommandText =
+                        "delete from empresa_telefono where cedula_juridica=@cedula;";
+
+                    command.Parameters.AddWithValue("@cedula", cedula_juridica);
+
+                    x = command.ExecuteNonQuery();
+                }
+
+                catch (Exception exp)
+                {
+                    g = exp.ToString();
+                    return false;
+                }
+                conn.Close();
+
+                if (x != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+
+        //delete empresa
+        public static Boolean deleteEmpresa(String cedula_juridica)
+        {
+            int x = 0;
+            string g = "";
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                NpgsqlCommand command = new NpgsqlCommand();
+                command.Connection = conn;
+                conn.Open();
+                try
+                {
+                    deleteAllTelefono(cedula_juridica);
+                    command.CommandText =
+                        "delete from empresa where cedula_juridica=@cedula;";
+
+                    command.Parameters.AddWithValue("@cedula", cedula_juridica);
+                    
+                    x = command.ExecuteNonQuery();
+                }
+
+                catch (Exception exp)
+                {
+                    g = exp.ToString();
+                    return false;
+                }
+                conn.Close();
+
+                if (x != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
     }
 }

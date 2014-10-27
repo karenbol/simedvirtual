@@ -33,7 +33,7 @@ namespace SIMEDVirtual
 
         private void Frm_Splash_Load(object sender, EventArgs e)
         {
-
+            NpgsqlConnection.ClearAllPools();
         }
 
         private void membresiasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -54,9 +54,10 @@ namespace SIMEDVirtual
 
         private void secretariaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*
             this.Hide();
             Frm_Registro_Secretaria mem = new Frm_Registro_Secretaria(usuarioPublico);
-            mem.ShowDialog();
+            mem.ShowDialog();*/
         }
 
         private void expedientesMedicosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,9 +70,10 @@ namespace SIMEDVirtual
 
         private void planesEmpresarialesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            /*
             this.Hide();
             Frm_Membresia x = new Frm_Membresia(usuarioPublico);
-            x.ShowDialog();
+            x.ShowDialog();*/
         }
 
         private void Frm_Splash_FormClosing(object sender, FormClosingEventArgs e)
@@ -107,9 +109,9 @@ namespace SIMEDVirtual
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            /*this.Hide();
             frm_Cliente pantalla = new frm_Cliente();
-            pantalla.ShowDialog();
+            pantalla.ShowDialog();*/
         }
 
         private void empresasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -117,6 +119,11 @@ namespace SIMEDVirtual
             this.Hide();
             frm_empresa pantalla = new frm_empresa();
             pantalla.ShowDialog();
+        }
+
+        private void administrativosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

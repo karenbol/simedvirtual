@@ -23,11 +23,12 @@ namespace SIMEDVirtual
         {
             InitializeComponent();
             usuarioPublico = usuario;
+            cbSexo.SelectedIndex = 1;
         }
 
         public Frm_Registro_Medico(string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, int codigon, string universidad,
-            string especialidad, string correo, int telefono1p, int telefono2p, Boolean ver)
+            string especialidad, string correo, char sexop, string edad, int telefono1p, int telefono2p, Boolean ver)
         {
             InitializeComponent();
 
@@ -41,11 +42,34 @@ namespace SIMEDVirtual
             txtU.Text = universidad;
             txtEspecialidad.Text = especialidad;
             txtCorreo.Text = correo;
+            txtEdad.Text = edad;
             telefono1.Text = telefono1p.ToString();
             telefono2.Text = telefono2p.ToString();
             txtcontrasena.Visible = false;
             txtconfirmacion.Visible = false;
-            pbFotoDr.Image = PersonaIT.GetImageMedico(cedula);
+
+            if (sexop == 'f')
+            {
+                cbSexo.SelectedIndex = 0;
+            }
+            else
+            {
+                cbSexo.SelectedIndex = 1;
+            }
+
+
+
+            var foto = PersonaIT.GetImageMedico(cedula);
+            if (foto == null)
+            {
+                pbFotoDr.ImageLocation = frm_ExpedienteMG.rutaDefault;
+            }
+            else
+            {
+                pbFotoDr.Image = PersonaIT.GetImageMedico(cedula);
+            }
+
+
 
             //si lo que quiero es ver la info
             if (ver)
@@ -57,6 +81,8 @@ namespace SIMEDVirtual
                 lblpass.Visible = false;
                 lblconfirmapass.Visible = false;
                 btnGuardar.Visible = false;
+                cbSexo.Enabled = false;
+                pbFotoDr.Enabled = false;
             }
             else
             //edito al medico
@@ -67,6 +93,8 @@ namespace SIMEDVirtual
                 btnGuardar.Visible = true;
                 btnGuardar.Image = Image.FromFile("update.png");
                 txtCedula.Enabled = false;
+                lblpass.Visible = false;
+                lblconfirmapass.Visible = false;
             }
         }
 
@@ -110,30 +138,33 @@ namespace SIMEDVirtual
         //guarda un nuevo medico
         private void button1_Click(object sender, EventArgs e)
         {
-        
-            if (this.cbSexo.SelectedIndex == 1)
-            {
-                sexo = 'm';
-            }
+
+
+
             //si todos los campos estan llenos 
             if (txtNombre.Text != string.Empty && txtApellido1.Text != string.Empty
                  && txtApellido2.Text != string.Empty && txtCedula.Text != string.Empty
                 && fecha_nacimiento.Text != string.Empty & txtDireccion.Text != string.Empty
                 && codigo.Text != string.Empty && txtU.Text != string.Empty && txtEspecialidad.Text != string.Empty
-                && txtCorreo.Text != string.Empty && telefono1.Text != string.Empty && telefono2.Text != string.Empty)
+                && txtCorreo.Text != string.Empty && telefono1.Text != string.Empty && telefono2.Text != string.Empty
+                && txtEdad.Text != string.Empty)
             {
                 //si no estoy editando, entonces inserto
                 if (edicion != true)
                 {
+                    if (this.cbSexo.SelectedIndex == 1)
+                    {
+                        sexo = 'm';
+                    }
                     //para insertar ocupo contrasenas llenas e iguales
                     if (comparaContrasena(txtcontrasena.Text, txtconfirmacion.Text)
                         && txtcontrasena.Text != string.Empty && txtconfirmacion.Text != string.Empty)
                     {
                         //si se inserto bien imprime e inserta en la tabla usuario
                         if (PersonaIT.InsertaMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
-              txtCedula.Text, Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text, txtEdad.Text,sexo,
-                Convert.ToInt32(codigo.Text),Convert.ToInt32(telefono1.Text),
-                Convert.ToInt32(telefono2.Text),txtCorreo.Text, txtU.Text, txtEspecialidad.Text,fotoBinaria,true))
+              txtCedula.Text, Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text, txtEdad.Text, sexo,
+                Convert.ToInt32(codigo.Text), Convert.ToInt32(telefono1.Text),
+                Convert.ToInt32(telefono2.Text), txtCorreo.Text, txtU.Text, txtEspecialidad.Text, fotoBinaria, true))
                         {
                             //insertamos en la tabla de usuario 1 adm 2 medico
                             if (UsuarioIT.InsertaUsuario(txtcontrasena.Text, txtCedula.Text, 2))
@@ -182,6 +213,7 @@ namespace SIMEDVirtual
         private void Frm_Registro_Medico_Load(object sender, EventArgs e)
         {
             fotoBinaria = saveImage(frm_ExpedienteMG.rutaDefault);
+            
 
         }
         //accion del picture Box
