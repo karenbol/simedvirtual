@@ -50,26 +50,30 @@ namespace SIMEDVirtual.DA
                 command.Parameters.AddWithValue("@cedula", nombreUsuario);
                 NpgsqlDataReader dr = command.ExecuteReader();
 
-                
+
                 if (dr.Read())
                 {
                     //si la contrasena es correcta retorna true
                     if (dr[0].ToString() == contrasena)
                     {
+                        conn.Close();
                         return true;
                     }
                     else
                     //si la contrasena es incorrecta retorna false
                     {
+                        conn.Close();
+
                         return false;
                     }
                 }
                 //si no retorna nada, retorna false
                 else
                 {
+                    conn.Close();
                     return false;
                 }
-                conn.Close();
+
             }
         }
 
@@ -92,18 +96,20 @@ namespace SIMEDVirtual.DA
                 command.Parameters.AddWithValue("@cedula", nombreUsuario);
 
                 NpgsqlDataReader dr = command.ExecuteReader();
-                conn.Close();
+
                 if (dr.Read())
                 {
+                    
                     tipo = dr[0].ToString().Trim();
+                    conn.Close();
                     return tipo;
                 }
                 else
                 {
+                    conn.Close();
                     return tipo;
                 }
             }
-        
         }
 
 

@@ -212,9 +212,13 @@ namespace SIMEDVirtual
 
         private void Frm_Registro_Medico_Load(object sender, EventArgs e)
         {
-            fotoBinaria = saveImage(frm_ExpedienteMG.rutaDefault);
-            
+            toolTip1.InitialDelay = 1;
 
+            toolTip1.SetToolTip(btnGuardar, "Registrar Médico");
+            toolTip1.SetToolTip(pbFotoDr, "Cargar Foto");
+
+
+            fotoBinaria = saveImage(frm_ExpedienteMG.rutaDefault);
         }
         //accion del picture Box
         private void pbFotoDr_Click(object sender, EventArgs e)

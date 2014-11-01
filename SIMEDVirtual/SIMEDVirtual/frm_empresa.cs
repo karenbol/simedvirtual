@@ -16,6 +16,13 @@ namespace SIMEDVirtual
         public frm_empresa()
         {
             InitializeComponent();
+            label4.Text = Frm_Ingreso.datosUsuario;
+
+            toolTip1.InitialDelay = 1;
+
+            toolTip1.SetToolTip(btnAgregar, "Agregar Empresa");
+            toolTip1.SetToolTip(btnEdit, "Editar Empresa");
+            toolTip1.SetToolTip(btnEliminar, "Eliminar Empresa");
 
         }
 
@@ -163,6 +170,13 @@ namespace SIMEDVirtual
             {
                 MessageBox.Show("No se ha podido Eliminar La Empresa", "Error al Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
+        }
+
+        private void frm_empresa_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.Hide();
+            Frm_Splash x = new Frm_Splash();
+            x.ShowDialog();
         }
     }
 }

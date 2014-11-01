@@ -233,7 +233,7 @@ namespace SIMEDVirtual
         {
             if (fotoBinaria == null)
             {
-                MessageBox.Show("no se dijo foto");
+                //MessageBox.Show("no se dijo foto");
                 //string x = pbPaciente.ImageLocation;
                 fotoBinaria = this.saveImage(frm_ExpedienteMG.rutaDefault);
             }

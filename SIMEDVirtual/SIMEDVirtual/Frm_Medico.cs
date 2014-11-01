@@ -34,6 +34,11 @@ namespace SIMEDVirtual
         private void Frm_Medico_Load(object sender, EventArgs e)
         {
             this.cargarDataGrid();
+            toolTip1.InitialDelay = 1;
+
+            toolTip1.SetToolTip(btnAgregar, "Agregar Médico");
+            toolTip1.SetToolTip(btnEdit, "Editar Médico");
+            toolTip1.SetToolTip(btnEliminar, "Eliminar Médico");
         }
 
         private void cargarDataGrid()

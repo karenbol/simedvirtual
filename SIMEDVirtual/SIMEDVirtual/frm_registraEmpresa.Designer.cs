@@ -28,12 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.label36 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnEliminar2 = new System.Windows.Forms.Button();
+            this.btnEliminar1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.txtCedula_Juridica = new System.Windows.Forms.TextBox();
             this.txtEncargado2 = new System.Windows.Forms.TextBox();
@@ -47,14 +51,15 @@
             this.txtDireccion = new System.Windows.Forms.TextBox();
             this.txtDescripcion = new System.Windows.Forms.TextBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.lblDescripcion = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnEliminar1 = new System.Windows.Forms.Button();
-            this.btnEliminar2 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -67,13 +72,13 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1189, 94);
+            this.panel1.Size = new System.Drawing.Size(1353, 94);
             this.panel1.TabIndex = 0;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::SIMEDVirtual.Properties.Resources.enterprise;
-            this.pictureBox1.Location = new System.Drawing.Point(955, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(1212, -2);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(133, 105);
@@ -86,7 +91,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(420, 23);
+            this.lblTitle.Location = new System.Drawing.Point(458, 23);
             this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(335, 29);
@@ -99,7 +104,7 @@
             this.btnGuardar.BackColor = System.Drawing.Color.Transparent;
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.Image = global::SIMEDVirtual.Properties.Resources.saveIcon2;
-            this.btnGuardar.Location = new System.Drawing.Point(985, 476);
+            this.btnGuardar.Location = new System.Drawing.Point(1204, 593);
             this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(99, 71);
@@ -109,27 +114,45 @@
             this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.ForeColor = System.Drawing.Color.Red;
-            this.label36.Location = new System.Drawing.Point(966, 115);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(16, 20);
-            this.label36.TabIndex = 32;
-            this.label36.Text = "*";
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Red;
-            this.label9.Location = new System.Drawing.Point(966, 167);
+            this.label9.Location = new System.Drawing.Point(1094, 192);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(16, 20);
             this.label9.TabIndex = 33;
             this.label9.Text = "*";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btnEliminar2);
+            this.groupBox1.Controls.Add(this.btnEliminar1);
+            this.groupBox1.Controls.Add(this.panel2);
+            this.groupBox1.Location = new System.Drawing.Point(99, 131);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1051, 503);
+            this.groupBox1.TabIndex = 34;
+            this.groupBox1.TabStop = false;
+            // 
+            // btnEliminar2
+            // 
+            this.btnEliminar2.Image = global::SIMEDVirtual.Properties.Resources.deletePhoto;
+            this.btnEliminar2.Location = new System.Drawing.Point(987, 198);
+            this.btnEliminar2.Name = "btnEliminar2";
+            this.btnEliminar2.Size = new System.Drawing.Size(45, 40);
+            this.btnEliminar2.TabIndex = 38;
+            this.btnEliminar2.UseVisualStyleBackColor = true;
+            // 
+            // btnEliminar1
+            // 
+            this.btnEliminar1.Image = global::SIMEDVirtual.Properties.Resources.deletePhoto;
+            this.btnEliminar1.Location = new System.Drawing.Point(987, 159);
+            this.btnEliminar1.Name = "btnEliminar1";
+            this.btnEliminar1.Size = new System.Drawing.Size(45, 40);
+            this.btnEliminar1.TabIndex = 37;
+            this.btnEliminar1.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -145,14 +168,14 @@
             this.panel2.Controls.Add(this.txtDireccion);
             this.panel2.Controls.Add(this.txtDescripcion);
             this.panel2.Controls.Add(this.txtNombre);
-            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.lblDescripcion);
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.label1);
-            this.panel2.Location = new System.Drawing.Point(12, 101);
+            this.panel2.Location = new System.Drawing.Point(15, 27);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(970, 446);
-            this.panel2.TabIndex = 16;
+            this.panel2.TabIndex = 36;
             // 
             // txtCedula_Juridica
             // 
@@ -200,7 +223,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Location = new System.Drawing.Point(65, 178);
+            this.label8.Location = new System.Drawing.Point(72, 178);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(88, 18);
@@ -243,7 +266,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label5.Location = new System.Drawing.Point(65, 137);
+            this.label5.Location = new System.Drawing.Point(72, 137);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(88, 18);
@@ -280,24 +303,24 @@
             this.txtNombre.Size = new System.Drawing.Size(743, 24);
             this.txtNombre.TabIndex = 32;
             // 
-            // label4
+            // lblDescripcion
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label4.Location = new System.Drawing.Point(51, 236);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 18);
-            this.label4.TabIndex = 43;
-            this.label4.Text = "Descripción";
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lblDescripcion.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblDescripcion.Location = new System.Drawing.Point(62, 236);
+            this.lblDescripcion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(98, 18);
+            this.lblDescripcion.TabIndex = 43;
+            this.lblDescripcion.Text = "Descripción";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(75, 338);
+            this.label3.Location = new System.Drawing.Point(80, 338);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 18);
@@ -309,7 +332,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(17, 82);
+            this.label2.Location = new System.Drawing.Point(36, 82);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(124, 18);
@@ -328,37 +351,38 @@
             this.label1.TabIndex = 40;
             this.label1.Text = "Nombre";
             // 
-            // btnEliminar1
+            // label4
             // 
-            this.btnEliminar1.Image = global::SIMEDVirtual.Properties.Resources.deletePhoto;
-            this.btnEliminar1.Location = new System.Drawing.Point(984, 233);
-            this.btnEliminar1.Name = "btnEliminar1";
-            this.btnEliminar1.Size = new System.Drawing.Size(45, 40);
-            this.btnEliminar1.TabIndex = 34;
-            this.btnEliminar1.UseVisualStyleBackColor = true;
-            this.btnEliminar1.Click += new System.EventHandler(this.btnEliminar1_Click);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label4.Location = new System.Drawing.Point(125, 662);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 21);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "label4";
             // 
-            // btnEliminar2
+            // label10
             // 
-            this.btnEliminar2.Image = global::SIMEDVirtual.Properties.Resources.deletePhoto;
-            this.btnEliminar2.Location = new System.Drawing.Point(984, 272);
-            this.btnEliminar2.Name = "btnEliminar2";
-            this.btnEliminar2.Size = new System.Drawing.Size(45, 40);
-            this.btnEliminar2.TabIndex = 35;
-            this.btnEliminar2.UseVisualStyleBackColor = true;
-            this.btnEliminar2.Click += new System.EventHandler(this.btnEliminar2_Click);
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label10.Location = new System.Drawing.Point(55, 662);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(73, 21);
+            this.label10.TabIndex = 35;
+            this.label10.Text = "Usuario:";
             // 
             // frm_registraEmpresa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
-            this.ClientSize = new System.Drawing.Size(1097, 555);
-            this.Controls.Add(this.btnEliminar2);
-            this.Controls.Add(this.btnEliminar1);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1350, 730);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.label36);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -371,6 +395,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -384,8 +409,11 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnEliminar2;
+        private System.Windows.Forms.Button btnEliminar1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox txtCedula_Juridica;
         private System.Windows.Forms.TextBox txtEncargado2;
@@ -399,11 +427,11 @@
         private System.Windows.Forms.TextBox txtDireccion;
         private System.Windows.Forms.TextBox txtDescripcion;
         private System.Windows.Forms.TextBox txtNombre;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label lblDescripcion;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnEliminar1;
-        private System.Windows.Forms.Button btnEliminar2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label10;
     }
 }

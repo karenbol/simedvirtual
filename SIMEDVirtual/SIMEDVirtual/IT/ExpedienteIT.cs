@@ -17,7 +17,8 @@ namespace SIMEDVirtual.IT
          string observaciones_dl_txt, char petequias, char equimosis, char sangrado, string observaciones_sh, string examen_neurologico,
          string orl, string abdomen, char auscultacion, string observaciones_sr, char convulciones, char espasmos, char temblores,
          char movimientos_anormales, string otros_sn, string observaciones_sn, string otros_examen2, DateTime fecha,
-         string diagnostico, string terapeutica, string observaciones_generales, string cedula, string cedula_medico)
+         string diagnostico, string terapeutica, string observaciones_generales, string cedula, string cedula_medico,
+            string motivo_consulta, string saturacios)
         {
             return ExpedienteDA.InsertaExpediente(pulso, presion_arterial, soplos, dolor_precordia, edemas, arritmias, disnea,
                 observaciones_sc, talla, peso, observaciones_sm, brazo_derecho, brazo_izquierdo, pierna_derecha, pierna_izquierda,
@@ -25,7 +26,7 @@ namespace SIMEDVirtual.IT
                 flexion, extensiones, rotacion, inclinacion_lateral, observaciones_cc, malformaciones, observaciones_dl,
                 observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen, auscultacion,
                 observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn, observaciones_sn, otros_examen2,
-                fecha, diagnostico, terapeutica, observaciones_generales, cedula, cedula_medico);
+                fecha, diagnostico, terapeutica, observaciones_generales, cedula, cedula_medico, motivo_consulta,saturacios);
         }
 
         public static List<ExpedienteEntity> selectExpediente(string cedula_cliente)

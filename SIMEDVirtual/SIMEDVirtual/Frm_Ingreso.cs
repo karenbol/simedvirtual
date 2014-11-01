@@ -17,7 +17,7 @@ namespace SIMEDVirtual
 {
     public partial class Frm_Ingreso : Form
     {
-        public static String datosUsuario = "karen probando";
+        public static String datosUsuario = "Usuario NO Identificado";
         //variable estatico con la cedula del usuario
         public static String cedulaUsuario = "2";
         public static String tipoUsuario;
@@ -30,21 +30,9 @@ namespace SIMEDVirtual
         //boton para ingresar
         private void button1_Click(object sender, EventArgs e)
         {
-            int parsedValue;
-
             //validamos que no hayan campos vacios al ingresar
             if (txtUsuario.Text != string.Empty && txtContrasena.Text != string.Empty)
             {
-                //valido que no se escriban carecteres especiales en el campo usuario
-                //if (!int.TryParse(txtUsuario.Text, out parsedValue))
-                //{
-                //    txtUsuario.Text = string.Empty;
-                //    txtContrasena.Text = string.Empty;
-                //    DialogResult dialogResult = MessageBox.Show("Por Favor digite SOLO LETRAS en el Campo Usuario",
-                //   "Solo Letras", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //}
-                //else
-                //{
                 //determina si los datos de ingreso estan en la tabla usuarios
                 if (UsuarioIT.Ingreso(txtUsuario.Text.Trim(), txtContrasena.Text.Trim()))
                 {
@@ -61,14 +49,22 @@ namespace SIMEDVirtual
                         datosUsuario = doctor.ElementAt(0).nombre.ToString();
                         datosUsuario += " " + doctor.ElementAt(0).ape1.ToString();
 
-                        tipoUsuario = UsuarioIT.TipoUsuario((txtUsuario.Text));
+                        tipoUsuario = UsuarioIT.TipoUsuario((txtUsuario.Text)).Trim();
+
+                        txtUsuario.Clear();
+                        txtContrasena.Clear();
+
                         if (tipoUsuario == "1")
                         {
+                            /*
+                            var x = new Form2();
                             this.Hide();
-                            //si es adm lo lleva a la pantalla principal
+                            x.ShowDialog();
+                            this.Show();*/
+                            
+                            this.Hide();
                             Frm_Splash pr = new Frm_Splash();
                             pr.ShowDialog();
-
 
                         }
                         else if (tipoUsuario == "2")
@@ -88,8 +84,6 @@ namespace SIMEDVirtual
                     {
                         MessageBox.Show("No se Encuentra registrado el Usuario");
                     }
-
-
                 }
                 else
                 //si la informacion de ingreso no es correcta
@@ -113,13 +107,13 @@ namespace SIMEDVirtual
 
         private void Frm_Ingreso_Load(object sender, EventArgs e)
         {
-
+            NpgsqlConnection.ClearAllPools();
         }
 
         private void Frm_Ingreso_FormClosing(object sender, FormClosingEventArgs e)
         {
             Application.ExitThread();
-            
+
             NpgsqlConnection.ClearAllPools();
         }
     }

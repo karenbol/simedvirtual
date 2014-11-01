@@ -89,6 +89,8 @@ namespace SIMEDVirtual
         string diagnostico = "";
         string terapeutica = "";
         string observaciones_generales = "";
+        string motivo_consulta = "";
+        string saturacios = "";
 
 
         //parametro que me dice si guardo toda la info o solo la reconsulta
@@ -373,6 +375,9 @@ namespace SIMEDVirtual
             diagnostico = txtDiagnostico.Text;
             terapeutica = txtTerapeutica.Text;
             observaciones_generales = txtObs.Text;
+
+            motivo_consulta = txtMotivoConsulta.Text;
+            saturacios = txtSaturacios.Text;
             //falta la cedula y el id medico 
         }
         //determina el tipo se sangre y lo asigna al combo
@@ -845,6 +850,9 @@ namespace SIMEDVirtual
 
             txtObservacionesCDL.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_dl_txt);
 
+            txtMotivoConsulta.Text = Convert.ToString(listaExpediente.ElementAt(0).motivo_consulta);
+            txtSaturacios.Text = Convert.ToString(listaExpediente.ElementAt(0).saturacios);
+
             //------------------------examen fisico 2----------------------
             char petequias = Convert.ToChar(listaExpediente.ElementAt(0).petequias);
             if (petequias == 's')
@@ -1120,7 +1128,8 @@ namespace SIMEDVirtual
                         flexion, extensiones, rotacion, inclinacion_lateral, observaciones_cc, malformaciones, observaciones_dl,
                         observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
                         auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
-                        observaciones_sn, otros_examen2, fecha, diagnostico, terapeutica, observaciones_generales, cedulaPublica, Frm_Ingreso.cedulaUsuario))
+                        observaciones_sn, otros_examen2, fecha, diagnostico, terapeutica, observaciones_generales, cedulaPublica,
+                        Frm_Ingreso.cedulaUsuario, motivo_consulta,saturacios))
                     {
                         MessageBox.Show("Consulta Insertada con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Hide();
@@ -1202,7 +1211,8 @@ namespace SIMEDVirtual
                         flexion, extensiones, rotacion, inclinacion_lateral, observaciones_cc, malformaciones, observaciones_dl,
                         observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
                         auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
-                        observaciones_sn, otros_examen2, fecha, diagnostico, terapeutica, observaciones_generales, cedula, Frm_Ingreso.cedulaUsuario)))
+                        observaciones_sn, otros_examen2, fecha, diagnostico, terapeutica, observaciones_generales, cedula, 
+                        Frm_Ingreso.cedulaUsuario, motivo_consulta,saturacios)))
                         {
                             MessageBox.Show("Expediente Guardado con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Hide();
@@ -1231,7 +1241,7 @@ namespace SIMEDVirtual
         {
             if (fotoBinaria == null)
             {
-                MessageBox.Show("no se dijo foto");
+                //MessageBox.Show("no se dijo foto");
                 //string x = pbPaciente.ImageLocation;
                 fotoBinaria = this.saveImage(rutaDefault);
             }

@@ -33,6 +33,9 @@ namespace SIMEDVirtual
 
         private void Frm_Splash_Load(object sender, EventArgs e)
         {
+            toolTip1.InitialDelay = 1;
+
+            toolTip1.SetToolTip(btnSalir, "Salir del Programa");
             NpgsqlConnection.ClearAllPools();
         }
 
@@ -81,9 +84,16 @@ namespace SIMEDVirtual
             //Frm_Ingreso frm = new Frm_Ingreso();
             //frm.Close();
             //Application.Exit();
+
+            var x = new Frm_Ingreso();
             this.Hide();
-            Frm_Ingreso x = new Frm_Ingreso();
             x.ShowDialog();
+            this.Show();
+            
+            
+            /*this.Hide();
+            Frm_Ingreso x = new Frm_Ingreso();
+            x.ShowDialog();*/
         }
 
         private void expedientesMedicosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -95,9 +105,15 @@ namespace SIMEDVirtual
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
+            var x = new Frm_Ingreso();
             this.Hide();
+            x.ShowDialog();
+            this.Show();
+            
+            
+            /*this.Hide();
             Frm_Ingreso pantalla = new Frm_Ingreso();
-            pantalla.ShowDialog();
+            pantalla.ShowDialog();*/
         }
 
         private void medicosToolStripMenuItem1_Click(object sender, EventArgs e)

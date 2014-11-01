@@ -19,7 +19,8 @@ namespace SIMEDVirtual
             InitializeComponent();
             btnEliminar1.Visible = false;
             btnEliminar2.Visible = false;
-            label4.Text = Frm_Ingreso.datosUsuario;
+            
+            
         }
 
 
@@ -28,8 +29,7 @@ namespace SIMEDVirtual
               string encargado1, int telefono2, string encargado2, int accion)
         {
             InitializeComponent();
-            label4.Text = Frm_Ingreso.datosUsuario;
-
+            
             btnEliminar1.Visible = false;
             btnEliminar2.Visible = false;
 
@@ -133,7 +133,8 @@ namespace SIMEDVirtual
 
         private void frm_registraEmpresa_Load(object sender, EventArgs e)
         {
-
+            this.label4.Text = Frm_Ingreso.datosUsuario;
+           
         }
 
         private void frm_registraEmpresa_FormClosing(object sender, FormClosingEventArgs e)
@@ -159,6 +160,11 @@ namespace SIMEDVirtual
                 txtTelefono2.Text = 0.ToString();
                 txtEncargado2.Text = "";
             }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
