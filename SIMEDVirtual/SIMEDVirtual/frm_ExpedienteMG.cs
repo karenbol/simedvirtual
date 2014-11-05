@@ -90,7 +90,9 @@ namespace SIMEDVirtual
         string terapeutica = "";
         string observaciones_generales = "";
         string motivo_consulta = "";
-        string saturacios = "";
+        string saturacionOx = "";
+        string temperatura = "";
+
 
 
         //parametro que me dice si guardo toda la info o solo la reconsulta
@@ -377,7 +379,8 @@ namespace SIMEDVirtual
             observaciones_generales = txtObs.Text;
 
             motivo_consulta = txtMotivoConsulta.Text;
-            saturacios = txtSaturacios.Text;
+            saturacionOx = txtSaturacionOx.Text;
+            temperatura = txtTemperatura.Text;
             //falta la cedula y el id medico 
         }
         //determina el tipo se sangre y lo asigna al combo
@@ -851,7 +854,8 @@ namespace SIMEDVirtual
             txtObservacionesCDL.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_dl_txt);
 
             txtMotivoConsulta.Text = Convert.ToString(listaExpediente.ElementAt(0).motivo_consulta);
-            txtSaturacios.Text = Convert.ToString(listaExpediente.ElementAt(0).saturacios);
+            txtSaturacionOx.Text = Convert.ToString(listaExpediente.ElementAt(0).saturacion_ox);
+            txtTemperatura.Text = Convert.ToString(listaExpediente.ElementAt(0).temperatura);
 
             //------------------------examen fisico 2----------------------
             char petequias = Convert.ToChar(listaExpediente.ElementAt(0).petequias);
@@ -1055,7 +1059,7 @@ namespace SIMEDVirtual
             {
                 determinaExpediente(cedula_paciente, id_paciente);
 
-                btnGuardar.Enabled = false;
+                btnGuardar.Visible = false;
 
                 ((Control)this.tabPageInfoPersonal).Enabled = false;
                 ((Control)this.tbPageAnamnesis).Enabled = false;
@@ -1129,7 +1133,7 @@ namespace SIMEDVirtual
                         observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
                         auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
                         observaciones_sn, otros_examen2, fecha, diagnostico, terapeutica, observaciones_generales, cedulaPublica,
-                        Frm_Ingreso.cedulaUsuario, motivo_consulta,saturacios))
+                        Frm_Ingreso.cedulaUsuario, motivo_consulta, saturacionOx, temperatura))
                     {
                         MessageBox.Show("Consulta Insertada con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Hide();
@@ -1211,8 +1215,8 @@ namespace SIMEDVirtual
                         flexion, extensiones, rotacion, inclinacion_lateral, observaciones_cc, malformaciones, observaciones_dl,
                         observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
                         auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
-                        observaciones_sn, otros_examen2, fecha, diagnostico, terapeutica, observaciones_generales, cedula, 
-                        Frm_Ingreso.cedulaUsuario, motivo_consulta,saturacios)))
+                        observaciones_sn, otros_examen2, fecha, diagnostico, terapeutica, observaciones_generales, cedula,
+                        Frm_Ingreso.cedulaUsuario, motivo_consulta, saturacionOx, temperatura)))
                         {
                             MessageBox.Show("Expediente Guardado con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Hide();

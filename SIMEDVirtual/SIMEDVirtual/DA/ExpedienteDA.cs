@@ -21,7 +21,7 @@ namespace SIMEDVirtual.DA
          string orl, string abdomen, char auscultacion, string observaciones_sr, char convulciones, char espasmos, char temblores,
          char movimientos_anormales, string otros_sn, string observaciones_sn, string otros_examen2, DateTime fecha,
          string diagnostico, string terapeutica, string observaciones_generales, string cedula, string cedula_medico,
-            string motivo_consulta, string saturacios)
+            string motivo_consulta, string saturacion_ox, string temperatura)
         {
             int x = 0;
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
@@ -38,7 +38,7 @@ namespace SIMEDVirtual.DA
                     "rotacion,inclinacion_lateral,observaciones_cc,malformaciones,observaciones_dl,observaciones_dl_txt,"
                     + "petequias,equimosis,sangrado,observaciones_sh,examen_neurologico,orl,abdomen,auscultacion,observaciones_sr," +
                     "convulciones,espasmos,temblores,movimientos_anormales,otros_sn,observaciones_sn,otros_examen2,fecha," +
-                    "diagnostico,terapeutica,observaciones_generales,cedula,cedula_medico, motivo_consulta,saturacios) " +
+                    "diagnostico,terapeutica,observaciones_generales,cedula,cedula_medico, motivo_consulta,saturacion_ox, temperatura) " +
                     "values(@pulso,@presion_arterial,@soplos,@dolor_precordial,@edemas,@arritmias,@disnea,@observaciones_sc," +
                     "@talla,@peso,@observaciones_sm,@brazo_derecho,@brazo_izquierdo,@pierna_derecha,@pierna_izquierda," +
                     "@bicipal_derecho,@bicipal_izquierdo,@patelar_derecho,@patelar_izquierdo,@alquileano_derecho,"
@@ -46,7 +46,7 @@ namespace SIMEDVirtual.DA
                     "@malformaciones,@observaciones_dl,@observaciones_dl_txt,@petequias,@equimosis,@sangrado," +
                     "@observaciones_sh,@examen_neurologico,@orl,@abdomen,@auscultacion,@observaciones_sr,@convulciones," +
                     "@espasmos,@temblores,@movimientos_anormales,@otros_sn,@observaciones_sn,@otros_examen2," +
-                    "@fecha,@diagnostico,@terapeutica,@observaciones_generales,@cedula,@cedula_medico,@motivo_consulta,@saturacios)";
+                    "@fecha,@diagnostico,@terapeutica,@observaciones_generales,@cedula,@cedula_medico,@motivo_consulta,@saturacion_ox, @temperatura)";
 
                     command.Parameters.AddWithValue("@pulso", pulso);
                     command.Parameters.AddWithValue("@presion_arterial", presion_arterial);
@@ -102,7 +102,8 @@ namespace SIMEDVirtual.DA
                     command.Parameters.AddWithValue("@cedula_medico", cedula_medico);
 
                     command.Parameters.AddWithValue("@motivo_consulta", motivo_consulta);
-                    command.Parameters.AddWithValue("@saturacios", saturacios);
+                    command.Parameters.AddWithValue("@saturacion_ox", saturacion_ox);
+                    command.Parameters.AddWithValue("@temperatura", temperatura);
 
                     x = command.ExecuteNonQuery();
                 }
@@ -236,7 +237,8 @@ namespace SIMEDVirtual.DA
                     expediente.cedula_medico = Convert.ToString(dr["cedula_medico"]);
 
                     expediente.motivo_consulta = Convert.ToString(dr["motivo_consulta"]);
-                    expediente.saturacios = Convert.ToString(dr["saturacios"]);
+                    expediente.saturacion_ox = Convert.ToString(dr["saturacion_ox"]);
+                    expediente.temperatura = Convert.ToString(dr["temperatura"]);
 
                     list.Add(expediente);
                 }
@@ -325,7 +327,8 @@ namespace SIMEDVirtual.DA
                     expediente.cedula_medico = Convert.ToString(dr["cedula_medico"]);
                     
                     expediente.motivo_consulta = Convert.ToString(dr["motivo_consulta"]);
-                    expediente.saturacios = Convert.ToString(dr["saturacios"]);
+                    expediente.saturacion_ox = Convert.ToString(dr["saturacion_ox"]);
+                    expediente.temperatura = Convert.ToString(dr["temperatura"]);
 
                     list.Add(expediente);
                 }

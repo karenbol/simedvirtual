@@ -88,11 +88,12 @@ namespace SIMEDVirtual
                 else
                 //si la informacion de ingreso no es correcta
                 {
-                    DialogResult dialogResult = MessageBox.Show("Ingreso Fallido, Vuelve a intentarlo",
-           "Log In Fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     //limpiamos los campos
                     txtUsuario.Text = string.Empty;
                     txtContrasena.Text = string.Empty;
+                    DialogResult dialogResult = MessageBox.Show("Ingreso Fallido, Vuelve a intentarlo",
+           "Log In Fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  
                 }
                 //}
             }

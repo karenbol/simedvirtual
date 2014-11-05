@@ -191,6 +191,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageExFisico = new System.Windows.Forms.TabPage();
+            this.txtTemperatura = new System.Windows.Forms.TextBox();
+            this.label90 = new System.Windows.Forms.Label();
+            this.txtSaturacionOx = new System.Windows.Forms.TextBox();
+            this.label89 = new System.Windows.Forms.Label();
+            this.txtMotivoConsulta = new System.Windows.Forms.TextBox();
+            this.label88 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.groupBox38 = new System.Windows.Forms.GroupBox();
             this.rx32 = new System.Windows.Forms.RadioButton();
@@ -346,10 +352,6 @@
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnVerExp = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            this.label88 = new System.Windows.Forms.Label();
-            this.txtMotivoConsulta = new System.Windows.Forms.TextBox();
-            this.txtSaturacios = new System.Windows.Forms.TextBox();
-            this.label89 = new System.Windows.Forms.Label();
             this.tabPageEpicrisis.SuspendLayout();
             this.tbPageAnamnesis.SuspendLayout();
             this.groupBox28.SuspendLayout();
@@ -2112,7 +2114,9 @@
             // tabPageExFisico
             // 
             this.tabPageExFisico.BackColor = System.Drawing.Color.White;
-            this.tabPageExFisico.Controls.Add(this.txtSaturacios);
+            this.tabPageExFisico.Controls.Add(this.txtTemperatura);
+            this.tabPageExFisico.Controls.Add(this.label90);
+            this.tabPageExFisico.Controls.Add(this.txtSaturacionOx);
             this.tabPageExFisico.Controls.Add(this.label89);
             this.tabPageExFisico.Controls.Add(this.txtMotivoConsulta);
             this.tabPageExFisico.Controls.Add(this.label88);
@@ -2128,6 +2132,57 @@
             this.tabPageExFisico.Size = new System.Drawing.Size(1073, 590);
             this.tabPageExFisico.TabIndex = 3;
             this.tabPageExFisico.Text = "EXAMEN FISICO";
+            // 
+            // txtTemperatura
+            // 
+            this.txtTemperatura.Location = new System.Drawing.Point(664, 70);
+            this.txtTemperatura.Multiline = true;
+            this.txtTemperatura.Name = "txtTemperatura";
+            this.txtTemperatura.Size = new System.Drawing.Size(368, 35);
+            this.txtTemperatura.TabIndex = 13;
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(550, 74);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(89, 13);
+            this.label90.TabIndex = 12;
+            this.label90.Text = "TEMPERATURA";
+            // 
+            // txtSaturacionOx
+            // 
+            this.txtSaturacionOx.Location = new System.Drawing.Point(664, 30);
+            this.txtSaturacionOx.Multiline = true;
+            this.txtSaturacionOx.Name = "txtSaturacionOx";
+            this.txtSaturacionOx.Size = new System.Drawing.Size(368, 35);
+            this.txtSaturacionOx.TabIndex = 11;
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(550, 34);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(95, 13);
+            this.label89.TabIndex = 10;
+            this.label89.Text = "SATURACION OX";
+            // 
+            // txtMotivoConsulta
+            // 
+            this.txtMotivoConsulta.Location = new System.Drawing.Point(91, 31);
+            this.txtMotivoConsulta.Multiline = true;
+            this.txtMotivoConsulta.Name = "txtMotivoConsulta";
+            this.txtMotivoConsulta.Size = new System.Drawing.Size(448, 63);
+            this.txtMotivoConsulta.TabIndex = 9;
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(46, 38);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(26, 13);
+            this.label88.TabIndex = 8;
+            this.label88.Text = "MC:";
             // 
             // groupBox8
             // 
@@ -3725,40 +3780,6 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
-            // label88
-            // 
-            this.label88.AutoSize = true;
-            this.label88.Location = new System.Drawing.Point(46, 38);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(26, 13);
-            this.label88.TabIndex = 8;
-            this.label88.Text = "MC:";
-            // 
-            // txtMotivoConsulta
-            // 
-            this.txtMotivoConsulta.Location = new System.Drawing.Point(91, 31);
-            this.txtMotivoConsulta.Multiline = true;
-            this.txtMotivoConsulta.Name = "txtMotivoConsulta";
-            this.txtMotivoConsulta.Size = new System.Drawing.Size(448, 63);
-            this.txtMotivoConsulta.TabIndex = 9;
-            // 
-            // txtSaturacios
-            // 
-            this.txtSaturacios.Location = new System.Drawing.Point(664, 38);
-            this.txtSaturacios.Multiline = true;
-            this.txtSaturacios.Name = "txtSaturacios";
-            this.txtSaturacios.Size = new System.Drawing.Size(368, 56);
-            this.txtSaturacios.TabIndex = 11;
-            // 
-            // label89
-            // 
-            this.label89.AutoSize = true;
-            this.label89.Location = new System.Drawing.Point(550, 34);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(94, 13);
-            this.label89.TabIndex = 10;
-            this.label89.Text = "SATURACIOS OX";
-            // 
             // frm_ExpedienteMG
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4221,9 +4242,11 @@
         private System.Windows.Forms.Label label104;
         private System.Windows.Forms.RadioButton rx39;
         private System.Windows.Forms.Button btnEliminarFoto;
-        private System.Windows.Forms.TextBox txtSaturacios;
+        private System.Windows.Forms.TextBox txtSaturacionOx;
         private System.Windows.Forms.Label label89;
         private System.Windows.Forms.TextBox txtMotivoConsulta;
         private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.TextBox txtTemperatura;
+        private System.Windows.Forms.Label label90;
     }
 }

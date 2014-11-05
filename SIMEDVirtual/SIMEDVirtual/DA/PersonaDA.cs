@@ -83,7 +83,7 @@ namespace SIMEDVirtual.DA
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("select * from persona where medico=false", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("select * from persona where medico=false order by apellido1", conn);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
@@ -289,7 +289,9 @@ namespace SIMEDVirtual.DA
                 }
                 catch
                 {
+                    return false;
                     throw;
+                    
                 }
                 conn.Close();
 
@@ -435,7 +437,7 @@ namespace SIMEDVirtual.DA
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("select * from persona where medico=true", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("select * from persona where medico=true order by apellido1", conn);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
@@ -493,6 +495,7 @@ namespace SIMEDVirtual.DA
                     doctor.email = Convert.ToString(dr["email"]);
                     doctor.telefono_fijo = Convert.ToInt32(dr["telefono_fijo"]);
                     doctor.telefono_movil = Convert.ToInt32(dr["telefono_movil"]);
+                    //doctor.fotoBinaria =(byte[])(dr["foto"]);
                     //falta la foto
                     list.Add(doctor);
                 }
@@ -542,7 +545,7 @@ namespace SIMEDVirtual.DA
                             conn.Open();
                             var x = pgCommand.ExecuteScalar();
 
-                            if (pgCommand.ExecuteScalar() == null)
+                            if (pgCommand.ExecuteScalar() != null)
                             {
                                 Byte[] productImageByte = (Byte[])pgCommand.ExecuteScalar();
                                 if (productImageByte != null)

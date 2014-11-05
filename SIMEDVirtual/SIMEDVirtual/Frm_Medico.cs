@@ -14,12 +14,12 @@ namespace SIMEDVirtual
 {
     public partial class Frm_Medico : Form
     {
-        string usuarioPublico = "";
+        //string usuarioPublico = "";
 
         public Frm_Medico()
         {
             InitializeComponent();
-            usuarioPublico = Frm_Ingreso.datosUsuario;
+            //usuarioPublico = Frm_Ingreso.datosUsuario;
             label4.Text = Frm_Ingreso.datosUsuario;
 
             dataGridView1.Columns[0].Width = 100;
@@ -88,7 +88,7 @@ namespace SIMEDVirtual
 
                 this.Hide();
                 Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, ced, fecha, direccion,
-                    codigo, u, especialidad, correo,sexo, edad, telefono1, telefono2, false);
+                    codigo, u, especialidad, correo, sexo, edad, telefono1, telefono2, false);
                 frm.ShowDialog();
             }
         }
@@ -96,7 +96,7 @@ namespace SIMEDVirtual
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_Registro_Medico pan = new Frm_Registro_Medico(usuarioPublico);
+            Frm_Registro_Medico pan = new Frm_Registro_Medico();
             pan.ShowDialog();
         }
 
@@ -124,8 +124,8 @@ namespace SIMEDVirtual
                     //eliminar dr y usuario
                     if (PersonaIT.deleteMedico(ced) && (PersonaIT.deleteUsuario(ced)))
                     {
-                        MessageBox.Show("El Registro se ha Eliminado Correctamente!", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.cargarDataGrid();
+                        MessageBox.Show("El Registro se ha Eliminado Correctamente!", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                 }
             }
@@ -158,7 +158,7 @@ namespace SIMEDVirtual
             String edad = pts.ElementAt(0).edad.ToString();
             int telefono1 = Convert.ToInt32(pts.ElementAt(0).telefono_fijo.ToString());
             int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono_movil.ToString());
-            //byte foto = Convert.ToByte(pts.ElementAt(0).foto);
+            //byte foto = Convert.ToByte(pts.ElementAt(0).fotoBinaria);
 
             this.Hide();
             Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, cedula, fecha, direccion,

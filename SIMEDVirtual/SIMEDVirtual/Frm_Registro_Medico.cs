@@ -19,10 +19,10 @@ namespace SIMEDVirtual
         public byte[] fotoBinaria;
         char sexo = 'f';
 
-        public Frm_Registro_Medico(string usuario)
+        public Frm_Registro_Medico()
         {
             InitializeComponent();
-            usuarioPublico = usuario;
+            usuarioPublico = Frm_Ingreso.datosUsuario;
             cbSexo.SelectedIndex = 1;
         }
 
@@ -57,25 +57,22 @@ namespace SIMEDVirtual
                 cbSexo.SelectedIndex = 1;
             }
 
-
-
             var foto = PersonaIT.GetImageMedico(cedula);
+
             if (foto == null)
             {
                 pbFotoDr.ImageLocation = frm_ExpedienteMG.rutaDefault;
             }
             else
             {
-                pbFotoDr.Image = PersonaIT.GetImageMedico(cedula);
+                pbFotoDr.Image = foto;
             }
-
-
 
             //si lo que quiero es ver la info
             if (ver)
             {
                 //deshabilito edicion xq solo quiero ver
-                ReadOnlyTxt();
+                groupBox1.Enabled = false;
                 this.Text = "INFORMACION DE MÉDICOS";
                 this.lblTitle.Text = "INFORMACION DE MÉDICOS";
                 lblpass.Visible = false;
@@ -96,23 +93,6 @@ namespace SIMEDVirtual
                 lblpass.Visible = false;
                 lblconfirmapass.Visible = false;
             }
-        }
-
-        private void ReadOnlyTxt()
-        {
-            txtNombre.ReadOnly = true;
-            txtApellido1.ReadOnly = true;
-            txtApellido2.ReadOnly = true;
-            txtCedula.ReadOnly = true;
-            fecha_nacimiento.Enabled = false;
-            txtDireccion.ReadOnly = true;
-            codigo.ReadOnly = true;
-            txtU.ReadOnly = true;
-            txtEspecialidad.ReadOnly = true;
-            txtU.ReadOnly = true;
-            txtCorreo.ReadOnly = true;
-            telefono1.ReadOnly = true;
-            telefono2.ReadOnly = true;
         }
 
         private void Frm_Registro_Medico_FormClosing(object sender, FormClosingEventArgs e)
@@ -138,9 +118,6 @@ namespace SIMEDVirtual
         //guarda un nuevo medico
         private void button1_Click(object sender, EventArgs e)
         {
-
-
-
             //si todos los campos estan llenos 
             if (txtNombre.Text != string.Empty && txtApellido1.Text != string.Empty
                  && txtApellido2.Text != string.Empty && txtCedula.Text != string.Empty
@@ -181,7 +158,7 @@ namespace SIMEDVirtual
                         }
                         else
                         {
-                            MessageBox.Show("Ha Ocurrido un Error en la Insercion del Medico", "Error al Insertar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Ha Ocurrido un Error en la Insercion del Medico\n Puede que esa Cedula ya se encuentre Registrada", "Error al Insertar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else

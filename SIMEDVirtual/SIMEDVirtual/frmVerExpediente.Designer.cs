@@ -166,6 +166,7 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgReconsultas.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgReconsultas.MultiSelect = false;
             this.dgReconsultas.Name = "dgReconsultas";
             this.dgReconsultas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.toolTip1.SetToolTip(this.dgReconsultas, resources.GetString("dgReconsultas.ToolTip"));

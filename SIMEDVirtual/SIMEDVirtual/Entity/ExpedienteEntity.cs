@@ -64,6 +64,7 @@ namespace SIMEDVirtual.Entity
         public string cedula_medico { get; set; }
 
         public string motivo_consulta { get; set; }
-        public string saturacios { get; set; }
+        public string saturacion_ox { get; set; }
+        public string temperatura { get; set; }
     }
 }
