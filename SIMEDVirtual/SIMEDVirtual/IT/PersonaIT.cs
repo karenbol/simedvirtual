@@ -13,7 +13,7 @@ namespace SIMEDVirtual.IT
         public static Boolean InsertaCliente(
             string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, string edad, char sexo, string estado_civil, string grupo_sanguineo, string profesion,
-            int telefono_fijo, int movil, string correo, string empresa, byte[] fotoBinaria, bool medico)
+            int telefono_fijo, int movil, string correo, int empresa, byte[] fotoBinaria, bool medico)
         {
             return PersonaDA.InsertaCliente(nombre, apellido1, apellido2, cedula, fecha, direccion, edad, sexo,
                 estado_civil, grupo_sanguineo, profesion, telefono_fijo, movil, correo, empresa, fotoBinaria, medico);
@@ -34,7 +34,7 @@ namespace SIMEDVirtual.IT
 
         public static Boolean UpdateCliente(string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, string edad, char sexo, string estado_civil, string grupo_sanguineo, string profesion,
-            int telefono_fijo, int movil, string correo, string empresa, byte[] fotoBinaria, bool medico)
+            int telefono_fijo, int movil, string correo, int empresa, byte[] fotoBinaria, bool medico)
         {
             return PersonaDA.UpdateCliente(nombre, apellido1, apellido2, cedula, fecha, direccion, edad, sexo, estado_civil,
                 grupo_sanguineo, profesion, telefono_fijo, movil, correo, empresa, fotoBinaria, medico);
@@ -47,11 +47,11 @@ namespace SIMEDVirtual.IT
         //////////////////////////////////////////
 
         public static Boolean InsertaMedico(string nombre, string apellido1, string apellido2, string cedula,
-           DateTime fecha, string direccion, string edad, char sexo, int codigo, int telefono1, int telefono2,
-            string universidad, string especialidad, string correo, byte[] foto, bool medico)
+           DateTime fecha, string direccion, string edad, char sexo, int telefono1, int telefono2, string correo,
+             byte[] foto, int codigo, string universidad, int especialidad, bool medico)
         {
-            return PersonaDA.InsertaMedico(nombre, apellido1, apellido2, cedula, fecha, direccion, edad, sexo, codigo,
-                telefono1, telefono2, universidad, especialidad, correo, foto, medico);
+            return PersonaDA.InsertaMedico(nombre, apellido1, apellido2, cedula, fecha, direccion, edad, sexo,
+                 telefono1, telefono2, correo, foto, codigo, universidad, especialidad, medico);
         }
         public static List<PersonaEntity> selectMedico()
         {
@@ -59,11 +59,11 @@ namespace SIMEDVirtual.IT
         }
 
         public static Boolean UpdateMedico(string nombre, string apellido1, string apellido2, string cedula,
-           DateTime fecha, string direccion, string edad, char sexo, int codigo, int telefono1, int telefono2,
-            string universidad, string especialidad, string correo, byte[] foto)
+           DateTime fecha, string direccion, string edad, char sexo, int telefono1, int telefono2, string correo,
+            byte[] foto, int codigo, string universidad, int especialidad)
         {
-            return PersonaDA.UpdateMedico(nombre, apellido1, apellido2, cedula, fecha, direccion, edad, sexo, codigo,
-               telefono1, telefono2, universidad, especialidad, correo, foto);
+            return PersonaDA.UpdateMedico(nombre, apellido1, apellido2, cedula, fecha, direccion, edad, sexo, telefono1, telefono2, correo,
+                foto, codigo, universidad, especialidad);
         }
 
         public static List<PersonaEntity> selectMedico2(string cedula)
@@ -89,6 +89,11 @@ namespace SIMEDVirtual.IT
         public static Image GetImageMedico(string cedula)
         {
             return PersonaDA.GetImageMedico(cedula);
+        }
+
+        public static List<PersonaEntity> selectMedicoLess()
+        {
+            return PersonaDA.selectMedicoLess();
         }
     }
 }

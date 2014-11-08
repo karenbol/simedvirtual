@@ -10,7 +10,6 @@ namespace SIMEDVirtual.DA
 {
     class Empresa
     {
-
         //inserta datos en la tabla persona
         public static Boolean InsertaEmpresa(
             string nombre, string cedula_juridica, string direccion, string descripcion)
@@ -38,10 +37,7 @@ namespace SIMEDVirtual.DA
 
                 catch (Exception exp)
                 {
-                    g = exp.ToString();
                     return false;
-                    //Console.Write(g);
-                    //throw;
                 }
                 conn.Close();
 
@@ -83,10 +79,8 @@ namespace SIMEDVirtual.DA
 
                 catch (Exception exp)
                 {
-                    g = exp.ToString();
                     return false;
-                    //Console.Write(g);
-                    //throw;
+
                 }
                 conn.Close();
 
@@ -116,6 +110,8 @@ namespace SIMEDVirtual.DA
                 {
                     EmpresaEntity entidad = new EmpresaEntity();
 
+                    //ocupo que me devuelta TODOS los datos para la fk 
+                    entidad.id = Convert.ToInt32(dr[0]);
                     entidad.nombre = dr[1].ToString();
                     entidad.cedula = Convert.ToString(dr[2]);
                     entidad.direccion = dr[3].ToString();
@@ -151,7 +147,6 @@ namespace SIMEDVirtual.DA
             }
             return empresas;
         }
-
 
         //selecciona el id de la empresa
         public static List<EmpresaEntity> getTelefono(String cedula_juridica)
@@ -199,7 +194,6 @@ namespace SIMEDVirtual.DA
 
                 catch (Exception exp)
                 {
-                    g = exp.ToString();
                     return false;
                 }
                 conn.Close();
@@ -241,7 +235,6 @@ namespace SIMEDVirtual.DA
 
                 catch (Exception exp)
                 {
-                    g = exp.ToString();
                     return false;
                 }
                 conn.Close();
@@ -282,7 +275,6 @@ namespace SIMEDVirtual.DA
 
                 catch (Exception exp)
                 {
-                    g = exp.ToString();
                     return false;
                 }
                 conn.Close();
@@ -320,7 +312,6 @@ namespace SIMEDVirtual.DA
 
                 catch (Exception exp)
                 {
-                    g = exp.ToString();
                     return false;
                 }
                 conn.Close();
@@ -354,13 +345,12 @@ namespace SIMEDVirtual.DA
                         "delete from empresa where cedula_juridica=@cedula;";
 
                     command.Parameters.AddWithValue("@cedula", cedula_juridica);
-                    
+
                     x = command.ExecuteNonQuery();
                 }
 
                 catch (Exception exp)
                 {
-                    g = exp.ToString();
                     return false;
                 }
                 conn.Close();

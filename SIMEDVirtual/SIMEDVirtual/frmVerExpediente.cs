@@ -35,7 +35,6 @@ namespace SIMEDVirtual
             dgClientes.Columns[2].Width = 200;
             dgClientes.Columns[3].Width = 200;
 
-
             dgReconsultas.Columns[0].Width = 100;
             dgReconsultas.Columns[1].Width = 100;
             dgReconsultas.Columns[2].Width = 180;
@@ -43,14 +42,10 @@ namespace SIMEDVirtual
             dgReconsultas.Columns[4].Width = 200;
             dgReconsultas.Columns[5].Width = 200;
             dgReconsultas.Columns[6].Width = 200;
-
-
         }
 
         private void frmVerExpediente_Load(object sender, EventArgs e)
         {
-                  
-
             //llena la tabla con los clientes
             this.cargarDataGrid();
 
@@ -221,12 +216,7 @@ namespace SIMEDVirtual
             frm_ExpedienteMG frm = new frm_ExpedienteMG(cedula_paciente, false, true, id_paciente);
             frm.ShowDialog();
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
+        
         //veo la info personal del cliente
         private void dgClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

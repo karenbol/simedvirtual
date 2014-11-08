@@ -1170,8 +1170,8 @@ namespace SIMEDVirtual
                 //guardamos la cedula en una variable
                 string cedula = txtCedula.Text;
 
-                //determinar empresa
-                string empresa = cbEmpresa.SelectedItem.ToString();
+                //determinar empresa, en este caso me trae el id de la empresa seleccionada x eso es int
+                int empresa = Convert.ToInt32(cbEmpresa.SelectedValue);
 
                 //--------------------------------------------------------insertar---------------
                 //llamamos al metodo para insertar clientes
@@ -1187,7 +1187,6 @@ namespace SIMEDVirtual
                         //determinar si el telefono esta vacio para insertar un 0 
                         int telefono = 0;
                         int movil = 0;
-
 
                         //bool f1 = CheckNullOrEmpty(telefono); 
                         if (txtTelefono.Text.Length != 0)
@@ -1453,13 +1452,15 @@ namespace SIMEDVirtual
         {
             List<EmpresaEntity> listaEmpresas = new List<EmpresaEntity>();
             listaEmpresas = EmpresaIT.getAllEmpresas();
-            for (int i = 0; i < listaEmpresas.Count; i++)
-            {
-                cbEmpresa.Items.Add(listaEmpresas[i].nombre.ToUpper().ToString());
-            }
 
-            if (cbEmpresa.Items.Count != 0)
+            if (listaEmpresas.Count != 0)
             {
+                //asigno los datos al combobox
+                cbEmpresa.DataSource = listaEmpresas;
+                //lo que quiero obtener
+                cbEmpresa.ValueMember = "id";
+                //lo q voy a mostrar
+                cbEmpresa.DisplayMember = "nombre";
                 cbEmpresa.SelectedIndex = 0;
             }
         }

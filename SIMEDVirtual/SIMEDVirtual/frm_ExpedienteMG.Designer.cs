@@ -1767,6 +1767,7 @@
             this.cbEmpresa.Name = "cbEmpresa";
             this.cbEmpresa.Size = new System.Drawing.Size(193, 21);
             this.cbEmpresa.TabIndex = 6;
+            
             // 
             // label58
             // 

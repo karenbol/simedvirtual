@@ -22,8 +22,8 @@ namespace SIMEDVirtual
             //usuarioPublico = Frm_Ingreso.datosUsuario;
             label4.Text = Frm_Ingreso.datosUsuario;
 
-            dataGridView1.Columns[0].Width = 100;
-            dataGridView1.Columns[1].Width = 250;
+            dataGridView1.Columns[0].Width = 200;
+            dataGridView1.Columns[1].Width = 150;
             dataGridView1.Columns[2].Width = 150;
             dataGridView1.Columns[3].Width = 100;
             dataGridView1.Columns[4].Width = 250;
@@ -44,7 +44,7 @@ namespace SIMEDVirtual
         private void cargarDataGrid()
         {
             //cargamos todos la info de drs en el datagrid
-            var pts = new BindingList<PersonaEntity>(PersonaIT.selectMedico());
+            var pts = new BindingList<PersonaEntity>(PersonaIT.selectMedicoLess());
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = pts;
             //agregar el evento 
@@ -78,7 +78,7 @@ namespace SIMEDVirtual
                 String direccion = pts.ElementAt(0).direccion.ToString();
                 int codigo = Convert.ToInt32(pts.ElementAt(0).codigo.ToString());
                 String u = pts.ElementAt(0).universidad.ToString();
-                String especialidad = pts.ElementAt(0).especialidad.ToString();
+                int especialidad = Convert.ToInt32(pts.ElementAt(0).especialidad);
                 String correo = pts.ElementAt(0).email.ToString();
                 char sexo = Convert.ToChar(pts.ElementAt(0).sexo);
                 String edad = pts.ElementAt(0).edad.ToString();
@@ -138,32 +138,41 @@ namespace SIMEDVirtual
         //doble click para ver la info del medico
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //cargamos todos la info de drs en el datagrid
-            string cedula = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
-            //selecciona el medico dependiento de la cedula
-            var pts = new BindingList<PersonaEntity>(PersonaIT.selectMedico2(Convert.ToString(cedula)));
-            dataGridView1.AutoGenerateColumns = false;
-            dataGridView1.DataSource = pts;
+            if (e.RowIndex != -1)
+            {
 
-            string nombre = pts.ElementAt(0).nombre.ToString();
-            String ape1 = pts.ElementAt(0).ape1.ToString();
-            String ape2 = pts.ElementAt(0).ape2.ToString();
-            DateTime fecha = Convert.ToDateTime(pts.ElementAt(0).fecha.ToString());
-            String direccion = pts.ElementAt(0).direccion.ToString();
-            int codigo = Convert.ToInt32(pts.ElementAt(0).codigo.ToString());
-            String u = pts.ElementAt(0).universidad.ToString();
-            String especialidad = pts.ElementAt(0).especialidad.ToString();
-            String correo = pts.ElementAt(0).email.ToString();
-            char sexo = Convert.ToChar(pts.ElementAt(0).sexo);
-            String edad = pts.ElementAt(0).edad.ToString();
-            int telefono1 = Convert.ToInt32(pts.ElementAt(0).telefono_fijo.ToString());
-            int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono_movil.ToString());
-            //byte foto = Convert.ToByte(pts.ElementAt(0).fotoBinaria);
 
-            this.Hide();
-            Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, cedula, fecha, direccion,
-                codigo, u, especialidad, correo, sexo, edad, telefono1, telefono2, true);
-            frm.ShowDialog();
+                //cargamos todos la info de drs en el datagrid
+                string cedula = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                //selecciona el medico dependiento de la cedula
+                var pts = new BindingList<PersonaEntity>(PersonaIT.selectMedico2(Convert.ToString(cedula)));
+                dataGridView1.AutoGenerateColumns = false;
+                dataGridView1.DataSource = pts;
+
+                string nombre = pts.ElementAt(0).nombre.ToString();
+                String ape1 = pts.ElementAt(0).ape1.ToString();
+                String ape2 = pts.ElementAt(0).ape2.ToString();
+                DateTime fecha = Convert.ToDateTime(pts.ElementAt(0).fecha.ToString());
+                String direccion = pts.ElementAt(0).direccion.ToString();
+                int codigo = Convert.ToInt32(pts.ElementAt(0).codigo.ToString());
+                String u = pts.ElementAt(0).universidad.ToString();
+                int especialidad = Convert.ToInt32(pts.ElementAt(0).especialidad);
+                String correo = pts.ElementAt(0).email.ToString();
+                char sexo = Convert.ToChar(pts.ElementAt(0).sexo);
+                String edad = pts.ElementAt(0).edad.ToString();
+                int telefono1 = Convert.ToInt32(pts.ElementAt(0).telefono_fijo.ToString());
+                int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono_movil.ToString());
+                //byte foto = Convert.ToByte(pts.ElementAt(0).fotoBinaria);
+
+                this.Hide();
+                Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, cedula, fecha, direccion,
+                    codigo, u, especialidad, correo, sexo, edad, telefono1, telefono2, true);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("SELECCION NO VALIDA\nPOR FAVOR SELECCIONE UN MEDICO E INTENTELO DE NUEVO", "Seleccion Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -227,7 +227,7 @@
             this.label2.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label2.Name = "label2";
             this.toolTip1.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
-            this.label2.Click += new System.EventHandler(this.label2_Click);
+            
             // 
             // label3
             // 

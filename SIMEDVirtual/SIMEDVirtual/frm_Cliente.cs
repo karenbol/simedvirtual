@@ -23,7 +23,7 @@ namespace SIMEDVirtual
         public frm_Cliente()
         {
             InitializeComponent();
-            this.cargaComboEmpresas();
+            cargaComboEmpresas();
             cbEstado.SelectedIndex = 0;
             cbSangre.SelectedIndex = 0;
             cbSexo.SelectedIndex = 0;
@@ -35,10 +35,9 @@ namespace SIMEDVirtual
             InitializeComponent();
             accionArealizar = pver;
 
-
             //igualo a la variable estatica
             editar = pver;
-            determinaCliente(cedula);
+            this.determinaCliente(cedula);
             pbFotoCliente.Image = PersonaIT.GetImagePacient(cedula);
             //si solo voy a ver deshabilito todo
             if (pver == 1)
@@ -81,21 +80,19 @@ namespace SIMEDVirtual
 
             txtDireccion.Text = listaCliente.ElementAt(0).direccion;
 
-            cbEstado.SelectedIndex = cbEstado.Items.IndexOf(listaCliente.ElementAt(0).estado_civil.ToString()); ;
+            cbEstado.SelectedIndex = cbEstado.Items.IndexOf(listaCliente.ElementAt(0).estado_civil.ToString());
 
             cbSangre.SelectedIndex = cbSangre.Items.IndexOf(listaCliente.ElementAt(0).grupo_sanguineo.ToString());
 
             cargaComboEmpresas();
 
-            cbEmpresa.SelectedIndex = cbEmpresa.Items.IndexOf(listaCliente.ElementAt(0).empresa.ToString());
+            cbEmpresa.SelectedValue = listaCliente.ElementAt(0).empresa;
 
             txtProfesion.Text = listaCliente.ElementAt(0).profesion.ToString();
-
             txtTelefono.Text = listaCliente.ElementAt(0).telefono_fijo.ToString();
             txtMovil.Text = listaCliente.ElementAt(0).telefono_movil.ToString();
             txtEmail.Text = listaCliente.ElementAt(0).email.ToString();
         }
-
 
         //guardar la imagen, ocupo la ruta
         public byte[] saveImage(string productImageFilePath)
@@ -117,14 +114,30 @@ namespace SIMEDVirtual
             }
         }
 
+        //metodo que carga TODAS LAS EMPRESAS registradas EN EL  COMBO BOX
+        public void cargaComboEmpresas()
+        {
+            List<EmpresaEntity> listaEmpresas = new List<EmpresaEntity>();
+            listaEmpresas = EmpresaIT.getAllEmpresas();
+
+            if (listaEmpresas.Count != 0)
+            {
+                //asigno los datos al combobox
+                cbEmpresa.DataSource = listaEmpresas;
+                //lo que quiero obtener
+                cbEmpresa.ValueMember = "id";
+                //lo q voy a mostrar
+                cbEmpresa.DisplayMember = "nombre";
+                cbEmpresa.SelectedIndex = 0;
+            }
+        }
+
         private void pbFotoCliente_Click(object sender, EventArgs e)
         {
-            //lblPb.Visible = false;
             openFileDialog1.Title = "Cargar Foto Cliente";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 string x = openFileDialog1.FileName;
-
                 openFileDialog1.Dispose();
                 pbFotoCliente.ImageLocation = x;
                 fotoBinaria = this.saveImage(x);
@@ -162,7 +175,7 @@ namespace SIMEDVirtual
                 //determinar el estado civil
                 string estado = cbEstado.SelectedItem.ToString();
                 string grupo = cbSangre.SelectedItem.ToString();
-                string empresa = cbEmpresa.SelectedItem.ToString();
+                int empresa = Convert.ToInt32(cbEmpresa.SelectedValue);
 
                 this.verificaFoto();
 
@@ -213,18 +226,6 @@ namespace SIMEDVirtual
             }
         }
 
-
-        public void cargaComboEmpresas()
-        {
-            List<EmpresaEntity> listaEmpresas = new List<EmpresaEntity>();
-            listaEmpresas = EmpresaIT.getAllEmpresas();
-            for (int i = 0; i < listaEmpresas.Count; i++)
-            {
-                cbEmpresa.Items.Add(listaEmpresas[i].nombre.ToUpper().ToString());
-            }
-            cbEmpresa.SelectedIndex = 1;
-        }
-
         private void frm_Cliente_Load(object sender, EventArgs e)
         {
         }
@@ -255,22 +256,6 @@ namespace SIMEDVirtual
                 Frm_Splash splash = new Frm_Splash();
                 splash.ShowDialog();
             }
-            //switch (Frm_Ingreso.tipoUsuario)
-            //{
-
-            //    case "2":
-            //        Frm_Ingreso frm = new Frm_Ingreso();
-            //        frm.ShowDialog();
-            //        break;
-
-            //    case "1":
-            //        this.Hide();
-            //        Frm_Splash splash = new Frm_Splash();
-            //        splash.ShowDialog();
-            //        break;
-            //    default:
-            //        break;
-            //}
         }
     }
 }

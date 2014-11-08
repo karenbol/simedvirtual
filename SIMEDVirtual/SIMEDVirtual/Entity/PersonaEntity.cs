@@ -22,7 +22,7 @@ namespace SIMEDVirtual.Entity
         public string direccion { get; set; }
 
         public string edad { get; set; }
-        public string empresa { get; set; }
+        public int empresa { get; set; }
 
         public byte[] fotoBinaria { get; set; }
         public int codigo { get; set; }

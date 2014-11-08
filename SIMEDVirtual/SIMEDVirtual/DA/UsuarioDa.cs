@@ -12,7 +12,6 @@ namespace SIMEDVirtual.DA
 {
     public class UsuarioDa
     {
-
         public static List<UsuarioEntity> LeerUsuarios()
         {
             List<UsuarioEntity> usuarios = new List<UsuarioEntity>();
@@ -63,7 +62,6 @@ namespace SIMEDVirtual.DA
                     //si la contrasena es incorrecta retorna false
                     {
                         conn.Close();
-
                         return false;
                     }
                 }
@@ -73,7 +71,6 @@ namespace SIMEDVirtual.DA
                     conn.Close();
                     return false;
                 }
-
             }
         }
 
@@ -99,7 +96,6 @@ namespace SIMEDVirtual.DA
 
                 if (dr.Read())
                 {
-                    
                     tipo = dr[0].ToString().Trim();
                     conn.Close();
                     return tipo;
@@ -134,7 +130,7 @@ namespace SIMEDVirtual.DA
                 }
                 catch
                 {
-                    throw;
+                    return false;
                 }
                 conn.Close();
 
@@ -192,7 +188,7 @@ namespace SIMEDVirtual.DA
                 }
                 catch
                 {
-                    throw;
+                    return false;
                 }
                 conn.Close();
 

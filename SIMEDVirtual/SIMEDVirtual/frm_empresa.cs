@@ -50,6 +50,7 @@ namespace SIMEDVirtual
                 dgEmpresas.Rows[j].Cells[1].Value = pts.ElementAt(j).nombre.ToString();
                 dgEmpresas.Rows[j].Cells[2].Value = pts.ElementAt(j).direccion.ToString();
 
+
                 List<EmpresaEntity> empresa = EmpresaIT.getTelefono(pts.ElementAt(j).cedula.ToString());
                 if (empresa.Count != 0)
                 {
@@ -67,7 +68,8 @@ namespace SIMEDVirtual
             this.cargarDataGrid();
             dgEmpresas.Columns[0].Width = 250;
             dgEmpresas.Columns[1].Width = 350;
-            dgEmpresas.Columns[2].Width = 150;
+            dgEmpresas.Columns[2].Width = 200;
+            dgEmpresas.Columns[3].Width = 200;
         }
 
         private void dgEmpresas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)

@@ -37,10 +37,12 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbEspecialidad = new System.Windows.Forms.ComboBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtEdad = new System.Windows.Forms.TextBox();
             this.label60 = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.cbSexo = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -57,8 +59,6 @@
             this.fecha_nacimiento = new System.Windows.Forms.DateTimePicker();
             this.txtcontrasena = new System.Windows.Forms.TextBox();
             this.lblpass = new System.Windows.Forms.Label();
-            this.txtEspecialidad = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.txtU = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
@@ -134,10 +134,12 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cbEspecialidad);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.txtEdad);
             this.groupBox1.Controls.Add(this.label60);
             this.groupBox1.Controls.Add(this.txtCedula);
+            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label41);
             this.groupBox1.Controls.Add(this.cbSexo);
             this.groupBox1.Controls.Add(this.label11);
@@ -154,8 +156,6 @@
             this.groupBox1.Controls.Add(this.fecha_nacimiento);
             this.groupBox1.Controls.Add(this.txtcontrasena);
             this.groupBox1.Controls.Add(this.lblpass);
-            this.groupBox1.Controls.Add(this.txtEspecialidad);
-            this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.txtCorreo);
             this.groupBox1.Controls.Add(this.txtU);
             this.groupBox1.Controls.Add(this.txtDireccion);
@@ -176,6 +176,16 @@
             this.groupBox1.Size = new System.Drawing.Size(976, 548);
             this.groupBox1.TabIndex = 88;
             this.groupBox1.TabStop = false;
+            // 
+            // cbEspecialidad
+            // 
+            this.cbEspecialidad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEspecialidad.FormattingEnabled = true;
+            this.cbEspecialidad.Location = new System.Drawing.Point(592, 319);
+            this.cbEspecialidad.MaxDropDownItems = 100;
+            this.cbEspecialidad.Name = "cbEspecialidad";
+            this.cbEspecialidad.Size = new System.Drawing.Size(324, 21);
+            this.cbEspecialidad.TabIndex = 125;
             // 
             // label13
             // 
@@ -215,6 +225,17 @@
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(200, 22);
             this.txtCedula.TabIndex = 94;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label12.Location = new System.Drawing.Point(473, 322);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(103, 18);
+            this.label12.TabIndex = 104;
+            this.label12.Text = "Especialidad";
             // 
             // label41
             // 
@@ -384,26 +405,6 @@
             this.lblpass.Size = new System.Drawing.Size(95, 18);
             this.lblpass.TabIndex = 109;
             this.lblpass.Text = "Contraseña";
-            // 
-            // txtEspecialidad
-            // 
-            this.txtEspecialidad.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtEspecialidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEspecialidad.Location = new System.Drawing.Point(592, 309);
-            this.txtEspecialidad.Name = "txtEspecialidad";
-            this.txtEspecialidad.Size = new System.Drawing.Size(205, 22);
-            this.txtEspecialidad.TabIndex = 110;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label12.Location = new System.Drawing.Point(472, 315);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(103, 18);
-            this.label12.TabIndex = 104;
-            this.label12.Text = "Especialidad";
             // 
             // txtCorreo
             // 
@@ -615,7 +616,6 @@
         private System.Windows.Forms.DateTimePicker fecha_nacimiento;
         private System.Windows.Forms.TextBox txtcontrasena;
         private System.Windows.Forms.Label lblpass;
-        private System.Windows.Forms.TextBox txtEspecialidad;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtCorreo;
         private System.Windows.Forms.TextBox txtU;
@@ -632,5 +632,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cbEspecialidad;
     }
 }

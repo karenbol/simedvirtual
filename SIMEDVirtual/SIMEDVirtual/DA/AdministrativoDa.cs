@@ -35,7 +35,7 @@ namespace SIMEDVirtual.DA
                 }
                 catch
                 {
-                    throw;
+                    return false;
                 }
                 conn.Close();
 

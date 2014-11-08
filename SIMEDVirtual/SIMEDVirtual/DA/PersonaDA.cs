@@ -16,7 +16,7 @@ namespace SIMEDVirtual.DA
         public static Boolean InsertaCliente(
             string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, string edad, char sexo, string estado_civil, string grupo_sanguineo, string profesion,
-            int telefono_fijo, int movil, string correo, string empresa, byte[] fotoBinaria, bool medico)
+            int telefono_fijo, int movil, string correo, int empresa, byte[] fotoBinaria, bool medico)
         {
             int x = 0;
             string g = "";
@@ -57,10 +57,7 @@ namespace SIMEDVirtual.DA
 
                 catch (Exception exp)
                 {
-                    g = exp.ToString();
                     return false;
-                    //Console.Write(g);
-                    //throw;
                 }
                 conn.Close();
 
@@ -104,8 +101,7 @@ namespace SIMEDVirtual.DA
                     cliente.telefono_fijo = Convert.ToInt32(dr["telefono_fijo"]);
                     cliente.telefono_movil = Convert.ToInt32(dr["telefono_movil"]);
                     cliente.email = Convert.ToString(dr["email"]);
-                    cliente.empresa = Convert.ToString(dr["empresa"]);
-                    //falta la foto
+                    cliente.empresa = Convert.ToInt32(dr["empresa"]);
 
                     list.Add(cliente);
                 }
@@ -145,7 +141,7 @@ namespace SIMEDVirtual.DA
                     cliente.telefono_fijo = Convert.ToInt32(dr["telefono_fijo"]);
                     cliente.telefono_movil = Convert.ToInt32(dr["telefono_movil"]);
                     cliente.email = Convert.ToString(dr["email"]);
-                    cliente.empresa = Convert.ToString(dr["empresa"]);
+                    cliente.empresa = Convert.ToInt32(dr["empresa"]);
 
                     list.Add(cliente);
                 }
@@ -157,7 +153,7 @@ namespace SIMEDVirtual.DA
 
         public static Boolean UpdateCliente(string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, string edad, char sexo, string estado_civil, string grupo_sanguineo, string profesion,
-            int telefono_fijo, int movil, string correo, string empresa, byte[] fotoBinaria, bool medico)
+            int telefono_fijo, int movil, string correo, int empresa, byte[] fotoBinaria, bool medico)
         {
             int x = 0;
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
@@ -195,7 +191,6 @@ namespace SIMEDVirtual.DA
                 }
                 catch
                 {
-                    throw;
                     return false;
                 }
                 conn.Close();
@@ -207,7 +202,6 @@ namespace SIMEDVirtual.DA
                 {
                     return false;
                 }
-              
             }
         }
 
@@ -235,13 +229,13 @@ namespace SIMEDVirtual.DA
                         }
                         catch (Exception x)
                         {
-                            throw;
+                            return null;
                         }
                     }
                 }
                 catch
                 {
-                    throw;
+                    return null;
                 }
                 conn.Close();
             }
@@ -250,22 +244,21 @@ namespace SIMEDVirtual.DA
 
         //////////////////////////////////////////////////////////////////////////////
         public static Boolean InsertaMedico(string nombre, string apellido1, string apellido2, string cedula,
-           DateTime fecha, string direccion, string edad, char sexo, int codigo, int telefono1, int telefono2,
-            string universidad, string especialidad, string correo, byte[] foto, bool medico)
+           DateTime fecha, string direccion, string edad, char sexo, int telefono1, int telefono2, string correo,
+             byte[] foto, int codigo, string universidad, int especialidad, bool medico)
         {
             int x = 0;
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
-
                 NpgsqlCommand command = new NpgsqlCommand();
                 command.Connection = conn;
                 conn.Open();
                 try
                 {
                     command.CommandText =
-                        "insert into persona(nombre,apellido1,apellido2,cedula,fecha_nacimiento,direccion,edad,sexo,codigo,telefono_fijo,telefono_movil," +
-                        "email,universidad,especialidad,foto, medico)" +
-                        "values (@nombre,@ape1,@ape2,@cedula,@fecha,@direccion,@edad,@sexo,@codigo,@telefono_fijo,@telefono_movil,@correo,@universidad,@especialidad,@foto,@medico)";
+                        "insert into persona(nombre,apellido1,apellido2,cedula,fecha_nacimiento,direccion,edad,sexo," +
+                    "telefono_fijo,telefono_movil,email,foto,codigo,universidad,especialidad,medico)" +
+                        "values (@nombre,@ape1,@ape2,@cedula,@fecha,@direccion,@edad,@sexo,@telefono_fijo,@telefono_movil,@correo,@foto,@codigo,@universidad,@especialidad,@medico)";
 
                     command.Parameters.AddWithValue("@nombre", nombre);
                     command.Parameters.AddWithValue("@ape1", apellido1);
@@ -275,14 +268,13 @@ namespace SIMEDVirtual.DA
                     command.Parameters.AddWithValue("@direccion", direccion);
                     command.Parameters.AddWithValue("@edad", edad);
                     command.Parameters.AddWithValue("@sexo", sexo);
-                    command.Parameters.AddWithValue("@codigo", codigo);
                     command.Parameters.AddWithValue("@telefono_fijo", telefono1);
                     command.Parameters.AddWithValue("@telefono_movil", telefono2);
                     command.Parameters.AddWithValue("@correo", correo);
+                    command.Parameters.AddWithValue("@foto", foto);
+                    command.Parameters.AddWithValue("@codigo", codigo);
                     command.Parameters.AddWithValue("@universidad", universidad);
                     command.Parameters.AddWithValue("@especialidad", especialidad);
-
-                    command.Parameters.AddWithValue("@foto", foto);
                     command.Parameters.AddWithValue("@medico", medico);
 
                     x = command.ExecuteNonQuery();
@@ -290,8 +282,6 @@ namespace SIMEDVirtual.DA
                 catch
                 {
                     return false;
-                    throw;
-                    
                 }
                 conn.Close();
 
@@ -310,8 +300,8 @@ namespace SIMEDVirtual.DA
 
 
         public static Boolean UpdateMedico(string nombre, string apellido1, string apellido2, string cedula,
-           DateTime fecha, string direccion, string edad, char sexo, int codigo, int telefono1, int telefono2,
-            string universidad, string especialidad, string correo, byte[] foto)
+           DateTime fecha, string direccion, string edad, char sexo, int telefono1, int telefono2, string correo, byte[] foto,
+            int codigo, string universidad, int especialidad)
         {
             int x = 0;
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
@@ -346,7 +336,7 @@ namespace SIMEDVirtual.DA
                 }
                 catch
                 {
-                    throw;
+                    return false;
                 }
                 conn.Close();
 
@@ -380,7 +370,7 @@ namespace SIMEDVirtual.DA
                 }
                 catch
                 {
-                    throw;
+                    return false;
                 }
                 conn.Close();
 
@@ -414,7 +404,7 @@ namespace SIMEDVirtual.DA
                 }
                 catch
                 {
-                    throw;
+                    return false;
                 }
                 conn.Close();
 
@@ -465,6 +455,58 @@ namespace SIMEDVirtual.DA
             return list;
         }
 
+
+
+        //metodo get all de medicos - Dr Admin
+        public static List<PersonaEntity> selectMedicoLess()
+        {
+            //creacion de lista tipo medico entity
+            List<PersonaEntity> list = new List<PersonaEntity>();
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                conn.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("select * from persona where medico=true and cedula!='k' order by apellido1", conn);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    PersonaEntity doctor = new PersonaEntity();
+                    doctor.nombre = Convert.ToString(dr["nombre"]);
+                    doctor.ape1 = Convert.ToString(dr["apellido1"]);
+                    doctor.ape2 = Convert.ToString(dr["apellido2"]);
+                    doctor.cedula = Convert.ToString(dr["cedula"]);
+                    doctor.fecha = Convert.ToDateTime(dr["fecha_nacimiento"]);
+                    doctor.direccion = Convert.ToString(dr["direccion"]);
+                    doctor.edad = Convert.ToString(dr["edad"]);
+                    doctor.sexo = Convert.ToChar(dr["sexo"]);
+                    doctor.codigo = Convert.ToInt32(dr["codigo"]);
+                    doctor.universidad = Convert.ToString(dr["universidad"]);
+                    doctor.especialidad = Convert.ToString(dr["especialidad"]);
+                    doctor.email = Convert.ToString(dr["email"]);
+                    doctor.telefono_fijo = Convert.ToInt32(dr["telefono_fijo"]);
+                    doctor.telefono_movil = Convert.ToInt32(dr["telefono_movil"]);
+                    //falta la foto
+                    list.Add(doctor);
+                }
+                conn.Close();
+            }
+            return list;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         //metodo get all de medicos
         public static List<PersonaEntity> selectMedico2(string cedula)
         {
@@ -495,8 +537,7 @@ namespace SIMEDVirtual.DA
                     doctor.email = Convert.ToString(dr["email"]);
                     doctor.telefono_fijo = Convert.ToInt32(dr["telefono_fijo"]);
                     doctor.telefono_movil = Convert.ToInt32(dr["telefono_movil"]);
-                    //doctor.fotoBinaria =(byte[])(dr["foto"]);
-                    //falta la foto
+
                     list.Add(doctor);
                 }
                 conn.Close();
@@ -519,9 +560,8 @@ namespace SIMEDVirtual.DA
 
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 
-                while (dr.Read())
+                if (dr.Read())
                 {
-
                     apellido = Convert.ToString(dr["apellido1"]);
                 }
                 conn.Close();
@@ -563,13 +603,13 @@ namespace SIMEDVirtual.DA
                         }
                         catch (Exception x)
                         {
-                            throw;
+                            return null;
                         }
                     }
                 }
                 catch
                 {
-                    throw;
+                    return null;
                 }
                 conn.Close();
             }

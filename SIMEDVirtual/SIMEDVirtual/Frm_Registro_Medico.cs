@@ -1,4 +1,5 @@
-﻿using SIMEDVirtual.IT;
+﻿using SIMEDVirtual.Entity;
+using SIMEDVirtual.IT;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,14 +25,16 @@ namespace SIMEDVirtual
             InitializeComponent();
             usuarioPublico = Frm_Ingreso.datosUsuario;
             cbSexo.SelectedIndex = 1;
+            this.cargarEspeciliades();
         }
 
         public Frm_Registro_Medico(string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, int codigon, string universidad,
-            string especialidad, string correo, char sexop, string edad, int telefono1p, int telefono2p, Boolean ver)
+            int especialidad, string correo, char sexop, string edad, int telefono1p, int telefono2p, Boolean ver)
         {
             InitializeComponent();
 
+            this.cargarEspeciliades();
             txtNombre.Text = nombre;
             txtApellido1.Text = apellido1;
             txtApellido2.Text = apellido2;
@@ -40,7 +43,9 @@ namespace SIMEDVirtual
             txtDireccion.Text = direccion;
             codigo.Text = codigon.ToString();
             txtU.Text = universidad;
-            txtEspecialidad.Text = especialidad;
+
+            cbEspecialidad.SelectedValue = especialidad;
+
             txtCorreo.Text = correo;
             txtEdad.Text = edad;
             telefono1.Text = telefono1p.ToString();
@@ -122,8 +127,8 @@ namespace SIMEDVirtual
             if (txtNombre.Text != string.Empty && txtApellido1.Text != string.Empty
                  && txtApellido2.Text != string.Empty && txtCedula.Text != string.Empty
                 && fecha_nacimiento.Text != string.Empty & txtDireccion.Text != string.Empty
-                && codigo.Text != string.Empty && txtU.Text != string.Empty && txtEspecialidad.Text != string.Empty
-                && txtCorreo.Text != string.Empty && telefono1.Text != string.Empty && telefono2.Text != string.Empty
+                && codigo.Text != string.Empty && txtU.Text != string.Empty && txtCorreo.Text != string.Empty &&
+                telefono1.Text != string.Empty && telefono2.Text != string.Empty
                 && txtEdad.Text != string.Empty)
             {
                 //si no estoy editando, entonces inserto
@@ -140,8 +145,8 @@ namespace SIMEDVirtual
                         //si se inserto bien imprime e inserta en la tabla usuario
                         if (PersonaIT.InsertaMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
               txtCedula.Text, Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text, txtEdad.Text, sexo,
-                Convert.ToInt32(codigo.Text), Convert.ToInt32(telefono1.Text),
-                Convert.ToInt32(telefono2.Text), txtCorreo.Text, txtU.Text, txtEspecialidad.Text, fotoBinaria, true))
+               Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text), txtCorreo.Text, fotoBinaria, Convert.ToInt32(codigo.Text),
+                txtU.Text, Convert.ToInt32(cbEspecialidad.SelectedValue), true))
                         {
                             //insertamos en la tabla de usuario 1 adm 2 medico
                             if (UsuarioIT.InsertaUsuario(txtcontrasena.Text, txtCedula.Text, 2))
@@ -170,9 +175,9 @@ namespace SIMEDVirtual
                 else
                 {
                     if (PersonaIT.UpdateMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
-              txtCedula.Text, Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text, txtEdad.Text, sexo,
-                Convert.ToInt32(codigo.Text), Convert.ToInt32(telefono1.Text),
-                Convert.ToInt32(telefono2.Text), txtCorreo.Text, txtU.Text, txtEspecialidad.Text, fotoBinaria))
+                 txtCedula.Text, Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text, txtEdad.Text, sexo,
+                Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text), txtCorreo.Text, fotoBinaria,
+                Convert.ToInt32(codigo.Text), txtU.Text, Convert.ToInt32(cbEspecialidad.SelectedValue)))
                     {
                         MessageBox.Show("Los Datos han sido Actualizados Correctamente!", "Actualizacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Close();
@@ -230,6 +235,37 @@ namespace SIMEDVirtual
             {
                 throw;
             }
+        }
+
+        //muestra todas las especiaildades en un combo
+        public void cargarEspeciliades()
+        {
+            List<EspecialidadEntity> especialidad = EspecialidadIT.getAllEspecialidades();
+
+            //si hay especialidades se llena y selecciona index
+            if (especialidad.Count != 0)
+            {
+                //asigno los datos al combobox
+                cbEspecialidad.DataSource = especialidad;
+                //lo que quiero obtener
+                cbEspecialidad.ValueMember = "id";
+                //lo q voy a mostrar
+                cbEspecialidad.DisplayMember = "nombre";
+                cbEspecialidad.SelectedIndex = 0;
+            }
+
+            /*if (especialidad.Count != 0)
+            {
+                for (int i = 0; i < especialidad.Count; i++)
+                {
+                    cbEspecialidad.Items.Add(especialidad[i].ToUpper().ToString());
+                }
+
+                if (cbEspecialidad.Items.Count != 0)
+                {
+                    cbEspecialidad.SelectedIndex = 0;
+                }
+            }*/
         }
     }
 }

@@ -75,9 +75,7 @@ namespace SIMEDVirtual.DA
 
                 catch (Exception exp)
                 {
-                    g = exp.ToString();
-                    Console.Write(g);
-                    throw;
+                    return false;
                 }
                 conn.Close();
 
@@ -147,6 +145,5 @@ namespace SIMEDVirtual.DA
             }
             return list;
         }
-
     }
 }

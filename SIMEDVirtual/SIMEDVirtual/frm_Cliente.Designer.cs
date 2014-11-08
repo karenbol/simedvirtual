@@ -263,6 +263,7 @@
             // cbEmpresa
             // 
             this.cbEmpresa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbEmpresa.CausesValidation = false;
             this.cbEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbEmpresa.Location = new System.Drawing.Point(604, 141);
             this.cbEmpresa.Name = "cbEmpresa";
