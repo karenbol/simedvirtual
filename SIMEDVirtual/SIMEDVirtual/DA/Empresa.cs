@@ -192,7 +192,7 @@ namespace SIMEDVirtual.DA
                     x = command.ExecuteNonQuery();
                 }
 
-                catch (Exception exp)
+                catch (Exception)
                 {
                     return false;
                 }

@@ -95,5 +95,10 @@ namespace SIMEDVirtual.IT
         {
             return PersonaDA.selectMedicoLess();
         }
+
+        public static List<PersonaEntity> selectClienteByBusqueda(string columna, string pista)
+        {
+            return PersonaDA.selectClienteByBusqueda(columna, pista);
+        }
     }
 }

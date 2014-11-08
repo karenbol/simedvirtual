@@ -25,11 +25,11 @@ namespace SIMEDVirtual
             usuarioPublico = Frm_Ingreso.datosUsuario;
             label4.Text = Frm_Ingreso.datosUsuario;
             //propiedades del label de division
-            label3.AutoSize = false;
+            /*label3.AutoSize = false;
             label3.Height = 2;
             label3.BorderStyle = BorderStyle.Fixed3D;
             label3.Width = 1366;
-
+            */
             dgClientes.Columns[0].Width = 200;
             dgClientes.Columns[1].Width = 200;
             dgClientes.Columns[2].Width = 200;
@@ -66,6 +66,25 @@ namespace SIMEDVirtual
         {
             //cargamos todos la info de drs en el datagrid
             var pts = new BindingList<PersonaEntity>(PersonaIT.selectCliente());
+            dgClientes.AutoGenerateColumns = false;
+            dgClientes.DataSource = pts;
+            //agregar el evento 
+            dgClientes.CellContentDoubleClick += dgClientes_CellClick;
+
+            //se asignan datos al datagrid
+            for (int j = 0; j < pts.Count; j++)
+            {
+                dgClientes.Rows[j].Cells[0].Value = pts.ElementAt(j).cedula.ToString();
+                dgClientes.Rows[j].Cells[1].Value = pts.ElementAt(j).ape1.ToString();
+                dgClientes.Rows[j].Cells[2].Value = pts.ElementAt(j).ape2.ToString();
+                dgClientes.Rows[j].Cells[3].Value = pts.ElementAt(j).nombre.ToString();
+            }
+        }
+
+        private void cargarDataGrid(List<PersonaEntity> lista)
+        {
+            //cargamos todos la info de drs en el datagrid
+            var pts = lista;
             dgClientes.AutoGenerateColumns = false;
             dgClientes.DataSource = pts;
             //agregar el evento 
@@ -216,7 +235,7 @@ namespace SIMEDVirtual
             frm_ExpedienteMG frm = new frm_ExpedienteMG(cedula_paciente, false, true, id_paciente);
             frm.ShowDialog();
         }
-        
+
         //veo la info personal del cliente
         private void dgClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -261,5 +280,41 @@ namespace SIMEDVirtual
             }
             NpgsqlConnection.ClearAllPools();
         }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (txtBusqueda.Text != string.Empty)
+            {
+                if (rbNombre.Checked)
+                {
+                    List<PersonaEntity> personas = PersonaIT.selectClienteByBusqueda("nombre", txtBusqueda.Text);
+                    if (personas.Count != 0)
+                    {
+                        this.cargarDataGrid(personas);
+                    }
+                }
+                else if (rbApellido.Checked)
+                {
+                    List<PersonaEntity> personas = PersonaIT.selectClienteByBusqueda("apellido1", txtBusqueda.Text);
+                    if (personas.Count != 0)
+                    {
+                        this.cargarDataGrid(personas);
+                    }
+                }
+                else if (rbCedula.Checked)
+                {
+                    List<PersonaEntity> personas = PersonaIT.selectClienteByBusqueda("cedula", txtBusqueda.Text);
+                    if (personas.Count != 0)
+                    {
+                        this.cargarDataGrid(personas);
+                    }
+                }
+            }
+            else
+            {
+                this.cargarDataGrid();
+            }
+        }
+
     }
 }

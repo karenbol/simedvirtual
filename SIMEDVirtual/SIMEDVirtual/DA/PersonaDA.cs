@@ -110,6 +110,54 @@ namespace SIMEDVirtual.DA
             return list;
         }
 
+
+
+        //select cliente by busqueda
+        public static List<PersonaEntity> selectClienteByBusqueda(string columna, string pista)
+        {
+            //creacion de lista tipo medico entity
+            List<PersonaEntity> list = new List<PersonaEntity>();
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                conn.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM persona WHERE "+columna+" LIKE LOWER('"+pista+"%') or "
+                    + columna +" LIKE UPPER('" + pista + "%') or "+ columna +" LIKE('" + pista + "') and medico=false", conn);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    PersonaEntity cliente = new PersonaEntity();
+
+                    cliente.nombre = Convert.ToString(dr["nombre"]);
+                    cliente.ape1 = Convert.ToString(dr["apellido1"]);
+                    cliente.ape2 = Convert.ToString(dr["apellido2"]);
+                    cliente.cedula = Convert.ToString(dr["cedula"]);
+                    cliente.fecha = Convert.ToDateTime(dr["fecha_nacimiento"]);
+                    cliente.direccion = Convert.ToString(dr["direccion"]);
+                    cliente.edad = Convert.ToString(dr["edad"]);
+                    cliente.sexo = Convert.ToChar(dr["sexo"]);
+                    cliente.estado_civil = Convert.ToString(dr["estado_civil"]);
+                    cliente.grupo_sanguineo = Convert.ToString(dr["grupo_sanguineo"]);
+                    cliente.profesion = Convert.ToString(dr["profesion"]);
+                    cliente.telefono_fijo = Convert.ToInt32(dr["telefono_fijo"]);
+                    cliente.telefono_movil = Convert.ToInt32(dr["telefono_movil"]);
+                    cliente.email = Convert.ToString(dr["email"]);
+                    cliente.empresa = Convert.ToInt32(dr["empresa"]);
+
+                    list.Add(cliente);
+                }
+                conn.Close();
+            }
+            return list;
+        }
+
+
+
+
+
+
+
+
         //me trae todo del cliente segun la cedula
         public static List<PersonaEntity> selectClientePorCedula(string cedula)
         {

@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVerExpediente));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVerExpediente));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -49,26 +49,33 @@
             this.terapeutica = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.observaciones = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnEditarPaciente = new System.Windows.Forms.Button();
-            this.btnCrearPaciente = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnReconsulta = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbCedulaMedico = new System.Windows.Forms.RadioButton();
+            this.rbApellido = new System.Windows.Forms.RadioButton();
+            this.rbNombre = new System.Windows.Forms.RadioButton();
+            this.rbCedula = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnReconsulta = new System.Windows.Forms.Button();
+            this.btnEditarPaciente = new System.Windows.Forms.Button();
+            this.btnCrearPaciente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgReconsultas)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgClientes
             // 
-            resources.ApplyResources(this.dgClientes, "dgClientes");
             this.dgClientes.AllowUserToAddRows = false;
             this.dgClientes.AllowUserToDeleteRows = false;
             this.dgClientes.AllowUserToResizeColumns = false;
@@ -83,6 +90,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            resources.ApplyResources(this.dgClientes, "dgClientes");
             this.dgClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cedula,
             this.ape1,
@@ -100,7 +108,6 @@
             this.dgClientes.Name = "dgClientes";
             this.dgClientes.ReadOnly = true;
             this.dgClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.toolTip1.SetToolTip(this.dgClientes, resources.GetString("dgClientes.ToolTip"));
             this.dgClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellClick);
             this.dgClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellDoubleClick);
             // 
@@ -133,11 +140,9 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label1.Name = "label1";
-            this.toolTip1.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
             // 
             // dgReconsultas
             // 
-            resources.ApplyResources(this.dgReconsultas, "dgReconsultas");
             this.dgReconsultas.AllowUserToAddRows = false;
             this.dgReconsultas.AllowUserToDeleteRows = false;
             this.dgReconsultas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
@@ -166,10 +171,10 @@
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgReconsultas.DefaultCellStyle = dataGridViewCellStyle4;
+            resources.ApplyResources(this.dgReconsultas, "dgReconsultas");
             this.dgReconsultas.MultiSelect = false;
             this.dgReconsultas.Name = "dgReconsultas";
             this.dgReconsultas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.toolTip1.SetToolTip(this.dgReconsultas, resources.GetString("dgReconsultas.ToolTip"));
             this.dgReconsultas.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgReconsultas_CellDoubleClick);
             // 
             // id
@@ -226,44 +231,122 @@
             resources.ApplyResources(this.label2, "label2");
             this.label2.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label2.Name = "label2";
-            this.toolTip1.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
-            
-            // 
-            // label3
-            // 
-            resources.ApplyResources(this.label3, "label3");
-            this.label3.Name = "label3";
-            this.toolTip1.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
             // 
             // label4
             // 
             resources.ApplyResources(this.label4, "label4");
             this.label4.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label4.Name = "label4";
-            this.toolTip1.SetToolTip(this.label4, resources.GetString("label4.ToolTip"));
             // 
             // label5
             // 
             resources.ApplyResources(this.label5, "label5");
             this.label5.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label5.Name = "label5";
-            this.toolTip1.SetToolTip(this.label5, resources.GetString("label5.ToolTip"));
             // 
             // groupBox1
             // 
-            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Controls.Add(this.btnEditarPaciente);
             this.groupBox1.Controls.Add(this.btnCrearPaciente);
+            resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.groupBox1, resources.GetString("groupBox1.ToolTip"));
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.GrayText;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnReconsulta);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Name = "panel1";
+            // 
+            // label6
+            // 
+            resources.ApplyResources(this.label6, "label6");
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Name = "label6";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label8.Name = "label8";
+            // 
+            // txtBusqueda
+            // 
+            resources.ApplyResources(this.txtBusqueda, "txtBusqueda");
+            this.txtBusqueda.Name = "txtBusqueda";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.rbCedulaMedico);
+            this.groupBox2.Controls.Add(this.rbApellido);
+            this.groupBox2.Controls.Add(this.rbNombre);
+            this.groupBox2.Controls.Add(this.rbCedula);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.TabStop = false;
+            // 
+            // rbCedulaMedico
+            // 
+            resources.ApplyResources(this.rbCedulaMedico, "rbCedulaMedico");
+            this.rbCedulaMedico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbCedulaMedico.Name = "rbCedulaMedico";
+            this.rbCedulaMedico.TabStop = true;
+            this.rbCedulaMedico.UseVisualStyleBackColor = true;
+            // 
+            // rbApellido
+            // 
+            resources.ApplyResources(this.rbApellido, "rbApellido");
+            this.rbApellido.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbApellido.Name = "rbApellido";
+            this.rbApellido.TabStop = true;
+            this.rbApellido.UseVisualStyleBackColor = true;
+            // 
+            // rbNombre
+            // 
+            resources.ApplyResources(this.rbNombre, "rbNombre");
+            this.rbNombre.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbNombre.Name = "rbNombre";
+            this.rbNombre.TabStop = true;
+            this.rbNombre.UseVisualStyleBackColor = true;
+            // 
+            // rbCedula
+            // 
+            resources.ApplyResources(this.rbCedula, "rbCedula");
+            this.rbCedula.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbCedula.Name = "rbCedula";
+            this.rbCedula.TabStop = true;
+            this.rbCedula.UseVisualStyleBackColor = true;
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label7.Name = "label7";
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::SIMEDVirtual.Properties.Resources.search;
+            resources.ApplyResources(this.btnBuscar, "btnBuscar");
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // btnReconsulta
+            // 
+            resources.ApplyResources(this.btnReconsulta, "btnReconsulta");
+            this.btnReconsulta.Image = global::SIMEDVirtual.Properties.Resources.reconsulta32;
+            this.btnReconsulta.Name = "btnReconsulta";
+            this.btnReconsulta.UseVisualStyleBackColor = true;
+            this.btnReconsulta.Click += new System.EventHandler(this.btnReconsulta_Click);
             // 
             // btnEditarPaciente
             // 
             resources.ApplyResources(this.btnEditarPaciente, "btnEditarPaciente");
             this.btnEditarPaciente.Image = global::SIMEDVirtual.Properties.Resources.edit32;
             this.btnEditarPaciente.Name = "btnEditarPaciente";
-            this.toolTip1.SetToolTip(this.btnEditarPaciente, resources.GetString("btnEditarPaciente.ToolTip"));
             this.btnEditarPaciente.UseVisualStyleBackColor = true;
             this.btnEditarPaciente.Click += new System.EventHandler(this.btnEditarPaciente_Click);
             // 
@@ -272,60 +355,28 @@
             resources.ApplyResources(this.btnCrearPaciente, "btnCrearPaciente");
             this.btnCrearPaciente.Image = global::SIMEDVirtual.Properties.Resources.add28;
             this.btnCrearPaciente.Name = "btnCrearPaciente";
-            this.toolTip1.SetToolTip(this.btnCrearPaciente, resources.GetString("btnCrearPaciente.ToolTip"));
             this.btnCrearPaciente.UseVisualStyleBackColor = true;
             this.btnCrearPaciente.Click += new System.EventHandler(this.btnCrearPaciente_Click);
-            // 
-            // panel1
-            // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.BackColor = System.Drawing.SystemColors.GrayText;
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Name = "panel1";
-            this.toolTip1.SetToolTip(this.panel1, resources.GetString("panel1.ToolTip"));
-            // 
-            // label6
-            // 
-            resources.ApplyResources(this.label6, "label6");
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Name = "label6";
-            this.toolTip1.SetToolTip(this.label6, resources.GetString("label6.ToolTip"));
-            // 
-            // btnReconsulta
-            // 
-            resources.ApplyResources(this.btnReconsulta, "btnReconsulta");
-            this.btnReconsulta.Image = global::SIMEDVirtual.Properties.Resources.reconsulta32;
-            this.btnReconsulta.Name = "btnReconsulta";
-            this.toolTip1.SetToolTip(this.btnReconsulta, resources.GetString("btnReconsulta.ToolTip"));
-            this.btnReconsulta.UseVisualStyleBackColor = true;
-            this.btnReconsulta.Click += new System.EventHandler(this.btnReconsulta_Click);
-            // 
-            // label7
-            // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label7.Name = "label7";
-            this.toolTip1.SetToolTip(this.label7, resources.GetString("label7.ToolTip"));
             // 
             // frmVerExpediente
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.label7);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.txtBusqueda);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.btnReconsulta);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgReconsultas);
             this.Controls.Add(this.dgClientes);
             this.Name = "frmVerExpediente";
-            this.toolTip1.SetToolTip(this, resources.GetString("$this.ToolTip"));
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmVerExpediente_FormClosing);
             this.Load += new System.EventHandler(this.frmVerExpediente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
@@ -333,6 +384,8 @@
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,7 +400,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgReconsultas;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn ape1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ape2;
@@ -365,6 +417,14 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txtBusqueda;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.RadioButton rbCedulaMedico;
+        private System.Windows.Forms.RadioButton rbApellido;
+        private System.Windows.Forms.RadioButton rbNombre;
+        private System.Windows.Forms.RadioButton rbCedula;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }
