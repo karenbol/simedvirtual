@@ -144,6 +144,7 @@
             this.btnEliminar2.Size = new System.Drawing.Size(45, 40);
             this.btnEliminar2.TabIndex = 38;
             this.btnEliminar2.UseVisualStyleBackColor = true;
+            this.btnEliminar2.Click += new System.EventHandler(this.btnEliminar2_Click_1);
             // 
             // btnEliminar1
             // 
@@ -153,6 +154,7 @@
             this.btnEliminar1.Size = new System.Drawing.Size(45, 40);
             this.btnEliminar1.TabIndex = 37;
             this.btnEliminar1.UseVisualStyleBackColor = true;
+            this.btnEliminar1.Click += new System.EventHandler(this.btnEliminar1_Click_1);
             // 
             // panel2
             // 
@@ -179,6 +181,7 @@
             // 
             // txtCedula_Juridica
             // 
+            this.txtCedula_Juridica.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCedula_Juridica.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCedula_Juridica.Location = new System.Drawing.Point(210, 82);
             this.txtCedula_Juridica.Margin = new System.Windows.Forms.Padding(4);
@@ -189,6 +192,7 @@
             // 
             // txtEncargado2
             // 
+            this.txtEncargado2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEncargado2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEncargado2.Location = new System.Drawing.Point(654, 181);
             this.txtEncargado2.Margin = new System.Windows.Forms.Padding(4);
@@ -232,6 +236,7 @@
             // 
             // txtEncargado1
             // 
+            this.txtEncargado1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEncargado1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEncargado1.Location = new System.Drawing.Point(654, 140);
             this.txtEncargado1.Margin = new System.Windows.Forms.Padding(4);
@@ -275,6 +280,7 @@
             // 
             // txtDireccion
             // 
+            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(210, 340);
             this.txtDireccion.Margin = new System.Windows.Forms.Padding(4);
@@ -285,6 +291,7 @@
             // 
             // txtDescripcion
             // 
+            this.txtDescripcion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcion.Location = new System.Drawing.Point(210, 237);
             this.txtDescripcion.Margin = new System.Windows.Forms.Padding(4);
@@ -295,6 +302,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(210, 29);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(4);

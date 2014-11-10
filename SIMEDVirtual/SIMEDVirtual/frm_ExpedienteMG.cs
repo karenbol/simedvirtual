@@ -1527,7 +1527,7 @@ namespace SIMEDVirtual
         private void btnEliminarFoto_Click(object sender, EventArgs e)
         {
             pbPaciente.ImageLocation = rutaDefault;
-        }
+        }               
     }
 }
 

@@ -57,5 +57,11 @@ namespace SIMEDVirtual.IT
         {
             return Empresa.deleteEmpresa(cedula_juridica);
         }
+
+        public static List<EmpresaEntity> getEmpresasMenos()
+        {
+            return Empresa.getEmpresasMenos();
+        }
+
     }
 }

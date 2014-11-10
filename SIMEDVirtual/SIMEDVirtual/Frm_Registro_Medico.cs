@@ -80,6 +80,8 @@ namespace SIMEDVirtual
                 groupBox1.Enabled = false;
                 this.Text = "INFORMACION DE MÉDICOS";
                 this.lblTitle.Text = "INFORMACION DE MÉDICOS";
+                lblCampoNumerico.Visible = false;
+                lblEspacioVacio.Visible = false;
                 lblpass.Visible = false;
                 lblconfirmapass.Visible = false;
                 btnGuardar.Visible = false;

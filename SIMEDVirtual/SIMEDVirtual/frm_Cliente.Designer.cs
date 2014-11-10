@@ -177,6 +177,7 @@
             // 
             // txtEdad
             // 
+            this.txtEdad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEdad.Location = new System.Drawing.Point(210, 257);
             this.txtEdad.Multiline = true;
             this.txtEdad.Name = "txtEdad";
@@ -185,6 +186,7 @@
             // 
             // txtDireccion
             // 
+            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDireccion.Location = new System.Drawing.Point(209, 351);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
@@ -194,6 +196,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEmail.Location = new System.Drawing.Point(603, 300);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
@@ -202,6 +205,7 @@
             // 
             // txtProfesion
             // 
+            this.txtProfesion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtProfesion.Location = new System.Drawing.Point(604, 178);
             this.txtProfesion.Multiline = true;
             this.txtProfesion.Name = "txtProfesion";
@@ -210,6 +214,7 @@
             // 
             // txtCedula
             // 
+            this.txtCedula.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCedula.Location = new System.Drawing.Point(210, 178);
             this.txtCedula.Multiline = true;
             this.txtCedula.Name = "txtCedula";
@@ -218,6 +223,7 @@
             // 
             // txtNombre
             // 
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Location = new System.Drawing.Point(210, 51);
             this.txtNombre.Multiline = true;
             this.txtNombre.Name = "txtNombre";
@@ -226,6 +232,7 @@
             // 
             // txtApe1
             // 
+            this.txtApe1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtApe1.Location = new System.Drawing.Point(210, 96);
             this.txtApe1.Multiline = true;
             this.txtApe1.Name = "txtApe1";
@@ -234,6 +241,7 @@
             // 
             // txtApe2
             // 
+            this.txtApe2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtApe2.Location = new System.Drawing.Point(210, 138);
             this.txtApe2.Multiline = true;
             this.txtApe2.Name = "txtApe2";

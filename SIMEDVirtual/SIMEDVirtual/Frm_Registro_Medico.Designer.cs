@@ -38,7 +38,7 @@
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.cbEspecialidad = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblEspacioVacio = new System.Windows.Forms.Label();
             this.txtEdad = new System.Windows.Forms.TextBox();
             this.label60 = new System.Windows.Forms.Label();
             this.txtCedula = new System.Windows.Forms.TextBox();
@@ -48,7 +48,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.telefono2 = new System.Windows.Forms.MaskedTextBox();
-            this.label17 = new System.Windows.Forms.Label();
+            this.lblCampoNumerico = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -84,7 +84,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(477, 8);
+            this.lblTitle.Location = new System.Drawing.Point(477, 11);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(313, 29);
             this.lblTitle.TabIndex = 13;
@@ -97,11 +97,12 @@
             // pbFotoDr
             // 
             this.pbFotoDr.BackColor = System.Drawing.Color.Transparent;
+            this.pbFotoDr.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pbFotoDr.ErrorImage = null;
             this.pbFotoDr.Image = global::SIMEDVirtual.Properties.Resources.camera2;
-            this.pbFotoDr.Location = new System.Drawing.Point(1112, 177);
+            this.pbFotoDr.Location = new System.Drawing.Point(1102, 177);
             this.pbFotoDr.Name = "pbFotoDr";
-            this.pbFotoDr.Size = new System.Drawing.Size(154, 168);
+            this.pbFotoDr.Size = new System.Drawing.Size(177, 181);
             this.pbFotoDr.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbFotoDr.TabIndex = 28;
             this.pbFotoDr.TabStop = false;
@@ -116,7 +117,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(1178, 590);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(74, 58);
-            this.btnGuardar.TabIndex = 16;
+            this.btnGuardar.TabIndex = 0;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -135,7 +136,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cbEspecialidad);
-            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.lblEspacioVacio);
             this.groupBox1.Controls.Add(this.txtEdad);
             this.groupBox1.Controls.Add(this.label60);
             this.groupBox1.Controls.Add(this.txtCedula);
@@ -145,7 +146,7 @@
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.telefono2);
-            this.groupBox1.Controls.Add(this.label17);
+            this.groupBox1.Controls.Add(this.lblCampoNumerico);
             this.groupBox1.Controls.Add(this.label16);
             this.groupBox1.Controls.Add(this.label15);
             this.groupBox1.Controls.Add(this.label14);
@@ -185,26 +186,27 @@
             this.cbEspecialidad.MaxDropDownItems = 100;
             this.cbEspecialidad.Name = "cbEspecialidad";
             this.cbEspecialidad.Size = new System.Drawing.Size(324, 21);
-            this.cbEspecialidad.TabIndex = 125;
+            this.cbEspecialidad.TabIndex = 11;
             // 
-            // label13
+            // lblEspacioVacio
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label13.Location = new System.Drawing.Point(15, 16);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(294, 18);
-            this.label13.TabIndex = 124;
-            this.label13.Text = "* NO DEJE NINGUN ESPACIO VACIO";
+            this.lblEspacioVacio.AutoSize = true;
+            this.lblEspacioVacio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
+            this.lblEspacioVacio.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.lblEspacioVacio.Location = new System.Drawing.Point(15, 16);
+            this.lblEspacioVacio.Name = "lblEspacioVacio";
+            this.lblEspacioVacio.Size = new System.Drawing.Size(294, 18);
+            this.lblEspacioVacio.TabIndex = 124;
+            this.lblEspacioVacio.Text = "* NO DEJE NINGUN ESPACIO VACIO";
             // 
             // txtEdad
             // 
+            this.txtEdad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEdad.Location = new System.Drawing.Point(592, 175);
             this.txtEdad.Multiline = true;
             this.txtEdad.Name = "txtEdad";
             this.txtEdad.Size = new System.Drawing.Size(153, 22);
-            this.txtEdad.TabIndex = 99;
+            this.txtEdad.TabIndex = 6;
             // 
             // label60
             // 
@@ -220,11 +222,12 @@
             // txtCedula
             // 
             this.txtCedula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCedula.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCedula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCedula.Location = new System.Drawing.Point(177, 126);
             this.txtCedula.Name = "txtCedula";
             this.txtCedula.Size = new System.Drawing.Size(200, 22);
-            this.txtCedula.TabIndex = 94;
+            this.txtCedula.TabIndex = 3;
             // 
             // label12
             // 
@@ -257,7 +260,7 @@
             this.cbSexo.Location = new System.Drawing.Point(177, 169);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(200, 21);
-            this.cbSexo.TabIndex = 98;
+            this.cbSexo.TabIndex = 5;
             // 
             // label11
             // 
@@ -289,18 +292,18 @@
             this.telefono2.Mask = "99999999999999999999999";
             this.telefono2.Name = "telefono2";
             this.telefono2.Size = new System.Drawing.Size(205, 22);
-            this.telefono2.TabIndex = 113;
+            this.telefono2.TabIndex = 13;
             // 
-            // label17
+            // lblCampoNumerico
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.Red;
-            this.label17.Location = new System.Drawing.Point(59, 463);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(137, 16);
-            this.label17.TabIndex = 119;
-            this.label17.Text = "* Campo Numérico";
+            this.lblCampoNumerico.AutoSize = true;
+            this.lblCampoNumerico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCampoNumerico.ForeColor = System.Drawing.Color.Red;
+            this.lblCampoNumerico.Location = new System.Drawing.Point(59, 463);
+            this.lblCampoNumerico.Name = "lblCampoNumerico";
+            this.lblCampoNumerico.Size = new System.Drawing.Size(137, 16);
+            this.lblCampoNumerico.TabIndex = 119;
+            this.lblCampoNumerico.Text = "* Campo Numérico";
             // 
             // label16
             // 
@@ -343,7 +346,7 @@
             this.txtconfirmacion.Name = "txtconfirmacion";
             this.txtconfirmacion.PasswordChar = '*';
             this.txtconfirmacion.Size = new System.Drawing.Size(205, 22);
-            this.txtconfirmacion.TabIndex = 115;
+            this.txtconfirmacion.TabIndex = 15;
             // 
             // lblconfirmapass
             // 
@@ -364,7 +367,7 @@
             this.telefono1.Mask = "99999999999999999999999";
             this.telefono1.Name = "telefono1";
             this.telefono1.Size = new System.Drawing.Size(200, 22);
-            this.telefono1.TabIndex = 112;
+            this.telefono1.TabIndex = 12;
             // 
             // codigo
             // 
@@ -374,7 +377,7 @@
             this.codigo.Mask = "9999999";
             this.codigo.Name = "codigo";
             this.codigo.Size = new System.Drawing.Size(200, 22);
-            this.codigo.TabIndex = 102;
+            this.codigo.TabIndex = 7;
             // 
             // fecha_nacimiento
             // 
@@ -383,7 +386,7 @@
             this.fecha_nacimiento.Location = new System.Drawing.Point(592, 127);
             this.fecha_nacimiento.Name = "fecha_nacimiento";
             this.fecha_nacimiento.Size = new System.Drawing.Size(324, 22);
-            this.fecha_nacimiento.TabIndex = 96;
+            this.fecha_nacimiento.TabIndex = 4;
             // 
             // txtcontrasena
             // 
@@ -393,7 +396,7 @@
             this.txtcontrasena.Name = "txtcontrasena";
             this.txtcontrasena.PasswordChar = '*';
             this.txtcontrasena.Size = new System.Drawing.Size(200, 22);
-            this.txtcontrasena.TabIndex = 114;
+            this.txtcontrasena.TabIndex = 14;
             // 
             // lblpass
             // 
@@ -409,58 +412,64 @@
             // txtCorreo
             // 
             this.txtCorreo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtCorreo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCorreo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCorreo.Location = new System.Drawing.Point(177, 261);
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(200, 22);
-            this.txtCorreo.TabIndex = 105;
+            this.txtCorreo.TabIndex = 9;
             // 
             // txtU
             // 
             this.txtU.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtU.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtU.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtU.Location = new System.Drawing.Point(177, 309);
             this.txtU.Name = "txtU";
             this.txtU.Size = new System.Drawing.Size(200, 22);
-            this.txtU.TabIndex = 108;
+            this.txtU.TabIndex = 10;
             // 
             // txtDireccion
             // 
             this.txtDireccion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDireccion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDireccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(592, 226);
             this.txtDireccion.Multiline = true;
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDireccion.Size = new System.Drawing.Size(324, 70);
-            this.txtDireccion.TabIndex = 103;
+            this.txtDireccion.TabIndex = 8;
             // 
             // txtApellido2
             // 
             this.txtApellido2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApellido2.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtApellido2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido2.Location = new System.Drawing.Point(763, 77);
             this.txtApellido2.Name = "txtApellido2";
             this.txtApellido2.Size = new System.Drawing.Size(153, 22);
-            this.txtApellido2.TabIndex = 92;
+            this.txtApellido2.TabIndex = 2;
             // 
             // txtApellido1
             // 
             this.txtApellido1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtApellido1.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtApellido1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellido1.Location = new System.Drawing.Point(592, 77);
             this.txtApellido1.Name = "txtApellido1";
             this.txtApellido1.Size = new System.Drawing.Size(153, 22);
-            this.txtApellido1.TabIndex = 90;
+            this.txtApellido1.TabIndex = 1;
             // 
             // txtNombre
             // 
             this.txtNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(177, 79);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(200, 22);
-            this.txtNombre.TabIndex = 89;
+            this.txtNombre.TabIndex = 0;
             // 
             // label10
             // 
@@ -596,7 +605,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblEspacioVacio;
         private System.Windows.Forms.TextBox txtEdad;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.TextBox txtCedula;
@@ -605,7 +614,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.MaskedTextBox telefono2;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label lblCampoNumerico;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;

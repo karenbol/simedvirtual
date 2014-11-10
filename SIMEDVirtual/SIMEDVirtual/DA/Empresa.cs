@@ -124,6 +124,42 @@ namespace SIMEDVirtual.DA
             return empresas;
         }
 
+
+        //metodo que carga el nombre en el combo
+        public static List<EmpresaEntity> getEmpresasMenos()
+        {
+            List<EmpresaEntity> empresas = new List<EmpresaEntity>();
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                conn.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("select * from empresa where id!=4 order by nombre",
+    conn);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    EmpresaEntity entidad = new EmpresaEntity();
+
+                    //ocupo que me devuelta TODOS los datos para la fk 
+                    entidad.id = Convert.ToInt32(dr[0]);
+                    entidad.nombre = dr[1].ToString();
+                    entidad.cedula = Convert.ToString(dr[2]);
+                    entidad.direccion = dr[3].ToString();
+                    entidad.descripcion = dr[4].ToString();
+
+                    empresas.Add(entidad);
+                }
+                conn.Close();
+            }
+            return empresas;
+        }
+
+
+
+
+
+
+
+
         //selecciona el id de la empresa
         public static List<EmpresaEntity> getEmpresaByID(String cedula)
         {
@@ -365,6 +401,5 @@ namespace SIMEDVirtual.DA
                 }
             }
         }
-
     }
 }

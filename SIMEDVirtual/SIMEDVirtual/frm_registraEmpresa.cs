@@ -19,8 +19,8 @@ namespace SIMEDVirtual
             InitializeComponent();
             btnEliminar1.Visible = false;
             btnEliminar2.Visible = false;
-            
-            
+
+
         }
 
 
@@ -29,7 +29,7 @@ namespace SIMEDVirtual
               string encargado1, int telefono2, string encargado2, int accion)
         {
             InitializeComponent();
-            
+
             btnEliminar1.Visible = false;
             btnEliminar2.Visible = false;
 
@@ -107,12 +107,18 @@ namespace SIMEDVirtual
 
                         if (txtTelefono1.Text != string.Empty && txtEncargado1.Text != string.Empty)
                         {
-                            EmpresaIT.updateTelefono(txtCedula_Juridica.Text, Convert.ToInt32(txtTelefono1.Text), txtEncargado1.Text);
+                            if (!EmpresaIT.updateTelefono(txtCedula_Juridica.Text, Convert.ToInt32(txtTelefono1.Text), txtEncargado1.Text))
+                            {
+                                EmpresaIT.InsertaEmpresaTelefono(txtCedula_Juridica.Text, Convert.ToInt32(txtTelefono1.Text), txtEncargado1.Text);
+                            }
                         }
 
                         if (txtTelefono2.Text != string.Empty && txtEncargado2.Text != string.Empty)
                         {
-                            EmpresaIT.updateTelefono(txtCedula_Juridica.Text, Convert.ToInt32(txtTelefono2.Text), txtEncargado2.Text);
+                            if (!EmpresaIT.updateTelefono(txtCedula_Juridica.Text, Convert.ToInt32(txtTelefono2.Text), txtEncargado2.Text))
+                            {
+                                EmpresaIT.InsertaEmpresaTelefono(txtCedula_Juridica.Text, Convert.ToInt32(txtTelefono2.Text), txtEncargado2.Text);
+                            }
                         }
                         MessageBox.Show("La Empresa se ha Editado con Exito", "Edicion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Hide();
@@ -134,7 +140,7 @@ namespace SIMEDVirtual
         private void frm_registraEmpresa_Load(object sender, EventArgs e)
         {
             this.label4.Text = Frm_Ingreso.datosUsuario;
-           
+
         }
 
         private void frm_registraEmpresa_FormClosing(object sender, FormClosingEventArgs e)
@@ -144,27 +150,38 @@ namespace SIMEDVirtual
             splash.ShowDialog();
         }
 
-        private void btnEliminar1_Click(object sender, EventArgs e)
+        //eliminar el telefono de la empresa
+        private void btnEliminar1_Click_1(object sender, EventArgs e)
         {
-            if (EmpresaIT.deleteTelefono(txtCedula_Juridica.Text, Convert.ToInt32(txtTelefono1.Text)))
+            if (txtTelefono1.Text != string.Empty && txtEncargado1.Text != string.Empty)
             {
-                txtTelefono1.Text = 0.ToString();
-                txtEncargado1.Text = "";
+                if (EmpresaIT.deleteTelefono(txtCedula_Juridica.Text, Convert.ToInt32(txtTelefono1.Text)))
+                {
+                    txtEncargado1.Text = string.Empty;
+                    txtTelefono1.Text = string.Empty;
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido Eliminar el Numero de Telefono", "Error al Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
+
             }
         }
-
-        private void btnEliminar2_Click(object sender, EventArgs e)
+        //eliminar el telefono de la empresa
+        private void btnEliminar2_Click_1(object sender, EventArgs e)
         {
-            if (EmpresaIT.deleteTelefono(txtCedula_Juridica.Text, Convert.ToInt32(txtTelefono2.Text)))
+            if (txtTelefono2.Text != string.Empty && txtEncargado2.Text != string.Empty)
             {
-                txtTelefono2.Text = 0.ToString();
-                txtEncargado2.Text = "";
+                if (EmpresaIT.deleteTelefono(txtCedula_Juridica.Text, Convert.ToInt32(txtTelefono2.Text)))
+                {
+                    txtEncargado2.Text = string.Empty;
+                    txtTelefono2.Text = string.Empty;
+                }
+                else
+                {
+                    MessageBox.Show("No se ha podido Eliminar el Numero de Telefono", "Error al Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                }
             }
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -37,12 +37,10 @@ namespace SIMEDVirtual
         private void cargarDataGrid()
         {
             //cargamos todos la info de drs en el datagrid
-            var pts = new BindingList<EmpresaEntity>(EmpresaIT.getAllEmpresas());
+            var pts = new BindingList<EmpresaEntity>(EmpresaIT.getEmpresasMenos());
             dgEmpresas.AutoGenerateColumns = false;
             dgEmpresas.DataSource = pts;
-            //agregar el evento 
-            //dgEmpresas.CellContentDoubleClick += dgClientes_CellClick;
-
+         
             //se asignan datos al datagrid
             for (int j = 0; j < pts.Count; j++)
             {
