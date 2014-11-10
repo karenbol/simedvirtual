@@ -120,8 +120,8 @@ namespace SIMEDVirtual.DA
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM persona WHERE "+columna+" LIKE LOWER('"+pista+"%') or "
-                    + columna +" LIKE UPPER('" + pista + "%') or "+ columna +" LIKE('" + pista + "') and medico=false", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM persona WHERE ("+columna+" LIKE LOWER('"+pista+"%') or "
+                    + columna +" LIKE UPPER('" + pista + "%') or "+ columna +" LIKE('" + pista + "')) and medico =false", conn);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())

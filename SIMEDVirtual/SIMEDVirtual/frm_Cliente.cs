@@ -18,8 +18,7 @@ namespace SIMEDVirtual
         public int editar;
         public byte[] fotoBinaria;
         public int accionArealizar = 0;
-
-
+        
         public frm_Cliente()
         {
             InitializeComponent();
@@ -178,7 +177,6 @@ namespace SIMEDVirtual
                 int empresa = Convert.ToInt32(cbEmpresa.SelectedValue);
 
                 this.verificaFoto();
-
 
                 switch (editar)
                 {

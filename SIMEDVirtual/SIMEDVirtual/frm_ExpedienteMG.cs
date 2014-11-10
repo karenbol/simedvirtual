@@ -671,7 +671,6 @@ namespace SIMEDVirtual
         {
             pbPaciente.Image = PersonaIT.GetImagePacient(cedula_paciente);
 
-
             //me trae el expediente segun la cedula y el id
             List<ExpedienteEntity> listaExpediente = ExpedienteIT.selectExpedienteById(cedula_paciente, id_paciente);
             //anamnesis
@@ -1015,7 +1014,7 @@ namespace SIMEDVirtual
             string grupo = lista.ElementAt(0).grupo_sanguineo.ToString();
             int telefono = Convert.ToInt32(lista.ElementAt(0).telefono_fijo);
             int movil = Convert.ToInt32(lista.ElementAt(0).telefono_movil);
-            string empresa = Convert.ToString(lista.ElementAt(0).empresa);
+            int empresa = Convert.ToInt32(lista.ElementAt(0).empresa);
 
             txtNombre.Text = lista.ElementAt(0).nombre.ToString();
             txtApe1.Text = lista.ElementAt(0).ape1.ToString();
@@ -1026,9 +1025,12 @@ namespace SIMEDVirtual
 
             //combo de empresa
             cargaComboEmpresas();
-
-            int x = cbEmpresa.Items.IndexOf(empresa);
-            cbEmpresa.SelectedIndex = x;
+            if (empresa != -1)
+            {
+                cbEmpresa.SelectedValue = empresa;
+            }
+            //int x = cbEmpresa.Items.IndexOf(empresa);
+            //cbEmpresa.SelectedIndex = x;
 
             //combo del sexo
             if (sexo == 'f')
@@ -1527,7 +1529,7 @@ namespace SIMEDVirtual
         private void btnEliminarFoto_Click(object sender, EventArgs e)
         {
             pbPaciente.ImageLocation = rutaDefault;
-        }               
+        }
     }
 }
 
