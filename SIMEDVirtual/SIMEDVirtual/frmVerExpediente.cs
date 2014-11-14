@@ -1,4 +1,6 @@
-﻿using Npgsql;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Npgsql;
 using SIMEDVirtual.DA;
 using SIMEDVirtual.Entity;
 using SIMEDVirtual.IT;
@@ -7,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -250,6 +253,59 @@ namespace SIMEDVirtual
                 rbNombre.Checked = false;
                 rbApellido.Checked = false;
             }
+        }
+
+        private void generarPDFToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //aqui genero el pdf
+            Document document = new Document(PageSize.LETTER);
+
+            PdfWriter.GetInstance(document,
+
+                          new FileStream("karen.pdf",
+
+                                 FileMode.OpenOrCreate));
+            document.Open();
+            //iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(@"C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\logo.jpg");
+            //jpg.ScaleAbsolute(50, 50);
+            //jpg.Alignment = iTextSharp.text.Image.ALIGN_LEFT;
+            //jpg.ScaleToFit(100f, 100f);
+            //jpg.Alt = "Simed Logo";
+
+            
+            Paragraph paragraph = new Paragraph(@"EXPEDIENTE MEDICO");
+            paragraph.Alignment = Element.ALIGN_CENTER;
+                       iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(@"C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\logo.jpg");
+            jpg.ScaleToFit(100f, 100f);
+            jpg.Alignment = iTextSharp.text.Image.TEXTWRAP | iTextSharp.text.Image.ALIGN_LEFT;
+            //jpg.IndentationLeft = 9f;
+            //jpg.SpacingAfter = 9f;
+           
+            document.Add(jpg);
+            document.Add(paragraph);
+
+
+            //document.Add(jpg);
+            document.Add(new Paragraph(" "));
+            document.Add(new Paragraph(" "));
+            document.Add(new Paragraph("________________________________________________________________________________"));
+
+            document.Add(new Paragraph("Este es mi primer PDF al vuelo"));
+            document.Add(new Paragraph("Este es mi seertgbdsfgdfhgundo PDF al vuelo"));
+            //document.NewPage();
+
+            Chunk chunk = new Chunk("Texto subrayado",
+
+             FontFactory.GetFont("ARIAL",
+
+                         12,
+
+                     iTextSharp.text.Font.UNDERLINE));
+
+            document.Add(new Paragraph(chunk));
+            document.Close();
+
+            MessageBox.Show("Se ha creado el archivo");
         }
     }
 }
