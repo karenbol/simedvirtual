@@ -40,7 +40,7 @@ namespace SIMEDVirtual
             var pts = new BindingList<EmpresaEntity>(EmpresaIT.getEmpresasMenos());
             dgEmpresas.AutoGenerateColumns = false;
             dgEmpresas.DataSource = pts;
-         
+
             //se asignan datos al datagrid
             for (int j = 0; j < pts.Count; j++)
             {
@@ -75,32 +75,33 @@ namespace SIMEDVirtual
             //cargamos todos la info de drs en el datagrid
             string cedula_juridica = dgEmpresas.Rows[e.RowIndex].Cells[0].Value.ToString();
             //selecciona el medico dependiento de la cedula
-            var pts = new BindingList<EmpresaEntity>(EmpresaIT.getEmpresaByID(cedula_juridica));
+            //var pts = new BindingList<EmpresaEntity>(EmpresaIT.getEmpresaByID(cedula_juridica));
+            EmpresaEntity empresa = EmpresaIT.getEmpresaByID(cedula_juridica);
             dgEmpresas.AutoGenerateColumns = false;
-            dgEmpresas.DataSource = pts;
+            dgEmpresas.DataSource = empresa;
 
-            string nombre = pts.ElementAt(0).nombre.ToString();
-            string cedula = pts.ElementAt(0).cedula.ToString();
-            string descripcion = pts.ElementAt(0).descripcion.ToString();
-            string direccion = pts.ElementAt(0).direccion.ToString();
+            string nombre = empresa.nombre.ToString();
+            string cedula = empresa.cedula.ToString();
+            string descripcion = empresa.descripcion.ToString();
+            string direccion = empresa.direccion.ToString();
 
             int telefono1 = 0;
             int telefono2 = 0;
             string encargado1 = "";
             string encargado2 = "";
 
-            List<EmpresaEntity> empresa = EmpresaIT.getTelefono(cedula_juridica);
+            List<EmpresaEntity> empresa_telefono = EmpresaIT.getTelefono(cedula_juridica);
 
 
-            if (empresa.Count != 0)
+            if (empresa_telefono.Count != 0)
             {
-                telefono1 = Convert.ToInt32(empresa[0].telefono1);
-                encargado1 = empresa[0].encargado1;
+                telefono1 = Convert.ToInt32(empresa_telefono[0].telefono1);
+                encargado1 = empresa_telefono[0].encargado1;
 
-                if (empresa.Count == 2)
+                if (empresa_telefono.Count == 2)
                 {
-                    telefono2 = empresa[1].telefono1;
-                    encargado2 = empresa[1].encargado1;
+                    telefono2 = empresa_telefono[1].telefono1;
+                    encargado2 = empresa_telefono[1].encargado1;
                 }
             }
 
@@ -110,40 +111,40 @@ namespace SIMEDVirtual
             frm.ShowDialog();
         }
 
-        
+
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
             DataGridViewRow selectedRow = dgEmpresas.Rows[dgEmpresas.SelectedCells[0].RowIndex];
             string cedula_juridica = Convert.ToString(selectedRow.Cells["Cedula"].Value);
-                                  
-            //me trae todo de la empresa segun cedula juridica
-            var pts = new BindingList<EmpresaEntity>(EmpresaIT.getEmpresaByID(cedula_juridica));
-            dgEmpresas.AutoGenerateColumns = false;
-            dgEmpresas.DataSource = pts;
 
-            string nombre = pts.ElementAt(0).nombre.ToString();
-            string cedula = pts.ElementAt(0).cedula.ToString();
-            string descripcion = pts.ElementAt(0).descripcion.ToString();
-            string direccion = pts.ElementAt(0).direccion.ToString();
+            //me trae todo de la empresa segun cedula juridica
+            EmpresaEntity empresa = EmpresaIT.getEmpresaByID(cedula_juridica);
+            dgEmpresas.AutoGenerateColumns = false;
+            dgEmpresas.DataSource = empresa;
+
+            string nombre = empresa.nombre.ToString();
+            string cedula = empresa.cedula.ToString();
+            string descripcion = empresa.descripcion.ToString();
+            string direccion = empresa.direccion.ToString();
 
             int telefono1 = 0;
             int telefono2 = 0;
             string encargado1 = "";
             string encargado2 = "";
 
-            List<EmpresaEntity> empresa = EmpresaIT.getTelefono(cedula_juridica);
+            List<EmpresaEntity> empresa_telefono = EmpresaIT.getTelefono(cedula_juridica);
 
 
-            if (empresa.Count != 0)
+            if (empresa_telefono.Count != 0)
             {
-                telefono1 = Convert.ToInt32(empresa[0].telefono1);
-                encargado1 = empresa[0].encargado1;
+                telefono1 = Convert.ToInt32(empresa_telefono[0].telefono1);
+                encargado1 = empresa_telefono[0].encargado1;
 
-                if (empresa.Count == 2)
+                if (empresa_telefono.Count == 2)
                 {
-                    telefono2 = empresa[1].telefono1;
-                    encargado2 = empresa[1].encargado1;
+                    telefono2 = empresa_telefono[1].telefono1;
+                    encargado2 = empresa_telefono[1].encargado1;
                 }
             }
 
@@ -151,9 +152,6 @@ namespace SIMEDVirtual
             frm_registraEmpresa frm = new frm_registraEmpresa(cedula_juridica, nombre, descripcion, direccion, telefono1,
                 encargado1, telefono2, encargado2, 2);
             frm.ShowDialog();
-
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)

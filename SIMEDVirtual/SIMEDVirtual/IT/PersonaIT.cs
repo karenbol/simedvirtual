@@ -13,10 +13,10 @@ namespace SIMEDVirtual.IT
         public static Boolean InsertaCliente(
             string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, string edad, char sexo, string estado_civil, string grupo_sanguineo, string profesion,
-            int telefono_fijo, int movil, string correo, int empresa, byte[] fotoBinaria, bool medico)
+            int telefono_fijo, int movil, string correo, int empresa, byte[] fotoBinaria, bool medico, DateTime fecha_creacion)
         {
             return PersonaDA.InsertaCliente(nombre, apellido1, apellido2, cedula, fecha, direccion, edad, sexo,
-                estado_civil, grupo_sanguineo, profesion, telefono_fijo, movil, correo, empresa, fotoBinaria, medico);
+                estado_civil, grupo_sanguineo, profesion, telefono_fijo, movil, correo, empresa, fotoBinaria, medico,fecha_creacion);
         }
 
         //obtenemos todos los clientes en la tabla
@@ -99,6 +99,16 @@ namespace SIMEDVirtual.IT
         public static List<PersonaEntity> selectClienteByBusqueda(string columna, string pista)
         {
             return PersonaDA.selectClienteByBusqueda(columna, pista);
+        }
+
+        public static List<PersonaEntity> selectClienteByIdEmpresa(int id_empresa)
+        {
+            return PersonaDA.selectClienteByIdEmpresa(id_empresa);
+        }
+
+        public static List<PersonaEntity> selectClientePorFecha(string fecha)
+        {
+            return PersonaDA.selectClientePorFecha(fecha);
         }
     }
 }

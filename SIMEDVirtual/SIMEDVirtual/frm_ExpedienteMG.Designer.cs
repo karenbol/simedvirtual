@@ -349,7 +349,6 @@
             this.rx39 = new System.Windows.Forms.RadioButton();
             this.txtObservacionesSR = new System.Windows.Forms.TextBox();
             this.label105 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btnVerExp = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.tabPageEpicrisis.SuspendLayout();
@@ -1923,12 +1922,15 @@
             // 
             // fecha_nacimiento
             // 
-            this.fecha_nacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fecha_nacimiento.CalendarMonthBackground = System.Drawing.SystemColors.ControlLightLight;
+            this.fecha_nacimiento.CustomFormat = "dd/MM/yyyy";
+            this.fecha_nacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.fecha_nacimiento.ImeMode = System.Windows.Forms.ImeMode.On;
             this.fecha_nacimiento.Location = new System.Drawing.Point(216, 274);
             this.fecha_nacimiento.Name = "fecha_nacimiento";
             this.fecha_nacimiento.Size = new System.Drawing.Size(193, 20);
             this.fecha_nacimiento.TabIndex = 4;
+            this.fecha_nacimiento.ValueChanged += new System.EventHandler(this.fecha_nacimiento_ValueChanged);
             // 
             // label1
             // 
@@ -2258,10 +2260,10 @@
             this.rx31.AutoSize = true;
             this.rx31.Location = new System.Drawing.Point(148, 8);
             this.rx31.Name = "rx31";
-            this.rx31.Size = new System.Drawing.Size(36, 17);
+            this.rx31.Size = new System.Drawing.Size(39, 17);
             this.rx31.TabIndex = 84;
             this.rx31.TabStop = true;
-            this.rx31.Text = "NI";
+            this.rx31.Text = "NL";
             this.rx31.UseVisualStyleBackColor = true;
             // 
             // txtObservacionesCDL
@@ -2336,10 +2338,10 @@
             this.rx29.AutoSize = true;
             this.rx29.Location = new System.Drawing.Point(135, 8);
             this.rx29.Name = "rx29";
-            this.rx29.Size = new System.Drawing.Size(36, 17);
+            this.rx29.Size = new System.Drawing.Size(39, 17);
             this.rx29.TabIndex = 96;
             this.rx29.TabStop = true;
-            this.rx29.Text = "NI";
+            this.rx29.Text = "NL";
             this.rx29.UseVisualStyleBackColor = true;
             // 
             // groupBox41
@@ -2378,10 +2380,10 @@
             this.rx25.AutoSize = true;
             this.rx25.Location = new System.Drawing.Point(108, 8);
             this.rx25.Name = "rx25";
-            this.rx25.Size = new System.Drawing.Size(36, 17);
+            this.rx25.Size = new System.Drawing.Size(39, 17);
             this.rx25.TabIndex = 90;
             this.rx25.TabStop = true;
-            this.rx25.Text = "NI";
+            this.rx25.Text = "NL";
             this.rx25.UseVisualStyleBackColor = true;
             // 
             // groupBox40
@@ -2411,10 +2413,10 @@
             this.rx27.AutoSize = true;
             this.rx27.Location = new System.Drawing.Point(102, 8);
             this.rx27.Name = "rx27";
-            this.rx27.Size = new System.Drawing.Size(36, 17);
+            this.rx27.Size = new System.Drawing.Size(39, 17);
             this.rx27.TabIndex = 93;
             this.rx27.TabStop = true;
-            this.rx27.Text = "NI";
+            this.rx27.Text = "NL";
             this.rx27.UseVisualStyleBackColor = true;
             // 
             // label99
@@ -2453,10 +2455,10 @@
             this.rx23.AutoSize = true;
             this.rx23.Location = new System.Drawing.Point(101, 9);
             this.rx23.Name = "rx23";
-            this.rx23.Size = new System.Drawing.Size(36, 17);
+            this.rx23.Size = new System.Drawing.Size(39, 17);
             this.rx23.TabIndex = 87;
             this.rx23.TabStop = true;
-            this.rx23.Text = "NI";
+            this.rx23.Text = "NL";
             this.rx23.UseVisualStyleBackColor = true;
             // 
             // label97
@@ -2548,10 +2550,10 @@
             this.rx21.AutoSize = true;
             this.rx21.Location = new System.Drawing.Point(128, 7);
             this.rx21.Name = "rx21";
-            this.rx21.Size = new System.Drawing.Size(36, 17);
+            this.rx21.Size = new System.Drawing.Size(39, 17);
             this.rx21.TabIndex = 39;
             this.rx21.TabStop = true;
-            this.rx21.Text = "NI";
+            this.rx21.Text = "NL";
             this.rx21.UseVisualStyleBackColor = true;
             // 
             // label80
@@ -2590,10 +2592,10 @@
             this.rx17.AutoSize = true;
             this.rx17.Location = new System.Drawing.Point(128, 7);
             this.rx17.Name = "rx17";
-            this.rx17.Size = new System.Drawing.Size(36, 17);
+            this.rx17.Size = new System.Drawing.Size(39, 17);
             this.rx17.TabIndex = 36;
             this.rx17.TabStop = true;
-            this.rx17.Text = "NI";
+            this.rx17.Text = "NL";
             this.rx17.UseVisualStyleBackColor = true;
             // 
             // label79
@@ -2632,10 +2634,10 @@
             this.rx13.AutoSize = true;
             this.rx13.Location = new System.Drawing.Point(128, 7);
             this.rx13.Name = "rx13";
-            this.rx13.Size = new System.Drawing.Size(36, 17);
+            this.rx13.Size = new System.Drawing.Size(39, 17);
             this.rx13.TabIndex = 30;
             this.rx13.TabStop = true;
-            this.rx13.Text = "NI";
+            this.rx13.Text = "NL";
             this.rx13.UseVisualStyleBackColor = true;
             // 
             // label77
@@ -2674,10 +2676,10 @@
             this.rx19.AutoSize = true;
             this.rx19.Location = new System.Drawing.Point(128, 7);
             this.rx19.Name = "rx19";
-            this.rx19.Size = new System.Drawing.Size(36, 17);
+            this.rx19.Size = new System.Drawing.Size(39, 17);
             this.rx19.TabIndex = 42;
             this.rx19.TabStop = true;
-            this.rx19.Text = "NI";
+            this.rx19.Text = "NL";
             this.rx19.UseVisualStyleBackColor = true;
             // 
             // label81
@@ -2716,10 +2718,10 @@
             this.rx15.AutoSize = true;
             this.rx15.Location = new System.Drawing.Point(128, 7);
             this.rx15.Name = "rx15";
-            this.rx15.Size = new System.Drawing.Size(36, 17);
+            this.rx15.Size = new System.Drawing.Size(39, 17);
             this.rx15.TabIndex = 33;
             this.rx15.TabStop = true;
-            this.rx15.Text = "NI";
+            this.rx15.Text = "NL";
             this.rx15.UseVisualStyleBackColor = true;
             // 
             // label78
@@ -2758,10 +2760,10 @@
             this.rx11.AutoSize = true;
             this.rx11.Location = new System.Drawing.Point(128, 7);
             this.rx11.Name = "rx11";
-            this.rx11.Size = new System.Drawing.Size(36, 17);
+            this.rx11.Size = new System.Drawing.Size(39, 17);
             this.rx11.TabIndex = 27;
             this.rx11.TabStop = true;
-            this.rx11.Text = "NI";
+            this.rx11.Text = "NL";
             this.rx11.UseVisualStyleBackColor = true;
             // 
             // label76
@@ -3531,7 +3533,7 @@
             this.label110.Name = "label110";
             this.label110.Size = new System.Drawing.Size(91, 13);
             this.label110.TabIndex = 103;
-            this.label110.Text = "CONVULCIONES";
+            this.label110.Text = "CONVULSIONES";
             // 
             // txtObservacionesSN
             // 
@@ -3775,10 +3777,10 @@
             this.rx39.AutoSize = true;
             this.rx39.Location = new System.Drawing.Point(151, 8);
             this.rx39.Name = "rx39";
-            this.rx39.Size = new System.Drawing.Size(36, 17);
+            this.rx39.Size = new System.Drawing.Size(39, 17);
             this.rx39.TabIndex = 89;
             this.rx39.TabStop = true;
-            this.rx39.Text = "NI";
+            this.rx39.Text = "NL";
             this.rx39.UseVisualStyleBackColor = true;
             // 
             // txtObservacionesSR
@@ -4130,7 +4132,6 @@
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.TextBox txtTiroidesHeredo;
         private System.Windows.Forms.GroupBox groupBox16;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox groupBox20;
         private System.Windows.Forms.RadioButton r10;
         private System.Windows.Forms.RadioButton r9;

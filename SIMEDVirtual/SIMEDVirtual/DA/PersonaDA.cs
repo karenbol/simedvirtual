@@ -16,7 +16,7 @@ namespace SIMEDVirtual.DA
         public static Boolean InsertaCliente(
             string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, string edad, char sexo, string estado_civil, string grupo_sanguineo, string profesion,
-            int telefono_fijo, int movil, string correo, int empresa, byte[] fotoBinaria, bool medico)
+            int telefono_fijo, int movil, string correo, int empresa, byte[] fotoBinaria, bool medico,DateTime fecha_creacion)
         {
             int x = 0;
             string g = "";
@@ -29,9 +29,9 @@ namespace SIMEDVirtual.DA
                 {
                     command.CommandText =
                         "insert into persona(nombre,apellido1,apellido2,cedula,fecha_nacimiento,direccion,edad,sexo," +
-                    "estado_civil,grupo_sanguineo,profesion,telefono_fijo,telefono_movil,email,empresa,foto, medico) " +
+                    "estado_civil,grupo_sanguineo,profesion,telefono_fijo,telefono_movil,email,empresa,foto, medico,fecha_creacion) " +
                     "values (@nombre,@ape1,@ape2,@cedula,@fecha,@direccion,@edad,@sexo,@estado,@grupo,@profesion,@telefono,@movil,@email," +
-                    "@empresa,@foto,@medico)";
+                    "@empresa,@foto,@medico,@fecha_creacion)";
 
                     command.Parameters.AddWithValue("@nombre", nombre);
                     command.Parameters.AddWithValue("@ape1", apellido1);
@@ -51,6 +51,7 @@ namespace SIMEDVirtual.DA
                     command.Parameters.AddWithValue("@empresa", empresa);
                     command.Parameters.AddWithValue("@foto", fotoBinaria);
                     command.Parameters.AddWithValue("@medico", medico);
+                    command.Parameters.AddWithValue("@fecha_creacion", fecha_creacion);
 
                     x = command.ExecuteNonQuery();
                 }
@@ -151,13 +152,46 @@ namespace SIMEDVirtual.DA
             return list;
         }
 
+        //select cliente by id empresa
+        public static List<PersonaEntity> selectClienteByIdEmpresa(int id_empresa)
+        {
+            //creacion de lista tipo medico entity
+            List<PersonaEntity> list = new List<PersonaEntity>();
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                conn.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * from persona where CAST(empresa AS VARCHAR(100)) LIKE ('"+id_empresa+"%')", conn);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    PersonaEntity cliente = new PersonaEntity();
+
+                    cliente.nombre = Convert.ToString(dr["nombre"]);
+                    cliente.ape1 = Convert.ToString(dr["apellido1"]);
+                    cliente.ape2 = Convert.ToString(dr["apellido2"]);
+                    cliente.cedula = Convert.ToString(dr["cedula"]);
+                    cliente.fecha = Convert.ToDateTime(dr["fecha_nacimiento"]);
+                    cliente.direccion = Convert.ToString(dr["direccion"]);
+                    cliente.edad = Convert.ToString(dr["edad"]);
+                    cliente.sexo = Convert.ToChar(dr["sexo"]);
+                    cliente.estado_civil = Convert.ToString(dr["estado_civil"]);
+                    cliente.grupo_sanguineo = Convert.ToString(dr["grupo_sanguineo"]);
+                    cliente.profesion = Convert.ToString(dr["profesion"]);
+                    cliente.telefono_fijo = Convert.ToInt32(dr["telefono_fijo"]);
+                    cliente.telefono_movil = Convert.ToInt32(dr["telefono_movil"]);
+                    cliente.email = Convert.ToString(dr["email"]);
+                    cliente.empresa = Convert.ToInt32(dr["empresa"]);
+
+                    list.Add(cliente);
+                }
+                conn.Close();
+            }
+            return list;
+        }
 
 
-
-
-
-
-
+        
         //me trae todo del cliente segun la cedula
         public static List<PersonaEntity> selectClientePorCedula(string cedula)
         {
@@ -197,6 +231,47 @@ namespace SIMEDVirtual.DA
             }
             return list;
         }
+
+        //me trae todo del cliente segun la cedula
+        public static List<PersonaEntity> selectClientePorFecha(string fecha)
+        {
+            //creacion de lista tipo medico entity
+            List<PersonaEntity> list = new List<PersonaEntity>();
+
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                conn.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("select * from persona where fecha_creacion= @fecha and medico=false", conn);
+                cmd.Parameters.AddWithValue("@fecha", fecha);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    PersonaEntity cliente = new PersonaEntity();
+
+                    cliente.nombre = Convert.ToString(dr["nombre"]);
+                    cliente.ape1 = Convert.ToString(dr["apellido1"]);
+                    cliente.ape2 = Convert.ToString(dr["apellido2"]);
+                    cliente.cedula = Convert.ToString(dr["cedula"]);
+                    cliente.fecha = Convert.ToDateTime(dr["fecha_nacimiento"]);
+                    cliente.direccion = Convert.ToString(dr["direccion"]);
+                    cliente.edad = Convert.ToString(dr["edad"]);
+                    cliente.sexo = Convert.ToChar(dr["sexo"]);
+                    cliente.estado_civil = Convert.ToString(dr["estado_civil"]);
+                    cliente.grupo_sanguineo = Convert.ToString(dr["grupo_sanguineo"]);
+                    cliente.profesion = Convert.ToString(dr["profesion"]);
+                    cliente.telefono_fijo = Convert.ToInt32(dr["telefono_fijo"]);
+                    cliente.telefono_movil = Convert.ToInt32(dr["telefono_movil"]);
+                    cliente.email = Convert.ToString(dr["email"]);
+                    cliente.empresa = Convert.ToInt32(dr["empresa"]);
+
+                    list.Add(cliente);
+                }
+                conn.Close();
+            }
+            return list;
+        }
+
 
 
         public static Boolean UpdateCliente(string nombre, string apellido1, string apellido2, string cedula,
@@ -540,20 +615,6 @@ namespace SIMEDVirtual.DA
             }
             return list;
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         //metodo get all de medicos
         public static List<PersonaEntity> selectMedico2(string cedula)

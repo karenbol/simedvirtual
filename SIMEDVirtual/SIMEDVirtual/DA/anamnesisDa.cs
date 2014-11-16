@@ -17,7 +17,7 @@ namespace SIMEDVirtual.DA
             char vertigo, char depresion, char falta_aire, char ojos_oidos, char dolor_pecho, char enf_nerviosas,
             char alergias, string alergia_tratamiento, string diabetes_trat, string hipertension_trat, char asma,
             string asma_trat, char tiroides, string tiroides_trat, string hipertension_heredo, string diabetes_heredo,
-            string cancer_heredo, string tiroides_heredo, string asma_heredo, string otros_heredo, string observaciones)
+            string cancer_heredo, string tiroides_heredo, string asma_heredo, string otros_heredo, string observaciones, string id_medico, DateTime fecha_consulta)
         {
             int x = 0;
             string g = "";
@@ -32,11 +32,11 @@ namespace SIMEDVirtual.DA
                         "insert into anamnesis(cedula,tabaquismo,ingesta_med,alcoholismo,rehabilitacion,diabetes,hipertension," +
                     "dolor_cabeza,epilepsia,vertigo,depresion,falta_aire,enf_ojos_oidos,dolor_pecho,enf_nerviosas," +
                     "alergias,alergia_tratamiento,diabetes_trat,hipertension_trat,asma,asma_trat,tiroides,tiroides_trat," +
-                    "hipertension_heredo,diabetes_heredo,cancer_heredo,tiroides_heredo,asma_heredo,otros_heredo,observaciones) " +
+                    "hipertension_heredo,diabetes_heredo,cancer_heredo,tiroides_heredo,asma_heredo,otros_heredo,observaciones,id_medico,fecha) " +
                     "values (@cedula,@tabaquismo,@ingesta_med,@alcoholismo,@rehabilitacion,@diabetes,@hipertension,@dolor_cabeza," +
                     "@epilepsia,@vertigo,@depresion,@falta_aire,@ojos_oidos,@dolor_pecho,@enf_nerviosas," +
                     "@alergias,@alergia_tratamiento,@diabetes_trat,@hipertension_trat,@asma,@asma_trat,@tiroides,@tiroides_trat," +
-                    "@hipertension_heredo,@diabetes_heredo,@cancer_heredo,@tiroides_heredo,@asma_heredo,@otros_heredo,@observaciones)";
+                    "@hipertension_heredo,@diabetes_heredo,@cancer_heredo,@tiroides_heredo,@asma_heredo,@otros_heredo,@observaciones,@id_medico,@fecha)";
 
 
                     command.Parameters.AddWithValue("@cedula", cedula);
@@ -69,6 +69,8 @@ namespace SIMEDVirtual.DA
                     command.Parameters.AddWithValue("@asma_heredo", asma_heredo);
                     command.Parameters.AddWithValue("@otros_heredo", otros_heredo);
                     command.Parameters.AddWithValue("@observaciones", observaciones);
+                    command.Parameters.AddWithValue("@id_medico", id_medico);
+                    command.Parameters.AddWithValue("@fecha", fecha_consulta);
 
                     x = command.ExecuteNonQuery();
                 }

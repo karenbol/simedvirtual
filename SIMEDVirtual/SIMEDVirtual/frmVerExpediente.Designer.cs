@@ -29,16 +29,18 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVerExpediente));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgClientes = new System.Windows.Forms.DataGridView();
             this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ape1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ape2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.generarPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -48,14 +50,13 @@
             this.btnEditarPaciente = new System.Windows.Forms.Button();
             this.btnCrearPaciente = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnReconsulta = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbFecha = new System.Windows.Forms.RadioButton();
             this.rbApellido = new System.Windows.Forms.RadioButton();
             this.rbCedula = new System.Windows.Forms.RadioButton();
+            this.rbEmpresa = new System.Windows.Forms.RadioButton();
             this.rbNombre = new System.Windows.Forms.RadioButton();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.dgReconsultas = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cedula_paciente = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,14 +64,18 @@
             this.medico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.lblInfoPaciente = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.generarPDFToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnPdf = new System.Windows.Forms.Button();
+            this.btnReconsulta = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.dtFechaFiltro = new System.Windows.Forms.DateTimePicker();
+            this.cbEmpresa = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgReconsultas)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgClientes
@@ -81,14 +86,14 @@
             this.dgClientes.AllowUserToResizeRows = false;
             this.dgClientes.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgClientes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             resources.ApplyResources(this.dgClientes, "dgClientes");
             this.dgClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cedula,
@@ -96,14 +101,14 @@
             this.ape2,
             this.nombre});
             this.dgClientes.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgClientes.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgClientes.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgClientes.MultiSelect = false;
             this.dgClientes.Name = "dgClientes";
             this.dgClientes.ReadOnly = true;
@@ -135,6 +140,18 @@
             this.nombre.Name = "nombre";
             this.nombre.ReadOnly = true;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generarPDFToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+            // 
+            // generarPDFToolStripMenuItem
+            // 
+            this.generarPDFToolStripMenuItem.Name = "generarPDFToolStripMenuItem";
+            resources.ApplyResources(this.generarPDFToolStripMenuItem, "generarPDFToolStripMenuItem");
+                        // 
             // label1
             // 
             resources.ApplyResources(this.label1, "label1");
@@ -191,20 +208,6 @@
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
-            // btnReconsulta
-            // 
-            resources.ApplyResources(this.btnReconsulta, "btnReconsulta");
-            this.btnReconsulta.Image = global::SIMEDVirtual.Properties.Resources.reconsulta32;
-            this.btnReconsulta.Name = "btnReconsulta";
-            this.btnReconsulta.UseVisualStyleBackColor = true;
-            this.btnReconsulta.Click += new System.EventHandler(this.btnReconsulta_Click);
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label8.Name = "label8";
-            // 
             // txtBusqueda
             // 
             resources.ApplyResources(this.txtBusqueda, "txtBusqueda");
@@ -212,12 +215,24 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rbFecha);
             this.groupBox2.Controls.Add(this.rbApellido);
             this.groupBox2.Controls.Add(this.rbCedula);
+            this.groupBox2.Controls.Add(this.rbEmpresa);
             this.groupBox2.Controls.Add(this.rbNombre);
             resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
+            // 
+            // rbFecha
+            // 
+            resources.ApplyResources(this.rbFecha, "rbFecha");
+            this.rbFecha.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbFecha.Name = "rbFecha";
+            this.rbFecha.TabStop = true;
+            this.rbFecha.UseVisualStyleBackColor = true;
+            this.rbFecha.Click += new System.EventHandler(this.rbFecha_Click);
             // 
             // rbApellido
             // 
@@ -226,6 +241,7 @@
             this.rbApellido.Name = "rbApellido";
             this.rbApellido.TabStop = true;
             this.rbApellido.UseVisualStyleBackColor = true;
+            this.rbApellido.Click += new System.EventHandler(this.rbApellido_Click);
             // 
             // rbCedula
             // 
@@ -234,6 +250,16 @@
             this.rbCedula.Name = "rbCedula";
             this.rbCedula.TabStop = true;
             this.rbCedula.UseVisualStyleBackColor = true;
+            this.rbCedula.Click += new System.EventHandler(this.rbCedula_Click);
+            // 
+            // rbEmpresa
+            // 
+            resources.ApplyResources(this.rbEmpresa, "rbEmpresa");
+            this.rbEmpresa.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbEmpresa.Name = "rbEmpresa";
+            this.rbEmpresa.TabStop = true;
+            this.rbEmpresa.UseVisualStyleBackColor = true;
+            this.rbEmpresa.Click += new System.EventHandler(this.rbEmpresa_Click);
             // 
             // rbNombre
             // 
@@ -242,42 +268,35 @@
             this.rbNombre.Name = "rbNombre";
             this.rbNombre.TabStop = true;
             this.rbNombre.UseVisualStyleBackColor = true;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = global::SIMEDVirtual.Properties.Resources.search;
-            resources.ApplyResources(this.btnBuscar, "btnBuscar");
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.rbNombre.Click += new System.EventHandler(this.rbNombre_Click);
             // 
             // dgReconsultas
             // 
             this.dgReconsultas.AllowUserToAddRows = false;
             this.dgReconsultas.AllowUserToDeleteRows = false;
             this.dgReconsultas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgReconsultas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgReconsultas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgReconsultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgReconsultas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.cedula_paciente,
             this.fecha,
             this.medico});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgReconsultas.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgReconsultas.DefaultCellStyle = dataGridViewCellStyle10;
             resources.ApplyResources(this.dgReconsultas, "dgReconsultas");
             this.dgReconsultas.MultiSelect = false;
             this.dgReconsultas.Name = "dgReconsultas";
@@ -324,31 +343,59 @@
             this.lblInfoPaciente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblInfoPaciente.Name = "lblInfoPaciente";
             // 
-            // contextMenuStrip1
+            // btnPdf
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.generarPDFToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
+            resources.ApplyResources(this.btnPdf, "btnPdf");
+            this.btnPdf.Image = global::SIMEDVirtual.Properties.Resources.pdf;
+            this.btnPdf.Name = "btnPdf";
+            this.btnPdf.UseVisualStyleBackColor = true;
+            this.btnPdf.Click += new System.EventHandler(this.btnPdf_Click);
             // 
-            // generarPDFToolStripMenuItem
+            // btnReconsulta
             // 
-            this.generarPDFToolStripMenuItem.Name = "generarPDFToolStripMenuItem";
-            resources.ApplyResources(this.generarPDFToolStripMenuItem, "generarPDFToolStripMenuItem");
-            this.generarPDFToolStripMenuItem.Click += new System.EventHandler(this.generarPDFToolStripMenuItem_Click);
+            resources.ApplyResources(this.btnReconsulta, "btnReconsulta");
+            this.btnReconsulta.Image = global::SIMEDVirtual.Properties.Resources.reconsulta32;
+            this.btnReconsulta.Name = "btnReconsulta";
+            this.btnReconsulta.UseVisualStyleBackColor = true;
+            this.btnReconsulta.Click += new System.EventHandler(this.btnReconsulta_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::SIMEDVirtual.Properties.Resources.search;
+            resources.ApplyResources(this.btnBuscar, "btnBuscar");
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // dtFechaFiltro
+            // 
+            resources.ApplyResources(this.dtFechaFiltro, "dtFechaFiltro");
+            this.dtFechaFiltro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtFechaFiltro.Name = "dtFechaFiltro";
+            this.dtFechaFiltro.ValueChanged += new System.EventHandler(this.dtFechaFiltro_ValueChanged);
+            // 
+            // cbEmpresa
+            // 
+            this.cbEmpresa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.cbEmpresa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cbEmpresa, "cbEmpresa");
+            this.cbEmpresa.Name = "cbEmpresa";
+            this.cbEmpresa.SelectionChangeCommitted += new System.EventHandler(this.cbEmpresa_SelectionChangeCommitted);
             // 
             // frmVerExpediente
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.Controls.Add(this.cbEmpresa);
+            this.Controls.Add(this.dtFechaFiltro);
+            this.Controls.Add(this.btnPdf);
             this.Controls.Add(this.lblInfoPaciente);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnReconsulta);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtBusqueda);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label5);
@@ -360,13 +407,13 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmVerExpediente_FormClosing);
             this.Load += new System.EventHandler(this.frmVerExpediente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgReconsultas)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,7 +436,6 @@
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rbApellido;
@@ -405,5 +451,11 @@
         private System.Windows.Forms.Label lblInfoPaciente;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem generarPDFToolStripMenuItem;
+        private System.Windows.Forms.Button btnPdf;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        public System.Windows.Forms.RadioButton rbFecha;
+        private System.Windows.Forms.RadioButton rbEmpresa;
+        private System.Windows.Forms.DateTimePicker dtFechaFiltro;
+        private System.Windows.Forms.ComboBox cbEmpresa;
     }
 }

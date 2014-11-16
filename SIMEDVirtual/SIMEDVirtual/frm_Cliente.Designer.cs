@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageInfoPersonal = new System.Windows.Forms.TabPage();
             this.btnGuardar = new System.Windows.Forms.Button();
@@ -77,6 +78,8 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnEliminarFoto = new System.Windows.Forms.Button();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPageInfoPersonal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoCliente)).BeginInit();
@@ -95,6 +98,7 @@
             // 
             // tabPageInfoPersonal
             // 
+            this.tabPageInfoPersonal.Controls.Add(this.btnEliminarFoto);
             this.tabPageInfoPersonal.Controls.Add(this.btnGuardar);
             this.tabPageInfoPersonal.Controls.Add(this.pbFotoCliente);
             this.tabPageInfoPersonal.Controls.Add(this.txtEdad);
@@ -156,7 +160,7 @@
             this.btnGuardar.Location = new System.Drawing.Point(971, 406);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(74, 58);
-            this.btnGuardar.TabIndex = 86;
+            this.btnGuardar.TabIndex = 15;
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnGuardar.UseVisualStyleBackColor = false;
@@ -192,7 +196,7 @@
             this.txtDireccion.Name = "txtDireccion";
             this.txtDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDireccion.Size = new System.Drawing.Size(588, 71);
-            this.txtDireccion.TabIndex = 14;
+            this.txtDireccion.TabIndex = 7;
             // 
             // txtEmail
             // 
@@ -201,7 +205,7 @@
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(193, 20);
-            this.txtEmail.TabIndex = 13;
+            this.txtEmail.TabIndex = 14;
             // 
             // txtProfesion
             // 
@@ -210,7 +214,7 @@
             this.txtProfesion.Multiline = true;
             this.txtProfesion.Name = "txtProfesion";
             this.txtProfesion.Size = new System.Drawing.Size(193, 22);
-            this.txtProfesion.TabIndex = 10;
+            this.txtProfesion.TabIndex = 11;
             // 
             // txtCedula
             // 
@@ -276,7 +280,7 @@
             this.cbEmpresa.Location = new System.Drawing.Point(604, 141);
             this.cbEmpresa.Name = "cbEmpresa";
             this.cbEmpresa.Size = new System.Drawing.Size(193, 21);
-            this.cbEmpresa.TabIndex = 6;
+            this.cbEmpresa.TabIndex = 10;
             // 
             // label58
             // 
@@ -459,7 +463,7 @@
             this.txtMovil.Mask = "00000000";
             this.txtMovil.Name = "txtMovil";
             this.txtMovil.Size = new System.Drawing.Size(193, 20);
-            this.txtMovil.TabIndex = 12;
+            this.txtMovil.TabIndex = 13;
             // 
             // txtTelefono
             // 
@@ -467,7 +471,7 @@
             this.txtTelefono.Mask = "00000000";
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(193, 20);
-            this.txtTelefono.TabIndex = 11;
+            this.txtTelefono.TabIndex = 12;
             // 
             // label21
             // 
@@ -538,7 +542,7 @@
             this.cbSexo.Location = new System.Drawing.Point(209, 301);
             this.cbSexo.Name = "cbSexo";
             this.cbSexo.Size = new System.Drawing.Size(193, 21);
-            this.cbSexo.TabIndex = 7;
+            this.cbSexo.TabIndex = 6;
             // 
             // label14
             // 
@@ -619,6 +623,20 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // btnEliminarFoto
+            // 
+            this.btnEliminarFoto.AutoSize = true;
+            this.btnEliminarFoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarFoto.Image = global::SIMEDVirtual.Properties.Resources.deletePhoto;
+            this.btnEliminarFoto.Location = new System.Drawing.Point(970, 207);
+            this.btnEliminarFoto.Name = "btnEliminarFoto";
+            this.btnEliminarFoto.Size = new System.Drawing.Size(75, 58);
+            this.btnEliminarFoto.TabIndex = 87;
+            this.btnEliminarFoto.Text = "Eliminar";
+            this.btnEliminarFoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEliminarFoto.UseVisualStyleBackColor = true;
+            this.btnEliminarFoto.Click += new System.EventHandler(this.btnEliminarFoto_Click);
+            // 
             // frm_Cliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -693,6 +711,8 @@
         private System.Windows.Forms.PictureBox pbFotoCliente;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.Button btnEliminarFoto;
+        private System.Windows.Forms.ToolTip toolTip1;
 
     }
 }

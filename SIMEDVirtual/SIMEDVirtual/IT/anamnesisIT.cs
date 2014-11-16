@@ -14,13 +14,13 @@ namespace SIMEDVirtual.IT
             char vertigo, char depresion, char falta_aire, char ojos_oidos, char dolor_pecho, char enf_nerviosas,
             char alergias, string alergia_tratamiento, string diabetes_trat, string hipertension_trat, char asma,
             string asma_trat, char tiroides, string tiroides_trat, string hipertension_heredo, string diabetes_heredo,
-            string cancer_heredo, string tiroides_heredo, string asma_heredo, string otros_heredo, string observaciones)
+            string cancer_heredo, string tiroides_heredo, string asma_heredo, string otros_heredo, string observaciones, string id_medico, DateTime fecha_consulta)
         {
             return anamnesisDa.InsertaAnamnesis(cedula, tabaquismo, ingesta_medicamentos, alcoholismo, rehabilitacion,
                 diabetes, hipertension, dolor_cabeza, epilepsia, vertigo, depresion, falta_aire, ojos_oidos, dolor_pecho,
                 enf_nerviosas, alergias, alergia_tratamiento, diabetes_trat, hipertension_trat, asma, asma_trat, tiroides,
                 tiroides_trat, hipertension_heredo, diabetes_heredo, cancer_heredo, tiroides_heredo,
-                asma_heredo, otros_heredo, observaciones);
+                asma_heredo, otros_heredo, observaciones, id_medico,fecha_consulta);
         }
 
         //me trae la anamnesis dependiendo de la cedula del cliente

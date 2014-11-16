@@ -30,5 +30,6 @@ namespace SIMEDVirtual.Entity
         public string especialidad { get; set; }
         //true si es medico, false si es administrador
         public bool medico { get; set; }
+        public DateTime fecha_creacion { get; set; }
     }
 }

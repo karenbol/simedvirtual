@@ -28,7 +28,7 @@ namespace SIMEDVirtual.IT
             return Empresa.getAllEmpresas();
         }
 
-        public static List<EmpresaEntity> getEmpresaByID(String cedula)
+        public static EmpresaEntity getEmpresaByID(String cedula)
         {
             return Empresa.getEmpresaByID(cedula);
         }

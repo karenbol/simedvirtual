@@ -45,6 +45,8 @@ namespace SIMEDVirtual
             label2.Location = new Point(908, 97);
             lblInfoPaciente.Location = new Point(128, 143);
             btnReconsulta.Location = new Point(722, 94);
+
+            this.cargaComboEmpresas();
         }
 
         private void frmVerExpediente_Load(object sender, EventArgs e)
@@ -52,6 +54,8 @@ namespace SIMEDVirtual
             //llena la tabla con los clientes
             this.cargarDataGrid();
 
+            dtFechaFiltro.Visible = false;
+            cbEmpresa.Visible = false;
             toolTip1.InitialDelay = 1;
 
             toolTip1.SetToolTip(btnCrearPaciente, "Crea Nuevo Paciente");
@@ -61,9 +65,25 @@ namespace SIMEDVirtual
             if (UsuarioIT.TipoUsuario(Frm_Ingreso.cedulaUsuario) == "1")
             {
                 this.btnReconsulta.Enabled = false;
-                //MessageBox.Show("No eres medico para crear un expediente", "Acceso Denegado", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
+        //metodo que carga TODAS LAS EMPRESAS registradas EN EL COMBO BOX
+        public void cargaComboEmpresas()
+        {
+            List<EmpresaEntity> listaEmpresas = EmpresaIT.getAllEmpresas();
+
+            if (listaEmpresas.Count != 0)
+            {
+                //asigno los datos al combobox
+                cbEmpresa.DataSource = listaEmpresas;
+                cbEmpresa.SelectedIndex = 0;
+                //lo que quiero obtener
+                cbEmpresa.ValueMember = "cedula";
+                //lo q voy a mostrar
+                cbEmpresa.DisplayMember = "nombre";
+            }
+        }
+
 
         //cargamos los clientes
         private void cargarDataGrid()
@@ -252,60 +272,180 @@ namespace SIMEDVirtual
                 rbCedula.Checked = false;
                 rbNombre.Checked = false;
                 rbApellido.Checked = false;
+                rbEmpresa.Checked = false;
+                rbFecha.Checked = false;
+                txtBusqueda.Visible = false;
+                cbEmpresa.Visible = false;
+                dtFechaFiltro.Visible = false;
             }
         }
 
-        private void generarPDFToolStripMenuItem_Click(object sender, EventArgs e)
+        private void btnPdf_Click(object sender, EventArgs e)
         {
-            //aqui genero el pdf
-            Document document = new Document(PageSize.LETTER);
+            /* var cell = this.dgClientes.SelectedCells[0];
+             var row = this.dgClientes.Rows[cell.RowIndex];
+             string cedula = row.Cells[0].Value.ToString();
+             MessageBox.Show(cedula);
 
-            PdfWriter.GetInstance(document,
+             //saveFileDialog1.CheckFileExists = true;
+             saveFileDialog1.CheckPathExists = true;
+             saveFileDialog1.Filter = "Archivos pdf (*.pdf)|*.pdf";
+             saveFileDialog1.FileName = "prueba";
+             saveFileDialog1.InitialDirectory = @"C:\";
 
-                          new FileStream("karen.pdf",
+             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+             {
+                 saveFileDialog1.
+                
+                
+                 string ruta = saveFileDialog1.FileName;
 
-                                 FileMode.OpenOrCreate));
-            document.Open();
-            //iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(@"C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\logo.jpg");
-            //jpg.ScaleAbsolute(50, 50);
-            //jpg.Alignment = iTextSharp.text.Image.ALIGN_LEFT;
-            //jpg.ScaleToFit(100f, 100f);
-            //jpg.Alt = "Simed Logo";
-
-            
-            Paragraph paragraph = new Paragraph(@"EXPEDIENTE MEDICO");
-            paragraph.Alignment = Element.ALIGN_CENTER;
-                       iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(@"C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\logo.jpg");
-            jpg.ScaleToFit(100f, 100f);
-            jpg.Alignment = iTextSharp.text.Image.TEXTWRAP | iTextSharp.text.Image.ALIGN_LEFT;
-            //jpg.IndentationLeft = 9f;
-            //jpg.SpacingAfter = 9f;
-           
-            document.Add(jpg);
-            document.Add(paragraph);
+             }
+                         if (cedula != string.Empty)
+             {
+                 List<PersonaEntity> paciente = PersonaIT.selectClientePorCedula(cedula);
+                 List<ExpedienteEntity> paciente_expediente = ExpedienteIT.selectExpediente(cedula);
+                 string t = Convert.ToString(paciente_expediente[0].cedula_medico);
+                 //me retorna nombre, y apellidos del dr
+                 List<PersonaEntity> info_medico = UsuarioIT.getNombreApeDr(Convert.ToString(paciente_expediente[0].cedula_medico));
+                 string medico = info_medico[0].nombre + " " + info_medico[0].ape1 + " " + info_medico[0].ape2;
 
 
-            //document.Add(jpg);
-            document.Add(new Paragraph(" "));
-            document.Add(new Paragraph(" "));
-            document.Add(new Paragraph("________________________________________________________________________________"));
+                 try
+                 {
+                     Document document = new Document(PageSize.LETTER);
+                     PdfWriter.GetInstance(document, new FileStream("Expediente_" + paciente[0].nombre + "_" + paciente[0].ape1 + ".pdf", FileMode.OpenOrCreate));
+                     document.Open();
 
-            document.Add(new Paragraph("Este es mi primer PDF al vuelo"));
-            document.Add(new Paragraph("Este es mi seertgbdsfgdfhgundo PDF al vuelo"));
-            //document.NewPage();
+                     Paragraph paragraph = new Paragraph(@"EXPEDIENTE MEDICO");
+                     paragraph.IndentationLeft = 120;
+                     iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(@"C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\logo.jpg");
+                     jpg.ScaleToFit(100f, 100f);
+                     jpg.Alignment = iTextSharp.text.Image.TEXTWRAP | iTextSharp.text.Image.ALIGN_LEFT;
+                     document.Add(jpg);
+                     document.Add(paragraph);
+                     document.Add(new Paragraph(" "));
+                     document.Add(new Paragraph(" "));
+                     document.Add(new Paragraph("________________________________________________________________________________"));
+                     document.Add(new Paragraph(" "));
+                     document.Add(new Paragraph("MEDICO: " + medico + "        FECHA CONSULTA: " + paciente_expediente[0].fecha.ToShortDateString()));
+                     document.Add(new Paragraph(" "));
+                     Paragraph paragraph1 = new Paragraph("NOMBRE: " + paciente[0].nombre + "        PRIMER APELLIDO: " + paciente[0].ape1 + "      SEGUNDO APELLIDO: " + paciente[0].ape2);
+                     paragraph1.Alignment = Element.ALIGN_JUSTIFIED;
+                     document.Add(paragraph1);
+                     document.Add(new Paragraph(" "));
+                     Paragraph paragraph2 = new Paragraph("CEDULA: " + paciente[0].cedula + "        FECHA NACIMIENTO: " + paciente[0].fecha.ToShortDateString() +
+                        "      EDAD: " + paciente[0].edad + "     SEXO: " + paciente[0].sexo.ToString().ToUpper());
+                     paragraph2.Alignment = Element.ALIGN_JUSTIFIED;
+                     document.Add(paragraph2);
+                     document.Add(new Paragraph(" "));
 
-            Chunk chunk = new Chunk("Texto subrayado",
+                     document.Add(new Paragraph("ESTADO CIVIL: " + paciente[0].estado_civil + "        GRUPO SANGUINEO: " + paciente[0].grupo_sanguineo + "      PROFESION: " + paciente[0].profesion));
+                     document.Add(new Paragraph(" "));
+                     document.Add(new Paragraph("TELEFONO: " + paciente[0].telefono_fijo + "        MOVIL: " + paciente[0].telefono_movil + "      CORREO: " + paciente[0].email));
+                     document.Add(new Paragraph(" "));
+                     document.Add(new Paragraph("DIRECCION: " + paciente[0].direccion));
+                     document.Add(new Paragraph(" "));
+                     document.Add(new Paragraph("________________________________________________________________________________"));
+                     document.Add(new Paragraph(" "));
+                     document.Add(new Paragraph("MOTIVO CONSULTA: " + paciente_expediente[0].motivo_consulta.ToUpper()));
+                     document.Add(new Paragraph(" "));
+                     document.Add(new Paragraph("DIAGNOSTICO: " + paciente_expediente[0].diagnostico.ToUpper()));
+                     document.Add(new Paragraph(" "));
+                     document.Add(new Paragraph("TERAPEUTICA: " + paciente_expediente[0].terapeutica.ToUpper()));
+                     document.Add(new Paragraph(" "));
+                     document.Add(new Paragraph("OBSERVACIONES: " + paciente_expediente[0].observaciones_generales.ToUpper()));
 
-             FontFactory.GetFont("ARIAL",
+                     Chunk chunk = new Chunk("Texto subrayado",
 
-                         12,
+                     FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
 
-                     iTextSharp.text.Font.UNDERLINE));
+                     document.Add(new Paragraph(chunk));
+                     document.Close();
 
-            document.Add(new Paragraph(chunk));
-            document.Close();
+                     MessageBox.Show("Se ha creado el archivo");
+                 }
+                 catch (Exception)
+                 {
+                     MessageBox.Show("Error en la Creacion");
+                 }
+             }
+             else
+             {
+                 MessageBox.Show("SELECCION NO VALIDA");
+             }*/
+        }
 
-            MessageBox.Show("Se ha creado el archivo");
+        private void rbCedula_Click(object sender, EventArgs e)
+        {
+            this.ocultarComponentes();
+        }
+
+        private void rbApellido_Click(object sender, EventArgs e)
+        {
+            this.ocultarComponentes();
+        }
+
+        private void rbNombre_Click(object sender, EventArgs e)
+        {
+            this.ocultarComponentes();
+        }
+
+
+        private void rbEmpresa_Click(object sender, EventArgs e)
+        {
+            txtBusqueda.Visible = false;
+            dtFechaFiltro.Visible = false;
+            cbEmpresa.Visible = true;
+            cbEmpresa.Location = new Point(131, 114);
+        }
+
+        private void rbFecha_Click(object sender, EventArgs e)
+        {
+            txtBusqueda.Visible = false;
+            cbEmpresa.Visible = false;
+            dtFechaFiltro.Visible = true;
+            dtFechaFiltro.Location = new Point(131, 114);
+        }
+
+        //funciona en el caso de apellido, cedula, nombre y cedula medico
+        public void ocultarComponentes()
+        {
+            dtFechaFiltro.Visible = false;
+            cbEmpresa.Visible = false;
+            txtBusqueda.Visible = true;
+        }
+
+        private void cbEmpresa_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cbEmpresa.SelectedValue != null)
+            {
+                int cedula_empresa = Convert.ToInt32(cbEmpresa.SelectedValue);
+                List<PersonaEntity> personas = PersonaIT.selectClienteByIdEmpresa(cedula_empresa);
+                if (personas.Count != 0)
+                {
+                    this.cargarDataGrid(personas);
+                }
+                else
+                {
+                    this.cargarDataGrid();
+                    MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS");
+                }
+            }
+        }
+
+        private void dtFechaFiltro_ValueChanged(object sender, EventArgs e)
+        {
+            List<PersonaEntity> personas = PersonaIT.selectClientePorFecha(dtFechaFiltro.Text);
+            if (personas.Count != 0)
+            {
+                this.cargarDataGrid(personas);
+            }
+            else
+            {
+                this.cargarDataGrid();
+                MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS");
+            }
         }
     }
 }

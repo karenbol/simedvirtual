@@ -19,7 +19,7 @@ namespace SIMEDVirtual
     {
         public byte[] fotoBinaria;
         public static string rutaDefault = "C:\\SIMEDVirtual\\SIMEDVirtual\\SIMEDVirtual\\Properties\\camera.png";
-
+        //anamnesis
         char sexo = 'f';
         char tabaquismo = ' ';
         char ingesta = ' ';
@@ -38,7 +38,6 @@ namespace SIMEDVirtual
         char alergia = ' ';
         char asma = ' ';
         char tiroides = ' ';
-
         //************************ variables del expediente********************************************8
         string pulso = "";
         string presion_arterial = "";
@@ -85,16 +84,13 @@ namespace SIMEDVirtual
         string otros_sn = "";
         string observaciones_sn = "";
         string otros_examen2 = "";
-        DateTime fecha;
+        DateTime fecha_expediente;
         string diagnostico = "";
         string terapeutica = "";
         string observaciones_generales = "";
         string motivo_consulta = "";
         string saturacionOx = "";
         string temperatura = "";
-
-
-
         //parametro que me dice si guardo toda la info o solo la reconsulta
         public bool expOreconsulta;
         public string cedulaPublica = "";
@@ -372,8 +368,8 @@ namespace SIMEDVirtual
             otros_sn = txtOtrosSN.Text;
             observaciones_sn = txtObservacionesSN.Text;
             otros_examen2 = txtOtrosExamen2.Text;
-
-            fecha = Convert.ToDateTime(dtFechaConsulta.Text);
+            //fecha creacion de expediente
+            fecha_expediente = Convert.ToDateTime(dtFechaConsulta.Text);
             diagnostico = txtDiagnostico.Text;
             terapeutica = txtTerapeutica.Text;
             observaciones_generales = txtObs.Text;
@@ -479,10 +475,9 @@ namespace SIMEDVirtual
             string tiroides_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).tiroides_heredo);
             string asma_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).asma_heredo);
             string otros_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).otros_heredo);
-
             string observaciones = Convert.ToString(listaAnamnesis.ElementAt(0).observaciones);
 
-            // revision de combo boxes anamnesis
+            // revision de combobox anamnesis
             if (tabaquismo == 's')
             {
                 r1.Checked = true;
@@ -610,7 +605,6 @@ namespace SIMEDVirtual
                 r26.Checked = true;
             }
             txtAlergias.Text = alergia_trat;
-
 
             //diabetes
             if (diabetes == 's')
@@ -952,7 +946,6 @@ namespace SIMEDVirtual
             DateTime fecha = Convert.ToDateTime(listaExpediente.ElementAt(0).fecha);
 
             txtDiagnostico.Text = Convert.ToString(listaExpediente.ElementAt(0).diagnostico);
-
             txtTerapeutica.Text = Convert.ToString(listaExpediente.ElementAt(0).terapeutica);
             txtObs.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_generales);
             string cedula = Convert.ToString(listaExpediente.ElementAt(0).cedula);
@@ -985,7 +978,7 @@ namespace SIMEDVirtual
             txtAlergias.Visible = false;
 
             fecha_nacimiento.Format = DateTimePickerFormat.Custom;
-            fecha_nacimiento.CustomFormat = "yyyy/MM/dd";
+            //fecha_nacimiento.CustomFormat = "yyyy/MM/dd";
 
             //iniciamos los combos
             cbEstado.SelectedIndex = 0;
@@ -1027,6 +1020,7 @@ namespace SIMEDVirtual
             cargaComboEmpresas();
             if (empresa != -1)
             {
+                //me trae id de la empresa
                 cbEmpresa.SelectedValue = empresa;
             }
             //int x = cbEmpresa.Items.IndexOf(empresa);
@@ -1134,7 +1128,7 @@ namespace SIMEDVirtual
                         flexion, extensiones, rotacion, inclinacion_lateral, observaciones_cc, malformaciones, observaciones_dl,
                         observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
                         auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
-                        observaciones_sn, otros_examen2, fecha, diagnostico, terapeutica, observaciones_generales, cedulaPublica,
+                        observaciones_sn, otros_examen2, fecha_expediente, diagnostico, terapeutica, observaciones_generales, cedulaPublica,
                         Frm_Ingreso.cedulaUsuario, motivo_consulta, saturacionOx, temperatura))
                     {
                         MessageBox.Show("Consulta Insertada con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -1205,18 +1199,18 @@ namespace SIMEDVirtual
 
                         if (PersonaIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, cedula, fecha,
                         txtDireccion.Text, txtEdad.Text, sexo, estado, grupo, txtProfesion.Text, telefono, movil,
-                        txtEmail.Text, empresa, fotoBinaria, false) &&
+                        txtEmail.Text, empresa, fotoBinaria, false, fecha_expediente) &&
                             anamnesisIT.InsertaAnamnesis(cedula, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, hipertension, dolor_cabeza,
                         epilepsia, vertigo, depresion, falta_aire, oidos_ojos, dolor_pecho, enf_nerviosas, alergia, txtAlergias.Text, txtTratDiabetes.Text,
                         txtTratHipertension.Text, asma, txtTratAsma.Text, tiroides, txtTratTiroides.Text, txtHipertensionHeredo.Text, txtDiabetesHeredo.Text,
-                        txtCancerHeredo.Text, txtTiroidesHeredo.Text, txtAsmaHeredo.Text, txtOtrosHeredo.Text, txtObservaciones.Text) &&
+                        txtCancerHeredo.Text, txtTiroidesHeredo.Text, txtAsmaHeredo.Text, txtOtrosHeredo.Text, txtObservaciones.Text, Frm_Ingreso.cedulaUsuario, fecha_expediente) &&
                             (ExpedienteIT.InsertaExpediente(pulso, presion_arterial, soplos, dolor_precordial, edemas, arritmias, disnea,
                         observaciones_sc, talla, peso, observaciones_sm, brazo_derecho, brazo_izquierdo, pierna_derecha, pierna_izquierda,
                         bicipal_derecho, bicipal_izquierdo, patelar_derecho, patelar_izquierdo, alquileano_derecho, alquileano_izquierdo,
                         flexion, extensiones, rotacion, inclinacion_lateral, observaciones_cc, malformaciones, observaciones_dl,
                         observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
                         auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
-                        observaciones_sn, otros_examen2, fecha, diagnostico, terapeutica, observaciones_generales, cedula,
+                        observaciones_sn, otros_examen2, fecha_expediente, diagnostico, terapeutica, observaciones_generales, cedula,
                         Frm_Ingreso.cedulaUsuario, motivo_consulta, saturacionOx, temperatura)))
                         {
                             MessageBox.Show("Expediente Guardado con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
@@ -1529,6 +1523,15 @@ namespace SIMEDVirtual
         private void btnEliminarFoto_Click(object sender, EventArgs e)
         {
             pbPaciente.ImageLocation = rutaDefault;
+        }
+
+        private void fecha_nacimiento_ValueChanged(object sender, EventArgs e)
+        {
+            var now = float.Parse(DateTime.Now.ToString("yyyy.MMdd"));
+            var dob = float.Parse(fecha_nacimiento.Text.ToString());
+
+            var age = (int)(now - dob);
+            MessageBox.Show(age.ToString());
         }
     }
 }

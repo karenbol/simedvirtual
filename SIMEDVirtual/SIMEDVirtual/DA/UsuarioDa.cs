@@ -153,7 +153,7 @@ namespace SIMEDVirtual.DA
             {
                 conn.Open();
 
-                NpgsqlCommand cmd = new NpgsqlCommand("select nombre,apellido1 from persona where cedula=@cedula", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("select nombre,apellido1,apellido2 from persona where cedula=@cedula", conn);
                 cmd.Parameters.AddWithValue("@cedula", cedula);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 
@@ -162,6 +162,7 @@ namespace SIMEDVirtual.DA
                     PersonaEntity doctor = new PersonaEntity();
                     doctor.nombre = Convert.ToString(dr["nombre"]);
                     doctor.ape1 = Convert.ToString(dr["apellido1"]);
+                    doctor.ape2 = Convert.ToString(dr["apellido2"]);
                     persona.Add(doctor);
                 }
                 conn.Close();

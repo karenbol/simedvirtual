@@ -149,6 +149,9 @@ namespace SIMEDVirtual.DA
                     expediente.diagnostico = Convert.ToString(dr["diagnostico"]);
                     expediente.terapeutica = Convert.ToString(dr["terapeutica"]);
                     expediente.observaciones_generales = Convert.ToString(dr["observaciones_generales"]);
+                    expediente.motivo_consulta = Convert.ToString(dr["motivo_consulta"]);
+                    expediente.cedula_medico = Convert.ToString(dr["cedula_medico"]);
+                    expediente.fecha = Convert.ToDateTime(dr["fecha"]);
 
                     list.Add(expediente);
                 }

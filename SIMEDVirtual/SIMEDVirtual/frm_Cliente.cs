@@ -18,7 +18,7 @@ namespace SIMEDVirtual
         public int editar;
         public byte[] fotoBinaria;
         public int accionArealizar = 0;
-        
+
         public frm_Cliente()
         {
             InitializeComponent();
@@ -201,7 +201,7 @@ namespace SIMEDVirtual
                         //si se inserto bn en el cliente y la anamnesis y el expediente
                         if (PersonaIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, txtCedula.Text, fecha,
                         txtDireccion.Text, txtEdad.Text, sexo, estado, grupo, txtProfesion.Text, telefono, movil,
-                        txtEmail.Text, empresa, fotoBinaria, false))
+                        txtEmail.Text, empresa, fotoBinaria, false, DateTime.Now))
                         {
                             MessageBox.Show("Cliente Guardado con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Hide();
@@ -226,6 +226,12 @@ namespace SIMEDVirtual
 
         private void frm_Cliente_Load(object sender, EventArgs e)
         {
+            toolTip1.InitialDelay = 1;
+
+            toolTip1.SetToolTip(pbFotoCliente, "Click Para Seleccionar Foto");
+            toolTip1.SetToolTip(btnGuardar, "Guardar la Información del Cliente");
+
+            toolTip1.SetToolTip(btnEliminarFoto, "Elimina la Foto Seleccionada");
         }
 
         public void verificaFoto()
@@ -254,6 +260,11 @@ namespace SIMEDVirtual
                 Frm_Splash splash = new Frm_Splash();
                 splash.ShowDialog();
             }
+        }
+
+        private void btnEliminarFoto_Click(object sender, EventArgs e)
+        {
+            pbFotoCliente.ImageLocation = frm_ExpedienteMG.rutaDefault;
         }
     }
 }
