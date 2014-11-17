@@ -124,6 +124,122 @@ namespace SIMEDVirtual.DA
             }
         }
 
+
+        //editar el expediente
+        public static Boolean EditarExpediente(
+            string pulso, string presion_arterial, char soplos, char dolor_precordia, char edemas, char arritmias, char disnea,
+        string observaciones_sc, string talla, string peso, string observaciones_sm, string brazo_derecho, string brazo_izquierdo,
+        string pierna_derecha, string pierna_izquierda, char bicipal_derecho, char bicipal_izquierdo, char patelar_derecho,
+         char patelar_izquierdo, char alquileano_derecho, char alquileano_izquierdo, char flexion, char extensiones,
+         char rotacion, char inclinacion_lateral, string observaciones_cc, string malformaciones, char observaciones_dl,
+         string observaciones_dl_txt, char petequias, char equimosis, char sangrado, string observaciones_sh, string examen_neurologico,
+         string orl, string abdomen, char auscultacion, string observaciones_sr, char convulciones, char espasmos, char temblores,
+         char movimientos_anormales, string otros_sn, string observaciones_sn, string otros_examen2, DateTime fecha,
+         string diagnostico, string terapeutica, string observaciones_generales, string cedula, string cedula_medico,
+            string motivo_consulta, string saturacion_ox, string temperatura,int id)
+        {
+            int x = 0;
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                NpgsqlCommand command = new NpgsqlCommand();
+                command.Connection = conn;
+                conn.Open();
+                try
+                {
+                    command.CommandText =
+                        "update expediente set pulso=@pulso,presion_arterial=@presion_arterial,soplos=@soplos,dolor_precordial=@dolor_precordial,edemas=@edemas," +
+                        "arritmias=@arritmias,disnea=@disnea,observaciones_sc=@observaciones_sc,talla=@talla,peso=@peso,observaciones_sm=@observaciones_sm," +
+                        "brazo_derecho=@brazo_derecho,brazo_izquierdo=@brazo_izquierdo,pierna_derecha=@pierna_derecha,pierna_izquierda=@pierna_izquierda," +
+                        "bicipal_derecho=@bicipal_derecho,bicipal_izquierdo=@bicipal_izquierdo,patelar_derecho=@patelar_derecho,patelar_izquierdo=@patelar_izquierdo," +
+                        "alquileano_derecho=@alquileano_derecho,alquileano_izquierdo=@alquileano_izquierdo,flexion=@flexion,extensiones=@extensiones," +
+                        "rotacion=@rotacion,inclinacion_lateral=@inclinacion_lateral,observaciones_cc=@observaciones_cc,malformaciones=@malformaciones,"+
+                        "observaciones_dl=@observaciones_dl,observaciones_dl_txt=@observaciones_dl_txt,petequias=@petequias,equimosis=@equimosis,sangrado=@sangrado,"+
+                        "observaciones_sh=@observaciones_sh,examen_neurologico=@examen_neurologico,orl=@orl,abdomen=@abdomen,auscultacion=@auscultacion,"+
+                        "observaciones_sr=@observaciones_sr,convulciones=@convulciones,espasmos=@espasmos,temblores=@temblores,movimientos_anormales=@movimientos_anormales,"+
+                        "otros_sn=@otros_sn,observaciones_sn=@observaciones_sn,otros_examen2=@otros_examen2,fecha=@fecha,diagnostico=@diagnostico,"+
+                        "terapeutica=@terapeutica,observaciones_generales=@observaciones_generales,cedula_medico=@cedula_medico,motivo_consulta=@motivo_consulta,"+
+                        "saturacion_ox=@saturacion_ox,temperatura=@temperatura where cedula=@cedula and id=@id";
+
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters.AddWithValue("@pulso", pulso);
+                    command.Parameters.AddWithValue("@presion_arterial", presion_arterial);
+                    command.Parameters.AddWithValue("@soplos", soplos);
+                    command.Parameters.AddWithValue("@dolor_precordial", dolor_precordia);
+                    command.Parameters.AddWithValue("@edemas", edemas);
+                    command.Parameters.AddWithValue("@arritmias", arritmias);
+                    command.Parameters.AddWithValue("@disnea", disnea);
+                    command.Parameters.AddWithValue("@observaciones_sc", observaciones_sc);
+                    command.Parameters.AddWithValue("@talla", talla);
+                    command.Parameters.AddWithValue("@peso", peso);
+                    command.Parameters.AddWithValue("@observaciones_sm", observaciones_sm);
+                    command.Parameters.AddWithValue("@brazo_derecho", brazo_derecho);
+                    command.Parameters.AddWithValue("@brazo_izquierdo", brazo_izquierdo);
+                    command.Parameters.AddWithValue("@pierna_derecha", pierna_derecha);
+                    command.Parameters.AddWithValue("@pierna_izquierda", pierna_izquierda);
+                    command.Parameters.AddWithValue("@bicipal_derecho", bicipal_derecho);
+                    command.Parameters.AddWithValue("@bicipal_izquierdo", bicipal_izquierdo);
+                    command.Parameters.AddWithValue("@patelar_derecho", patelar_derecho);
+                    command.Parameters.AddWithValue("@patelar_izquierdo", patelar_izquierdo);
+                    command.Parameters.AddWithValue("@alquileano_derecho", alquileano_derecho);
+                    command.Parameters.AddWithValue("@alquileano_izquierdo", alquileano_izquierdo);
+                    command.Parameters.AddWithValue("@flexion", flexion);
+                    command.Parameters.AddWithValue("@extensiones", extensiones);
+                    command.Parameters.AddWithValue("@rotacion", rotacion);
+                    command.Parameters.AddWithValue("@inclinacion_lateral", inclinacion_lateral);
+                    command.Parameters.AddWithValue("@observaciones_cc", observaciones_cc);
+                    command.Parameters.AddWithValue("@malformaciones", malformaciones);
+                    command.Parameters.AddWithValue("@observaciones_dl", observaciones_dl);
+                    command.Parameters.AddWithValue("@observaciones_dl_txt", observaciones_dl_txt);
+                    command.Parameters.AddWithValue("@petequias", petequias);
+                    command.Parameters.AddWithValue("@equimosis", equimosis);
+                    command.Parameters.AddWithValue("@sangrado", sangrado);
+                    command.Parameters.AddWithValue("@observaciones_sh", observaciones_sh);
+                    command.Parameters.AddWithValue("@examen_neurologico", examen_neurologico);
+                    command.Parameters.AddWithValue("@orl", orl);
+                    command.Parameters.AddWithValue("@abdomen", abdomen);
+                    command.Parameters.AddWithValue("@auscultacion", auscultacion);
+                    command.Parameters.AddWithValue("@observaciones_sr", observaciones_sr);
+                    command.Parameters.AddWithValue("@convulciones", convulciones);
+                    command.Parameters.AddWithValue("@espasmos", espasmos);
+                    command.Parameters.AddWithValue("@temblores", temblores);
+                    command.Parameters.AddWithValue("@movimientos_anormales", movimientos_anormales);
+                    command.Parameters.AddWithValue("@otros_sn", otros_sn);
+                    command.Parameters.AddWithValue("@observaciones_sn", observaciones_sn);
+                    command.Parameters.AddWithValue("@otros_examen2", otros_examen2);
+
+                    command.Parameters.AddWithValue("@fecha", fecha);
+                    command.Parameters.AddWithValue("@diagnostico", diagnostico);
+                    command.Parameters.AddWithValue("@terapeutica", terapeutica);
+                    command.Parameters.AddWithValue("@observaciones_generales", observaciones_generales);
+                    command.Parameters.AddWithValue("@cedula", cedula);
+                    command.Parameters.AddWithValue("@cedula_medico", cedula_medico);
+
+                    command.Parameters.AddWithValue("@motivo_consulta", motivo_consulta);
+                    command.Parameters.AddWithValue("@saturacion_ox", saturacion_ox);
+                    command.Parameters.AddWithValue("@temperatura", temperatura);
+
+                    x = command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    return false;
+                }
+                conn.Close();
+
+                if (x != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+
+
+
         //metodo get de reconsultas segun la cedula del paciente
         public static List<ExpedienteEntity> selectExpediente(string cedula_cliente)
         {
@@ -250,7 +366,32 @@ namespace SIMEDVirtual.DA
             return list;
         }
 
-        
+
+        //me trae la cedula del medico segun el id y la cedula
+        public static String getCedulaMedicoByIdCedula(string cedula_cliente, int id)
+        {
+            String cedula_medico = "";
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                conn.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("select cedula_medico from expediente where cedula = @cedula and id=@id", conn);
+
+                cmd.Parameters.AddWithValue("@cedula", cedula_cliente);
+                cmd.Parameters.AddWithValue("@id", id);
+
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+
+                if (dr.Read())
+                {
+                    cedula_medico = Convert.ToString(dr["cedula_medico"]);
+                }
+                conn.Close();
+            }
+            return cedula_medico;
+        }
+
+
+
         //metodo get de expediete segun la cedula del paciente
         public static List<ExpedienteEntity> selectExpedienteAll(string cedula_cliente)
         {
@@ -328,7 +469,7 @@ namespace SIMEDVirtual.DA
                     expediente.observaciones_generales = Convert.ToString(dr["observaciones_generales"]);
                     expediente.cedula = Convert.ToString(dr["cedula"]);
                     expediente.cedula_medico = Convert.ToString(dr["cedula_medico"]);
-                    
+
                     expediente.motivo_consulta = Convert.ToString(dr["motivo_consulta"]);
                     expediente.saturacion_ox = Convert.ToString(dr["saturacion_ox"]);
                     expediente.temperatura = Convert.ToString(dr["temperatura"]);

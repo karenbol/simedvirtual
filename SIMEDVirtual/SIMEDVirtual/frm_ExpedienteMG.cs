@@ -93,6 +93,8 @@ namespace SIMEDVirtual
         string temperatura = "";
         //parametro que me dice si guardo toda la info o solo la reconsulta
         public bool expOreconsulta;
+        public bool editarExpediente;
+        public int id_pacient = 0;
         public string cedulaPublica = "";
         public string usuarioPublico = "";
 
@@ -896,7 +898,6 @@ namespace SIMEDVirtual
                 rx40.Checked = true;
             }
 
-
             txtObservacionesSR.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_sr);
 
             char convulciones = Convert.ToChar(listaExpediente.ElementAt(0).convulciones);
@@ -945,6 +946,8 @@ namespace SIMEDVirtual
 
             DateTime fecha = Convert.ToDateTime(listaExpediente.ElementAt(0).fecha);
 
+            dtFechaConsulta.Value = Convert.ToDateTime(listaExpediente.ElementAt(0).fecha);
+
             txtDiagnostico.Text = Convert.ToString(listaExpediente.ElementAt(0).diagnostico);
             txtTerapeutica.Text = Convert.ToString(listaExpediente.ElementAt(0).terapeutica);
             txtObs.Text = Convert.ToString(listaExpediente.ElementAt(0).observaciones_generales);
@@ -978,7 +981,6 @@ namespace SIMEDVirtual
             txtAlergias.Visible = false;
 
             fecha_nacimiento.Format = DateTimePickerFormat.Custom;
-            //fecha_nacimiento.CustomFormat = "yyyy/MM/dd";
 
             //iniciamos los combos
             cbEstado.SelectedIndex = 0;
@@ -989,7 +991,7 @@ namespace SIMEDVirtual
         }
 
         //prueba, false, true,0);
-        public frm_ExpedienteMG(string cedula_paciente, bool editar, bool verExpediente, int id_paciente)
+        public frm_ExpedienteMG(string cedula_paciente, bool editar, bool verExpediente, int id_paciente, int valor)
         {
             InitializeComponent();
 
@@ -1023,8 +1025,6 @@ namespace SIMEDVirtual
                 //me trae id de la empresa
                 cbEmpresa.SelectedValue = empresa;
             }
-            //int x = cbEmpresa.Items.IndexOf(empresa);
-            //cbEmpresa.SelectedIndex = x;
 
             //combo del sexo
             if (sexo == 'f')
@@ -1035,7 +1035,6 @@ namespace SIMEDVirtual
             {
                 cbSexo.SelectedIndex = 1;
             }
-
             //determina el estado civil y lo asigna
             determinaEstadoCivil(estado_Civil);
             //determina el tipo de sangre y lo asigna al combo
@@ -1049,8 +1048,11 @@ namespace SIMEDVirtual
             //me devuelve toda la anam
             this.determinaAnamnesis(cedula_paciente);
             pbPaciente.Image = PersonaIT.GetImagePacient(cedula_paciente);
-            //aqui no se puede editar nada xq voy a reconsultar
-            if (verExpediente)
+
+            //aqui no se puede editar nada xq voy a ver el expediente
+            //voy a editar todo el expediente
+            //reconsulta
+            if (verExpediente && editar == false && valor != 1)
             //dehabilito todo xq solo puedo ver
             {
                 determinaExpediente(cedula_paciente, id_paciente);
@@ -1063,17 +1065,24 @@ namespace SIMEDVirtual
                 ((Control)this.tabPageExFisicoII).Enabled = false;
                 ((Control)this.tabPageEpicrisis).Enabled = false;
 
+                txtCedula.Enabled = false;
             }
-            else if (editar == false)
+            else if (verExpediente == false && editar == false && valor != 1)
+            {
+                //variable que me indica que voy a editar el expediente
+                editarExpediente = true;
+                expOreconsulta = false;
+                id_pacient = id_paciente;
+                this.determinaExpediente(cedula_paciente, id_paciente);
+                //no se puede editar ni la info personal ni la anamnesis
+                ((Control)this.tabPageInfoPersonal).Enabled = false;
+                ((Control)this.tbPageAnamnesis).Enabled = false;
+            }
+            else if (editar == false && valor == 1)
             //dehabilito la anamnesis y la info personal, para realizar reconsulta
             {
                 ((Control)this.tbPageAnamnesis).Enabled = false;
                 ((Control)this.tabPageInfoPersonal).Enabled = false;
-            }
-
-            else
-            {
-                txtCedula.Enabled = false;
             }
         }
 
@@ -1146,8 +1155,39 @@ namespace SIMEDVirtual
                     MessageBox.Show("No se puede Insertar un Expediente con Campos Vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
+            //editar el expediente
+            else if (editarExpediente)
+            {
+                if (txtTerapeutica.Text != string.Empty || txtDiagnostico.Text != string.Empty || txtObs.Text != string.Empty)
+                {
+                    determinaExpediente();//metodo que da valor a parametros para el expediente
+                    //guardamos solo en el expediente
+                    if (ExpedienteIT.EditarExpediente(pulso, presion_arterial, soplos, dolor_precordial, edemas, arritmias, disnea,
+                        observaciones_sc, talla, peso, observaciones_sm, brazo_derecho, brazo_izquierdo, pierna_derecha, pierna_izquierda,
+                        bicipal_derecho, bicipal_izquierdo, patelar_derecho, patelar_izquierdo, alquileano_derecho, alquileano_izquierdo,
+                        flexion, extensiones, rotacion, inclinacion_lateral, observaciones_cc, malformaciones, observaciones_dl,
+                        observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
+                        auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
+                        observaciones_sn, otros_examen2, fecha_expediente, diagnostico, terapeutica, observaciones_generales, cedulaPublica,
+                        Frm_Ingreso.cedulaUsuario, motivo_consulta, saturacionOx, temperatura, id_pacient))
+                    {
+                        MessageBox.Show("Expediente Actualizado con Exito", "Actualizacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        this.Hide();
+                        frmVerExpediente splash = new frmVerExpediente();
+                        splash.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Problemas al Actualizar el Expediente", "Problemas al Editar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No se puede Editar un Expediente con Campos Vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+            }
             //creo que cliente, anamnesis y expediente
-            else
+            else if (expOreconsulta == false)
             {
                 //determinar la fecha de nacimiento
                 DateTime fecha = Convert.ToDateTime(fecha_nacimiento.Text);
@@ -1245,8 +1285,6 @@ namespace SIMEDVirtual
                 fotoBinaria = this.saveImage(rutaDefault);
             }
         }
-
-
 
         //determina cuales checks de la amamnesis estan seleccionados y asigna valor a la variable
         public void seleccionChecks()
@@ -1533,6 +1571,7 @@ namespace SIMEDVirtual
             txtEdad.Text = this.direfenciaFechas(fechaNac, DateTime.Now);
         }
 
+        //calcula edad (anios, meses,dias) basado en la fecha de nacimiento
         public string direfenciaFechas(DateTime New, DateTime old)
         {
             int anios = New.Year - old.Year;

@@ -40,9 +40,9 @@ namespace SIMEDVirtual
 
             groupBox1.Location = new Point(16, 174);
             dgClientes.Location = new Point(131, 164);
-            dgReconsultas.Location = new Point(859, 164);
-            label3.Location = new Point(856, 143);
-            label2.Location = new Point(908, 97);
+            dgReconsultas.Location = new Point(931, 164);
+            label3.Location = new Point(950, 140);
+            label2.Location = new Point(990, 97);
             lblInfoPaciente.Location = new Point(128, 143);
             btnReconsulta.Location = new Point(722, 94);
 
@@ -61,6 +61,7 @@ namespace SIMEDVirtual
             toolTip1.SetToolTip(btnCrearPaciente, "Crea Nuevo Paciente");
             toolTip1.SetToolTip(btnEditarPaciente, "Edita Informacion del Paciente");
             toolTip1.SetToolTip(btnReconsulta, "Crea una Reconsulta del Paciente");
+            toolTip1.SetToolTip(btnEditaExpediente, "Edita el Expediente");
 
             if (UsuarioIT.TipoUsuario(Frm_Ingreso.cedulaUsuario) == "1")
             {
@@ -167,7 +168,7 @@ namespace SIMEDVirtual
             if (prueba != "")
             {
                 this.Hide();
-                frm_ExpedienteMG frm = new frm_ExpedienteMG(prueba, false, false, 0);
+                frm_ExpedienteMG frm = new frm_ExpedienteMG(prueba, false, false, 0,1);
                 frm.ShowDialog();
             }
             else
@@ -187,12 +188,12 @@ namespace SIMEDVirtual
         //con el doble click en la tabla reconsulta muestro el expediente completo
         private void dgReconsultas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //obtngo el id de la row seleccionada
+            //obtengo el id de la row seleccionada
             string cedula_paciente = Convert.ToString(dgReconsultas.Rows[e.RowIndex].Cells[1].Value);
             int id_paciente = Convert.ToInt32(dgReconsultas.Rows[e.RowIndex].Cells[0].Value);
 
             this.Hide();
-            frm_ExpedienteMG frm = new frm_ExpedienteMG(cedula_paciente, false, true, id_paciente);
+            frm_ExpedienteMG frm = new frm_ExpedienteMG(cedula_paciente, false, true, id_paciente,0);
             frm.ShowDialog();
         }
 
@@ -446,6 +447,30 @@ namespace SIMEDVirtual
                 this.cargarDataGrid();
                 MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS");
             }
+        }
+
+        private void btnEditaExpediente_Click(object sender, EventArgs e)
+        {
+            //nos traemos el id del expediente
+            var cell = this.dgReconsultas.SelectedCells[0];
+            var row = this.dgReconsultas.Rows[cell.RowIndex];
+            int id = Convert.ToInt32(row.Cells[0].Value);
+            string cedula = row.Cells[1].Value.ToString();
+
+            string cedula_medico = ExpedienteDA.getCedulaMedicoByIdCedula(cedula, id);
+
+            if (cedula_medico == Frm_Ingreso.cedulaUsuario)
+            {
+                //MessageBox.Show("si lo puedes Editar");
+                this.Hide();
+                frm_ExpedienteMG splash = new frm_ExpedienteMG(cedula, false, false, id,0);
+                //string cedula_paciente, bool editar, bool verExpediente, int id_paciente
+                splash.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("NO ERES EL CREADOR DE ESTE EXPEDIENTE PARA PODER EDITARLO", "Seleccion Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
         }
     }
 }
