@@ -1691,6 +1691,7 @@
             // txtEdad
             // 
             this.txtEdad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEdad.Enabled = false;
             this.txtEdad.Location = new System.Drawing.Point(216, 309);
             this.txtEdad.Multiline = true;
             this.txtEdad.Name = "txtEdad";
