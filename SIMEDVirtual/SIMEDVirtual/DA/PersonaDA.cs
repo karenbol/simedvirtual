@@ -81,7 +81,7 @@ namespace SIMEDVirtual.DA
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("select * from persona where medico=false order by apellido1", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("select * from persona where medico=false and cedula!='1' order by apellido1", conn);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
@@ -241,7 +241,7 @@ namespace SIMEDVirtual.DA
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("select * from persona where fecha_creacion= @fecha and medico=false", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("select * from persona where fecha_creacion= @fecha and medico=false order by apellido1", conn);
                 cmd.Parameters.AddWithValue("@fecha", fecha);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 

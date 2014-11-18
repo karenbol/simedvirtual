@@ -5,6 +5,7 @@ using SIMEDVirtual.DA;
 using SIMEDVirtual.Entity;
 using SIMEDVirtual.IT;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -66,6 +67,7 @@ namespace SIMEDVirtual
             if (UsuarioIT.TipoUsuario(Frm_Ingreso.cedulaUsuario) == "1")
             {
                 this.btnReconsulta.Enabled = false;
+                this.btnEditaExpediente.Enabled = false;
             }
         }
         //metodo que carga TODAS LAS EMPRESAS registradas EN EL COMBO BOX
@@ -168,7 +170,7 @@ namespace SIMEDVirtual
             if (prueba != "")
             {
                 this.Hide();
-                frm_ExpedienteMG frm = new frm_ExpedienteMG(prueba, false, false, 0,1);
+                frm_ExpedienteMG frm = new frm_ExpedienteMG(prueba, false, false, 0, 1);
                 frm.ShowDialog();
             }
             else
@@ -193,7 +195,7 @@ namespace SIMEDVirtual
             int id_paciente = Convert.ToInt32(dgReconsultas.Rows[e.RowIndex].Cells[0].Value);
 
             this.Hide();
-            frm_ExpedienteMG frm = new frm_ExpedienteMG(cedula_paciente, false, true, id_paciente,0);
+            frm_ExpedienteMG frm = new frm_ExpedienteMG(cedula_paciente, false, true, id_paciente, 0);
             frm.ShowDialog();
         }
 
@@ -283,98 +285,364 @@ namespace SIMEDVirtual
 
         private void btnPdf_Click(object sender, EventArgs e)
         {
-            /* var cell = this.dgClientes.SelectedCells[0];
-             var row = this.dgClientes.Rows[cell.RowIndex];
-             string cedula = row.Cells[0].Value.ToString();
-             MessageBox.Show(cedula);
+            var cell = this.dgClientes.SelectedCells[0];
+            var row = this.dgClientes.Rows[cell.RowIndex];
+            string cedula = row.Cells[0].Value.ToString();
+            /*saveFileDialog1.CheckFileExists = true;
+           saveFileDialog1.CheckPathExists = true;
+           saveFileDialog1.Filter = "Archivos pdf (*.pdf)|*.pdf";
+           saveFileDialog1.FileName = "prueba";
+           saveFileDialog1.InitialDirectory = @"C:\";
 
-             //saveFileDialog1.CheckFileExists = true;
-             saveFileDialog1.CheckPathExists = true;
-             saveFileDialog1.Filter = "Archivos pdf (*.pdf)|*.pdf";
-             saveFileDialog1.FileName = "prueba";
-             saveFileDialog1.InitialDirectory = @"C:\";
-
-             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-             {
-                 saveFileDialog1.
+           if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+           {
+               saveFileDialog1.
                 
                 
-                 string ruta = saveFileDialog1.FileName;
+               string ruta = saveFileDialog1.FileName;
 
-             }
-                         if (cedula != string.Empty)
-             {
-                 List<PersonaEntity> paciente = PersonaIT.selectClientePorCedula(cedula);
-                 List<ExpedienteEntity> paciente_expediente = ExpedienteIT.selectExpediente(cedula);
-                 string t = Convert.ToString(paciente_expediente[0].cedula_medico);
-                 //me retorna nombre, y apellidos del dr
-                 List<PersonaEntity> info_medico = UsuarioIT.getNombreApeDr(Convert.ToString(paciente_expediente[0].cedula_medico));
-                 string medico = info_medico[0].nombre + " " + info_medico[0].ape1 + " " + info_medico[0].ape2;
+           }
+                       if (cedula != string.Empty)
+           {*/
+
+            List<PersonaEntity> paciente = PersonaIT.selectClientePorCedula(cedula);
+            List<ExpedienteEntity> paciente_expediente = ExpedienteIT.selectExpediente(cedula);
+            List<anamnesis> paciente_anamnesis = anamnesisIT.selectAnamnesisPorCedula(cedula);
+            string t = Convert.ToString(paciente_expediente[0].cedula_medico);
+            //me retorna nombre, y apellidos del dr
+            List<PersonaEntity> info_medico = UsuarioIT.getNombreApeDr(Convert.ToString(paciente_expediente[0].cedula_medico));
+            string medico = info_medico[0].nombre + " " + info_medico[0].ape1 + " " + info_medico[0].ape2;
 
 
-                 try
-                 {
-                     Document document = new Document(PageSize.LETTER);
-                     PdfWriter.GetInstance(document, new FileStream("Expediente_" + paciente[0].nombre + "_" + paciente[0].ape1 + ".pdf", FileMode.OpenOrCreate));
-                     document.Open();
+            try
+            {
+                Document document = new Document(PageSize.LETTER);
+                PdfWriter.GetInstance(document, new FileStream("Expediente_" + paciente[0].nombre + "_" + paciente[0].ape1 + ".pdf", FileMode.OpenOrCreate));
+                document.Open();
 
-                     Paragraph paragraph = new Paragraph(@"EXPEDIENTE MEDICO");
-                     paragraph.IndentationLeft = 120;
-                     iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(@"C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\logo.jpg");
-                     jpg.ScaleToFit(100f, 100f);
-                     jpg.Alignment = iTextSharp.text.Image.TEXTWRAP | iTextSharp.text.Image.ALIGN_LEFT;
-                     document.Add(jpg);
-                     document.Add(paragraph);
-                     document.Add(new Paragraph(" "));
-                     document.Add(new Paragraph(" "));
-                     document.Add(new Paragraph("________________________________________________________________________________"));
-                     document.Add(new Paragraph(" "));
-                     document.Add(new Paragraph("MEDICO: " + medico + "        FECHA CONSULTA: " + paciente_expediente[0].fecha.ToShortDateString()));
-                     document.Add(new Paragraph(" "));
-                     Paragraph paragraph1 = new Paragraph("NOMBRE: " + paciente[0].nombre + "        PRIMER APELLIDO: " + paciente[0].ape1 + "      SEGUNDO APELLIDO: " + paciente[0].ape2);
-                     paragraph1.Alignment = Element.ALIGN_JUSTIFIED;
-                     document.Add(paragraph1);
-                     document.Add(new Paragraph(" "));
-                     Paragraph paragraph2 = new Paragraph("CEDULA: " + paciente[0].cedula + "        FECHA NACIMIENTO: " + paciente[0].fecha.ToShortDateString() +
-                        "      EDAD: " + paciente[0].edad + "     SEXO: " + paciente[0].sexo.ToString().ToUpper());
-                     paragraph2.Alignment = Element.ALIGN_JUSTIFIED;
-                     document.Add(paragraph2);
-                     document.Add(new Paragraph(" "));
+                Paragraph paragraph = new Paragraph(@"EXPEDIENTE MÉDICO");
+                paragraph.IndentationLeft = 120;
+                iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(@"C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\logo.jpg");
+                jpg.ScaleToFit(100f, 100f);
+                jpg.Alignment = iTextSharp.text.Image.TEXTWRAP | iTextSharp.text.Image.ALIGN_LEFT;
+                document.Add(jpg);
+                document.Add(paragraph);
+                document.Add(new Paragraph(" "));
+                document.Add(new Paragraph(" "));
+                document.Add(new Paragraph("_________________________INFORMACION PERSONAL_______________________________"));
+                document.Add(new Paragraph(" "));
 
-                     document.Add(new Paragraph("ESTADO CIVIL: " + paciente[0].estado_civil + "        GRUPO SANGUINEO: " + paciente[0].grupo_sanguineo + "      PROFESION: " + paciente[0].profesion));
-                     document.Add(new Paragraph(" "));
-                     document.Add(new Paragraph("TELEFONO: " + paciente[0].telefono_fijo + "        MOVIL: " + paciente[0].telefono_movil + "      CORREO: " + paciente[0].email));
-                     document.Add(new Paragraph(" "));
-                     document.Add(new Paragraph("DIRECCION: " + paciente[0].direccion));
-                     document.Add(new Paragraph(" "));
-                     document.Add(new Paragraph("________________________________________________________________________________"));
-                     document.Add(new Paragraph(" "));
-                     document.Add(new Paragraph("MOTIVO CONSULTA: " + paciente_expediente[0].motivo_consulta.ToUpper()));
-                     document.Add(new Paragraph(" "));
-                     document.Add(new Paragraph("DIAGNOSTICO: " + paciente_expediente[0].diagnostico.ToUpper()));
-                     document.Add(new Paragraph(" "));
-                     document.Add(new Paragraph("TERAPEUTICA: " + paciente_expediente[0].terapeutica.ToUpper()));
-                     document.Add(new Paragraph(" "));
-                     document.Add(new Paragraph("OBSERVACIONES: " + paciente_expediente[0].observaciones_generales.ToUpper()));
+                Chunk chunk1 = new Chunk("MÉDICO: ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+                Chunk chunk2 = new Chunk(medico + "                             ");
 
-                     Chunk chunk = new Chunk("Texto subrayado",
+                Chunk chunk3 = new Chunk("FECHA CONSULTA: ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+                Chunk chunk4 = new Chunk(paciente_expediente[0].fecha.ToShortDateString());
 
-                     FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+                Phrase phr1 = new Phrase();
+                phr1.Add(chunk1);
+                phr1.Add(chunk2);
+                phr1.Add(chunk3);
+                phr1.Add(chunk4);
+                document.Add(phr1);
 
-                     document.Add(new Paragraph(chunk));
-                     document.Close();
+                document.Add(new Paragraph(" "));
 
-                     MessageBox.Show("Se ha creado el archivo");
-                 }
-                 catch (Exception)
-                 {
-                     MessageBox.Show("Error en la Creacion");
-                 }
-             }
-             else
-             {
-                 MessageBox.Show("SELECCION NO VALIDA");
-             }*/
+                Chunk chunk5 = new Chunk("NOMBRE: ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+                Chunk chunk6 = new Chunk(paciente[0].nombre + " " + paciente[0].ape1 + " " + paciente[0].ape2 + "                            ");
+                Chunk chunk7 = new Chunk("CÉDULA: ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+                Chunk chunk8 = new Chunk(paciente[0].cedula);
+                Phrase phr2 = new Phrase();
+                phr2.Add(chunk5);
+                phr2.Add(chunk6);
+                phr2.Add(chunk7);
+                phr2.Add(chunk8);
+                document.Add(phr2);
+                document.Add(new Paragraph(" "));
+
+                Chunk chunk9 = new Chunk("FECHA NACIMIENTO: ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+                Chunk chunk10 = new Chunk(paciente[0].fecha.ToShortDateString() + "                     ");
+                Chunk chunk11 = new Chunk("EDAD: ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+                Chunk chunk12 = new Chunk(paciente[0].edad + "              ");
+                Chunk chunk13 = new Chunk(" SEXO: ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+                Chunk chunk14 = new Chunk(paciente[0].sexo.ToString().ToUpper() + "");
+
+                Phrase phr3 = new Phrase();
+                phr3.Add(chunk9);
+                phr3.Add(chunk10);
+                phr3.Add(chunk11);
+                phr3.Add(chunk12);
+                phr3.Add(chunk13);
+                phr3.Add(chunk14);
+                document.Add(phr3);
+                document.Add(new Paragraph(" "));
+
+                Chunk chunk15 = new Chunk("ESTADO CIVIL: ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+                Chunk chunk16 = new Chunk(paciente[0].estado_civil + "                     ");
+                Chunk chunk17 = new Chunk("PROFESIÓN: ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+                Chunk chunk18 = new Chunk(paciente[0].profesion + "                     ");
+                Phrase phr4 = new Phrase();
+                phr4.Add(chunk15);
+                phr4.Add(chunk16);
+                phr4.Add(chunk17);
+                phr4.Add(chunk18);
+                document.Add(phr4);
+                document.Add(new Paragraph(" "));
+
+
+                Chunk chunk19 = new Chunk("TELÉFONO: ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+                Chunk chunk20 = new Chunk(paciente[0].telefono_fijo + "                     ");
+                Chunk chunk21 = new Chunk("MÓVIL: ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+                Chunk chunk22 = new Chunk(paciente[0].telefono_movil + "                     ");
+                Chunk chunk23 = new Chunk("CORREO: ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+                Chunk chunk24 = new Chunk(paciente[0].email);
+                Phrase phr5 = new Phrase();
+                phr5.Add(chunk19);
+                phr5.Add(chunk20);
+                phr5.Add(chunk21);
+                phr5.Add(chunk22);
+                phr5.Add(chunk23);
+                phr5.Add(chunk24);
+                document.Add(phr5);
+                document.Add(new Paragraph(" "));
+
+                Chunk chunk25 = new Chunk("DIRECCIÓN: ", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+                Chunk chunk26 = new Chunk(paciente[0].direccion);
+                Phrase phr6 = new Phrase();
+                phr6.Add(chunk25);
+                phr6.Add(chunk26);
+                document.Add(phr6);
+                document.Add(new Paragraph("________________________________________________________________________________"));
+                document.Add(new Paragraph(" "));
+
+                ArrayList info = new ArrayList();
+
+                //tabaquismo
+                if (paciente_anamnesis[0].tabaquismo == '\0' || paciente_anamnesis[0].tabaquismo == 'n')
+                {
+                    info.Add("TABAQUISMO: NO ");
+                    //document.Add(new Paragraph());
+                }
+                else
+                {
+                    info.Add("TABAQUISMO: SI ");
+                    //document.Add(new Paragraph("TABAQUISMO: SI "));
+                }
+
+                //----------------------------------------------ANAMNESIS----------------------------------------------------------------
+                //INGESTA MEDICAMENTOS
+                if (paciente_anamnesis[0].ingesta_medicamentos == '\0' || paciente_anamnesis[0].ingesta_medicamentos == 'n')
+                {
+                    info.Add("INGESTA MEDICAMENTOS: NO ");
+                    //document.Add(new Paragraph("INGESTA MEDICAMENTOS: NO "));
+                }
+                else
+                {
+                    info.Add("INGESTA MEDICAMENTOS: SI ");
+                    //document.Add(new Paragraph("INGESTA MEDICAMENTOS: SI "));
+                }
+
+                //ALCOHOLISMO ACTUAL O PREVIO
+                if (paciente_anamnesis[0].alcoholismo == '\0' || paciente_anamnesis[0].alcoholismo == 'n')
+                {
+                    info.Add("ALCOHOLISMO: NO ");
+                    // document.Add(new Paragraph("ALCOHOLISMO: NO "));
+                }
+                else
+                {
+                    info.Add("ALCOHOLISMO: SI ");
+                    //document.Add(new Paragraph("ALCOHOLISMO: SI "));
+                }
+                //rehabilitacion fisica o mental
+                if (paciente_anamnesis[0].rehabilitacion == '\0' || paciente_anamnesis[0].rehabilitacion == 'n')
+                {
+                    info.Add("REHABILITACION: NO ");
+                    //document.Add(new Paragraph("REHABILITACION: NO "));
+                }
+                else
+                {
+                    info.Add("REHABILITACION: SI ");
+                    // document.Add(new Paragraph("REHABILITACION: SI "));
+                }
+                //alergia a medicamentos
+                if (paciente_anamnesis[0].alergias == 's')
+                {
+                    info.Add("ALERGICO A MEDICAMENTOS: " + paciente_anamnesis[0].alergias_tratamiento);
+                    //document.Add(new Paragraph("ALERGICO A MEDICAMENTOS: " + paciente_anamnesis[0].alergias_tratamiento));
+                }
+
+                PdfPTable table = new PdfPTable(2);
+                PdfPCell celda = new PdfPCell(new Phrase("ANTECEDENTES PATOLOGICOS Y NO PATOLOGICOS"));
+                celda.Colspan = 2;
+                celda.HorizontalAlignment = 0; //0=Left, 1=Centre, 2=Right
+                table.AddCell(celda);
+                table.AddCell(info[0].ToString());
+                table.AddCell(info[1].ToString());
+                table.AddCell(info[2].ToString());
+                table.AddCell(info[3].ToString());
+                document.Add(table);
+                document.Add(new Paragraph(" "));
+
+
+
+                ArrayList info2 = new ArrayList();
+                ///////////////////////////////////////////////////////////////////////////////////////////////
+                //diabetes
+
+                if (paciente_anamnesis[0].diabetes == '\0' || paciente_anamnesis[0].diabetes == 'n')
+                {
+                    info2.Add("DIABETES: NO ");
+                    //document.Add(new Paragraph("DIABETES: NO "));
+                }
+                else
+                {
+                    info2.Add("DIABETES: SI   TRATAMIENTO: " + paciente_anamnesis[0].diabetes_trat);
+                    //document.Add(new Paragraph("DIABETES: SI   TRATAMIENTO: " + paciente_anamnesis[0].diabetes_trat));
+                }
+
+                //hipertension
+                if (paciente_anamnesis[0].hipertension == '\0' || paciente_anamnesis[0].hipertension == 'n')
+                {
+                    info2.Add("HIPERTENSION: NO ");
+                    // document.Add(new Paragraph("HIPERTENSION: NO "));
+                }
+                else
+                {
+                    info2.Add("HIPERTENSION: SI   TRATAMIENTO: " + paciente_anamnesis[0].hipertension_trat);
+                    //document.Add(new Paragraph("HIPERTENSION: SI   TRATAMIENTO: " + paciente_anamnesis[0].hipertension_trat));
+                }
+
+                //asma
+                if (paciente_anamnesis[0].asma == '\0' || paciente_anamnesis[0].asma == 'n')
+                {
+                    info2.Add("ASMA: NO ");
+                    //document.Add(new Paragraph("ASMA: NO "));
+                }
+                else
+                {
+                    info2.Add("ASMA: SI   TRATAMIENTO: " + paciente_anamnesis[0].alergias_tratamiento);
+                    //document.Add(new Paragraph("ASMA: SI   TRATAMIENTO: " + paciente_anamnesis[0].alergias_tratamiento));
+                }
+                //tiroides
+                if (paciente_anamnesis[0].tiroides == '\0' || paciente_anamnesis[0].tiroides == 'n')
+                {
+                    info2.Add("TIROIDES: NO ");
+                    //document.Add(new Paragraph("TIROIDES: NO "));
+                }
+                else
+                {
+                    info2.Add("TIROIDES: SI   TRATAMIENTO: " + paciente_anamnesis[0].tiroides_tratamiento);
+                    //document.Add(new Paragraph("TIROIDES: SI   TRATAMIENTO: " + paciente_anamnesis[0].tiroides_tratamiento));
+                }
+                //antecedentes heredo familiares
+                if (paciente_anamnesis[0].hipertension_heredo == "")
+                {
+                    info2.Add("HIPERTENSION: NO ");
+                    //document.Add(new Paragraph("HIPERTENSION: NO "));
+                }
+                else
+                {
+                    info2.Add("HIPERTENSION: " + paciente_anamnesis[0].hipertension_heredo);
+                    //document.Add(new Paragraph("HIPERTENSION: " + paciente_anamnesis[0].hipertension_heredo));
+                }
+                //diabetes
+                if (paciente_anamnesis[0].diabetes_heredo == "")
+                {
+                    info2.Add("DIABETES: NO ");
+                    //document.Add(new Paragraph("DIABETES: NO "));
+                }
+                else
+                {
+                    info2.Add("DIABETES: " + paciente_anamnesis[0].diabetes_heredo);
+                    //document.Add(new Paragraph("DIABETES: " + paciente_anamnesis[0].diabetes_heredo));
+                }
+                //cancer
+                if (paciente_anamnesis[0].cancer_heredo == "")
+                {
+                    info2.Add("CANCER: NO ");
+                    //document.Add(new Paragraph("CANCER: NO "));
+                }
+                else
+                {
+                    info2.Add("CANCER: " + paciente_anamnesis[0].cancer_heredo);
+                    // document.Add(new Paragraph("CANCER: " + paciente_anamnesis[0].cancer_heredo));
+                }
+                //tiroides
+                if (paciente_anamnesis[0].tiroides_heredo == "")
+                {
+                    info2.Add("TIROIDES: NO ");
+                    // document.Add(new Paragraph("TIROIDES: NO "));
+                }
+                else
+                {
+                    info2.Add("TIROIDES: " + paciente_anamnesis[0].tiroides_heredo);
+                    //document.Add(new Paragraph("TIROIDES: " + paciente_anamnesis[0].tiroides_heredo));
+                }
+                //ASMA
+                if (paciente_anamnesis[0].asma_heredo == "")
+                {
+                    info2.Add("ASMA: NO ");
+                    // document.Add(new Paragraph("ASMA: NO "));
+                }
+                else
+                {
+                    info2.Add("ASMA: " + paciente_anamnesis[0].asma_heredo);
+                    // document.Add(new Paragraph("ASMA: " + paciente_anamnesis[0].asma_heredo));
+                }
+                //OTROS
+                if (paciente_anamnesis[0].otros_heredo == "")
+                {
+                    info2.Add("OTROS: NO ");
+                    //document.Add(new Paragraph("OTROS: NO "));
+                }
+                else
+                {
+                    info2.Add("OTROS: " + paciente_anamnesis[0].otros_heredo);
+                    //document.Add(new Paragraph("OTROS: " + paciente_anamnesis[0].otros_heredo));
+                }
+                //OBSERVACIONES
+                if (paciente_anamnesis[0].observaciones != "")
+                {
+                    info2.Add("OBSERVACIONES: " + paciente_anamnesis[0].observaciones);
+                    //document.Add(new Paragraph("OBSERVACIONES: " + paciente_anamnesis[0].observaciones));
+                }
+
+
+                PdfPTable table2 = new PdfPTable(2);
+                PdfPCell celda2 = new PdfPCell(new Phrase(""));
+                celda2.Colspan = 2;
+                celda2.HorizontalAlignment = 0; //0=Left, 1=Centre, 2=Right
+                table2.AddCell(celda2);
+
+                for (int i = 0; i < info2.Count; i++)
+                {
+                    table2.AddCell(info2[i].ToString());
+                }
+
+                document.Add(table2);
+
+                document.Add(new Paragraph("MOTIVO CONSULTA: " + paciente_expediente[0].motivo_consulta.ToUpper()));
+                document.Add(new Paragraph(" "));
+                document.Add(new Paragraph("DIAGNÓSTICO: " + paciente_expediente[0].diagnostico.ToUpper()));
+                document.Add(new Paragraph(" "));
+                document.Add(new Paragraph("TERAPEUTICA: " + paciente_expediente[0].terapeutica.ToUpper()));
+                document.Add(new Paragraph(" "));
+                document.Add(new Paragraph("OBSERVACIONES: " + paciente_expediente[0].observaciones_generales.ToUpper()));
+
+                Chunk chunk = new Chunk("Texto subrayado", FontFactory.GetFont("ARIAL", 12, iTextSharp.text.Font.UNDERLINE));
+
+                document.Close();
+
+                MessageBox.Show("Se ha creado el archivo");
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Error en la Creacion");
+            }
+            /*}
+            else
+            {
+                MessageBox.Show("SELECCION NO VALIDA");
+            }*/
         }
 
         private void rbCedula_Click(object sender, EventArgs e)
@@ -463,14 +731,14 @@ namespace SIMEDVirtual
             {
                 //MessageBox.Show("si lo puedes Editar");
                 this.Hide();
-                frm_ExpedienteMG splash = new frm_ExpedienteMG(cedula, false, false, id,0);
+                frm_ExpedienteMG splash = new frm_ExpedienteMG(cedula, false, false, id, 0);
                 //string cedula_paciente, bool editar, bool verExpediente, int id_paciente
                 splash.ShowDialog();
             }
             else
             {
                 MessageBox.Show("NO ERES EL CREADOR DE ESTE EXPEDIENTE PARA PODER EDITARLO", "Seleccion Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
+            }
         }
     }
 }
