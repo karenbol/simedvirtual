@@ -110,7 +110,7 @@ namespace SIMEDVirtual.DA
             }
             return list;
         }
-
+              
 
 
         //select cliente by busqueda

@@ -206,6 +206,7 @@
             this.panel1.BackColor = System.Drawing.SystemColors.GrayText;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnPdf);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
@@ -399,7 +400,6 @@
             this.Controls.Add(this.cbEmpresa);
             this.Controls.Add(this.dtFechaFiltro);
             this.Controls.Add(this.btnEditaExpediente);
-            this.Controls.Add(this.btnPdf);
             this.Controls.Add(this.lblInfoPaciente);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnReconsulta);
