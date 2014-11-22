@@ -50,6 +50,7 @@
             this.btnEditarPaciente = new System.Windows.Forms.Button();
             this.btnCrearPaciente = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnPdf = new System.Windows.Forms.Button();
             this.cbEmpresa = new System.Windows.Forms.ComboBox();
             this.dtFechaFiltro = new System.Windows.Forms.DateTimePicker();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
@@ -66,7 +67,6 @@
             this.medico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.lblInfoPaciente = new System.Windows.Forms.Label();
-            this.btnPdf = new System.Windows.Forms.Button();
             this.btnReconsulta = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
@@ -210,6 +210,14 @@
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
+            // btnPdf
+            // 
+            resources.ApplyResources(this.btnPdf, "btnPdf");
+            this.btnPdf.Image = global::SIMEDVirtual.Properties.Resources.pdf;
+            this.btnPdf.Name = "btnPdf";
+            this.btnPdf.UseVisualStyleBackColor = true;
+            this.btnPdf.Click += new System.EventHandler(this.btnPdf_Click);
+            // 
             // cbEmpresa
             // 
             this.cbEmpresa.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
@@ -249,6 +257,7 @@
             this.rbFecha.Name = "rbFecha";
             this.rbFecha.TabStop = true;
             this.rbFecha.UseVisualStyleBackColor = true;
+            this.rbFecha.CheckedChanged += new System.EventHandler(this.rbFecha_CheckedChanged);
             this.rbFecha.Click += new System.EventHandler(this.rbFecha_Click);
             // 
             // rbApellido
@@ -359,14 +368,6 @@
             resources.ApplyResources(this.lblInfoPaciente, "lblInfoPaciente");
             this.lblInfoPaciente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblInfoPaciente.Name = "lblInfoPaciente";
-            // 
-            // btnPdf
-            // 
-            resources.ApplyResources(this.btnPdf, "btnPdf");
-            this.btnPdf.Image = global::SIMEDVirtual.Properties.Resources.pdf;
-            this.btnPdf.Name = "btnPdf";
-            this.btnPdf.UseVisualStyleBackColor = true;
-            this.btnPdf.Click += new System.EventHandler(this.btnPdf_Click);
             // 
             // btnReconsulta
             // 
