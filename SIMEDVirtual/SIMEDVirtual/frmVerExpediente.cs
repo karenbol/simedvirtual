@@ -311,7 +311,7 @@ namespace SIMEDVirtual
                     string usuario = Environment.UserName;
                     //MessageBox.Show(usuario);
 
-                    PdfWriter.GetInstance(document, new FileStream(Path.Combine("C:\\Users\\"+usuario+"\\Desktop", "Expediente_" + paciente[0].nombre + "_" + paciente[0].ape1 + ".pdf"), FileMode.OpenOrCreate));
+                    PdfWriter.GetInstance(document, new FileStream(Path.Combine("C:\\Users\\" + usuario + "\\Desktop", "Expediente_" + paciente[0].nombre + "_" + paciente[0].ape1 + ".pdf"), FileMode.OpenOrCreate));
                     document.Open();
 
                     // iTextSharp.text.Font contentFont = iTextSharp.text.
@@ -397,47 +397,39 @@ namespace SIMEDVirtual
                     if ((paciente_anamnesis[0].tabaquismo != ' ' && paciente_anamnesis[0].tabaquismo == 'n') || paciente_anamnesis[0].tabaquismo == ' ')
                     {
                         info_antecedentes.Add("TABAQUISMO: NO ");
-                        //document.Add(new Paragraph());
                     }
                     else
                     {
                         info_antecedentes.Add("TABAQUISMO: SI ");
-                        //document.Add(new Paragraph("TABAQUISMO: SI "));
                     }
 
                     //INGESTA MEDICAMENTOS
                     if ((paciente_anamnesis[0].ingesta_medicamentos != ' ' && paciente_anamnesis[0].ingesta_medicamentos == 'n') || paciente_anamnesis[0].ingesta_medicamentos == ' ')
                     {
                         info_antecedentes.Add("INGESTA MEDICAMENTOS: NO ");
-                        //document.Add(new Paragraph("INGESTA MEDICAMENTOS: NO "));
                     }
                     else
                     {
                         info_antecedentes.Add("INGESTA MEDICAMENTOS: SI ");
-                        //document.Add(new Paragraph("INGESTA MEDICAMENTOS: SI "));
                     }
 
                     //ALCOHOLISMO ACTUAL O PREVIO
                     if ((paciente_anamnesis[0].alcoholismo != ' ' && paciente_anamnesis[0].alcoholismo == 'n') || paciente_anamnesis[0].alcoholismo == ' ')
                     {
                         info_antecedentes.Add("ALCOHOLISMO: NO ");
-                        // document.Add(new Paragraph("ALCOHOLISMO: NO "));
                     }
                     else
                     {
                         info_antecedentes.Add("ALCOHOLISMO: SI ");
-                        //document.Add(new Paragraph("ALCOHOLISMO: SI "));
                     }
                     //rehabilitacion fisica o mental
-                    if ((paciente_anamnesis[0].rehabilitacion != ' ' && paciente_anamnesis[0].rehabilitacion == 'n')|| paciente_anamnesis[0].rehabilitacion == ' ')
+                    if ((paciente_anamnesis[0].rehabilitacion != ' ' && paciente_anamnesis[0].rehabilitacion == 'n') || paciente_anamnesis[0].rehabilitacion == ' ')
                     {
                         info_antecedentes.Add("REHABILITACIÓN: NO ");
-                        //document.Add(new Paragraph("REHABILITACION: NO "));
                     }
                     else
                     {
                         info_antecedentes.Add("REHABILITACIÓN: SI ");
-                        // document.Add(new Paragraph("REHABILITACION: SI "));
                     }
 
                     PdfPTable tabla_antecedentes = new PdfPTable(2);
@@ -467,59 +459,48 @@ namespace SIMEDVirtual
                         tabla_antecedentes.AddCell(celda3);
                     }
                     document.Add(tabla_antecedentes);
-                    //document.Add(new Paragraph(" "));
-
                     //-----------------------------------------padece o ha padecido de----------------------------
                     ArrayList info_padecimiento = new ArrayList();
 
                     //diabetes
-                    if (paciente_anamnesis[0].diabetes == '\0' || paciente_anamnesis[0].diabetes == 'n')
+                    if (paciente_anamnesis[0].diabetes == ' ' || paciente_anamnesis[0].diabetes == 'n')
                     {
                         info_padecimiento.Add("DIABETES: NO ");
-                        //document.Add(new Paragraph("DIABETES: NO "));
                     }
                     else
                     {
                         info_padecimiento.Add("DIABETES: SI   TRATAMIENTO: " + paciente_anamnesis[0].diabetes_trat);
-                        //document.Add(new Paragraph("DIABETES: SI   TRATAMIENTO: " + paciente_anamnesis[0].diabetes_trat));
                     }
 
                     //hipertension
-                    if (paciente_anamnesis[0].hipertension == '\0' || paciente_anamnesis[0].hipertension == 'n')
+                    if (paciente_anamnesis[0].hipertension == ' ' || paciente_anamnesis[0].hipertension == 'n')
                     {
                         info_padecimiento.Add("HIPERTENSIÓN: NO ");
-                        // document.Add(new Paragraph("HIPERTENSION: NO "));
                     }
                     else
                     {
                         info_padecimiento.Add("HIPERTENSIÓN: SI   TRATAMIENTO: " + paciente_anamnesis[0].hipertension_trat);
-                        //document.Add(new Paragraph("HIPERTENSION: SI   TRATAMIENTO: " + paciente_anamnesis[0].hipertension_trat));
                     }
 
                     //asma
-                    if (paciente_anamnesis[0].asma == '\0' || paciente_anamnesis[0].asma == 'n')
+                    if (paciente_anamnesis[0].asma == ' ' || paciente_anamnesis[0].asma == 'n')
                     {
                         info_padecimiento.Add("ASMA: NO ");
-                        //document.Add(new Paragraph("ASMA: NO "));
                     }
                     else
                     {
-                        info_padecimiento.Add("ASMA: SI   TRATAMIENTO: " + paciente_anamnesis[0].alergias_tratamiento);
-                        //document.Add(new Paragraph("ASMA: SI   TRATAMIENTO: " + paciente_anamnesis[0].alergias_tratamiento));
+                        info_padecimiento.Add("ASMA: SI   TRATAMIENTO: " + paciente_anamnesis[0].asma_tratamiento);
                     }
                     //tiroides
-                    if (paciente_anamnesis[0].tiroides == '\0' || paciente_anamnesis[0].tiroides == 'n')
+                    if (paciente_anamnesis[0].tiroides == ' ' || paciente_anamnesis[0].tiroides == 'n')
                     {
                         info_padecimiento.Add("TIROIDES: NO ");
-                        //document.Add(new Paragraph("TIROIDES: NO "));
                     }
                     else
                     {
                         info_padecimiento.Add("TIROIDES: SI   TRATAMIENTO: " + paciente_anamnesis[0].tiroides_tratamiento);
-                        //document.Add(new Paragraph("TIROIDES: SI   TRATAMIENTO: " + paciente_anamnesis[0].tiroides_tratamiento));
                     }
-
-
+                    
                     PdfPTable tabla_padecimieto = new PdfPTable(2);
                     tabla_padecimieto.TotalWidth = 550f;
                     //fix the absolute width of the table
@@ -549,67 +530,55 @@ namespace SIMEDVirtual
                     if (paciente_anamnesis[0].hipertension_heredo == "")
                     {
                         info_heredo.Add("HIPERTENSIÓN: NO ");
-                        //document.Add(new Paragraph("HIPERTENSION: NO "));
                     }
                     else
                     {
                         info_heredo.Add("HIPERTENSIÓN: " + paciente_anamnesis[0].hipertension_heredo);
-                        //document.Add(new Paragraph("HIPERTENSION: " + paciente_anamnesis[0].hipertension_heredo));
                     }
                     //diabetes
                     if (paciente_anamnesis[0].diabetes_heredo == "")
                     {
                         info_heredo.Add("DIABETES: NO ");
-                        //document.Add(new Paragraph("DIABETES: NO "));
                     }
                     else
                     {
                         info_heredo.Add("DIABETES: " + paciente_anamnesis[0].diabetes_heredo);
-                        //document.Add(new Paragraph("DIABETES: " + paciente_anamnesis[0].diabetes_heredo));
                     }
                     //cancer
                     if (paciente_anamnesis[0].cancer_heredo == "")
                     {
                         info_heredo.Add("CÁNCER: NO ");
-                        //document.Add(new Paragraph("CANCER: NO "));
                     }
                     else
                     {
                         info_heredo.Add("CÁNCER: " + paciente_anamnesis[0].cancer_heredo);
-                        // document.Add(new Paragraph("CANCER: " + paciente_anamnesis[0].cancer_heredo));
                     }
                     //tiroides
                     if (paciente_anamnesis[0].tiroides_heredo == "")
                     {
                         info_heredo.Add("TIROIDES: NO ");
-                        // document.Add(new Paragraph("TIROIDES: NO "));
                     }
                     else
                     {
                         info_heredo.Add("TIROIDES: " + paciente_anamnesis[0].tiroides_heredo);
-                        //document.Add(new Paragraph("TIROIDES: " + paciente_anamnesis[0].tiroides_heredo));
                     }
                     //ASMA
                     if (paciente_anamnesis[0].asma_heredo == "")
                     {
                         info_heredo.Add("ASMA: NO ");
-                        // document.Add(new Paragraph("ASMA: NO "));
                     }
                     else
                     {
                         info_heredo.Add("ASMA: " + paciente_anamnesis[0].asma_heredo);
-                        // document.Add(new Paragraph("ASMA: " + paciente_anamnesis[0].asma_heredo));
                     }
                     //OTROS
                     if (paciente_anamnesis[0].otros_heredo == "")
                     {
                         info_heredo.Add("OTROS: NO ");
-                        //document.Add(new Paragraph("OTROS: NO "));
                     }
                     else
                     {
                         info_heredo.Add("OTROS: " + paciente_anamnesis[0].otros_heredo);
-                        //document.Add(new Paragraph("OTROS: " + paciente_anamnesis[0].otros_heredo));
                     }
 
                     PdfPTable tabla_heredo = new PdfPTable(2);
@@ -633,7 +602,6 @@ namespace SIMEDVirtual
                     //OBSERVACIONES
                     if (paciente_anamnesis[0].observaciones != "")
                     {
-
                         PdfPCell celda3 = new PdfPCell(new Phrase("OBSERVACIONES: " + paciente_anamnesis[0].observaciones));
                         celda3.Colspan = 2;
                         celda3.HorizontalAlignment = 0; //0=Left, 1=Centre, 2=Right
@@ -641,7 +609,6 @@ namespace SIMEDVirtual
                     }
 
                     document.Add(tabla_heredo);
-                    //document.Add(new Paragraph(" "));
 
                     //--------------------examen fisico-----------------------------------
                     ArrayList info_examen_fisico = new ArrayList();
@@ -800,7 +767,7 @@ namespace SIMEDVirtual
                         info_examen_fisico.Add("MALFORMACIONES:" + paciente_expediente[0].malformaciones);
                     }
                     //OBSERVACIONES ANL
-                    if (paciente_expediente[0].observaciones_dl != ' ' && paciente_expediente[0].inclinacion_lateral != 'n')
+                    if (paciente_expediente[0].observaciones_dl != ' ' && paciente_expediente[0].observaciones_dl != 'n')
                     {
                         info_examen_fisico.Add("OBSERVACIONES: ANL");
                     }
@@ -928,7 +895,6 @@ namespace SIMEDVirtual
                         }
 
                         document.Add(tabla_examen_fisico);
-                        //document.Add(new Paragraph(" "));
                     }
                     //--------------------------------EPICRISIS-------------------------------------------------
                     PdfPTable tabla_epicrisis = new PdfPTable(1);
@@ -944,13 +910,11 @@ namespace SIMEDVirtual
                     celda9.Colspan = 1;
                     celda9.HorizontalAlignment = 1; //0=Left, 1=Centre, 2=Right
                     tabla_epicrisis.AddCell(celda9);
-                    //tabla_epicrisis.AddCell("MOTIVO CONSULTA: " + paciente_expediente[0].motivo_consulta.ToUpper());
                     tabla_epicrisis.AddCell("DIAGNÓSTICO: " + paciente_expediente[0].diagnostico.ToUpper());
                     tabla_epicrisis.AddCell("TERAPEUTICA: " + paciente_expediente[0].terapeutica.ToUpper());
                     tabla_epicrisis.AddCell("OBSERVACIONES: " + paciente_expediente[0].observaciones_generales.ToUpper());
 
                     document.Add(tabla_epicrisis);
-                    //document.Add(new Paragraph(" "));
                     document.Close();
 
                     MessageBox.Show("SE HA CREADO EL ARCHIVO\nACCESALO DESDE TU ESCRITORIO", "CREACION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
