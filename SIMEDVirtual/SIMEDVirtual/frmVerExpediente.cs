@@ -82,7 +82,7 @@ namespace SIMEDVirtual
                 cbEmpresa.DataSource = listaEmpresas;
                 cbEmpresa.SelectedIndex = 0;
                 //lo que quiero obtener
-                cbEmpresa.ValueMember = "cedula";
+                cbEmpresa.ValueMember = "id";
                 //lo q voy a mostrar
                 cbEmpresa.DisplayMember = "nombre";
             }
