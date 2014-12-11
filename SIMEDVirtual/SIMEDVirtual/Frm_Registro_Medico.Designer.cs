@@ -202,6 +202,7 @@
             // txtEdad
             // 
             this.txtEdad.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEdad.Enabled = false;
             this.txtEdad.Location = new System.Drawing.Point(592, 175);
             this.txtEdad.Multiline = true;
             this.txtEdad.Name = "txtEdad";
@@ -382,11 +383,13 @@
             // fecha_nacimiento
             // 
             this.fecha_nacimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fecha_nacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.fecha_nacimiento.ImeMode = System.Windows.Forms.ImeMode.On;
             this.fecha_nacimiento.Location = new System.Drawing.Point(592, 127);
             this.fecha_nacimiento.Name = "fecha_nacimiento";
             this.fecha_nacimiento.Size = new System.Drawing.Size(324, 22);
             this.fecha_nacimiento.TabIndex = 4;
+            this.fecha_nacimiento.ValueChanged += new System.EventHandler(this.fecha_nacimiento_ValueChanged);
             // 
             // txtcontrasena
             // 

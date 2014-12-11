@@ -57,10 +57,10 @@ namespace SIMEDVirtual
 
         private void secretariaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            /*
+            
             this.Hide();
             Frm_Registro_Secretaria mem = new Frm_Registro_Secretaria(usuarioPublico);
-            mem.ShowDialog();*/
+            mem.ShowDialog();
         }
 
         private void expedientesMedicosToolStripMenuItem_Click(object sender, EventArgs e)

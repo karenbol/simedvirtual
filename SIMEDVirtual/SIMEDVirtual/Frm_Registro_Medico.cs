@@ -269,5 +269,24 @@ namespace SIMEDVirtual
                 }
             }*/
         }
+
+        private void fecha_nacimiento_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime fechaNac = fecha_nacimiento.Value;
+
+            TimeSpan dias = DateTime.Now - fecha_nacimiento.Value;
+            txtEdad.Text = this.direfenciaFechas(fechaNac, DateTime.Now);
+        }
+
+        //calcula edad (anios, meses,dias) basado en la fecha de nacimiento
+        public string direfenciaFechas(DateTime New, DateTime old)
+        {
+            int anios = New.Year - old.Year;
+            int meses = New.Month - old.Month;
+            int dias = New.Day - old.Day;
+
+            string respuesta = Math.Abs(anios) + " Años " + Math.Abs(meses) + " Meses " + Math.Abs(dias) + " Dias";
+            return respuesta;
+        }
     }
 }
