@@ -1144,6 +1144,7 @@ namespace SIMEDVirtual
                         this.Hide();
                         frmVerExpediente splash = new frmVerExpediente();
                         splash.ShowDialog();
+                        
                     }
                     else
                     {
@@ -1175,6 +1176,7 @@ namespace SIMEDVirtual
                         this.Hide();
                         frmVerExpediente splash = new frmVerExpediente();
                         splash.ShowDialog();
+                        
                     }
                     else
                     {
@@ -1257,6 +1259,7 @@ namespace SIMEDVirtual
                             this.Hide();
                             frmVerExpediente splash = new frmVerExpediente();
                             splash.ShowDialog();
+                            
                         }
                         else
                         {
@@ -1461,6 +1464,7 @@ namespace SIMEDVirtual
             this.Hide();
             frmVerExpediente splash = new frmVerExpediente();
             splash.ShowDialog();
+            
         }
 
         private void btnVerExp_Click(object sender, EventArgs e)
@@ -1469,7 +1473,7 @@ namespace SIMEDVirtual
             frmVerExpediente frm = new frmVerExpediente();
             frm.ShowDialog();
             this.Dispose();
-        }
+                    }
 
         private void frm_ExpedienteMG_Load(object sender, EventArgs e)
         {

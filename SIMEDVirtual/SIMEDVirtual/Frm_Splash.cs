@@ -44,14 +44,14 @@ namespace SIMEDVirtual
             this.Hide();
             Frm_Membresia mem = new Frm_Membresia(usuarioPublico);
             mem.ShowDialog();
-
-        }
+                    }
 
         private void medicoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
             Frm_Medico mem = new Frm_Medico();
             mem.ShowDialog();
+            
 
         }
 
@@ -59,8 +59,9 @@ namespace SIMEDVirtual
         {
             
             this.Hide();
-            Frm_Registro_Secretaria mem = new Frm_Registro_Secretaria(usuarioPublico);
+            Frm_Administrativo mem = new Frm_Administrativo();
             mem.ShowDialog();
+            
         }
 
         private void expedientesMedicosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -68,6 +69,7 @@ namespace SIMEDVirtual
             this.Hide();
             frm_ExpedienteMG mem = new frm_ExpedienteMG();
             mem.ShowDialog();
+            
 
         }
 
@@ -88,8 +90,8 @@ namespace SIMEDVirtual
             var x = new Frm_Ingreso();
             this.Hide();
             x.ShowDialog();
-            this.Show();
-            
+            //this.Show();
+                       
             
             /*this.Hide();
             Frm_Ingreso x = new Frm_Ingreso();
@@ -101,7 +103,7 @@ namespace SIMEDVirtual
             this.Hide();
             frmVerExpediente x = new frmVerExpediente();
             x.ShowDialog();
-        }
+                    }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -109,7 +111,8 @@ namespace SIMEDVirtual
             this.Hide();
             x.ShowDialog();
             this.Show();
-            
+
+                       
             
             /*this.Hide();
             Frm_Ingreso pantalla = new Frm_Ingreso();
@@ -121,6 +124,7 @@ namespace SIMEDVirtual
             this.Hide();
             Frm_Medico pantalla = new Frm_Medico();
             pantalla.ShowDialog();
+            
         }
 
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -135,7 +139,7 @@ namespace SIMEDVirtual
             this.Hide();
             frm_empresa pantalla = new frm_empresa();
             pantalla.ShowDialog();
-        }
+                    }
 
         private void administrativosToolStripMenuItem_Click(object sender, EventArgs e)
         {

@@ -1710,7 +1710,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtEmail.Location = new System.Drawing.Point(549, 310);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";

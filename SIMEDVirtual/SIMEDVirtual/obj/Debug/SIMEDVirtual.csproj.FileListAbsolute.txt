@@ -54,6 +54,7 @@ C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\fr\Npgsql.resources.dll
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\ja\Npgsql.resources.dll
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\zh-CN\Npgsql.resources.dll
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frmVerExpediente.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Administrativo.resources
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_Cliente.resources
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_empresa.resources
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_ExpedienteMG.resources
@@ -72,4 +73,3 @@ C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\es\SIMEDVirtual.resources.dl
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\yo\SIMEDVirtual.resources.dll
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.exe
 C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.pdb
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.csprojResolveAssemblyReference.cache

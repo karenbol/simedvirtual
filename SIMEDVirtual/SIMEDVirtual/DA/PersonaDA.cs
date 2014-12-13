@@ -16,7 +16,7 @@ namespace SIMEDVirtual.DA
         public static Boolean InsertaCliente(
             string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, string edad, char sexo, string estado_civil, string grupo_sanguineo, string profesion,
-            int telefono_fijo, int movil, string correo, int empresa, byte[] fotoBinaria, bool medico,DateTime fecha_creacion)
+            int telefono_fijo, int movil, string correo, int empresa, byte[] fotoBinaria, bool medico, DateTime fecha_creacion)
         {
             int x = 0;
             string g = "";
@@ -50,6 +50,62 @@ namespace SIMEDVirtual.DA
 
                     command.Parameters.AddWithValue("@empresa", empresa);
                     command.Parameters.AddWithValue("@foto", fotoBinaria);
+                    command.Parameters.AddWithValue("@medico", medico);
+                    command.Parameters.AddWithValue("@fecha_creacion", fecha_creacion);
+
+                    x = command.ExecuteNonQuery();
+                }
+
+                catch (Exception exp)
+                {
+                    return false;
+                }
+                conn.Close();
+
+                if (x != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+        //inserta datos en la tabla persona
+        public static Boolean InsertaAdministrativo(
+            string nombre, string apellido1, string apellido2, string cedula,
+            DateTime fecha, string direccion, string edad, char sexo, string profesion,
+            int telefono_fijo, int movil, string correo, bool medico, DateTime fecha_creacion)
+        {
+            int x = 0;
+            string g = "";
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                NpgsqlCommand command = new NpgsqlCommand();
+                command.Connection = conn;
+                conn.Open();
+                try
+                {
+                    command.CommandText =
+                        "insert into persona(nombre,apellido1,apellido2,cedula,fecha_nacimiento,direccion,edad,sexo," +
+                    "profesion,telefono_fijo,telefono_movil,email,medico,fecha_creacion) " +
+                    "values (@nombre,@ape1,@ape2,@cedula,@fecha,@direccion,@edad,@sexo,@profesion,@telefono,@movil,@email," +
+                    "@medico,@fecha_creacion)";
+
+                    command.Parameters.AddWithValue("@nombre", nombre);
+                    command.Parameters.AddWithValue("@ape1", apellido1);
+                    command.Parameters.AddWithValue("@ape2", apellido2);
+                    command.Parameters.AddWithValue("@cedula", cedula);
+                    command.Parameters.AddWithValue("@fecha", fecha);
+                    command.Parameters.AddWithValue("@direccion", direccion);
+                    command.Parameters.AddWithValue("@edad", edad);
+                    command.Parameters.AddWithValue("@sexo", sexo);
+                    command.Parameters.AddWithValue("@profesion", profesion);
+                    command.Parameters.AddWithValue("@telefono", telefono_fijo);
+                    command.Parameters.AddWithValue("@movil", movil);
+                    command.Parameters.AddWithValue("@email", correo);
+
                     command.Parameters.AddWithValue("@medico", medico);
                     command.Parameters.AddWithValue("@fecha_creacion", fecha_creacion);
 
@@ -110,7 +166,7 @@ namespace SIMEDVirtual.DA
             }
             return list;
         }
-              
+
 
 
         //select cliente by busqueda
@@ -121,8 +177,8 @@ namespace SIMEDVirtual.DA
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM persona WHERE ("+columna+" LIKE LOWER('"+pista+"%') or "
-                    + columna +" LIKE UPPER('" + pista + "%') or "+ columna +" LIKE('" + pista + "')) and medico =false", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM persona WHERE (" + columna + " LIKE LOWER('" + pista + "%') or "
+                    + columna + " LIKE UPPER('" + pista + "%') or " + columna + " LIKE('" + pista + "')) and medico =false", conn);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
@@ -160,7 +216,7 @@ namespace SIMEDVirtual.DA
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * from persona where CAST(empresa AS VARCHAR(100)) LIKE ('"+id_empresa+"%')", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * from persona where CAST(empresa AS VARCHAR(100)) LIKE ('" + id_empresa + "%')", conn);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())
@@ -191,7 +247,7 @@ namespace SIMEDVirtual.DA
         }
 
 
-        
+
         //me trae todo del cliente segun la cedula
         public static List<PersonaEntity> selectClientePorCedula(string cedula)
         {
@@ -309,6 +365,57 @@ namespace SIMEDVirtual.DA
                     command.Parameters.AddWithValue("@email", correo);
                     command.Parameters.AddWithValue("@empresa", empresa);
                     command.Parameters.AddWithValue("@foto", fotoBinaria);
+
+                    x = command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    return false;
+                }
+                conn.Close();
+                if (x != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
+
+        public static Boolean UpdateAdministrativo(string nombre, string apellido1, string apellido2, string cedula,
+           DateTime fecha, string direccion, string edad, char sexo, string profesion,
+           int telefono_fijo, int movil, string correo)
+        {
+            int x = 0;
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                NpgsqlCommand command = new NpgsqlCommand();
+                command.Connection = conn;
+                conn.Open();
+                try
+                {
+                    string cadena = "update persona set nombre=@nombre, apellido1=@apellido1,apellido2=@apellido2," +
+                    "fecha_nacimiento=@fecha_nacimiento,direccion=@direccion,edad=@edad,sexo=@sexo," +
+                    "profesion=@profesion,telefono_fijo=@telefono_fijo,telefono_movil=@telefono_movil, email=@email," +
+                    "fecha_update=@fecha_update where cedula=@cedula";
+
+                    command.CommandText = cadena;
+
+                    command.Parameters.AddWithValue("@nombre", nombre);
+                    command.Parameters.AddWithValue("@apellido1", apellido1);
+                    command.Parameters.AddWithValue("@apellido2", apellido2);
+                    command.Parameters.AddWithValue("@cedula", cedula);
+                    command.Parameters.AddWithValue("@fecha_nacimiento", fecha);
+                    command.Parameters.AddWithValue("@direccion", direccion);
+                    command.Parameters.AddWithValue("@edad", edad);
+                    command.Parameters.AddWithValue("@sexo", sexo);
+                    command.Parameters.AddWithValue("@profesion", profesion);
+                    command.Parameters.AddWithValue("@telefono_fijo", telefono_fijo);
+                    command.Parameters.AddWithValue("@telefono_movil", movil);
+                    command.Parameters.AddWithValue("@email", correo);
+                    command.Parameters.AddWithValue("@fecha_update", DateTime.Now);
 
                     x = command.ExecuteNonQuery();
                 }
@@ -653,6 +760,42 @@ namespace SIMEDVirtual.DA
             }
             return list;
         }
+
+        //metodo get all de medicos
+        public static List<PersonaEntity> selectAdministrativo()
+        {
+            //creacion de lista tipo medico entity
+            List<PersonaEntity> list = new List<PersonaEntity>();
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                conn.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT persona.*,usuario.tipo_usuario, usuario.cedula " +
+                    "FROM persona,usuario WHERE persona.cedula=usuario.cedula and usuario.tipo_usuario=1 order by apellido1", conn);
+
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    PersonaEntity doctor = new PersonaEntity();
+                    doctor.nombre = Convert.ToString(dr["nombre"]);
+                    doctor.ape1 = Convert.ToString(dr["apellido1"]);
+                    doctor.ape2 = Convert.ToString(dr["apellido2"]);
+                    doctor.cedula = Convert.ToString(dr["cedula"]);
+                    doctor.fecha = Convert.ToDateTime(dr["fecha_nacimiento"]);
+                    doctor.direccion = Convert.ToString(dr["direccion"]);
+                    doctor.edad = Convert.ToString(dr["edad"]);
+                    doctor.sexo = Convert.ToChar(dr["sexo"]);
+                    doctor.profesion = Convert.ToString(dr["profesion"]);
+                    doctor.telefono_fijo = Convert.ToInt32(dr["telefono_fijo"]);
+                    doctor.telefono_movil = Convert.ToInt32(dr["telefono_movil"]);
+                    doctor.email = Convert.ToString(dr["email"]);
+
+                    list.Add(doctor);
+                }
+                conn.Close();
+            }
+            return list;
+        }
+
 
 
         //metodo join que me devuelve apellido segun cedula del medico

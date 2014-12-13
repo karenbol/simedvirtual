@@ -16,7 +16,7 @@ namespace SIMEDVirtual.IT
             int telefono_fijo, int movil, string correo, int empresa, byte[] fotoBinaria, bool medico, DateTime fecha_creacion)
         {
             return PersonaDA.InsertaCliente(nombre, apellido1, apellido2, cedula, fecha, direccion, edad, sexo,
-                estado_civil, grupo_sanguineo, profesion, telefono_fijo, movil, correo, empresa, fotoBinaria, medico,fecha_creacion);
+                estado_civil, grupo_sanguineo, profesion, telefono_fijo, movil, correo, empresa, fotoBinaria, medico, fecha_creacion);
         }
 
         //obtenemos todos los clientes en la tabla
@@ -109,6 +109,29 @@ namespace SIMEDVirtual.IT
         public static List<PersonaEntity> selectClientePorFecha(string fecha)
         {
             return PersonaDA.selectClientePorFecha(fecha);
+        }
+
+        //inserta una persona administrativa
+        public static Boolean InsertaAdministrativo(
+            string nombre, string apellido1, string apellido2, string cedula,
+            DateTime fecha, string direccion, string edad, char sexo, string profesion,
+            int telefono_fijo, int movil, string correo, bool medico, DateTime fecha_creacion)
+        {
+            return PersonaDA.InsertaAdministrativo(nombre, apellido1, apellido2, cedula, fecha, direccion, edad, sexo,
+                profesion, telefono_fijo, movil, correo, medico, fecha_creacion);
+        }
+
+        public static Boolean UpdateAdministrativo(string nombre, string apellido1, string apellido2, string cedula,
+          DateTime fecha, string direccion, string edad, char sexo, string profesion,
+          int telefono_fijo, int movil, string correo)
+        {
+            return UpdateAdministrativo(nombre, apellido1, apellido2, cedula, fecha,
+                direccion, edad, sexo, profesion, telefono_fijo, movil, correo);
+        }
+
+        public static List<PersonaEntity> selectAdministrativo()
+        {
+            return PersonaDA.selectAdministrativo();
         }
     }
 }

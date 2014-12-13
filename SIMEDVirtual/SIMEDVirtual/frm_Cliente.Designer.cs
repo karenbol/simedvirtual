@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPageInfoPersonal = new System.Windows.Forms.TabPage();
+            this.btnEliminarFoto = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pbFotoCliente = new System.Windows.Forms.PictureBox();
             this.txtEdad = new System.Windows.Forms.TextBox();
@@ -78,7 +79,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnEliminarFoto = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPageInfoPersonal.SuspendLayout();
@@ -151,6 +151,20 @@
             this.tabPageInfoPersonal.Text = "INFORMACIÓN PERSONAL";
             this.tabPageInfoPersonal.UseVisualStyleBackColor = true;
             // 
+            // btnEliminarFoto
+            // 
+            this.btnEliminarFoto.AutoSize = true;
+            this.btnEliminarFoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEliminarFoto.Image = global::SIMEDVirtual.Properties.Resources.deletePhoto;
+            this.btnEliminarFoto.Location = new System.Drawing.Point(970, 207);
+            this.btnEliminarFoto.Name = "btnEliminarFoto";
+            this.btnEliminarFoto.Size = new System.Drawing.Size(75, 58);
+            this.btnEliminarFoto.TabIndex = 87;
+            this.btnEliminarFoto.Text = "Eliminar";
+            this.btnEliminarFoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btnEliminarFoto.UseVisualStyleBackColor = true;
+            this.btnEliminarFoto.Click += new System.EventHandler(this.btnEliminarFoto_Click);
+            // 
             // btnGuardar
             // 
             this.btnGuardar.AutoSize = true;
@@ -200,7 +214,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Lower;
             this.txtEmail.Location = new System.Drawing.Point(603, 300);
             this.txtEmail.Multiline = true;
             this.txtEmail.Name = "txtEmail";
@@ -622,20 +636,6 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btnEliminarFoto
-            // 
-            this.btnEliminarFoto.AutoSize = true;
-            this.btnEliminarFoto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminarFoto.Image = global::SIMEDVirtual.Properties.Resources.deletePhoto;
-            this.btnEliminarFoto.Location = new System.Drawing.Point(970, 207);
-            this.btnEliminarFoto.Name = "btnEliminarFoto";
-            this.btnEliminarFoto.Size = new System.Drawing.Size(75, 58);
-            this.btnEliminarFoto.TabIndex = 87;
-            this.btnEliminarFoto.Text = "Eliminar";
-            this.btnEliminarFoto.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btnEliminarFoto.UseVisualStyleBackColor = true;
-            this.btnEliminarFoto.Click += new System.EventHandler(this.btnEliminarFoto_Click);
             // 
             // frm_Cliente
             // 

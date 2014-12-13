@@ -107,10 +107,11 @@ namespace SIMEDVirtual
             this.Hide();
             Frm_Medico splash = new Frm_Medico();
             splash.ShowDialog();
+            
         }
 
         //metodo que compara los campos de la contrasena
-        public Boolean comparaContrasena(string contrasena, string confirmacion)
+        public static Boolean comparaContrasena(string contrasena, string confirmacion)
         {
             if (contrasena == confirmacion)
             {
@@ -157,6 +158,7 @@ namespace SIMEDVirtual
                                 this.Close();
                                 Frm_Splash frm = new Frm_Splash();
                                 frm.ShowDialog();
+                                
                             }
                             else
                             {
@@ -185,7 +187,7 @@ namespace SIMEDVirtual
                         this.Close();
                         Frm_Splash frm = new Frm_Splash();
                         frm.ShowDialog();
-                    }
+                                            }
                 }
             }
             else

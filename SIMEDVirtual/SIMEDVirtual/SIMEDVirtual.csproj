@@ -79,6 +79,12 @@
     <Compile Include="frmVerExpediente.Designer.cs">
       <DependentUpon>frmVerExpediente.cs</DependentUpon>
     </Compile>
+    <Compile Include="Frm_Administrativo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Frm_Administrativo.Designer.cs">
+      <DependentUpon>Frm_Administrativo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerExpediente.yo.resx">
       <DependentUpon>frmVerExpediente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Frm_Administrativo.resx">
+      <DependentUpon>Frm_Administrativo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_Cliente.resx">
       <DependentUpon>frm_Cliente.cs</DependentUpon>

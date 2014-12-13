@@ -32,6 +32,7 @@ namespace SIMEDVirtual
             this.Hide();
             Frm_Splash splash = new Frm_Splash();
             splash.ShowDialog();
+            
 
         }
 

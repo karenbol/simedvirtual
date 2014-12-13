@@ -31,6 +31,7 @@ namespace SIMEDVirtual
             this.Hide();
             frm_registraEmpresa splash = new frm_registraEmpresa();
             splash.ShowDialog();
+            
         }
 
         //cargamos las empresas
@@ -109,6 +110,7 @@ namespace SIMEDVirtual
             frm_registraEmpresa frm = new frm_registraEmpresa(cedula_juridica, nombre, descripcion, direccion, telefono1,
                 encargado1, telefono2, encargado2, 1);
             frm.ShowDialog();
+            
         }
 
 
@@ -152,6 +154,7 @@ namespace SIMEDVirtual
             frm_registraEmpresa frm = new frm_registraEmpresa(cedula_juridica, nombre, descripcion, direccion, telefono1,
                 encargado1, telefono2, encargado2, 2);
             frm.ShowDialog();
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -175,6 +178,7 @@ namespace SIMEDVirtual
             this.Hide();
             Frm_Splash x = new Frm_Splash();
             x.ShowDialog();
+            
         }
     }
 }

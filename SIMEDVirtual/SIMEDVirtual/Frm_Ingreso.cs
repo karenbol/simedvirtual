@@ -61,16 +61,13 @@ namespace SIMEDVirtual
                             this.Hide();
                             x.ShowDialog();
                             this.Show();*/
-                            
                             this.Hide();
                             Frm_Splash pr = new Frm_Splash();
                             pr.ShowDialog();
-
                         }
                         else if (tipoUsuario == "2")
                         {
                             //si es medico lo lleva a los expedientes
-                            //MessageBox.Show("eres Medico");
                             this.Hide();
                             frm_ExpedienteMG pr = new frm_ExpedienteMG();
                             pr.ShowDialog();
@@ -84,6 +81,7 @@ namespace SIMEDVirtual
                     {
                         MessageBox.Show("No se Encuentra registrado el Usuario");
                     }
+                    this.Close();
                 }
                 else
                 //si la informacion de ingreso no es correcta
@@ -93,9 +91,8 @@ namespace SIMEDVirtual
                     txtContrasena.Text = string.Empty;
                     DialogResult dialogResult = MessageBox.Show("Ingreso Fallido, Vuelve a intentarlo",
            "Log In Fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                  
+
                 }
-                //}
             }
             //si hay campos vacios notifica
             else

@@ -189,6 +189,7 @@ namespace SIMEDVirtual
                             this.Hide();
                             frmVerExpediente splash = new frmVerExpediente();
                             splash.ShowDialog();
+                            
                         }
                         else
                         {
@@ -207,6 +208,7 @@ namespace SIMEDVirtual
                             this.Hide();
                             frmVerExpediente splash = new frmVerExpediente();
                             splash.ShowDialog();
+                            
                         }
                         //si hay campos vacios imprime error
                         else
@@ -252,6 +254,7 @@ namespace SIMEDVirtual
                 this.Hide();
                 frmVerExpediente splash = new frmVerExpediente();
                 splash.ShowDialog();
+                
             }
             //si soy adm e ingrese desde splash, me devuelvo a splash
             else if (Frm_Ingreso.tipoUsuario == "1" && accionArealizar == 0)
@@ -259,6 +262,7 @@ namespace SIMEDVirtual
                 this.Hide();
                 Frm_Splash splash = new Frm_Splash();
                 splash.ShowDialog();
+                
             }
         }
 

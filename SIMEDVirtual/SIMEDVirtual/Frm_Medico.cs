@@ -90,6 +90,7 @@ namespace SIMEDVirtual
                 Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, ced, fecha, direccion,
                     codigo, u, especialidad, correo, sexo, edad, telefono1, telefono2, false);
                 frm.ShowDialog();
+                
             }
         }
         //agregar medico
@@ -98,6 +99,7 @@ namespace SIMEDVirtual
             this.Hide();
             Frm_Registro_Medico pan = new Frm_Registro_Medico();
             pan.ShowDialog();
+            
         }
 
         private void Frm_Medico_FormClosing(object sender, FormClosingEventArgs e)
@@ -168,6 +170,7 @@ namespace SIMEDVirtual
                 Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, cedula, fecha, direccion,
                     codigo, u, especialidad, correo, sexo, edad, telefono1, telefono2, true);
                 frm.ShowDialog();
+                
             }
             else
             {

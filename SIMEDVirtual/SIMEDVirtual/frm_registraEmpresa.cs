@@ -92,6 +92,7 @@ namespace SIMEDVirtual
                         this.Hide();
                         frm_empresa splash = new frm_empresa();
                         splash.ShowDialog();
+                        
                     }
                     else
                     {
@@ -124,6 +125,7 @@ namespace SIMEDVirtual
                         this.Hide();
                         frm_empresa splash = new frm_empresa();
                         splash.ShowDialog();
+                        
                     }
                     else
                     {
@@ -148,6 +150,7 @@ namespace SIMEDVirtual
             this.Hide();
             frm_empresa splash = new frm_empresa();
             splash.ShowDialog();
+            
         }
 
         //eliminar el telefono de la empresa

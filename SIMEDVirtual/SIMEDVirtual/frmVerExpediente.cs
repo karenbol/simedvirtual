@@ -134,6 +134,7 @@ namespace SIMEDVirtual
             this.Hide();
             frm_ExpedienteMG splash = new frm_ExpedienteMG();
             splash.ShowDialog();
+            
         }
 
         //con el click de la tabla clientes se muestra las reconsultas
@@ -173,6 +174,7 @@ namespace SIMEDVirtual
                 this.Hide();
                 frm_ExpedienteMG frm = new frm_ExpedienteMG(prueba, false, false, 0, 1);
                 frm.ShowDialog();
+                
             }
             else
             {
@@ -186,6 +188,7 @@ namespace SIMEDVirtual
             this.Hide();
             frm_ExpedienteMG frm = new frm_ExpedienteMG();
             frm.ShowDialog();
+            
         }
 
         //con el doble click en la tabla reconsulta muestro el expediente completo
@@ -198,6 +201,7 @@ namespace SIMEDVirtual
             this.Hide();
             frm_ExpedienteMG frm = new frm_ExpedienteMG(cedula_paciente, false, true, id_paciente, 0);
             frm.ShowDialog();
+            
         }
 
         //veo la info personal del cliente
@@ -209,6 +213,7 @@ namespace SIMEDVirtual
             this.Hide();
             frm_Cliente frm = new frm_Cliente(cedula_paciente, 1);
             frm.ShowDialog();
+            
         }
 
         private void btnEditarPaciente_Click(object sender, EventArgs e)
@@ -219,6 +224,7 @@ namespace SIMEDVirtual
             this.Hide();
             frm_Cliente frm = new frm_Cliente(cedula_paciente, 2);
             frm.ShowDialog();
+            
         }
 
         private void frmVerExpediente_FormClosing(object sender, FormClosingEventArgs e)
@@ -230,11 +236,11 @@ namespace SIMEDVirtual
                 case "2":
                     Frm_Ingreso frm = new Frm_Ingreso();
                     frm.ShowDialog();
-                    break;
+                                        break;
                 case "1":
                     Frm_Splash pantalla = new Frm_Splash();
                     pantalla.ShowDialog();
-                    break;
+                                        break;
                 default:
                     break;
             }
@@ -1030,6 +1036,8 @@ namespace SIMEDVirtual
                 frm_ExpedienteMG splash = new frm_ExpedienteMG(cedula, false, false, id, 0);
                 //string cedula_paciente, bool editar, bool verExpediente, int id_paciente
                 splash.ShowDialog();
+                
+
             }
             else
             {
