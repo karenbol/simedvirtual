@@ -19,7 +19,7 @@ namespace SIMEDVirtual
         public Frm_Registro_Secretaria()
         {
             InitializeComponent();
-            label10.Text = Frm_Ingreso.datosUsuario;
+            label10.Text = Frm_Ingreso.datosUsuario[0]+Frm_Ingreso.datosUsuario[1];
         }
 
         private void Frm_Registro_Secretaria_FormClosing(object sender, FormClosingEventArgs e)

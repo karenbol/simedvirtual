@@ -16,7 +16,7 @@ namespace SIMEDVirtual
         public frm_empresa()
         {
             InitializeComponent();
-            label4.Text = Frm_Ingreso.datosUsuario;
+            label4.Text = Frm_Ingreso.datosUsuario[0]+ Frm_Ingreso.datosUsuario[1];
 
             toolTip1.InitialDelay = 1;
 

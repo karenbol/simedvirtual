@@ -141,7 +141,7 @@ namespace SIMEDVirtual
 
         private void frm_registraEmpresa_Load(object sender, EventArgs e)
         {
-            this.label4.Text = Frm_Ingreso.datosUsuario;
+            this.label4.Text = Frm_Ingreso.datosUsuario[0]+ Frm_Ingreso.datosUsuario[1];
 
         }
 

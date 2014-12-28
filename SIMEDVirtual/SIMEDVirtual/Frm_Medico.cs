@@ -20,7 +20,7 @@ namespace SIMEDVirtual
         {
             InitializeComponent();
             //usuarioPublico = Frm_Ingreso.datosUsuario;
-            label4.Text = Frm_Ingreso.datosUsuario;
+            label4.Text = Frm_Ingreso.datosUsuario[0]+ Frm_Ingreso.datosUsuario[1];
 
             dataGridView1.Columns[0].Width = 200;
             dataGridView1.Columns[1].Width = 150;

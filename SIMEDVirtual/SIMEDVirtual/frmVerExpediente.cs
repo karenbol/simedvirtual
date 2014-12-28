@@ -20,14 +20,14 @@ namespace SIMEDVirtual
     public partial class frmVerExpediente : Form
     {
         string prueba = "";
-        string usuarioPublico = "";
+        //string usuarioPublico = "";
 
         public frmVerExpediente()
         {
             InitializeComponent();
             //usuario
-            usuarioPublico = Frm_Ingreso.datosUsuario;
-            label4.Text = Frm_Ingreso.datosUsuario;
+           // usuarioPublico = Frm_Ingreso.datosUsuario;
+            label4.Text = Frm_Ingreso.datosUsuario[0]+ Frm_Ingreso.datosUsuario[1];
 
             dgClientes.Columns[0].Width = 200;
             dgClientes.Columns[1].Width = 150;
@@ -46,6 +46,7 @@ namespace SIMEDVirtual
             label2.Location = new Point(990, 97);
             lblInfoPaciente.Location = new Point(128, 143);
             btnReconsulta.Location = new Point(722, 94);
+            //lblMiCuenta.Location = new Point(105, 20);
 
             this.cargaComboEmpresas();
         }
@@ -65,7 +66,7 @@ namespace SIMEDVirtual
             toolTip1.SetToolTip(btnEditaExpediente, "Edita el Expediente");
             toolTip1.SetToolTip(btnPdf, "Exporta el Expediente en Formato PDF");
 
-            if (UsuarioIT.TipoUsuario(Frm_Ingreso.cedulaUsuario) == "1")
+            if (Frm_Ingreso.datosUsuario[3].Equals("1"))
             {
                 this.btnReconsulta.Enabled = false;
                 this.btnEditaExpediente.Enabled = false;
@@ -231,7 +232,7 @@ namespace SIMEDVirtual
         {
             this.Hide();
 
-            switch (Frm_Ingreso.tipoUsuario)
+            switch (Frm_Ingreso.datosUsuario[3])
             {
                 case "2":
                     Frm_Ingreso frm = new Frm_Ingreso();
@@ -1029,7 +1030,7 @@ namespace SIMEDVirtual
 
             string cedula_medico = ExpedienteDA.getCedulaMedicoByIdCedula(cedula, id);
 
-            if (cedula_medico == Frm_Ingreso.cedulaUsuario)
+            if (cedula_medico == Frm_Ingreso.datosUsuario[2])
             {
                 //MessageBox.Show("si lo puedes Editar");
                 this.Hide();
@@ -1048,6 +1049,12 @@ namespace SIMEDVirtual
         private void rbFecha_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cERRASESIONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_cambiar_contrasena frm = new frm_cambiar_contrasena();
+            frm.ShowDialog();
         }
     }
 }

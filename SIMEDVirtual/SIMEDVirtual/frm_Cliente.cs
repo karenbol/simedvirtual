@@ -257,7 +257,7 @@ namespace SIMEDVirtual
                 
             }
             //si soy adm e ingrese desde splash, me devuelvo a splash
-            else if (Frm_Ingreso.tipoUsuario == "1" && accionArealizar == 0)
+            else if (Frm_Ingreso.datosUsuario[3].Equals("1") && accionArealizar == 0)
             {
                 this.Hide();
                 Frm_Splash splash = new Frm_Splash();

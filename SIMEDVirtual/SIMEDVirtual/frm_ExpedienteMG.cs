@@ -96,7 +96,7 @@ namespace SIMEDVirtual
         public bool editarExpediente;
         public int id_pacient = 0;
         public string cedulaPublica = "";
-        public string usuarioPublico = "";
+        //public string usuarioPublico = "";
 
         //da valor a los parametros para llenar el expediente medico
         public void determinaExpediente()
@@ -960,8 +960,8 @@ namespace SIMEDVirtual
         public frm_ExpedienteMG()//datos usuario me trae el nombre y apellido del usuario
         {
             InitializeComponent();
-            label29.Text = Frm_Ingreso.datosUsuario;  //asignamos el nombre del usuario
-            usuarioPublico = Frm_Ingreso.datosUsuario;
+            label29.Text = Frm_Ingreso.datosUsuario[0]+ Frm_Ingreso.datosUsuario[1];  //asignamos el nombre del usuario
+            //usuarioPublico = Frm_Ingreso.datosUsuario;
 
             //vamos a guardar en el cliente y en el expediente
             expOreconsulta = false;
@@ -995,7 +995,7 @@ namespace SIMEDVirtual
         {
             InitializeComponent();
 
-            this.label29.Text = Frm_Ingreso.datosUsuario;
+            this.label29.Text = Frm_Ingreso.datosUsuario[0]+ Frm_Ingreso.datosUsuario[1];
 
             //vamos a guardar solo en el exp xq es reconsulta
             expOreconsulta = true;
@@ -1138,7 +1138,7 @@ namespace SIMEDVirtual
                         observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
                         auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
                         observaciones_sn, otros_examen2, fecha_expediente, diagnostico, terapeutica, observaciones_generales, cedulaPublica,
-                        Frm_Ingreso.cedulaUsuario, motivo_consulta, saturacionOx, temperatura))
+                        Frm_Ingreso.datosUsuario[2], motivo_consulta, saturacionOx, temperatura))
                     {
                         MessageBox.Show("Consulta Insertada con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Hide();
@@ -1170,7 +1170,7 @@ namespace SIMEDVirtual
                         observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
                         auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
                         observaciones_sn, otros_examen2, fecha_expediente, diagnostico, terapeutica, observaciones_generales, cedulaPublica,
-                        Frm_Ingreso.cedulaUsuario, motivo_consulta, saturacionOx, temperatura, id_pacient))
+                        Frm_Ingreso.datosUsuario[2], motivo_consulta, saturacionOx, temperatura, id_pacient))
                     {
                         MessageBox.Show("Expediente Actualizado con Exito", "Actualizacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Hide();
@@ -1245,7 +1245,7 @@ namespace SIMEDVirtual
                             anamnesisIT.InsertaAnamnesis(cedula, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, hipertension, dolor_cabeza,
                         epilepsia, vertigo, depresion, falta_aire, oidos_ojos, dolor_pecho, enf_nerviosas, alergia, txtAlergias.Text, txtTratDiabetes.Text,
                         txtTratHipertension.Text, asma, txtTratAsma.Text, tiroides, txtTratTiroides.Text, txtHipertensionHeredo.Text, txtDiabetesHeredo.Text,
-                        txtCancerHeredo.Text, txtTiroidesHeredo.Text, txtAsmaHeredo.Text, txtOtrosHeredo.Text, txtObservaciones.Text, Frm_Ingreso.cedulaUsuario, fecha_expediente) &&
+                        txtCancerHeredo.Text, txtTiroidesHeredo.Text, txtAsmaHeredo.Text, txtOtrosHeredo.Text, txtObservaciones.Text, Frm_Ingreso.datosUsuario[2], fecha_expediente) &&
                             (ExpedienteIT.InsertaExpediente(pulso, presion_arterial, soplos, dolor_precordial, edemas, arritmias, disnea,
                         observaciones_sc, talla, peso, observaciones_sm, brazo_derecho, brazo_izquierdo, pierna_derecha, pierna_izquierda,
                         bicipal_derecho, bicipal_izquierdo, patelar_derecho, patelar_izquierdo, alquileano_derecho, alquileano_izquierdo,
@@ -1253,7 +1253,7 @@ namespace SIMEDVirtual
                         observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
                         auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
                         observaciones_sn, otros_examen2, fecha_expediente, diagnostico, terapeutica, observaciones_generales, cedula,
-                        Frm_Ingreso.cedulaUsuario, motivo_consulta, saturacionOx, temperatura)))
+                        Frm_Ingreso.datosUsuario[2], motivo_consulta, saturacionOx, temperatura)))
                         {
                             MessageBox.Show("Expediente Guardado con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Hide();

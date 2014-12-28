@@ -16,14 +16,14 @@ namespace SIMEDVirtual
     public partial class Frm_Registro_Medico : Form
     {
         private Boolean edicion = false;
-        string usuarioPublico = "";
+        //string usuarioPublico = "";
         public byte[] fotoBinaria;
         char sexo = 'f';
 
         public Frm_Registro_Medico()
         {
             InitializeComponent();
-            usuarioPublico = Frm_Ingreso.datosUsuario;
+            //usuarioPublico = Frm_Ingreso.datosUsuario;
             cbSexo.SelectedIndex = 1;
             this.cargarEspeciliades();
         }

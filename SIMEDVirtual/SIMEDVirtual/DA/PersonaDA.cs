@@ -72,6 +72,7 @@ namespace SIMEDVirtual.DA
                 }
             }
         }
+
         //inserta datos en la tabla persona
         public static Boolean InsertaAdministrativo(
             string nombre, string apellido1, string apellido2, string cedula,
@@ -867,5 +868,9 @@ namespace SIMEDVirtual.DA
             }
             return null;
         }
+
+
+
     }
+
 }

@@ -203,5 +203,40 @@ namespace SIMEDVirtual.DA
                 }
             }
         }
+
+        public static Boolean CambiarPass(string cedula, string pass)
+        {
+            int x = 0;
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                NpgsqlCommand command = new NpgsqlCommand();
+                command.Connection = conn;
+                conn.Open();
+                try
+                {
+                    string cadena = "update usuario set contrasena=@contrasena where cedula=@cedula";
+                    command.CommandText = cadena;
+
+                    command.Parameters.AddWithValue("@contrasena", pass);
+                    command.Parameters.AddWithValue("@cedula", cedula);
+
+                    x = command.ExecuteNonQuery();
+                }
+                catch
+                {
+                    return false;
+                }
+                conn.Close();
+
+                if (x != 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
     }
 }

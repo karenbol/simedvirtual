@@ -35,5 +35,10 @@ namespace SIMEDVirtual.IT
         {
             return UsuarioDa.deleteUsuario(cedula);
         }
+
+        public static Boolean CambiarPass(string cedula, string pass)
+        {
+            return UsuarioDa.CambiarPass(cedula, pass);
+        }
     }
 }

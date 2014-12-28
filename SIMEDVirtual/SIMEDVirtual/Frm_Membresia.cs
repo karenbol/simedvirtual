@@ -15,16 +15,14 @@ namespace SIMEDVirtual
     public partial class Frm_Membresia : Form
     {
         List<EmpresaEntity> x = new List<EmpresaEntity>();
-        string usuarioPublico = "";
-        public Frm_Membresia(string usuario)
+
+
+        public Frm_Membresia()
         {
             InitializeComponent();
             x = EmpresaIT.getAllEmpresas();
             comboBox1.DataSource = x;
             comboBox1.DisplayMember = "nombre";
-            usuarioPublico = usuario;
-
-
         }
 
         private void Frm_Membresia_FormClosing(object sender, FormClosingEventArgs e)
@@ -32,7 +30,7 @@ namespace SIMEDVirtual
             this.Hide();
             Frm_Splash splash = new Frm_Splash();
             splash.ShowDialog();
-            
+
 
         }
 
@@ -45,7 +43,7 @@ namespace SIMEDVirtual
         {
             ////aqui ocupamps empleados de la empresa selecionada
             //int id = EmpresaIT.IdEmpresa(comboBox1.SelectedItem.ToString());
-                        
+
             //dataGridView1.DataSource = x;
             //for (int j = 0; j < x.Count; j++)
             //{

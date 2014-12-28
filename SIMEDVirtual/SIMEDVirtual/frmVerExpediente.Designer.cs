@@ -51,6 +51,10 @@
             this.btnCrearPaciente = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnPdf = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.mICUENTAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cERRASESIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sALIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cbEmpresa = new System.Windows.Forms.ComboBox();
             this.dtFechaFiltro = new System.Windows.Forms.DateTimePicker();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
@@ -67,14 +71,15 @@
             this.medico = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.lblInfoPaciente = new System.Windows.Forms.Label();
-            this.btnReconsulta = new System.Windows.Forms.Button();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.btnEditaExpediente = new System.Windows.Forms.Button();
+            this.btnReconsulta = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgReconsultas)).BeginInit();
             this.SuspendLayout();
@@ -207,6 +212,7 @@
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.btnPdf);
+            this.panel1.Controls.Add(this.menuStrip1);
             resources.ApplyResources(this.panel1, "panel1");
             this.panel1.Name = "panel1";
             // 
@@ -217,6 +223,40 @@
             this.btnPdf.Name = "btnPdf";
             this.btnPdf.UseVisualStyleBackColor = true;
             this.btnPdf.Click += new System.EventHandler(this.btnPdf_Click);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.HighlightText;
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mICUENTAToolStripMenuItem});
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            // 
+            // mICUENTAToolStripMenuItem
+            // 
+            this.mICUENTAToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.mICUENTAToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cERRASESIONToolStripMenuItem,
+            this.sALIRToolStripMenuItem});
+            resources.ApplyResources(this.mICUENTAToolStripMenuItem, "mICUENTAToolStripMenuItem");
+            this.mICUENTAToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.mICUENTAToolStripMenuItem.Image = global::SIMEDVirtual.Properties.Resources.account;
+            this.mICUENTAToolStripMenuItem.Name = "mICUENTAToolStripMenuItem";
+            // 
+            // cERRASESIONToolStripMenuItem
+            // 
+            resources.ApplyResources(this.cERRASESIONToolStripMenuItem, "cERRASESIONToolStripMenuItem");
+            this.cERRASESIONToolStripMenuItem.Image = global::SIMEDVirtual.Properties.Resources.pass;
+            this.cERRASESIONToolStripMenuItem.Name = "cERRASESIONToolStripMenuItem";
+            this.cERRASESIONToolStripMenuItem.Click += new System.EventHandler(this.cERRASESIONToolStripMenuItem_Click);
+            // 
+            // sALIRToolStripMenuItem
+            // 
+            this.sALIRToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.sALIRToolStripMenuItem.Image = global::SIMEDVirtual.Properties.Resources.logIn;
+            this.sALIRToolStripMenuItem.Name = "sALIRToolStripMenuItem";
+            resources.ApplyResources(this.sALIRToolStripMenuItem, "sALIRToolStripMenuItem");
             // 
             // cbEmpresa
             // 
@@ -369,6 +409,14 @@
             this.lblInfoPaciente.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lblInfoPaciente.Name = "lblInfoPaciente";
             // 
+            // btnEditaExpediente
+            // 
+            resources.ApplyResources(this.btnEditaExpediente, "btnEditaExpediente");
+            this.btnEditaExpediente.Image = global::SIMEDVirtual.Properties.Resources.edit32;
+            this.btnEditaExpediente.Name = "btnEditaExpediente";
+            this.btnEditaExpediente.UseVisualStyleBackColor = true;
+            this.btnEditaExpediente.Click += new System.EventHandler(this.btnEditaExpediente_Click);
+            // 
             // btnReconsulta
             // 
             resources.ApplyResources(this.btnReconsulta, "btnReconsulta");
@@ -384,14 +432,6 @@
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
-            // 
-            // btnEditaExpediente
-            // 
-            resources.ApplyResources(this.btnEditaExpediente, "btnEditaExpediente");
-            this.btnEditaExpediente.Image = global::SIMEDVirtual.Properties.Resources.edit32;
-            this.btnEditaExpediente.Name = "btnEditaExpediente";
-            this.btnEditaExpediente.UseVisualStyleBackColor = true;
-            this.btnEditaExpediente.Click += new System.EventHandler(this.btnEditaExpediente_Click);
             // 
             // frmVerExpediente
             // 
@@ -414,6 +454,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgReconsultas);
             this.Controls.Add(this.dgClientes);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmVerExpediente";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmVerExpediente_FormClosing);
             this.Load += new System.EventHandler(this.frmVerExpediente_Load);
@@ -422,6 +463,8 @@
             this.groupBox1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgReconsultas)).EndInit();
@@ -469,5 +512,9 @@
         private System.Windows.Forms.DateTimePicker dtFechaFiltro;
         private System.Windows.Forms.ComboBox cbEmpresa;
         private System.Windows.Forms.Button btnEditaExpediente;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem mICUENTAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cERRASESIONToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sALIRToolStripMenuItem;
     }
 }
