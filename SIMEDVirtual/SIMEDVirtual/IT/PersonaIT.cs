@@ -71,9 +71,9 @@ namespace SIMEDVirtual.IT
             return PersonaDA.selectMedico2(cedula);
         }
 
-        public static Boolean deleteMedico(string cedula)
+        public static Boolean deletePersona(string cedula)
         {
-            return PersonaDA.deleteMedico(cedula);
+            return PersonaDA.deletePersona(cedula);
         }
 
         public static Boolean deleteUsuario(string cedula)

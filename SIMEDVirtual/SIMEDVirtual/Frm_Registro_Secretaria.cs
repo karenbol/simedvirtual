@@ -19,8 +19,66 @@ namespace SIMEDVirtual
         public Frm_Registro_Secretaria()
         {
             InitializeComponent();
-            label10.Text = Frm_Ingreso.datosUsuario[0]+Frm_Ingreso.datosUsuario[1];
+            label10.Text = Frm_Ingreso.datosUsuario[0] + " " + Frm_Ingreso.datosUsuario[1];
         }
+
+        //ver informacion del administrativo
+        public Frm_Registro_Secretaria(string nombre, string ape1, string ape2,string cedula, DateTime fecha, string edad, char sexo,string puesto,
+            string direccion,string email,int tel1,int tel2)
+        {
+            InitializeComponent();
+            label10.Text = Frm_Ingreso.datosUsuario[0] + " " + Frm_Ingreso.datosUsuario[1];
+            txtNombre.Text = nombre;
+            txtApellido1.Text = ape1;
+            txtApellido2.Text = ape2;
+            txtCedula.Text = cedula;
+            dtfecha.Value = fecha;
+            txtEdad.Text = edad;
+            //combo
+            txtPuesto.Text = puesto;
+            txtDireccion.Text = direccion;
+            txtCorreo.Text = email;
+            telefono1.Text = telefono1.ToString();
+            telefono2.Text = telefono2.ToString();
+
+            groupBox1.Enabled = false;
+
+            txtcontrasena.Visible = false;
+            txtconfirmacion.Visible = false;
+
+            lblpass.Visible = false;
+            lblconfirmapass.Visible = false;
+
+            btnGuardar.Visible = false;
+
+
+
+
+            /*
+             * nombre
+             * ape1
+             * ape2
+             *              * cedula
+             * fecha naci
+             * edad
+             * sexo
+             * puesto
+             * direcci
+             * email
+             * tel1
+             * tel2
+             * ocultar pass
+             */
+
+
+
+
+
+        }
+
+
+
+
 
         private void Frm_Registro_Secretaria_FormClosing(object sender, FormClosingEventArgs e)
         {

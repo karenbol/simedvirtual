@@ -1728,7 +1728,6 @@
             // 
             // txtCedula
             // 
-            this.txtCedula.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCedula.Location = new System.Drawing.Point(216, 230);
             this.txtCedula.Multiline = true;
             this.txtCedula.Name = "txtCedula";

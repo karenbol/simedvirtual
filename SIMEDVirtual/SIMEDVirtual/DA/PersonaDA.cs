@@ -583,7 +583,7 @@ namespace SIMEDVirtual.DA
         }
 
         //metodo que elimina la informacion
-        public static Boolean deleteMedico(string cedula)
+        public static Boolean deletePersona(string cedula)
         {
             int x = 0;
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
@@ -612,10 +612,9 @@ namespace SIMEDVirtual.DA
                 else
                 {
                     return false;
-                }
-            }
+                }            }
         }
-
+        
         //metodo que elimina el usuario
         public static Boolean deleteUsuario(string cedula)
         {
@@ -868,8 +867,6 @@ namespace SIMEDVirtual.DA
             }
             return null;
         }
-
-
 
     }
 

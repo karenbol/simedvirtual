@@ -16,14 +16,13 @@ namespace SIMEDVirtual
         public frm_empresa()
         {
             InitializeComponent();
-            label4.Text = Frm_Ingreso.datosUsuario[0]+ Frm_Ingreso.datosUsuario[1];
+            label4.Text = Frm_Ingreso.datosUsuario[0] + " " + Frm_Ingreso.datosUsuario[1];
 
             toolTip1.InitialDelay = 1;
 
             toolTip1.SetToolTip(btnAgregar, "Agregar Empresa");
             toolTip1.SetToolTip(btnEdit, "Editar Empresa");
             toolTip1.SetToolTip(btnEliminar, "Eliminar Empresa");
-
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -31,7 +30,7 @@ namespace SIMEDVirtual
             this.Hide();
             frm_registraEmpresa splash = new frm_registraEmpresa();
             splash.ShowDialog();
-            
+            this.Close();
         }
 
         //cargamos las empresas
@@ -110,7 +109,6 @@ namespace SIMEDVirtual
             frm_registraEmpresa frm = new frm_registraEmpresa(cedula_juridica, nombre, descripcion, direccion, telefono1,
                 encargado1, telefono2, encargado2, 1);
             frm.ShowDialog();
-            
         }
 
 
@@ -154,7 +152,7 @@ namespace SIMEDVirtual
             frm_registraEmpresa frm = new frm_registraEmpresa(cedula_juridica, nombre, descripcion, direccion, telefono1,
                 encargado1, telefono2, encargado2, 2);
             frm.ShowDialog();
-            
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -178,7 +176,7 @@ namespace SIMEDVirtual
             this.Hide();
             Frm_Splash x = new Frm_Splash();
             x.ShowDialog();
-            
+
         }
     }
 }

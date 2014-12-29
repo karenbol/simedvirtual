@@ -14,13 +14,10 @@ namespace SIMEDVirtual
 {
     public partial class Frm_Medico : Form
     {
-        //string usuarioPublico = "";
-
         public Frm_Medico()
         {
             InitializeComponent();
-            //usuarioPublico = Frm_Ingreso.datosUsuario;
-            label4.Text = Frm_Ingreso.datosUsuario[0]+ Frm_Ingreso.datosUsuario[1];
+            label4.Text = Frm_Ingreso.datosUsuario[0] + " " + Frm_Ingreso.datosUsuario[1];
 
             dataGridView1.Columns[0].Width = 200;
             dataGridView1.Columns[1].Width = 150;
@@ -90,7 +87,7 @@ namespace SIMEDVirtual
                 Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, ced, fecha, direccion,
                     codigo, u, especialidad, correo, sexo, edad, telefono1, telefono2, false);
                 frm.ShowDialog();
-                
+
             }
         }
         //agregar medico
@@ -99,7 +96,7 @@ namespace SIMEDVirtual
             this.Hide();
             Frm_Registro_Medico pan = new Frm_Registro_Medico();
             pan.ShowDialog();
-            
+
         }
 
         private void Frm_Medico_FormClosing(object sender, FormClosingEventArgs e)
@@ -124,7 +121,7 @@ namespace SIMEDVirtual
                     string ced = Convert.ToString(selectedRow.Cells["Cedula"].Value);
 
                     //eliminar dr y usuario
-                    if (PersonaIT.deleteMedico(ced) && (PersonaIT.deleteUsuario(ced)))
+                    if (PersonaIT.deletePersona(ced) && (PersonaIT.deleteUsuario(ced)))
                     {
                         this.cargarDataGrid();
                         MessageBox.Show("El Registro se ha Eliminado Correctamente!", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -170,7 +167,7 @@ namespace SIMEDVirtual
                 Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, cedula, fecha, direccion,
                     codigo, u, especialidad, correo, sexo, edad, telefono1, telefono2, true);
                 frm.ShowDialog();
-                
+
             }
             else
             {

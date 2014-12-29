@@ -128,8 +128,7 @@
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
             this.clientesToolStripMenuItem.Text = "Clientes";
-            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
-            // 
+                        // 
             // medicosToolStripMenuItem1
             // 
             this.medicosToolStripMenuItem1.Image = global::SIMEDVirtual.Properties.Resources.dr_paq1;
@@ -144,8 +143,7 @@
             this.administrativosToolStripMenuItem.Name = "administrativosToolStripMenuItem";
             this.administrativosToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
             this.administrativosToolStripMenuItem.Text = "Administrativos";
-            this.administrativosToolStripMenuItem.Click += new System.EventHandler(this.administrativosToolStripMenuItem_Click);
-            // 
+                        // 
             // planesFamiliaresToolStripMenuItem
             // 
             this.planesFamiliaresToolStripMenuItem.Image = global::SIMEDVirtual.Properties.Resources.family;
@@ -159,8 +157,7 @@
             this.planesEmpresarialesToolStripMenuItem.Name = "planesEmpresarialesToolStripMenuItem";
             this.planesEmpresarialesToolStripMenuItem.Size = new System.Drawing.Size(224, 24);
             this.planesEmpresarialesToolStripMenuItem.Text = "Planes Empresariales";
-            this.planesEmpresarialesToolStripMenuItem.Click += new System.EventHandler(this.planesEmpresarialesToolStripMenuItem_Click);
-            // 
+                        // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {

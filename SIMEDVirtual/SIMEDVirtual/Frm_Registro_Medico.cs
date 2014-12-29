@@ -16,14 +16,12 @@ namespace SIMEDVirtual
     public partial class Frm_Registro_Medico : Form
     {
         private Boolean edicion = false;
-        //string usuarioPublico = "";
         public byte[] fotoBinaria;
         char sexo = 'f';
 
         public Frm_Registro_Medico()
         {
             InitializeComponent();
-            //usuarioPublico = Frm_Ingreso.datosUsuario;
             cbSexo.SelectedIndex = 1;
             this.cargarEspeciliades();
         }
@@ -107,7 +105,7 @@ namespace SIMEDVirtual
             this.Hide();
             Frm_Medico splash = new Frm_Medico();
             splash.ShowDialog();
-            
+
         }
 
         //metodo que compara los campos de la contrasena
@@ -158,7 +156,7 @@ namespace SIMEDVirtual
                                 this.Close();
                                 Frm_Splash frm = new Frm_Splash();
                                 frm.ShowDialog();
-                                
+
                             }
                             else
                             {
@@ -187,7 +185,7 @@ namespace SIMEDVirtual
                         this.Close();
                         Frm_Splash frm = new Frm_Splash();
                         frm.ShowDialog();
-                                            }
+                    }
                 }
             }
             else
@@ -257,19 +255,6 @@ namespace SIMEDVirtual
                 cbEspecialidad.DisplayMember = "nombre";
                 cbEspecialidad.SelectedIndex = 0;
             }
-
-            /*if (especialidad.Count != 0)
-            {
-                for (int i = 0; i < especialidad.Count; i++)
-                {
-                    cbEspecialidad.Items.Add(especialidad[i].ToUpper().ToString());
-                }
-
-                if (cbEspecialidad.Items.Count != 0)
-                {
-                    cbEspecialidad.SelectedIndex = 0;
-                }
-            }*/
         }
 
         private void fecha_nacimiento_ValueChanged(object sender, EventArgs e)

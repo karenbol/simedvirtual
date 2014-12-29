@@ -20,14 +20,12 @@ namespace SIMEDVirtual
     public partial class frmVerExpediente : Form
     {
         string prueba = "";
-        //string usuarioPublico = "";
 
         public frmVerExpediente()
         {
             InitializeComponent();
             //usuario
-           // usuarioPublico = Frm_Ingreso.datosUsuario;
-            label4.Text = Frm_Ingreso.datosUsuario[0]+ Frm_Ingreso.datosUsuario[1];
+            label4.Text = Frm_Ingreso.datosUsuario[0] + " " + Frm_Ingreso.datosUsuario[1];
 
             dgClientes.Columns[0].Width = 200;
             dgClientes.Columns[1].Width = 150;
@@ -46,8 +44,7 @@ namespace SIMEDVirtual
             label2.Location = new Point(990, 97);
             lblInfoPaciente.Location = new Point(128, 143);
             btnReconsulta.Location = new Point(722, 94);
-            //lblMiCuenta.Location = new Point(105, 20);
-
+            
             this.cargaComboEmpresas();
         }
 
@@ -135,7 +132,6 @@ namespace SIMEDVirtual
             this.Hide();
             frm_ExpedienteMG splash = new frm_ExpedienteMG();
             splash.ShowDialog();
-            
         }
 
         //con el click de la tabla clientes se muestra las reconsultas
@@ -175,7 +171,7 @@ namespace SIMEDVirtual
                 this.Hide();
                 frm_ExpedienteMG frm = new frm_ExpedienteMG(prueba, false, false, 0, 1);
                 frm.ShowDialog();
-                
+
             }
             else
             {
@@ -189,7 +185,6 @@ namespace SIMEDVirtual
             this.Hide();
             frm_ExpedienteMG frm = new frm_ExpedienteMG();
             frm.ShowDialog();
-            
         }
 
         //con el doble click en la tabla reconsulta muestro el expediente completo
@@ -202,7 +197,6 @@ namespace SIMEDVirtual
             this.Hide();
             frm_ExpedienteMG frm = new frm_ExpedienteMG(cedula_paciente, false, true, id_paciente, 0);
             frm.ShowDialog();
-            
         }
 
         //veo la info personal del cliente
@@ -214,7 +208,6 @@ namespace SIMEDVirtual
             this.Hide();
             frm_Cliente frm = new frm_Cliente(cedula_paciente, 1);
             frm.ShowDialog();
-            
         }
 
         private void btnEditarPaciente_Click(object sender, EventArgs e)
@@ -225,7 +218,6 @@ namespace SIMEDVirtual
             this.Hide();
             frm_Cliente frm = new frm_Cliente(cedula_paciente, 2);
             frm.ShowDialog();
-            
         }
 
         private void frmVerExpediente_FormClosing(object sender, FormClosingEventArgs e)
@@ -237,11 +229,11 @@ namespace SIMEDVirtual
                 case "2":
                     Frm_Ingreso frm = new Frm_Ingreso();
                     frm.ShowDialog();
-                                        break;
+                    break;
                 case "1":
                     Frm_Splash pantalla = new Frm_Splash();
                     pantalla.ShowDialog();
-                                        break;
+                    break;
                 default:
                     break;
             }
@@ -1037,20 +1029,13 @@ namespace SIMEDVirtual
                 frm_ExpedienteMG splash = new frm_ExpedienteMG(cedula, false, false, id, 0);
                 //string cedula_paciente, bool editar, bool verExpediente, int id_paciente
                 splash.ShowDialog();
-                
-
             }
             else
             {
                 MessageBox.Show("NO ERES EL CREADOR DE ESTE EXPEDIENTE PARA PODER EDITARLO", "Seleccion Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-
-        private void rbFecha_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
+               
         private void cERRASESIONToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_cambiar_contrasena frm = new frm_cambiar_contrasena();

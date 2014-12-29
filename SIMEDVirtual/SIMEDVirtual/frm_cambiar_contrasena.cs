@@ -21,10 +21,6 @@ namespace SIMEDVirtual
         {
             if (txt_pass_anterior.Text != string.Empty && txt_nueva_pass.Text != string.Empty && txtconfirmacion.Text != string.Empty)
             {
-
-
-
-
                 if (Frm_Registro_Medico.comparaContrasena(txt_nueva_pass.Text, txtconfirmacion.Text))
                 {
                     //cambiamos la contrasena

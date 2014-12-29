@@ -19,10 +19,7 @@ namespace SIMEDVirtual
             InitializeComponent();
             btnEliminar1.Visible = false;
             btnEliminar2.Visible = false;
-
-
         }
-
 
         // 1 ver 2 editar
         public frm_registraEmpresa(string cedula_juridica, string nombre, string descripcion, string direccion, int telefono1,
@@ -86,13 +83,12 @@ namespace SIMEDVirtual
                         {
                             EmpresaIT.InsertaEmpresaTelefono(txtCedula_Juridica.Text, Convert.ToInt32(txtTelefono2.Text), txtEncargado2.Text);
                         }
-
-
                         MessageBox.Show("La Empresa se ha Insertado con Exito", "Ingreso Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+              
                         this.Hide();
                         frm_empresa splash = new frm_empresa();
                         splash.ShowDialog();
-                        
+                        this.Close();
                     }
                     else
                     {
@@ -122,10 +118,9 @@ namespace SIMEDVirtual
                             }
                         }
                         MessageBox.Show("La Empresa se ha Editado con Exito", "Edicion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        this.Hide();
-                        frm_empresa splash = new frm_empresa();
-                        splash.ShowDialog();
-                        
+                        this.Dispose();
+                        //frm_empresa splash = new frm_empresa();
+                        //splash.ShowDialog();                        
                     }
                     else
                     {
@@ -141,7 +136,7 @@ namespace SIMEDVirtual
 
         private void frm_registraEmpresa_Load(object sender, EventArgs e)
         {
-            this.label4.Text = Frm_Ingreso.datosUsuario[0]+ Frm_Ingreso.datosUsuario[1];
+            this.label4.Text = Frm_Ingreso.datosUsuario[0] + " " + Frm_Ingreso.datosUsuario[1];
 
         }
 
@@ -150,7 +145,7 @@ namespace SIMEDVirtual
             this.Hide();
             frm_empresa splash = new frm_empresa();
             splash.ShowDialog();
-            
+            this.Close();
         }
 
         //eliminar el telefono de la empresa

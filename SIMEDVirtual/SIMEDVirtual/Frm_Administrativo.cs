@@ -35,8 +35,6 @@ namespace SIMEDVirtual
             var pts = new BindingList<PersonaEntity>(PersonaIT.selectAdministrativo());
             dgAdministrativos.AutoGenerateColumns = false;
             dgAdministrativos.DataSource = pts;
-            //agregar el evento 
-            //dgAdministrativos.CellContentDoubleClick += dgAdministrativos_CellDoubleClick;
 
             //se asignan datos al datagrid
             for (int j = 0; j < pts.Count; j++)
@@ -62,7 +60,67 @@ namespace SIMEDVirtual
             this.Hide();
             Frm_Splash x = new Frm_Splash();
             x.ShowDialog();
+        }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgAdministrativos.SelectedCells.Count > 0)
+            {
+                DialogResult dialog = MessageBox.Show(
+     "Seguro que Desea Eliminar el Registro?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+
+                if (dialog == DialogResult.Yes)
+                {
+                    DataGridViewRow selectedRow = dgAdministrativos.Rows[dgAdministrativos.SelectedCells[0].RowIndex];
+                    string ced = Convert.ToString(selectedRow.Cells["Cedula"].Value);
+
+                    //eliminar dr y usuario
+                    if (PersonaIT.deletePersona(ced) && (PersonaIT.deleteUsuario(ced)))
+                    {
+                        this.cargarDataGrid();
+                        MessageBox.Show("El Registro se ha Eliminado Correctamente!", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("NO HAY DATOS SELECCIONADOS");
+            }
+        }
+
+        private void dgAdministrativos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex != -1)
+            {
+                //cargamos todos la info de drs en el datagrid
+                string cedula = dgAdministrativos.Rows[e.RowIndex].Cells[0].Value.ToString();
+                //selecciona el medico dependiento de la cedula
+                var pts = new BindingList<PersonaEntity>(PersonaIT.selectClientePorCedula(Convert.ToString(cedula)));
+                dgAdministrativos.AutoGenerateColumns = false;
+                dgAdministrativos.DataSource = pts;
+
+                string nombre = pts.ElementAt(0).nombre.ToString();
+                String ape1 = pts.ElementAt(0).ape1.ToString();
+                String ape2 = pts.ElementAt(0).ape2.ToString();
+                DateTime fecha = Convert.ToDateTime(pts.ElementAt(0).fecha.ToString());
+                String direccion = pts.ElementAt(0).direccion.ToString();
+                String puesto = pts.ElementAt(0).profesion.ToString();
+                String correo = pts.ElementAt(0).email.ToString();
+                char sexo = Convert.ToChar(pts.ElementAt(0).sexo);
+                String edad = pts.ElementAt(0).edad.ToString();
+                int telefono1 = Convert.ToInt32(pts.ElementAt(0).telefono_fijo.ToString());
+                int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono_movil.ToString());
+                //byte foto = Convert.ToByte(pts.ElementAt(0).fotoBinaria);
+
+                this.Hide();
+                Frm_Registro_Secretaria frm = new Frm_Registro_Secretaria(nombre, ape1, ape2, cedula, fecha, edad, sexo, puesto, direccion,
+                   correo, telefono1, telefono2);
+                frm.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("SELECCION NO VALIDA\nPOR FAVOR SELECCIONE UN MEDICO E INTENTELO DE NUEVO", "Seleccion Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

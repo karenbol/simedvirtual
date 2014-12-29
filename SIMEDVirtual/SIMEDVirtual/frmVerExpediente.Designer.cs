@@ -297,8 +297,7 @@
             this.rbFecha.Name = "rbFecha";
             this.rbFecha.TabStop = true;
             this.rbFecha.UseVisualStyleBackColor = true;
-            this.rbFecha.CheckedChanged += new System.EventHandler(this.rbFecha_CheckedChanged);
-            this.rbFecha.Click += new System.EventHandler(this.rbFecha_Click);
+                        this.rbFecha.Click += new System.EventHandler(this.rbFecha_Click);
             // 
             // rbApellido
             // 

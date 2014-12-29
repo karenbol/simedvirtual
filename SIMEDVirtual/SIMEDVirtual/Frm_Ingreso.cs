@@ -18,12 +18,8 @@ namespace SIMEDVirtual
 {
     public partial class Frm_Ingreso : Form
     {
-        //public static String datosUsuario = "Usuario NO Identificado";
         //0=nombre 1=apelli 2=cedula 3=tipo
-        public static String[] datosUsuario = new String[] { "Usuario", "NO Identificado", "2", "" };
-        //variable estatico con la cedula del usuario
-        //public static String cedulaUsuario = "2";
-        //public static String tipoUsuario;
+        public static String[] datosUsuario = new String[] { "Usuario", " NO Identificado", "2", "" };
 
         public Frm_Ingreso()
         {
@@ -39,14 +35,10 @@ namespace SIMEDVirtual
                 //determina si los datos de ingreso estan en la tabla usuarios
                 if (UsuarioIT.Ingreso(txtUsuario.Text.Trim(), txtContrasena.Text.Trim()))
                 {
-                    //guardo la cedula del usuario
-
                     datosUsuario[2] = txtUsuario.Text.Trim();
 
-                    //determinamos nombre y apellido del usuario en una variable statica
                     //recibe el nombre de usuario y me trae la informacion
                     List<PersonaEntity> doctor = UsuarioIT.getNombreApeDr(txtUsuario.Text.Trim());
-                    //concatenamos nombre y apellido del usuario
 
                     if (doctor.Count != 0)
                     {
@@ -59,11 +51,6 @@ namespace SIMEDVirtual
 
                         if (datosUsuario[3] == "1")
                         {
-                            /*
-                            var x = new Form2();
-                            this.Hide();
-                            x.ShowDialog();
-                            this.Show();*/
                             this.Hide();
                             Frm_Splash pr = new Frm_Splash();
                             pr.ShowDialog();
@@ -94,7 +81,6 @@ namespace SIMEDVirtual
                     txtContrasena.Text = string.Empty;
                     DialogResult dialogResult = MessageBox.Show("Ingreso Fallido, Vuelve a intentarlo",
            "Log In Fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 }
             }
             //si hay campos vacios notifica
