@@ -31,9 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmVerExpediente));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgClientes = new System.Windows.Forms.DataGridView();
             this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ape1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +56,7 @@
             this.dtFechaFiltro = new System.Windows.Forms.DateTimePicker();
             this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.rbMedico = new System.Windows.Forms.RadioButton();
             this.rbFecha = new System.Windows.Forms.RadioButton();
             this.rbApellido = new System.Windows.Forms.RadioButton();
             this.rbCedula = new System.Windows.Forms.RadioButton();
@@ -75,6 +73,8 @@
             this.btnEditaExpediente = new System.Windows.Forms.Button();
             this.btnReconsulta = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.cbMedicos = new System.Windows.Forms.ComboBox();
+            this.lblCount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -94,7 +94,7 @@
             this.dgClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Sunken;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -107,14 +107,6 @@
             this.ape2,
             this.nombre});
             this.dgClientes.ContextMenuStrip = this.contextMenuStrip1;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgClientes.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgClientes.MultiSelect = false;
             this.dgClientes.Name = "dgClientes";
             this.dgClientes.ReadOnly = true;
@@ -280,6 +272,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.rbMedico);
             this.groupBox2.Controls.Add(this.rbFecha);
             this.groupBox2.Controls.Add(this.rbApellido);
             this.groupBox2.Controls.Add(this.rbCedula);
@@ -290,6 +283,15 @@
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.TabStop = false;
             // 
+            // rbMedico
+            // 
+            resources.ApplyResources(this.rbMedico, "rbMedico");
+            this.rbMedico.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.rbMedico.Name = "rbMedico";
+            this.rbMedico.TabStop = true;
+            this.rbMedico.UseVisualStyleBackColor = true;
+            this.rbMedico.Click += new System.EventHandler(this.rbMedico_Click);
+            // 
             // rbFecha
             // 
             resources.ApplyResources(this.rbFecha, "rbFecha");
@@ -297,7 +299,7 @@
             this.rbFecha.Name = "rbFecha";
             this.rbFecha.TabStop = true;
             this.rbFecha.UseVisualStyleBackColor = true;
-                        this.rbFecha.Click += new System.EventHandler(this.rbFecha_Click);
+            this.rbFecha.Click += new System.EventHandler(this.rbFecha_Click);
             // 
             // rbApellido
             // 
@@ -340,28 +342,12 @@
             this.dgReconsultas.AllowUserToAddRows = false;
             this.dgReconsultas.AllowUserToDeleteRows = false;
             this.dgReconsultas.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgReconsultas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgReconsultas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgReconsultas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.cedula_paciente,
             this.fecha,
             this.medico});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgReconsultas.DefaultCellStyle = dataGridViewCellStyle4;
             resources.ApplyResources(this.dgReconsultas, "dgReconsultas");
             this.dgReconsultas.MultiSelect = false;
             this.dgReconsultas.Name = "dgReconsultas";
@@ -432,11 +418,27 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // cbMedicos
+            // 
+            this.cbMedicos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMedicos.FormattingEnabled = true;
+            resources.ApplyResources(this.cbMedicos, "cbMedicos");
+            this.cbMedicos.Name = "cbMedicos";
+            this.cbMedicos.SelectionChangeCommitted += new System.EventHandler(this.cbMedicos_SelectionChangeCommitted);
+            // 
+            // lblCount
+            // 
+            resources.ApplyResources(this.lblCount, "lblCount");
+            this.lblCount.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lblCount.Name = "lblCount";
+            // 
             // frmVerExpediente
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
+            this.Controls.Add(this.lblCount);
+            this.Controls.Add(this.cbMedicos);
             this.Controls.Add(this.cbEmpresa);
             this.Controls.Add(this.dtFechaFiltro);
             this.Controls.Add(this.btnEditaExpediente);
@@ -515,5 +517,8 @@
         private System.Windows.Forms.ToolStripMenuItem mICUENTAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cERRASESIONToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sALIRToolStripMenuItem;
+        public System.Windows.Forms.RadioButton rbMedico;
+        private System.Windows.Forms.ComboBox cbMedicos;
+        private System.Windows.Forms.Label lblCount;
     }
 }

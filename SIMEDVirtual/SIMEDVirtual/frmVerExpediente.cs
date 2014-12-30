@@ -44,8 +44,10 @@ namespace SIMEDVirtual
             label2.Location = new Point(990, 97);
             lblInfoPaciente.Location = new Point(128, 143);
             btnReconsulta.Location = new Point(722, 94);
-            
+
             this.cargaComboEmpresas();
+            this.cargaComboMedicos();
+            this.lblCount.Location = new Point(684, 680);
         }
 
         private void frmVerExpediente_Load(object sender, EventArgs e)
@@ -55,6 +57,7 @@ namespace SIMEDVirtual
 
             dtFechaFiltro.Visible = false;
             cbEmpresa.Visible = false;
+            cbMedicos.Visible = false;
             toolTip1.InitialDelay = 1;
 
             toolTip1.SetToolTip(btnCrearPaciente, "Crea Nuevo Paciente");
@@ -68,6 +71,7 @@ namespace SIMEDVirtual
                 this.btnReconsulta.Enabled = false;
                 this.btnEditaExpediente.Enabled = false;
             }
+            //this.CuentaResultado();
         }
         //metodo que carga TODAS LAS EMPRESAS registradas EN EL COMBO BOX
         public void cargaComboEmpresas()
@@ -83,6 +87,23 @@ namespace SIMEDVirtual
                 cbEmpresa.ValueMember = "id";
                 //lo q voy a mostrar
                 cbEmpresa.DisplayMember = "nombre";
+            }
+        }
+
+        //metodo que carga TODAS LAS EMPRESAS registradas EN EL COMBO BOX
+        public void cargaComboMedicos()
+        {
+            List<PersonaEntity> listaMedicos = PersonaIT.selectMedicoLess();
+
+            if (listaMedicos.Count != 0)
+            {
+                //asigno los datos al combobox
+                cbMedicos.DataSource = listaMedicos;
+                cbMedicos.SelectedIndex = 0;
+                //lo que quiero obtener
+                cbMedicos.ValueMember = "cedula";
+                //lo q voy a mostrar
+                cbMedicos.DisplayMember = "ape1";
             }
         }
 
@@ -105,6 +126,7 @@ namespace SIMEDVirtual
                 dgClientes.Rows[j].Cells[2].Value = pts.ElementAt(j).ape2.ToString();
                 dgClientes.Rows[j].Cells[3].Value = pts.ElementAt(j).nombre.ToString();
             }
+            this.CuentaResultado();
         }
 
         private void cargarDataGrid(List<PersonaEntity> lista)
@@ -281,6 +303,7 @@ namespace SIMEDVirtual
                 cbEmpresa.Visible = false;
                 dtFechaFiltro.Visible = false;
             }
+            this.CuentaResultado();
         }
 
         private void btnPdf_Click(object sender, EventArgs e)
@@ -957,19 +980,37 @@ namespace SIMEDVirtual
         {
             txtBusqueda.Visible = false;
             dtFechaFiltro.Visible = false;
+            cbMedicos.Visible = false;
             cbEmpresa.Visible = true;
             cbEmpresa.Location = new Point(131, 114);
             this.dgReconsultas.Rows.Clear();
+            this.cargarDataGrid();
         }
 
         private void rbFecha_Click(object sender, EventArgs e)
         {
             txtBusqueda.Visible = false;
             cbEmpresa.Visible = false;
+            cbMedicos.Visible = false;
             dtFechaFiltro.Visible = true;
             dtFechaFiltro.Location = new Point(131, 114);
             this.dgReconsultas.Rows.Clear();
+            this.cargarDataGrid();
         }
+
+        private void rbMedico_Click(object sender, EventArgs e)
+        {
+            txtBusqueda.Visible = false;
+            cbEmpresa.Visible = false;
+            dtFechaFiltro.Visible = false;
+
+            cbMedicos.Visible = true;
+            cbMedicos.Location = new Point(131, 114);
+            this.dgReconsultas.Rows.Clear();
+            this.cargarDataGrid();
+        }
+
+
 
         //funciona en el caso de apellido, cedula, nombre y cedula medico
         public void ocultarComponentes()
@@ -977,7 +1018,10 @@ namespace SIMEDVirtual
             dtFechaFiltro.Visible = false;
             cbEmpresa.Visible = false;
             txtBusqueda.Visible = true;
+            txtBusqueda.Text = "";
+            cbMedicos.Visible = false;
             this.dgReconsultas.Rows.Clear();
+            this.cargarDataGrid();
         }
 
         private void cbEmpresa_SelectionChangeCommitted(object sender, EventArgs e)
@@ -996,6 +1040,7 @@ namespace SIMEDVirtual
                     MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS");
                 }
             }
+            this.CuentaResultado();
         }
 
         private void dtFechaFiltro_ValueChanged(object sender, EventArgs e)
@@ -1010,6 +1055,7 @@ namespace SIMEDVirtual
                 this.cargarDataGrid();
                 MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS");
             }
+            this.CuentaResultado();
         }
 
         private void btnEditaExpediente_Click(object sender, EventArgs e)
@@ -1035,11 +1081,37 @@ namespace SIMEDVirtual
                 MessageBox.Show("NO ERES EL CREADOR DE ESTE EXPEDIENTE PARA PODER EDITARLO", "Seleccion Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-               
+
         private void cERRASESIONToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frm_cambiar_contrasena frm = new frm_cambiar_contrasena();
             frm.ShowDialog();
+        }
+
+        private void cbMedicos_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            this.dgReconsultas.Rows.Clear();
+            if (cbMedicos.SelectedValue != null)
+            {
+                string cedula_medico = Convert.ToString(cbMedicos.SelectedValue);
+                List<PersonaEntity> personas = PersonaIT.selectClienteByIdMedico(cedula_medico);
+                if (personas.Count != 0)
+                {
+                    this.cargarDataGrid(personas);
+                }
+                else
+                {
+                    this.cargarDataGrid();
+                    MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS");
+                }
+            }
+            this.CuentaResultado();
+        }
+
+
+        public void CuentaResultado()
+        {
+            lblCount.Text = "Resultados: " + dgClientes.DisplayedRowCount(false).ToString();
         }
     }
 }

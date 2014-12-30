@@ -57,14 +57,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DA\AdministrativoDa.cs" />
     <Compile Include="DA\anamnesisDa.cs" />
     <Compile Include="DA\Empresa.cs" />
     <Compile Include="DA\EspecialidadDA.cs" />
     <Compile Include="DA\ExpedienteDA.cs" />
     <Compile Include="DA\PersonaDA.cs" />
     <Compile Include="DA\Planes_EmpresarialesDA.cs" />
-    <Compile Include="Entity\AdministrativoEntity.cs" />
     <Compile Include="Entity\anamnesis.cs" />
     <Compile Include="Entity\EmpresaEntity.cs" />
     <Compile Include="Entity\EspecialidadEntity.cs" />
@@ -151,7 +149,6 @@
     <Compile Include="Frm_Splash.Designer.cs">
       <DependentUpon>Frm_Splash.cs</DependentUpon>
     </Compile>
-    <Compile Include="IT\AdministrativoIT.cs" />
     <Compile Include="IT\anamnesisIT.cs" />
     <Compile Include="IT\EmpresaIT.cs" />
     <Compile Include="IT\EspecialidadIT.cs" />

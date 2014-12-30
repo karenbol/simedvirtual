@@ -169,7 +169,6 @@ namespace SIMEDVirtual.DA
         }
 
 
-
         //select cliente by busqueda
         public static List<PersonaEntity> selectClienteByBusqueda(string columna, string pista)
         {
@@ -247,6 +246,44 @@ namespace SIMEDVirtual.DA
             return list;
         }
 
+
+        //selecciona los pacientes segun el medico
+        public static List<PersonaEntity> selectClienteByIdMedico(string id_medico)
+        {
+            //creacion de lista tipo medico entity
+            List<PersonaEntity> list = new List<PersonaEntity>();
+            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
+            {
+                conn.Open();
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM (SELECT cedula FROM expediente where cedula_medico='"+id_medico+"') AS a,persona b WHERE b.cedula = a.cedula;", conn);
+                NpgsqlDataReader dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    PersonaEntity cliente = new PersonaEntity();
+
+                    cliente.nombre = Convert.ToString(dr["nombre"]);
+                    cliente.ape1 = Convert.ToString(dr["apellido1"]);
+                    cliente.ape2 = Convert.ToString(dr["apellido2"]);
+                    cliente.cedula = Convert.ToString(dr["cedula"]);
+                    cliente.fecha = Convert.ToDateTime(dr["fecha_nacimiento"]);
+                    cliente.direccion = Convert.ToString(dr["direccion"]);
+                    cliente.edad = Convert.ToString(dr["edad"]);
+                    cliente.sexo = Convert.ToChar(dr["sexo"]);
+                    cliente.estado_civil = Convert.ToString(dr["estado_civil"]);
+                    cliente.grupo_sanguineo = Convert.ToString(dr["grupo_sanguineo"]);
+                    cliente.profesion = Convert.ToString(dr["profesion"]);
+                    cliente.telefono_fijo = Convert.ToInt32(dr["telefono_fijo"]);
+                    cliente.telefono_movil = Convert.ToInt32(dr["telefono_movil"]);
+                    cliente.email = Convert.ToString(dr["email"]);
+                    cliente.empresa = Convert.ToInt32(dr["empresa"]);
+
+                    list.Add(cliente);
+                }
+                conn.Close();
+            }
+            return list;
+        }
 
 
         //me trae todo del cliente segun la cedula
@@ -795,7 +832,6 @@ namespace SIMEDVirtual.DA
             }
             return list;
         }
-
 
 
         //metodo join que me devuelve apellido segun cedula del medico

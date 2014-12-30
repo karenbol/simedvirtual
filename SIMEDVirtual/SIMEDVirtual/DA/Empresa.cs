@@ -153,31 +153,6 @@ namespace SIMEDVirtual.DA
             return empresas;
         }
 
-        //selecciona el id de la empresa
-        /*public static List<EmpresaEntity> getEmpresaByID(String cedula)
-        {
-
-            List<EmpresaEntity> empresas = new List<EmpresaEntity>();
-            NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
-            {
-                conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("select * from empresa where cedula_juridica='" + cedula + "'", conn);
-                NpgsqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    EmpresaEntity entidad = new EmpresaEntity();
-                    entidad.nombre = Convert.ToString(dr[1].ToString());
-                    entidad.cedula = Convert.ToString(dr[2].ToString());
-                    entidad.direccion = Convert.ToString(dr[3].ToString());
-                    entidad.descripcion = Convert.ToString(dr[4].ToString());
-                    empresas.Add(entidad);
-                }
-                conn.Close();
-            }
-            return empresas;
-        }*/
-
-
         public static EmpresaEntity getEmpresaByID(String cedula)
         {
             EmpresaEntity entidad = new EmpresaEntity();
@@ -198,11 +173,6 @@ namespace SIMEDVirtual.DA
             }
             return entidad;
         }
-
-
-
-
-
 
         //selecciona el id de la empresa
         public static List<EmpresaEntity> getTelefono(String cedula_juridica)

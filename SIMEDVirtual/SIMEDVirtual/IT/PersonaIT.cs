@@ -133,5 +133,10 @@ namespace SIMEDVirtual.IT
         {
             return PersonaDA.selectAdministrativo();
         }
+
+        public static List<PersonaEntity> selectClienteByIdMedico(string id_medico)
+        {
+            return PersonaDA.selectClienteByIdMedico(id_medico);
+        }
     }
 }
