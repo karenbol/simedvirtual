@@ -64,12 +64,12 @@ namespace SIMEDVirtual
                         }
                         else
                         {
-                            MessageBox.Show("Ha ocurrido un error con el tipo de usuario");
+                            MessageBox.Show("HA OCURRIDO UN ERROR CON EL TIPO DE USUARIO");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("No se Encuentra registrado el Usuario");
+                        MessageBox.Show("NO SE ENCUENTRA REGISTRADO EL USUARIO");
                     }
                     this.Close();
                 }
@@ -79,15 +79,15 @@ namespace SIMEDVirtual
                     //limpiamos los campos
                     txtUsuario.Text = string.Empty;
                     txtContrasena.Text = string.Empty;
-                    DialogResult dialogResult = MessageBox.Show("Ingreso Fallido, Vuelve a intentarlo",
-           "Log In Fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult dialogResult = MessageBox.Show("INGRESO FALLIDO, VUELVE A INTENTARLO",
+           "INGRESO FALLIDO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             //si hay campos vacios notifica
             else
             {
-                DialogResult dialogResult = MessageBox.Show("Algunos Campos de Texto estan Vacios",
-       "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                DialogResult dialogResult = MessageBox.Show("ALGUNOS CAMPOS DE TEXTO ESTAN VACIOS",
+       "CAMPOS VACIOS", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -99,10 +99,16 @@ namespace SIMEDVirtual
 
         private void Frm_Ingreso_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Hide();
-            Thread.CurrentThread.Abort();
+            Environment.Exit(Environment.ExitCode);
             Application.Exit();
-            NpgsqlConnection.ClearAllPools();
+        }
+
+        private void txtContrasena_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter || e.KeyCode == Keys.Return)
+            {
+                btnIngresar.PerformClick();
+            }
         }
     }
 }

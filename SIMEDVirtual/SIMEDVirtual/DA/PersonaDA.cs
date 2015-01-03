@@ -90,9 +90,9 @@ namespace SIMEDVirtual.DA
                 {
                     command.CommandText =
                         "insert into persona(nombre,apellido1,apellido2,cedula,fecha_nacimiento,direccion,edad,sexo," +
-                    "profesion,telefono_fijo,telefono_movil,email,medico,fecha_creacion) " +
+                    "profesion,telefono_fijo,telefono_movil,email,medico,fecha_creacion,empresa) " +
                     "values (@nombre,@ape1,@ape2,@cedula,@fecha,@direccion,@edad,@sexo,@profesion,@telefono,@movil,@email," +
-                    "@medico,@fecha_creacion)";
+                    "@medico,@fecha_creacion,@empresa)";
 
                     command.Parameters.AddWithValue("@nombre", nombre);
                     command.Parameters.AddWithValue("@ape1", apellido1);
@@ -106,6 +106,7 @@ namespace SIMEDVirtual.DA
                     command.Parameters.AddWithValue("@telefono", telefono_fijo);
                     command.Parameters.AddWithValue("@movil", movil);
                     command.Parameters.AddWithValue("@email", correo);
+                    command.Parameters.AddWithValue("@empresa", 4);
 
                     command.Parameters.AddWithValue("@medico", medico);
                     command.Parameters.AddWithValue("@fecha_creacion", fecha_creacion);
@@ -255,7 +256,7 @@ namespace SIMEDVirtual.DA
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM (SELECT cedula FROM expediente where cedula_medico='"+id_medico+"') AS a,persona b WHERE b.cedula = a.cedula;", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("SELECT * FROM (SELECT cedula FROM expediente where cedula_medico='" + id_medico + "') AS a,persona b WHERE b.cedula = a.cedula order by apellido1;", conn);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
 
                 while (dr.Read())

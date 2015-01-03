@@ -585,7 +585,6 @@
             this.Name = "Frm_Registro_Medico";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "REGISTRO DE MÉDICOS";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Frm_Registro_Medico_FormClosing);
             this.Load += new System.EventHandler(this.Frm_Registro_Medico_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoDr)).EndInit();
             this.panel1.ResumeLayout(false);

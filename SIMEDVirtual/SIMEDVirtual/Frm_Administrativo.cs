@@ -67,7 +67,7 @@ namespace SIMEDVirtual
             if (dgAdministrativos.SelectedCells.Count > 0)
             {
                 DialogResult dialog = MessageBox.Show(
-     "Seguro que Desea Eliminar el Registro?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+     "SEGURO QUE DESEA ELIMINAR EL REGISTRO?", "ELIMINAR", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
                 if (dialog == DialogResult.Yes)
                 {
@@ -78,7 +78,7 @@ namespace SIMEDVirtual
                     if (PersonaIT.deletePersona(ced) && (PersonaIT.deleteUsuario(ced)))
                     {
                         this.cargarDataGrid();
-                        MessageBox.Show("El Registro se ha Eliminado Correctamente!", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("EL REGISTRO SE HA ELIMINADO CORRECTAMENTE!", "ELIMINAR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                 }
             }
@@ -96,8 +96,6 @@ namespace SIMEDVirtual
                 string cedula = dgAdministrativos.Rows[e.RowIndex].Cells[0].Value.ToString();
                 //selecciona el medico dependiento de la cedula
                 var pts = new BindingList<PersonaEntity>(PersonaIT.selectClientePorCedula(Convert.ToString(cedula)));
-                dgAdministrativos.AutoGenerateColumns = false;
-                dgAdministrativos.DataSource = pts;
 
                 string nombre = pts.ElementAt(0).nombre.ToString();
                 String ape1 = pts.ElementAt(0).ape1.ToString();
@@ -112,14 +110,43 @@ namespace SIMEDVirtual
                 int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono_movil.ToString());
                 //byte foto = Convert.ToByte(pts.ElementAt(0).fotoBinaria);
 
-                this.Hide();
+                //this.Hide();
                 Frm_Registro_Secretaria frm = new Frm_Registro_Secretaria(nombre, ape1, ape2, cedula, fecha, edad, sexo, puesto, direccion,
-                   correo, telefono1, telefono2);
+                   correo, telefono1, telefono2,false);
                 frm.ShowDialog();
             }
             else
             {
                 MessageBox.Show("SELECCION NO VALIDA\nPOR FAVOR SELECCIONE UN MEDICO E INTENTELO DE NUEVO", "Seleccion Invalida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            if (dgAdministrativos.SelectedCells.Count > 0)
+            {
+                DataGridViewRow selectedRow = dgAdministrativos.Rows[dgAdministrativos.SelectedCells[0].RowIndex];
+                string ced = (selectedRow.Cells["Cedula"].Value.ToString());
+                //devuelve datos del medico segun la cedula
+                var pts = new BindingList<PersonaEntity>(PersonaIT.selectClientePorCedula(Convert.ToString(ced)));
+
+                string nombre = pts.ElementAt(0).nombre.ToString();
+                String ape1 = pts.ElementAt(0).ape1.ToString();
+                String ape2 = pts.ElementAt(0).ape2.ToString();
+                DateTime fecha = Convert.ToDateTime(pts.ElementAt(0).fecha.ToString());
+                String direccion = pts.ElementAt(0).direccion.ToString();
+                String correo = pts.ElementAt(0).email.ToString();
+                char sexo = Convert.ToChar(pts.ElementAt(0).sexo);
+                String edad = pts.ElementAt(0).edad.ToString();
+                String puesto = pts.ElementAt(0).profesion.ToString();
+                int telefono1 = Convert.ToInt32(pts.ElementAt(0).telefono_fijo.ToString());
+                int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono_movil.ToString());
+               
+                this.Hide();
+                Frm_Registro_Secretaria frm = new Frm_Registro_Secretaria(nombre, ape1, ape2, ced, fecha, edad,sexo,puesto,
+                    direccion, correo, telefono1, telefono2, true);
+                frm.ShowDialog();
+
             }
         }
     }

@@ -83,7 +83,7 @@ namespace SIMEDVirtual
                         {
                             EmpresaIT.InsertaEmpresaTelefono(txtCedula_Juridica.Text, Convert.ToInt32(txtTelefono2.Text), txtEncargado2.Text);
                         }
-                        MessageBox.Show("La Empresa se ha Insertado con Exito", "Ingreso Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("LA EMPRESA SE HA INSERTADO CON EXITO", "INGRESO EXITOSO", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
               
                         this.Hide();
                         frm_empresa splash = new frm_empresa();
@@ -92,7 +92,7 @@ namespace SIMEDVirtual
                     }
                     else
                     {
-                        MessageBox.Show("No se ha podido insertar La Empresa", "Error al Insertar", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        MessageBox.Show("NO SE HA PODIDO INSERTAR LA EMPRESA", "ERROR AL INSERTAR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
 
                     }
                 }
@@ -117,20 +117,20 @@ namespace SIMEDVirtual
                                 EmpresaIT.InsertaEmpresaTelefono(txtCedula_Juridica.Text, Convert.ToInt32(txtTelefono2.Text), txtEncargado2.Text);
                             }
                         }
-                        MessageBox.Show("La Empresa se ha Editado con Exito", "Edicion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        this.Dispose();
-                        //frm_empresa splash = new frm_empresa();
-                        //splash.ShowDialog();                        
+                        MessageBox.Show("LA EMPRESA SE HA EDITADO CON EXITO", "EDICION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        this.Hide();
+                        frm_empresa splash = new frm_empresa();
+                        splash.ShowDialog();                        
                     }
                     else
                     {
-                        MessageBox.Show("No se ha podido Editar La Empresa", "Error al Editar", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        MessageBox.Show("NO SE HA PODIDO EDITAR LA EMPRESA", "ERROR AL EDITAR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Algunos Campos estan Vacios", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("ALGUNOS CAMPOS DE TEXTO ESTAN VACIOS", "CAMPOS VACIOS", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -138,14 +138,6 @@ namespace SIMEDVirtual
         {
             this.label4.Text = Frm_Ingreso.datosUsuario[0] + " " + Frm_Ingreso.datosUsuario[1];
 
-        }
-
-        private void frm_registraEmpresa_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Hide();
-            frm_empresa splash = new frm_empresa();
-            splash.ShowDialog();
-            this.Close();
         }
 
         //eliminar el telefono de la empresa
@@ -160,7 +152,7 @@ namespace SIMEDVirtual
                 }
                 else
                 {
-                    MessageBox.Show("No se ha podido Eliminar el Numero de Telefono", "Error al Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show("NO SE HA PODIDO ELIMINAR EL NUMERO DE TELEFONO", "ERROR AL ELIMINAR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
 
             }
@@ -177,7 +169,7 @@ namespace SIMEDVirtual
                 }
                 else
                 {
-                    MessageBox.Show("No se ha podido Eliminar el Numero de Telefono", "Error al Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show("NO SE HA PODIDO ELIMINAR EL NUMERO DE TELEFONO", "ERROR AL ELIMINAR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
         }

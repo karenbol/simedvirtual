@@ -3844,7 +3844,7 @@
             this.Name = "frm_ExpedienteMG";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Expediente Médico";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_ExpedienteMG_FormClosing);
+            
             this.Load += new System.EventHandler(this.frm_ExpedienteMG_Load);
             this.tabPageEpicrisis.ResumeLayout(false);
             this.tabPageEpicrisis.PerformLayout();

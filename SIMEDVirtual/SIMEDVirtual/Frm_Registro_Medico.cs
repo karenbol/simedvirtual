@@ -100,14 +100,6 @@ namespace SIMEDVirtual
             }
         }
 
-        private void Frm_Registro_Medico_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Hide();
-            Frm_Medico splash = new Frm_Medico();
-            splash.ShowDialog();
-
-        }
-
         //metodo que compara los campos de la contrasena
         public static Boolean comparaContrasena(string contrasena, string confirmacion)
         {
@@ -152,7 +144,7 @@ namespace SIMEDVirtual
                             //insertamos en la tabla de usuario 1 adm 2 medico
                             if (UsuarioIT.InsertaUsuario(txtcontrasena.Text, txtCedula.Text, 2))
                             {
-                                MessageBox.Show("Los Datos han sido Insertados Correctamente !", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                                MessageBox.Show("LOS DATOS SE HAN INSERTADO CORRECTAMENTE!", "INSERCION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                                 this.Close();
                                 Frm_Splash frm = new Frm_Splash();
                                 frm.ShowDialog();
@@ -160,17 +152,17 @@ namespace SIMEDVirtual
                             }
                             else
                             {
-                                MessageBox.Show("Ha Ocurrido un Error en la Insercion del Usuario", "Error al Insertar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("HA OCURRIDO UN ERROR CO LA INSERCION DEL USUARIO", "ERROR AL INSERTAR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Ha Ocurrido un Error en la Insercion del Medico\n Puede que esa Cedula ya se encuentre Registrada", "Error al Insertar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("HA OCURRIDO UN ERROR EN LA INSERCION DEL MEDICO\nPUEDE QUE LA CEDULA YA EXISTA", "Error al Insertar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Las contrasenas NO coinciden", "Error en Contraseñas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("LAS CONTRASEÑAS NO COINCIDEN", "ERROR EN CONTRASEÑAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     //de lo contrario, edito
                 }
@@ -181,16 +173,16 @@ namespace SIMEDVirtual
                 Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text), txtCorreo.Text, fotoBinaria,
                 Convert.ToInt32(codigo.Text), txtU.Text, Convert.ToInt32(cbEspecialidad.SelectedValue)))
                     {
-                        MessageBox.Show("Los Datos han sido Actualizados Correctamente!", "Actualizacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        this.Close();
-                        Frm_Splash frm = new Frm_Splash();
+                        MessageBox.Show("LOS DATOS SE HAN ACTUALIZADO CON EXITO!", "EDITAR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        this.Hide();
+                        Frm_Medico frm = new Frm_Medico();
                         frm.ShowDialog();
                     }
                 }
             }
             else
             {
-                MessageBox.Show("Algunos Campos estan Vacíos!", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                MessageBox.Show("ALGUNOS CAMPOS DE TEXTO ESTAN VACIOS!", "CAMPOS VACIOS", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
         }
 

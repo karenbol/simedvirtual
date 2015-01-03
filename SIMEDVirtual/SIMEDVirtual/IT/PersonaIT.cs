@@ -125,7 +125,7 @@ namespace SIMEDVirtual.IT
           DateTime fecha, string direccion, string edad, char sexo, string profesion,
           int telefono_fijo, int movil, string correo)
         {
-            return UpdateAdministrativo(nombre, apellido1, apellido2, cedula, fecha,
+            return PersonaDA.UpdateAdministrativo(nombre, apellido1, apellido2, cedula, fecha,
                 direccion, edad, sexo, profesion, telefono_fijo, movil, correo);
         }
 

@@ -23,10 +23,12 @@ namespace SIMEDVirtual
         }
 
         //ver informacion del administrativo
-        public Frm_Registro_Secretaria(string nombre, string ape1, string ape2,string cedula, DateTime fecha, string edad, char sexo,string puesto,
-            string direccion,string email,int tel1,int tel2)
+        public Frm_Registro_Secretaria(string nombre, string ape1, string ape2, string cedula, DateTime fecha, string edad, char sexo, string puesto,
+            string direccion, string email, int tel1, int tel2, bool editar)
         {
             InitializeComponent();
+            edicion = editar;
+
             label10.Text = Frm_Ingreso.datosUsuario[0] + " " + Frm_Ingreso.datosUsuario[1];
             txtNombre.Text = nombre;
             txtApellido1.Text = ape1;
@@ -38,56 +40,28 @@ namespace SIMEDVirtual
             txtPuesto.Text = puesto;
             txtDireccion.Text = direccion;
             txtCorreo.Text = email;
-            telefono1.Text = telefono1.ToString();
-            telefono2.Text = telefono2.ToString();
 
-            groupBox1.Enabled = false;
-
+            telefono1.Text = tel1.ToString();
+            telefono2.Text = tel2.ToString();
             txtcontrasena.Visible = false;
             txtconfirmacion.Visible = false;
 
             lblpass.Visible = false;
             lblconfirmapass.Visible = false;
 
-            btnGuardar.Visible = false;
-
-
-
-
-            /*
-             * nombre
-             * ape1
-             * ape2
-             *              * cedula
-             * fecha naci
-             * edad
-             * sexo
-             * puesto
-             * direcci
-             * email
-             * tel1
-             * tel2
-             * ocultar pass
-             */
-
-
-
-
-
-        }
-
-
-
-
-
-        private void Frm_Registro_Secretaria_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Hide();
-
-            Frm_Administrativo splash = new Frm_Administrativo();
-            splash.ShowDialog();
-
-            
+            //si voy a editar
+            if (edicion)
+            {
+                txtCedula.Enabled = false;
+                btnGuardar.Visible = true;
+                groupBox1.Enabled = true;
+            }
+            else
+            //si voy a ver
+            {
+                btnGuardar.Visible = false;
+                groupBox1.Enabled = false;
+            }
         }
 
         private void Frm_Registro_Secretaria_Load(object sender, EventArgs e)
@@ -143,41 +117,45 @@ namespace SIMEDVirtual
                             //insertamos en la tabla de usuario 1 adm 2 medico
                             if (UsuarioIT.InsertaUsuario(txtcontrasena.Text, txtCedula.Text, 1))
                             {
-                                MessageBox.Show("Los Datos han sido Insertados Correctamente !", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                                this.Close();
-                                Frm_Splash frm = new Frm_Splash();
+                                MessageBox.Show("LOS DATOS HAN SIDO INSERTADOS CON EXITO!", "INSERCION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                                this.Hide();
+                                Frm_Administrativo frm = new Frm_Administrativo();
                                 frm.ShowDialog();
-                                
                             }
                             else
                             {
-                                MessageBox.Show("Ha Ocurrido un Error en la Insercion del Usuario", "Error al Insertar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("HA OCURRIDO UN ERROR EN LA INSERCION DEL USUARIO", "ERROR AL INSERTARr", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                         else
                         {
-                            MessageBox.Show("Ha Ocurrido un Error en la Insercion del Registro\n Puede que esa Cedula ya se encuentre Registrada", "Error al Insertar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("HA OCURRIDO UN ERROR CON LA INSERCION DEL REGISTRO\nPUEDE QUE LA CEDULA YA EXISTA", "ERROR AL INSERTAR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
                     {
-                        MessageBox.Show("Las contrasenas NO coinciden", "Error en Contraseñas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("LAS CONTRASEÑAS NO COINCIDEN", "ERROR EN LAS CONTRASEÑAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     //de lo contrario, edito
                 }
+                //editar los datos del administrativo
                 else
                 {
-                    string hey = "u";
-                    /* if (PersonaIT.UpdateMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
-                  txtCedula.Text, Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text, txtEdad.Text, sexo,
-                 Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text), txtCorreo.Text, fotoBinaria,
-                 Convert.ToInt32(codigo.Text), txtU.Text, Convert.ToInt32(cbEspecialidad.SelectedValue)))
-                     {
-                         MessageBox.Show("Los Datos han sido Actualizados Correctamente!", "Actualizacion", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                         this.Close();
-                         Frm_Splash frm = new Frm_Splash();
-                         frm.ShowDialog();
-                     }*/
+
+                    if (PersonaIT.UpdateAdministrativo(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
+                 txtCedula.Text, Convert.ToDateTime(dtfecha.Text), txtDireccion.Text, txtEdad.Text, sexo, txtPuesto.Text,
+                Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text), txtCorreo.Text))
+                    {
+                        MessageBox.Show("LOS DATOS SE HAN ACTUALIZADO CORRECTAMENTE!", "EDITAR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        this.Hide();
+                        Frm_Administrativo frm = new Frm_Administrativo();
+                        frm.ShowDialog();
+                    }
+                    else
+                    {
+                        MessageBox.Show("HA OCURRIDO UN ERROR CON LA ACTUALIZACION DEL REGISTRO", "ERROR AL EDITAR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
                 }
             }
             else

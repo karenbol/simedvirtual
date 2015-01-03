@@ -249,6 +249,7 @@
             this.sALIRToolStripMenuItem.Image = global::SIMEDVirtual.Properties.Resources.logIn;
             this.sALIRToolStripMenuItem.Name = "sALIRToolStripMenuItem";
             resources.ApplyResources(this.sALIRToolStripMenuItem, "sALIRToolStripMenuItem");
+            this.sALIRToolStripMenuItem.Click += new System.EventHandler(this.sALIRToolStripMenuItem_Click);
             // 
             // cbEmpresa
             // 

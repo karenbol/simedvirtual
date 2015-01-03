@@ -86,8 +86,8 @@ namespace SIMEDVirtual
         private void medicosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Frm_Medico pantalla = new Frm_Medico();
-            pantalla.ShowDialog();
+            Frm_Medico mem = new Frm_Medico();
+            mem.ShowDialog();           
 
         }
 
@@ -96,6 +96,13 @@ namespace SIMEDVirtual
             this.Hide();
             frm_empresa pantalla = new frm_empresa();
             pantalla.ShowDialog();
+        }
+
+        private void administrativosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_Administrativo mem = new Frm_Administrativo();
+            mem.ShowDialog();
         }
     }
 }

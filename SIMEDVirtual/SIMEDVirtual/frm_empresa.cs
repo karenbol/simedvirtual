@@ -77,9 +77,7 @@ namespace SIMEDVirtual
             //selecciona el medico dependiento de la cedula
             //var pts = new BindingList<EmpresaEntity>(EmpresaIT.getEmpresaByID(cedula_juridica));
             EmpresaEntity empresa = EmpresaIT.getEmpresaByID(cedula_juridica);
-            dgEmpresas.AutoGenerateColumns = false;
-            dgEmpresas.DataSource = empresa;
-
+            
             string nombre = empresa.nombre.ToString();
             string cedula = empresa.cedula.ToString();
             string descripcion = empresa.descripcion.ToString();
@@ -91,8 +89,7 @@ namespace SIMEDVirtual
             string encargado2 = "";
 
             List<EmpresaEntity> empresa_telefono = EmpresaIT.getTelefono(cedula_juridica);
-
-
+            
             if (empresa_telefono.Count != 0)
             {
                 telefono1 = Convert.ToInt32(empresa_telefono[0].telefono1);
@@ -105,7 +102,7 @@ namespace SIMEDVirtual
                 }
             }
 
-            this.Hide();
+            //this.Hide();
             frm_registraEmpresa frm = new frm_registraEmpresa(cedula_juridica, nombre, descripcion, direccion, telefono1,
                 encargado1, telefono2, encargado2, 1);
             frm.ShowDialog();
@@ -162,12 +159,12 @@ namespace SIMEDVirtual
 
             if (EmpresaIT.deleteEmpresa(cedula_juridica))
             {
-                MessageBox.Show("La Empresa se ha Eliminado con Exito", "Eliminacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 cargarDataGrid();
+                MessageBox.Show("LA EMPRESA SE HA ELIMINADO CON EXITO", "ELIMINACION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);                
             }
             else
             {
-                MessageBox.Show("No se ha podido Eliminar La Empresa", "Error al Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("NO SE HA PODIDO ELIMINAR LA EMPRESA", "ERROR AL ELIMINAR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 
@@ -176,7 +173,6 @@ namespace SIMEDVirtual
             this.Hide();
             Frm_Splash x = new Frm_Splash();
             x.ShowDialog();
-
         }
     }
 }

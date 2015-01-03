@@ -185,7 +185,7 @@ namespace SIMEDVirtual
                         if (PersonaIT.UpdateCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, txtCedula.Text, fecha, txtDireccion.Text, txtEdad.Text, sexo,
                             estado, grupo, txtProfesion.Text, telefono, movil, txtEmail.Text, empresa, fotoBinaria, false))
                         {
-                            MessageBox.Show("El Cliente se ha Actualizado con Exito", "Actualizacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("EL CLIENTE SE HA ACTUALIZADO CON EXITO", "ACTUALIZACION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Hide();
                             frmVerExpediente splash = new frmVerExpediente();
                             splash.ShowDialog();
@@ -193,7 +193,7 @@ namespace SIMEDVirtual
                         }
                         else
                         {
-                            MessageBox.Show("Error al Actualizar el Cliente", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("ERROR AL ACTUALIZAR EL CLIENTE", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                         break;
 
@@ -204,7 +204,7 @@ namespace SIMEDVirtual
                         txtDireccion.Text, txtEdad.Text, sexo, estado, grupo, txtProfesion.Text, telefono, movil,
                         txtEmail.Text, empresa, fotoBinaria, false, DateTime.Now))
                         {
-                            MessageBox.Show("Cliente Guardado con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("CLIENTE GUARDADO CON EXITO", "INSERCION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Hide();
                             frmVerExpediente splash = new frmVerExpediente();
                             splash.ShowDialog();
@@ -213,7 +213,7 @@ namespace SIMEDVirtual
                         //si hay campos vacios imprime error
                         else
                         {
-                            MessageBox.Show("Error al insertar el Cliente\nEs Posible que esa cedula ya exista", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            MessageBox.Show("ERROR AL INSERTAR EL CLIENTE\nES POSIBLE QUE LA CEDULA YA EXISTA", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                         }
                         break;
                     default:
@@ -222,7 +222,7 @@ namespace SIMEDVirtual
             }
             else
             {
-                MessageBox.Show("Hay Campos Obligatorios Vacios", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("HAY CAMPOS OBLIGATORIOS VACIOS", "CAMPOS VACIOS", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
         }
 

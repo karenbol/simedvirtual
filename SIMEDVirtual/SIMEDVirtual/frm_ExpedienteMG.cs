@@ -94,6 +94,7 @@ namespace SIMEDVirtual
         //parametro que me dice si guardo toda la info o solo la reconsulta
         public bool expOreconsulta;
         public bool editarExpediente;
+        bool casoEspecial = false;
         public int id_pacient = 0;
         public string cedulaPublica = "";
         //public string usuarioPublico = "";
@@ -447,221 +448,233 @@ namespace SIMEDVirtual
         public void determinaAnamnesis(string cedula)
         {
             List<anamnesis> listaAnamnesis = anamnesisIT.selectAnamnesisPorCedula(cedula);
+
             //anamnesis
-            char tabaquismo = Convert.ToChar(listaAnamnesis.ElementAt(0).tabaquismo);
-            char ingesta = Convert.ToChar(listaAnamnesis.ElementAt(0).ingesta_medicamentos);
-            char alcoholismo = Convert.ToChar(listaAnamnesis.ElementAt(0).alcoholismo);
-            char rehabilitacion = Convert.ToChar(listaAnamnesis.ElementAt(0).rehabilitacion);
-            char diabetes = Convert.ToChar(listaAnamnesis.ElementAt(0).diabetes);
-            char hipertension = Convert.ToChar(listaAnamnesis.ElementAt(0).hipertension);
-            char dolor_cabeza = Convert.ToChar(listaAnamnesis.ElementAt(0).dolor_Cabeza);
-            char epilepsia = Convert.ToChar(listaAnamnesis.ElementAt(0).epilepsia);
-            char vertigo = Convert.ToChar(listaAnamnesis.ElementAt(0).vertigo);
-            char depresion = Convert.ToChar(listaAnamnesis.ElementAt(0).depre);
-            char falta_aire = Convert.ToChar(listaAnamnesis.ElementAt(0).falta_aire);
-            char enf_ojos_oidos = Convert.ToChar(listaAnamnesis.ElementAt(0).enf_ojos_oidos);
-            char dolor_pecho = Convert.ToChar(listaAnamnesis.ElementAt(0).dolor_pecho);
-            char enf_nerviosas = Convert.ToChar(listaAnamnesis.ElementAt(0).enf_nerviosas);
-            char alergia = Convert.ToChar(listaAnamnesis.ElementAt(0).alergias);
-            string alergia_trat = Convert.ToString(listaAnamnesis.ElementAt(0).alergias_tratamiento);
-            string diabetes_trat = Convert.ToString(listaAnamnesis.ElementAt(0).diabetes_trat);
-            string hipertension_trat = Convert.ToString(listaAnamnesis.ElementAt(0).hipertension_trat);
-            char asma = Convert.ToChar(listaAnamnesis.ElementAt(0).asma);
-            string asma_trat = Convert.ToString(listaAnamnesis.ElementAt(0).asma_tratamiento);
-            char tiroides = Convert.ToChar(listaAnamnesis.ElementAt(0).tiroides);
-            string tiroides_trat = Convert.ToString(listaAnamnesis.ElementAt(0).tiroides_tratamiento);
+            if (listaAnamnesis.Count != 0)
+            {
+                char tabaquismo = Convert.ToChar(listaAnamnesis.ElementAt(0).tabaquismo);
+                char ingesta = Convert.ToChar(listaAnamnesis.ElementAt(0).ingesta_medicamentos);
+                char alcoholismo = Convert.ToChar(listaAnamnesis.ElementAt(0).alcoholismo);
+                char rehabilitacion = Convert.ToChar(listaAnamnesis.ElementAt(0).rehabilitacion);
+                char diabetes = Convert.ToChar(listaAnamnesis.ElementAt(0).diabetes);
+                char hipertension = Convert.ToChar(listaAnamnesis.ElementAt(0).hipertension);
+                char dolor_cabeza = Convert.ToChar(listaAnamnesis.ElementAt(0).dolor_Cabeza);
+                char epilepsia = Convert.ToChar(listaAnamnesis.ElementAt(0).epilepsia);
+                char vertigo = Convert.ToChar(listaAnamnesis.ElementAt(0).vertigo);
+                char depresion = Convert.ToChar(listaAnamnesis.ElementAt(0).depre);
+                char falta_aire = Convert.ToChar(listaAnamnesis.ElementAt(0).falta_aire);
+                char enf_ojos_oidos = Convert.ToChar(listaAnamnesis.ElementAt(0).enf_ojos_oidos);
+                char dolor_pecho = Convert.ToChar(listaAnamnesis.ElementAt(0).dolor_pecho);
+                char enf_nerviosas = Convert.ToChar(listaAnamnesis.ElementAt(0).enf_nerviosas);
+                char alergia = Convert.ToChar(listaAnamnesis.ElementAt(0).alergias);
+                string alergia_trat = Convert.ToString(listaAnamnesis.ElementAt(0).alergias_tratamiento);
+                string diabetes_trat = Convert.ToString(listaAnamnesis.ElementAt(0).diabetes_trat);
+                string hipertension_trat = Convert.ToString(listaAnamnesis.ElementAt(0).hipertension_trat);
+                char asma = Convert.ToChar(listaAnamnesis.ElementAt(0).asma);
+                string asma_trat = Convert.ToString(listaAnamnesis.ElementAt(0).asma_tratamiento);
+                char tiroides = Convert.ToChar(listaAnamnesis.ElementAt(0).tiroides);
+                string tiroides_trat = Convert.ToString(listaAnamnesis.ElementAt(0).tiroides_tratamiento);
 
-            string hipertension_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).hipertension_heredo);
-            string diabetes_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).diabetes_heredo);
-            string cancer_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).cancer_heredo);
-            string tiroides_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).tiroides_heredo);
-            string asma_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).asma_heredo);
-            string otros_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).otros_heredo);
-            string observaciones = Convert.ToString(listaAnamnesis.ElementAt(0).observaciones);
+                string hipertension_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).hipertension_heredo);
+                string diabetes_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).diabetes_heredo);
+                string cancer_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).cancer_heredo);
+                string tiroides_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).tiroides_heredo);
+                string asma_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).asma_heredo);
+                string otros_heredo = Convert.ToString(listaAnamnesis.ElementAt(0).otros_heredo);
+                string observaciones = Convert.ToString(listaAnamnesis.ElementAt(0).observaciones);
 
-            // revision de combobox anamnesis
-            if (tabaquismo == 's')
-            {
-                r1.Checked = true;
+                // revision de combobox anamnesis
+                if (tabaquismo == 's')
+                {
+                    r1.Checked = true;
+                }
+                else if (tabaquismo == 'n')
+                {
+                    r2.Checked = true;
+                }
+
+                //ingesta medicamentos
+                if (ingesta == 's')
+                {
+                    r3.Checked = true;
+                }
+                else if (ingesta == 'n')
+                {
+                    r4.Checked = true;
+                }
+
+                //alcoholismo
+                if (alcoholismo == 's')
+                {
+                    r5.Checked = true;
+                }
+                else if (alcoholismo == 'n')
+                {
+                    r6.Checked = true;
+                }
+
+                //rehabilitacion
+                if (rehabilitacion == 's')
+                {
+                    r7.Checked = true;
+                }
+                else if (rehabilitacion == 'n')
+                {
+                    r8.Checked = true;
+                }
+
+                //dolor cabeza
+                if (dolor_cabeza == 's')
+                {
+                    r9.Checked = true;
+                }
+                else if (dolor_cabeza == 'n')
+                {
+                    r10.Checked = true;
+                }
+
+                //epilepsia
+                if (epilepsia == 's')
+                {
+                    r11.Checked = true;
+                }
+                else if (epilepsia == 'n')
+                {
+                    r12.Checked = true;
+                }
+                //vertigo
+                if (vertigo == 's')
+                {
+                    r13.Checked = true;
+                }
+                else if (vertigo == 'n')
+                {
+                    r14.Checked = true;
+                }
+
+                //depresion
+                if (depresion == 's')
+                {
+                    r15.Checked = true;
+                }
+                else if (depresion == 'n')
+                {
+                    r16.Checked = true;
+                }
+
+                //falta_aire
+                if (falta_aire == 's')
+                {
+                    r17.Checked = true;
+                }
+                else if (falta_aire == 'n')
+                {
+                    r18.Checked = true;
+                }
+                //enf oidos ojos
+                if (enf_ojos_oidos == 's')
+                {
+                    r19.Checked = true;
+                }
+                else if (enf_ojos_oidos == 'n')
+                {
+                    r20.Checked = true;
+                }
+
+                //dolor de pecho
+                if (dolor_pecho == 's')
+                {
+                    r21.Checked = true;
+                }
+                else if (dolor_pecho == 'n')
+                {
+                    r22.Checked = true;
+                }
+
+                //enf nerviosas
+                if (enf_nerviosas == 's')
+                {
+                    r23.Checked = true;
+                }
+                else if (enf_nerviosas == 'n')
+                {
+                    r24.Checked = true;
+                }
+
+                //alergia
+                if (alergia == 's')
+                {
+                    r25.Checked = true;
+                }
+                else if (alergia == 'n')
+                {
+                    r26.Checked = true;
+                }
+                txtAlergias.Text = alergia_trat;
+
+                //diabetes
+                if (diabetes == 's')
+                {
+                    r27.Checked = true;
+                }
+                else if (diabetes == 'n')
+                {
+                    r28.Checked = true;
+                }
+
+                txtTratDiabetes.Text = diabetes_trat; //diabetes tratamiento
+
+                //hipertension
+                if (hipertension == 's')
+                {
+                    r29.Checked = true;
+                }
+                else if (hipertension == 'n')
+                {
+                    r30.Checked = true;
+                }
+                txtTratHipertension.Text = hipertension_trat;//tratmiento de hipertension
+
+                //aqui falta asma y tiroides
+                //asma
+                if (asma == 's')
+                {
+                    r31.Checked = true;
+                }
+                else if (asma == 'n')
+                {
+                    r32.Checked = true;
+                }
+                txtTratAsma.Text = asma_trat;
+
+                //tiroides
+                if (tiroides == 's')
+                {
+                    r33.Checked = true;
+                }
+                else if (tiroides == 'n')
+                {
+                    r34.Checked = true;
+                }
+                txtTratTiroides.Text = tiroides_trat;
+
+                txtHipertensionHeredo.Text = hipertension_heredo;
+                txtDiabetesHeredo.Text = diabetes_heredo;
+                txtCancerHeredo.Text = cancer_heredo;
+                txtTiroidesHeredo.Text = tiroides_heredo;
+                txtAsmaHeredo.Text = asma_heredo;
+                txtOtrosHeredo.Text = otros_heredo;
+                txtObservaciones.Text = observaciones;
+                ((Control)this.tbPageAnamnesis).Enabled = false;
             }
-            else if (tabaquismo == 'n')
+            else
             {
-                r2.Checked = true;
+                ((Control)this.tbPageAnamnesis).Enabled = true;
+                casoEspecial = true;
             }
 
-            //ingesta medicamentos
-            if (ingesta == 's')
-            {
-                r3.Checked = true;
-            }
-            else if (ingesta == 'n')
-            {
-                r4.Checked = true;
-            }
-
-            //alcoholismo
-            if (alcoholismo == 's')
-            {
-                r5.Checked = true;
-            }
-            else if (alcoholismo == 'n')
-            {
-                r6.Checked = true;
-            }
-
-            //rehabilitacion
-            if (rehabilitacion == 's')
-            {
-                r7.Checked = true;
-            }
-            else if (rehabilitacion == 'n')
-            {
-                r8.Checked = true;
-            }
-
-            //dolor cabeza
-            if (dolor_cabeza == 's')
-            {
-                r9.Checked = true;
-            }
-            else if (dolor_cabeza == 'n')
-            {
-                r10.Checked = true;
-            }
-
-            //epilepsia
-            if (epilepsia == 's')
-            {
-                r11.Checked = true;
-            }
-            else if (epilepsia == 'n')
-            {
-                r12.Checked = true;
-            }
-            //vertigo
-            if (vertigo == 's')
-            {
-                r13.Checked = true;
-            }
-            else if (vertigo == 'n')
-            {
-                r14.Checked = true;
-            }
-
-            //depresion
-            if (depresion == 's')
-            {
-                r15.Checked = true;
-            }
-            else if (depresion == 'n')
-            {
-                r16.Checked = true;
-            }
-
-            //falta_aire
-            if (falta_aire == 's')
-            {
-                r17.Checked = true;
-            }
-            else if (falta_aire == 'n')
-            {
-                r18.Checked = true;
-            }
-            //enf oidos ojos
-            if (enf_ojos_oidos == 's')
-            {
-                r19.Checked = true;
-            }
-            else if (enf_ojos_oidos == 'n')
-            {
-                r20.Checked = true;
-            }
-
-            //dolor de pecho
-            if (dolor_pecho == 's')
-            {
-                r21.Checked = true;
-            }
-            else if (dolor_pecho == 'n')
-            {
-                r22.Checked = true;
-            }
-
-            //enf nerviosas
-            if (enf_nerviosas == 's')
-            {
-                r23.Checked = true;
-            }
-            else if (enf_nerviosas == 'n')
-            {
-                r24.Checked = true;
-            }
-
-            //alergia
-            if (alergia == 's')
-            {
-                r25.Checked = true;
-            }
-            else if (alergia == 'n')
-            {
-                r26.Checked = true;
-            }
-            txtAlergias.Text = alergia_trat;
-
-            //diabetes
-            if (diabetes == 's')
-            {
-                r27.Checked = true;
-            }
-            else if (diabetes == 'n')
-            {
-                r28.Checked = true;
-            }
-
-            txtTratDiabetes.Text = diabetes_trat; //diabetes tratamiento
-
-            //hipertension
-            if (hipertension == 's')
-            {
-                r29.Checked = true;
-            }
-            else if (hipertension == 'n')
-            {
-                r30.Checked = true;
-            }
-            txtTratHipertension.Text = hipertension_trat;//tratmiento de hipertension
-
-            //aqui falta asma y tiroides
-            //asma
-            if (asma == 's')
-            {
-                r31.Checked = true;
-            }
-            else if (asma == 'n')
-            {
-                r32.Checked = true;
-            }
-            txtTratAsma.Text = asma_trat;
-
-            //tiroides
-            if (tiroides == 's')
-            {
-                r33.Checked = true;
-            }
-            else if (tiroides == 'n')
-            {
-                r34.Checked = true;
-            }
-            txtTratTiroides.Text = tiroides_trat;
-
-            txtHipertensionHeredo.Text = hipertension_heredo;
-            txtDiabetesHeredo.Text = diabetes_heredo;
-            txtCancerHeredo.Text = cancer_heredo;
-            txtTiroidesHeredo.Text = tiroides_heredo;
-            txtAsmaHeredo.Text = asma_heredo;
-            txtOtrosHeredo.Text = otros_heredo;
-            txtObservaciones.Text = observaciones;
         }
+
 
         public void determinaExpediente(string cedula_paciente, int id_paciente)
         {
@@ -995,7 +1008,7 @@ namespace SIMEDVirtual
         {
             InitializeComponent();
 
-            this.label29.Text = Frm_Ingreso.datosUsuario[0]+ Frm_Ingreso.datosUsuario[1];
+            this.label29.Text = Frm_Ingreso.datosUsuario[0] + Frm_Ingreso.datosUsuario[1];
 
             //vamos a guardar solo en el exp xq es reconsulta
             expOreconsulta = true;
@@ -1047,6 +1060,7 @@ namespace SIMEDVirtual
             //----------------------------anamnesis----------------------
             //me devuelve toda la anam
             this.determinaAnamnesis(cedula_paciente);
+
             pbPaciente.Image = PersonaIT.GetImagePacient(cedula_paciente);
 
             //aqui no se puede editar nada xq voy a ver el expediente
@@ -1081,7 +1095,6 @@ namespace SIMEDVirtual
             else if (editar == false && valor == 1)
             //dehabilito la anamnesis y la info personal, para realizar reconsulta
             {
-                ((Control)this.tbPageAnamnesis).Enabled = false;
                 ((Control)this.tabPageInfoPersonal).Enabled = false;
             }
         }
@@ -1130,30 +1143,75 @@ namespace SIMEDVirtual
                 if (txtTerapeutica.Text != string.Empty || txtDiagnostico.Text != string.Empty || txtObs.Text != string.Empty)
                 {
                     determinaExpediente();//metodo que da valor a parametros para el expediente
-                    //guardamos solo en el expediente
-                    if (ExpedienteIT.InsertaExpediente(pulso, presion_arterial, soplos, dolor_precordial, edemas, arritmias, disnea,
-                        observaciones_sc, talla, peso, observaciones_sm, brazo_derecho, brazo_izquierdo, pierna_derecha, pierna_izquierda,
-                        bicipal_derecho, bicipal_izquierdo, patelar_derecho, patelar_izquierdo, alquileano_derecho, alquileano_izquierdo,
-                        flexion, extensiones, rotacion, inclinacion_lateral, observaciones_cc, malformaciones, observaciones_dl,
-                        observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
-                        auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
-                        observaciones_sn, otros_examen2, fecha_expediente, diagnostico, terapeutica, observaciones_generales, cedulaPublica,
-                        Frm_Ingreso.datosUsuario[2], motivo_consulta, saturacionOx, temperatura))
+
+
+                    if (((Control)this.tabPageInfoPersonal).Enabled == false && ((Control)this.tbPageAnamnesis).Enabled == true)
                     {
-                        MessageBox.Show("Consulta Insertada con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                        this.Hide();
-                        frmVerExpediente splash = new frmVerExpediente();
-                        splash.ShowDialog();
-                        
+                        //se verifican cuales checks estan seleccionados de la anamnesis
+                        this.seleccionChecks();
+                        //guardamos la cedula en una variable
+                        string cedula = txtCedula.Text;
+
+                        try
+                        {
+                            //si no hay foto asignada, asigna la ruta x defecto
+                            this.verificaFoto();
+
+                            if (anamnesisIT.InsertaAnamnesis(cedula, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, hipertension, dolor_cabeza,
+                            epilepsia, vertigo, depresion, falta_aire, oidos_ojos, dolor_pecho, enf_nerviosas, alergia, txtAlergias.Text, txtTratDiabetes.Text,
+                            txtTratHipertension.Text, asma, txtTratAsma.Text, tiroides, txtTratTiroides.Text, txtHipertensionHeredo.Text, txtDiabetesHeredo.Text,
+                            txtCancerHeredo.Text, txtTiroidesHeredo.Text, txtAsmaHeredo.Text, txtOtrosHeredo.Text, txtObservaciones.Text, Frm_Ingreso.datosUsuario[2], fecha_expediente) &&
+                                (ExpedienteIT.InsertaExpediente(pulso, presion_arterial, soplos, dolor_precordial, edemas, arritmias, disnea,
+                            observaciones_sc, talla, peso, observaciones_sm, brazo_derecho, brazo_izquierdo, pierna_derecha, pierna_izquierda,
+                            bicipal_derecho, bicipal_izquierdo, patelar_derecho, patelar_izquierdo, alquileano_derecho, alquileano_izquierdo,
+                            flexion, extensiones, rotacion, inclinacion_lateral, observaciones_cc, malformaciones, observaciones_dl,
+                            observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
+                            auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
+                            observaciones_sn, otros_examen2, fecha_expediente, diagnostico, terapeutica, observaciones_generales, cedula,
+                            Frm_Ingreso.datosUsuario[2], motivo_consulta, saturacionOx, temperatura)))
+                            {
+                                MessageBox.Show("EXPEDIENTE GUARDADO CON EXITO", "INSERCION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                                this.Hide();
+                                frmVerExpediente splash = new frmVerExpediente();
+                                splash.ShowDialog();
+                            }
+                            else
+                            {
+                                MessageBox.Show("ERROR AL INSERTAR EL CLIENTE\nES POSIBLE QUE LA CEDULA YA EXISTA","ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            }
+                        }
+                        catch (Exception x)
+                        {
+                            MessageBox.Show(x.Message);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Problemas al Insertar la Consulta", "Probelmas al Insertar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        //guardamos solo en el expediente
+                        if (ExpedienteIT.InsertaExpediente(pulso, presion_arterial, soplos, dolor_precordial, edemas, arritmias, disnea,
+                            observaciones_sc, talla, peso, observaciones_sm, brazo_derecho, brazo_izquierdo, pierna_derecha, pierna_izquierda,
+                            bicipal_derecho, bicipal_izquierdo, patelar_derecho, patelar_izquierdo, alquileano_derecho, alquileano_izquierdo,
+                            flexion, extensiones, rotacion, inclinacion_lateral, observaciones_cc, malformaciones, observaciones_dl,
+                            observaciones_dl_txt, petequias, equimosis, sangrado, observaciones_sh, examen_neurologico, orl, abdomen,
+                            auscultacion, observaciones_sr, convulciones, espasmos, temblores, movimientos_anormales, otros_sn,
+                            observaciones_sn, otros_examen2, fecha_expediente, diagnostico, terapeutica, observaciones_generales, cedulaPublica,
+                            Frm_Ingreso.datosUsuario[2], motivo_consulta, saturacionOx, temperatura))
+                        {
+                            MessageBox.Show("CONSULTA INSERTADA CON EXITO", "INSERCION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                            this.Hide();
+                            frmVerExpediente splash = new frmVerExpediente();
+                            splash.ShowDialog();
+
+                        }
+                        else
+                        {
+                            MessageBox.Show("PROBLEMAS AL INSERTAR LA CONSULTA", "PROBLEMAS AL INSERTAR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        }
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No se puede Insertar un Expediente con Campos Vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("NO SE PUEDE ISNERTAR UN EXPEDIENTE CON CAMPOS VACIOS", "CAMPOS VACIOS", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
             //editar el expediente
@@ -1172,23 +1230,23 @@ namespace SIMEDVirtual
                         observaciones_sn, otros_examen2, fecha_expediente, diagnostico, terapeutica, observaciones_generales, cedulaPublica,
                         Frm_Ingreso.datosUsuario[2], motivo_consulta, saturacionOx, temperatura, id_pacient))
                     {
-                        MessageBox.Show("Expediente Actualizado con Exito", "Actualizacion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("EXPEDIENTE ACTUALIZADO CON EXITO", "ACTUALIZACION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                         this.Hide();
                         frmVerExpediente splash = new frmVerExpediente();
                         splash.ShowDialog();
-                        
+
                     }
                     else
                     {
-                        MessageBox.Show("Problemas al Actualizar el Expediente", "Problemas al Editar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("PROBLEMAS AL ACTUALIZAR EL EXPEDIENTE", "PROBLEMAS AL EDITAR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                 }
                 else
                 {
-                    MessageBox.Show("No se puede Editar un Expediente con Campos Vacios", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("NO SE PUEDE EDITAR UN EXPEDIENTE CON CAMPOS VACIOS", "CAMPOS VACIOS", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
-            //creo que cliente, anamnesis y expediente
+            //creo cliente, anamnesis y expediente
             else if (expOreconsulta == false)
             {
                 //determinar la fecha de nacimiento
@@ -1255,21 +1313,21 @@ namespace SIMEDVirtual
                         observaciones_sn, otros_examen2, fecha_expediente, diagnostico, terapeutica, observaciones_generales, cedula,
                         Frm_Ingreso.datosUsuario[2], motivo_consulta, saturacionOx, temperatura)))
                         {
-                            MessageBox.Show("Expediente Guardado con Exito", "Insercion Exitosa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                            MessageBox.Show("EXPEDIENTE GUARDADO CON EXITO", "INSERCION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Hide();
                             frmVerExpediente splash = new frmVerExpediente();
                             splash.ShowDialog();
-                            
+
                         }
                         else
                         {
-                            MessageBox.Show("Error al insertar el Cliente\nEs Posible que esa cedula ya exista", "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                            MessageBox.Show("ERROR AL INSERTAR EL CLIENTE\nES POSIBLE QUE LA CEDULA YA EXISTA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                         }
                     }
                     //si hay campos vacios imprime error
                     else
                     {
-                        MessageBox.Show("Hay Campos Obligatorios Vacios", "Campos Vacios", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                        MessageBox.Show("HAY CAMPOS OBLIGATORIOS VACIOS", "CAMPOS VACIOS", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                     }
                 }
                 catch (Exception x)
@@ -1459,21 +1517,13 @@ namespace SIMEDVirtual
             }
         }
 
-        private void frm_ExpedienteMG_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            this.Hide();
-            frmVerExpediente splash = new frmVerExpediente();
-            splash.ShowDialog();
-            
-        }
-
         private void btnVerExp_Click(object sender, EventArgs e)
         {
             this.Hide();
             frmVerExpediente frm = new frmVerExpediente();
             frm.ShowDialog();
             this.Dispose();
-                    }
+        }
 
         private void frm_ExpedienteMG_Load(object sender, EventArgs e)
         {

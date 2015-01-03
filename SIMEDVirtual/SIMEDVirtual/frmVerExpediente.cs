@@ -47,7 +47,7 @@ namespace SIMEDVirtual
 
             this.cargaComboEmpresas();
             this.cargaComboMedicos();
-            this.lblCount.Location = new Point(684, 680);
+            //this.lblCount.Location = new Point(684, 680);
         }
 
         private void frmVerExpediente_Load(object sender, EventArgs e)
@@ -126,7 +126,7 @@ namespace SIMEDVirtual
                 dgClientes.Rows[j].Cells[2].Value = pts.ElementAt(j).ape2.ToString();
                 dgClientes.Rows[j].Cells[3].Value = pts.ElementAt(j).nombre.ToString();
             }
-            this.CuentaResultado();
+            //this.CuentaResultado();
         }
 
         private void cargarDataGrid(List<PersonaEntity> lista)
@@ -216,7 +216,7 @@ namespace SIMEDVirtual
             string cedula_paciente = Convert.ToString(dgReconsultas.Rows[e.RowIndex].Cells[1].Value);
             int id_paciente = Convert.ToInt32(dgReconsultas.Rows[e.RowIndex].Cells[0].Value);
 
-            this.Hide();
+            //this.Hide();
             frm_ExpedienteMG frm = new frm_ExpedienteMG(cedula_paciente, false, true, id_paciente, 0);
             frm.ShowDialog();
         }
@@ -227,7 +227,7 @@ namespace SIMEDVirtual
             //obtngo el id de la row seleccionada
             string cedula_paciente = Convert.ToString(dgClientes.Rows[e.RowIndex].Cells[0].Value);
 
-            this.Hide();
+            //this.Hide();
             frm_Cliente frm = new frm_Cliente(cedula_paciente, 1);
             frm.ShowDialog();
         }
@@ -273,6 +273,11 @@ namespace SIMEDVirtual
                     {
                         this.cargarDataGrid(personas);
                     }
+                    else
+                    {
+                        //this.cargarDataGrid();
+                        MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS", "VACIO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else if (rbApellido.Checked)
                 {
@@ -281,6 +286,11 @@ namespace SIMEDVirtual
                     {
                         this.cargarDataGrid(personas);
                     }
+                    else
+                    {
+                        //this.cargarDataGrid();
+                        MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS", "VACIO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else if (rbCedula.Checked)
                 {
@@ -288,6 +298,11 @@ namespace SIMEDVirtual
                     if (personas.Count != 0)
                     {
                         this.cargarDataGrid(personas);
+                    }
+                    else
+                    {
+                        //this.cargarDataGrid();
+                        MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS", "VACIO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -303,7 +318,7 @@ namespace SIMEDVirtual
                 cbEmpresa.Visible = false;
                 dtFechaFiltro.Visible = false;
             }
-            this.CuentaResultado();
+            //this.CuentaResultado();
         }
 
         private void btnPdf_Click(object sender, EventArgs e)
@@ -344,7 +359,7 @@ namespace SIMEDVirtual
 
 
                         paragraph.IndentationLeft = 120;
-                        iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(@"C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\logo.jpg");
+                        iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(@"C:\Simed Virtual\logo.jpg");
                         jpg.ScaleToFit(100f, 100f);
                         jpg.Alignment = iTextSharp.text.Image.TEXTWRAP | iTextSharp.text.Image.ALIGN_LEFT;
                         document.Add(jpg);
@@ -1011,7 +1026,6 @@ namespace SIMEDVirtual
         }
 
 
-
         //funciona en el caso de apellido, cedula, nombre y cedula medico
         public void ocultarComponentes()
         {
@@ -1036,11 +1050,11 @@ namespace SIMEDVirtual
                 }
                 else
                 {
-                    this.cargarDataGrid();
-                    MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS");
+                    //this.cargarDataGrid();
+                    MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS", "VACIO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            this.CuentaResultado();
+            //this.CuentaResultado();
         }
 
         private void dtFechaFiltro_ValueChanged(object sender, EventArgs e)
@@ -1052,10 +1066,10 @@ namespace SIMEDVirtual
             }
             else
             {
-                this.cargarDataGrid();
-                MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS");
+                //this.cargarDataGrid();
+                MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS", "VACIO", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            this.CuentaResultado();
+            //this.CuentaResultado();
         }
 
         private void btnEditaExpediente_Click(object sender, EventArgs e)
@@ -1101,17 +1115,25 @@ namespace SIMEDVirtual
                 }
                 else
                 {
-                    this.cargarDataGrid();
-                    MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS");
+                    //this.cargarDataGrid();
+                    MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS", "VACIO", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            this.CuentaResultado();
+            //this.CuentaResultado();
+        }
+
+        private void sALIRToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Frm_Ingreso splash = new Frm_Ingreso();
+            splash.ShowDialog();
         }
 
 
-        public void CuentaResultado()
+        /*public void CuentaResultado()
         {
             lblCount.Text = "Resultados: " + dgClientes.DisplayedRowCount(false).ToString();
         }
+         * */
     }
 }

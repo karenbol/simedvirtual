@@ -113,7 +113,7 @@ namespace SIMEDVirtual
             if (dataGridView1.SelectedCells.Count > 0)
             {
                 DialogResult dialog = MessageBox.Show(
-     "Seguro que Desea Eliminar el Registro?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+     "SEGURO QUE DESEA ELIMINAR EL REGISTRO?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
 
                 if (dialog == DialogResult.Yes)
                 {
@@ -124,7 +124,7 @@ namespace SIMEDVirtual
                     if (PersonaIT.deletePersona(ced) && (PersonaIT.deleteUsuario(ced)))
                     {
                         this.cargarDataGrid();
-                        MessageBox.Show("El Registro se ha Eliminado Correctamente!", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                        MessageBox.Show("EL REGISTRO SE HA ELIMINADO CORRECTAMENTE!", "ELIMINAR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                     }
                 }
             }
@@ -139,14 +139,10 @@ namespace SIMEDVirtual
         {
             if (e.RowIndex != -1)
             {
-
-
                 //cargamos todos la info de drs en el datagrid
                 string cedula = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
                 //selecciona el medico dependiento de la cedula
                 var pts = new BindingList<PersonaEntity>(PersonaIT.selectMedico2(Convert.ToString(cedula)));
-                dataGridView1.AutoGenerateColumns = false;
-                dataGridView1.DataSource = pts;
 
                 string nombre = pts.ElementAt(0).nombre.ToString();
                 String ape1 = pts.ElementAt(0).ape1.ToString();
@@ -163,7 +159,7 @@ namespace SIMEDVirtual
                 int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono_movil.ToString());
                 //byte foto = Convert.ToByte(pts.ElementAt(0).fotoBinaria);
 
-                this.Hide();
+               // this.Hide();
                 Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, cedula, fecha, direccion,
                     codigo, u, especialidad, correo, sexo, edad, telefono1, telefono2, true);
                 frm.ShowDialog();

@@ -159,7 +159,7 @@ namespace SIMEDVirtual.DA
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
             {
                 conn.Open();
-                NpgsqlCommand cmd = new NpgsqlCommand("select * from empresa where id='" + cedula + "'", conn);
+                NpgsqlCommand cmd = new NpgsqlCommand("select * from empresa where cedula_juridica='" + cedula + "'", conn);
                 NpgsqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
