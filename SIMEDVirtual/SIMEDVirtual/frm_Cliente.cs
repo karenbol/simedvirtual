@@ -245,16 +245,8 @@ namespace SIMEDVirtual
         }
 
         private void frm_Cliente_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //si lo quiere es ver me devuelvo a ver los expedientes
-            if ((accionArealizar == 1) || (accionArealizar == 2))
-            {
-                this.Hide();
-                frmVerExpediente splash = new frmVerExpediente();
-                splash.ShowDialog();                
-            }
-            //si soy adm e ingrese desde splash, me devuelvo a splash
-            else if (Frm_Ingreso.datosUsuario[3].Equals("1") && accionArealizar == 0)
+        {        
+            if (Frm_Ingreso.datosUsuario[3].Equals("1") && accionArealizar == 0)
             {
                 this.Hide();
                 Frm_Splash splash = new Frm_Splash();

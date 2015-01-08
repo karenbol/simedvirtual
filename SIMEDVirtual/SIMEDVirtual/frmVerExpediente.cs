@@ -236,9 +236,9 @@ namespace SIMEDVirtual
         {
             DataGridViewRow selectedRow = dgClientes.Rows[dgClientes.SelectedCells[0].RowIndex];
             string cedula_paciente = Convert.ToString(selectedRow.Cells["Cedula"].Value);
-
-            this.Hide();
+            
             frm_Cliente frm = new frm_Cliente(cedula_paciente, 2);
+            this.Hide();            
             frm.ShowDialog();
         }
 
@@ -264,7 +264,7 @@ namespace SIMEDVirtual
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            if (txtBusqueda.Text != string.Empty)
+            if (txtBusqueda.Text != string.Empty|| dtFechaFiltro.Visible==true)
             {
                 if (rbNombre.Checked)
                 {
@@ -295,6 +295,19 @@ namespace SIMEDVirtual
                 else if (rbCedula.Checked)
                 {
                     List<PersonaEntity> personas = PersonaIT.selectClienteByBusqueda("cedula", txtBusqueda.Text);
+                    if (personas.Count != 0)
+                    {
+                        this.cargarDataGrid(personas);
+                    }
+                    else
+                    {
+                        //this.cargarDataGrid();
+                        MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS", "VACIO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else if (dtFechaFiltro.Visible == true)
+                {
+                    List<PersonaEntity> personas = PersonaIT.selectClientePorFecha(dtFechaFiltro.Text);
                     if (personas.Count != 0)
                     {
                         this.cargarDataGrid(personas);
@@ -359,7 +372,7 @@ namespace SIMEDVirtual
 
 
                         paragraph.IndentationLeft = 120;
-                        iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(@"C:\Simed Virtual\logo.jpg");
+                        iTextSharp.text.Image jpg = iTextSharp.text.Image.GetInstance(@"C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\logo.jpg");
                         jpg.ScaleToFit(100f, 100f);
                         jpg.Alignment = iTextSharp.text.Image.TEXTWRAP | iTextSharp.text.Image.ALIGN_LEFT;
                         document.Add(jpg);
@@ -1059,16 +1072,16 @@ namespace SIMEDVirtual
 
         private void dtFechaFiltro_ValueChanged(object sender, EventArgs e)
         {
-            List<PersonaEntity> personas = PersonaIT.selectClientePorFecha(dtFechaFiltro.Text);
-            if (personas.Count != 0)
-            {
-                this.cargarDataGrid(personas);
-            }
-            else
-            {
-                //this.cargarDataGrid();
-                MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS", "VACIO", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            //List<PersonaEntity> personas = PersonaIT.selectClientePorFecha(dtFechaFiltro.Text);
+            //if (personas.Count != 0)
+            //{
+            //    this.cargarDataGrid(personas);
+            //}
+            //else
+            //{
+            //    //this.cargarDataGrid();
+            //    MessageBox.Show("NO SE HAN ENCONTRADO RESULTADOS", "VACIO", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
             //this.CuentaResultado();
         }
 

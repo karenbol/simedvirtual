@@ -13,12 +13,14 @@ namespace SIMEDVirtual
     public partial class frm_registraEmpresa : Form
     {
         public int accion_ejecutar = 0;
+        private bool cerrar = false;
 
         public frm_registraEmpresa()
         {
             InitializeComponent();
             btnEliminar1.Visible = false;
             btnEliminar2.Visible = false;
+            cerrar = true;
         }
 
         // 1 ver 2 editar
@@ -49,6 +51,7 @@ namespace SIMEDVirtual
             }
             else if (accion == 2)
             {
+                cerrar = true;
                 txtCedula_Juridica.Enabled = false;
 
                 if (telefono1 != 0 && encargado1 != "")
@@ -171,6 +174,16 @@ namespace SIMEDVirtual
                 {
                     MessageBox.Show("NO SE HA PODIDO ELIMINAR EL NUMERO DE TELEFONO", "ERROR AL ELIMINAR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
+            }
+        }
+
+        private void frm_registraEmpresa_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (cerrar)
+            {
+                this.Hide();
+                frm_empresa form = new frm_empresa();
+                form.ShowDialog();
             }
         }
     }

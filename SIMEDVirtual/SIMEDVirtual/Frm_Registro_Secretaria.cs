@@ -14,12 +14,16 @@ namespace SIMEDVirtual
     public partial class Frm_Registro_Secretaria : Form
     {
         private Boolean edicion = false;
+        private Boolean cerrar = false;
         char sexo = 'f';
+
 
         public Frm_Registro_Secretaria()
         {
             InitializeComponent();
             label10.Text = Frm_Ingreso.datosUsuario[0] + " " + Frm_Ingreso.datosUsuario[1];
+            cbSexo.SelectedIndex = 1;
+            cerrar = true;
         }
 
         //ver informacion del administrativo
@@ -49,16 +53,30 @@ namespace SIMEDVirtual
             lblpass.Visible = false;
             lblconfirmapass.Visible = false;
 
+            //combo del sexo
+            if (sexo == 'f')
+            {
+                cbSexo.SelectedIndex = 0;
+            }
+            else
+            {
+                cbSexo.SelectedIndex = 1;
+            }
+
             //si voy a editar
             if (edicion)
             {
+                //this.ControlBox = false;
+                lblTitle.Text = "EDICION DE ADMINISTRATIVOS";
                 txtCedula.Enabled = false;
                 btnGuardar.Visible = true;
                 groupBox1.Enabled = true;
+                cerrar = true;
             }
             else
             //si voy a ver
             {
+                lblTitle.Text = "ADMINISTRATIVOS";
                 btnGuardar.Visible = false;
                 groupBox1.Enabled = false;
             }
@@ -66,7 +84,7 @@ namespace SIMEDVirtual
 
         private void Frm_Registro_Secretaria_Load(object sender, EventArgs e)
         {
-            cbSexo.SelectedIndex = 1;
+
         }
 
         private void dtfecha_ValueChanged(object sender, EventArgs e)
@@ -136,7 +154,6 @@ namespace SIMEDVirtual
                     {
                         MessageBox.Show("LAS CONTRASEÑAS NO COINCIDEN", "ERROR EN LAS CONTRASEÑAS", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                    //de lo contrario, edito
                 }
                 //editar los datos del administrativo
                 else
@@ -161,6 +178,16 @@ namespace SIMEDVirtual
             else
             {
                 MessageBox.Show("Algunos Campos estan Vacíos!", "Campos Vacíos", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+        }
+
+        private void Frm_Registro_Secretaria_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (cerrar)
+            {
+                this.Hide();
+                Frm_Administrativo form = new Frm_Administrativo();
+                form.ShowDialog();
             }
         }
     }

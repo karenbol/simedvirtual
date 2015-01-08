@@ -74,6 +74,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbFotoDr)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -135,6 +136,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.cbEspecialidad);
             this.groupBox1.Controls.Add(this.lblEspacioVacio);
             this.groupBox1.Controls.Add(this.txtEdad);
@@ -299,7 +301,7 @@
             this.lblCampoNumerico.AutoSize = true;
             this.lblCampoNumerico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCampoNumerico.ForeColor = System.Drawing.Color.Red;
-            this.lblCampoNumerico.Location = new System.Drawing.Point(59, 463);
+            this.lblCampoNumerico.Location = new System.Drawing.Point(40, 490);
             this.lblCampoNumerico.Name = "lblCampoNumerico";
             this.lblCampoNumerico.Size = new System.Drawing.Size(137, 16);
             this.lblCampoNumerico.TabIndex = 119;
@@ -572,6 +574,16 @@
             this.label1.TabIndex = 88;
             this.label1.Text = "Nombre";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.Red;
+            this.label13.Location = new System.Drawing.Point(62, 469);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(0, 16);
+            this.label13.TabIndex = 125;
+            // 
             // Frm_Registro_Medico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -643,5 +655,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cbEspecialidad;
+        private System.Windows.Forms.Label label13;
     }
 }

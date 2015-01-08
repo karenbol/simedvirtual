@@ -974,7 +974,6 @@ namespace SIMEDVirtual
         {
             InitializeComponent();
             label29.Text = Frm_Ingreso.datosUsuario[0] + " " + Frm_Ingreso.datosUsuario[1];  //asignamos el nombre del usuario
-            //usuarioPublico = Frm_Ingreso.datosUsuario;
 
             //vamos a guardar en el cliente y en el expediente
             expOreconsulta = false;

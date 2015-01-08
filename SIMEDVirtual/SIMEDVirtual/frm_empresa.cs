@@ -74,10 +74,10 @@ namespace SIMEDVirtual
         {
             //cargamos todos la info de drs en el datagrid
             string cedula_juridica = dgEmpresas.Rows[e.RowIndex].Cells[0].Value.ToString();
-            //selecciona el medico dependiento de la cedula
-            //var pts = new BindingList<EmpresaEntity>(EmpresaIT.getEmpresaByID(cedula_juridica));
-            EmpresaEntity empresa = EmpresaIT.getEmpresaByID(cedula_juridica);
-            
+
+            //obtiene los datos de la empresa con la cedula juridica
+            EmpresaEntity empresa = EmpresaIT.getEmpresaByCedula(cedula_juridica);
+
             string nombre = empresa.nombre.ToString();
             string cedula = empresa.cedula.ToString();
             string descripcion = empresa.descripcion.ToString();
@@ -89,7 +89,7 @@ namespace SIMEDVirtual
             string encargado2 = "";
 
             List<EmpresaEntity> empresa_telefono = EmpresaIT.getTelefono(cedula_juridica);
-            
+
             if (empresa_telefono.Count != 0)
             {
                 telefono1 = Convert.ToInt32(empresa_telefono[0].telefono1);
@@ -116,7 +116,7 @@ namespace SIMEDVirtual
             string cedula_juridica = Convert.ToString(selectedRow.Cells["Cedula"].Value);
 
             //me trae todo de la empresa segun cedula juridica
-            EmpresaEntity empresa = EmpresaIT.getEmpresaByID(cedula_juridica);
+            EmpresaEntity empresa = EmpresaIT.getEmpresaByCedula(cedula_juridica);
             dgEmpresas.AutoGenerateColumns = false;
             dgEmpresas.DataSource = empresa;
 
@@ -160,7 +160,7 @@ namespace SIMEDVirtual
             if (EmpresaIT.deleteEmpresa(cedula_juridica))
             {
                 cargarDataGrid();
-                MessageBox.Show("LA EMPRESA SE HA ELIMINADO CON EXITO", "ELIMINACION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);                
+                MessageBox.Show("LA EMPRESA SE HA ELIMINADO CON EXITO", "ELIMINACION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
             else
             {
@@ -170,9 +170,13 @@ namespace SIMEDVirtual
 
         private void frm_empresa_FormClosing(object sender, FormClosingEventArgs e)
         {
+
             this.Hide();
             Frm_Splash x = new Frm_Splash();
             x.ShowDialog();
+
+
+
         }
     }
 }

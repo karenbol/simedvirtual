@@ -38,43 +38,6 @@ C:\Users\Karen\Documents\Visual Studio 2012\Projects\SIMEDVirtual\SIMEDVirtual\o
 C:\Users\Karen\Documents\Visual Studio 2012\Projects\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.csproj.GenerateResource.Cache
 C:\Users\Karen\Documents\Visual Studio 2012\Projects\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.exe
 C:\Users\Karen\Documents\Visual Studio 2012\Projects\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.pdb
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\SIMEDVirtual.exe.config
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\SIMEDVirtual.exe
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\SIMEDVirtual.pdb
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\es\SIMEDVirtual.resources.dll
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\yo\SIMEDVirtual.resources.dll
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\Mono.Security.dll
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\Npgsql.dll
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\Npgsql.pdb
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\Npgsql.xml
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\de\Npgsql.resources.dll
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\es\Npgsql.resources.dll
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\fi\Npgsql.resources.dll
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\fr\Npgsql.resources.dll
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\ja\Npgsql.resources.dll
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\zh-CN\Npgsql.resources.dll
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frmVerExpediente.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Administrativo.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_cambiar_contrasena.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_Cliente.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_empresa.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_ExpedienteMG.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Ingreso.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Medico.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Membresia.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_registraEmpresa.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Registro_Medico.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Registro_Secretaria.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Splash.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Properties.Resources.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frmVerExpediente.es.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frmVerExpediente.yo.resources
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.csproj.GenerateResource.Cache
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\es\SIMEDVirtual.resources.dll
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\yo\SIMEDVirtual.resources.dll
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.exe
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.pdb
-C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.csprojResolveAssemblyReference.cache
 C:\SIMEDVirtual -7.3 Mejoras\SIMEDVirtual\SIMEDVirtual\bin\Debug\SIMEDVirtual.exe.config
 C:\SIMEDVirtual -7.3 Mejoras\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.exe
 C:\SIMEDVirtual -7.3 Mejoras\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.pdb
@@ -186,3 +149,40 @@ C:\SIMEDVirtual - 8 Mejoras - copia\SIMEDVirtual\SIMEDVirtual\obj\Debug\es\SIMED
 C:\SIMEDVirtual - 8 Mejoras - copia\SIMEDVirtual\SIMEDVirtual\obj\Debug\yo\SIMEDVirtual.resources.dll
 C:\SIMEDVirtual - 8 Mejoras - copia\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.exe
 C:\SIMEDVirtual - 8 Mejoras - copia\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.pdb
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\SIMEDVirtual.exe.config
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\SIMEDVirtual.exe
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\SIMEDVirtual.pdb
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\es\SIMEDVirtual.resources.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\yo\SIMEDVirtual.resources.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\Mono.Security.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\Npgsql.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\Npgsql.pdb
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\Npgsql.xml
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\de\Npgsql.resources.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\es\Npgsql.resources.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\fi\Npgsql.resources.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\fr\Npgsql.resources.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\ja\Npgsql.resources.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\bin\Debug\zh-CN\Npgsql.resources.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.csprojResolveAssemblyReference.cache
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frmVerExpediente.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Administrativo.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_cambiar_contrasena.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_Cliente.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_empresa.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_ExpedienteMG.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Ingreso.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Medico.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Membresia.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frm_registraEmpresa.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Registro_Medico.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Registro_Secretaria.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Frm_Splash.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.Properties.Resources.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frmVerExpediente.es.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.frmVerExpediente.yo.resources
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.csproj.GenerateResource.Cache
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\es\SIMEDVirtual.resources.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\yo\SIMEDVirtual.resources.dll
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.exe
+C:\SIMEDVirtual\SIMEDVirtual\SIMEDVirtual\obj\Debug\SIMEDVirtual.pdb

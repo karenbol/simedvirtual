@@ -30,9 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.reToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.medicoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.secretariaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.expedientesMedicosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.empresasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +53,6 @@
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.reToolStripMenuItem,
             this.verToolStripMenuItem,
             this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -65,40 +61,14 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // reToolStripMenuItem
-            // 
-            this.reToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.medicoToolStripMenuItem,
-            this.secretariaToolStripMenuItem});
-            this.reToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.reToolStripMenuItem.Name = "reToolStripMenuItem";
-            this.reToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
-            this.reToolStripMenuItem.Text = "Registro";
-            // 
-            // medicoToolStripMenuItem
-            // 
-            this.medicoToolStripMenuItem.Image = global::SIMEDVirtual.Properties.Resources.dr_paq2;
-            this.medicoToolStripMenuItem.Name = "medicoToolStripMenuItem";
-            this.medicoToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
-            this.medicoToolStripMenuItem.Text = "Médico";
-            this.medicoToolStripMenuItem.Click += new System.EventHandler(this.medicoToolStripMenuItem_Click);
-            // 
-            // secretariaToolStripMenuItem
-            // 
-            this.secretariaToolStripMenuItem.Image = global::SIMEDVirtual.Properties.Resources.admin;
-            this.secretariaToolStripMenuItem.Name = "secretariaToolStripMenuItem";
-            this.secretariaToolStripMenuItem.Size = new System.Drawing.Size(183, 24);
-            this.secretariaToolStripMenuItem.Text = "Administrativo";
-            this.secretariaToolStripMenuItem.Click += new System.EventHandler(this.secretariaToolStripMenuItem_Click);
-            // 
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.expedientesMedicosToolStripMenuItem1,
+            this.administrativosToolStripMenuItem,
+            this.medicosToolStripMenuItem1,
             this.empresasToolStripMenuItem,
             this.clientesToolStripMenuItem,
-            this.medicosToolStripMenuItem1,
-            this.administrativosToolStripMenuItem,
             this.planesFamiliaresToolStripMenuItem,
             this.planesEmpresarialesToolStripMenuItem});
             this.verToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -248,9 +218,6 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem reToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem medicoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem secretariaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem manualDeUsuarioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem verToolStripMenuItem;

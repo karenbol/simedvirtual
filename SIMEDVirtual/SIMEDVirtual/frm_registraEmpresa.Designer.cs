@@ -398,6 +398,7 @@
             this.Name = "frm_registraEmpresa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "REGISTRO DE EMPRESAS";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frm_registraEmpresa_FormClosing);
             this.Load += new System.EventHandler(this.frm_registraEmpresa_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
