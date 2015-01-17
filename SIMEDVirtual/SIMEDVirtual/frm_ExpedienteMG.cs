@@ -17,7 +17,7 @@ namespace SIMEDVirtual
 {
     public partial class frm_ExpedienteMG : Form
     {
-        public byte[] fotoBinaria;
+        //public byte[] fotoBinaria;
         public static string rutaDefault = "C:\\SIMEDVirtual\\SIMEDVirtual\\SIMEDVirtual\\Properties\\camera.png";
         //anamnesis
         char sexo = 'f';
@@ -678,7 +678,7 @@ namespace SIMEDVirtual
 
         public void determinaExpediente(string cedula_paciente, int id_paciente)
         {
-            pbPaciente.Image = PersonaIT.GetImagePacient(cedula_paciente);
+            //pbPaciente.Image = PersonaIT.GetImagePacient(cedula_paciente);
 
             //me trae el expediente segun la cedula y el id
             List<ExpedienteEntity> listaExpediente = ExpedienteIT.selectExpedienteById(cedula_paciente, id_paciente);
@@ -1060,7 +1060,17 @@ namespace SIMEDVirtual
             //me devuelve toda la anam
             this.determinaAnamnesis(cedula_paciente);
 
-            pbPaciente.Image = PersonaIT.GetImagePacient(cedula_paciente);
+            if (File.Exists("C:\\Users\\Karen\\Desktop\\pruebafotos\\" + cedula_paciente + ".jpg"))
+            {
+                pbPaciente.ImageLocation = "C:\\Users\\Karen\\Desktop\\pruebafotos\\" + cedula_paciente + ".jpg";
+            }
+            else
+            {
+                pbPaciente.ImageLocation = rutaDefault;
+            }
+
+
+            //pbPaciente.Image = PersonaIT.GetImagePacient(cedula_paciente);
 
             //aqui no se puede editar nada xq voy a ver el expediente
             //voy a editar todo el expediente
@@ -1069,6 +1079,7 @@ namespace SIMEDVirtual
             //dehabilito todo xq solo puedo ver
             {
                 determinaExpediente(cedula_paciente, id_paciente);
+                btnVerExp.Visible = false;
 
                 btnGuardar.Visible = false;
 
@@ -1109,30 +1120,31 @@ namespace SIMEDVirtual
 
                 opFile.Dispose();
                 pbPaciente.ImageLocation = ruta;
+                //System.IO.File.Copy(ruta,"C:\\Users\\Karen\\Desktop\\"+txtCedula.Text+".jpg");
                 //guardamos la imagen
-                fotoBinaria = this.saveImage(ruta);
+                //fotoBinaria = this.saveImage(ruta);
             }
         }
 
         //guardar la imagen, ocupo la ruta
-        public byte[] saveImage(string productImageFilePath)
-        {
-            try
-            {
-                using (FileStream pgFileStream = new FileStream(productImageFilePath, FileMode.Open, FileAccess.Read))
-                {
-                    using (BinaryReader pgReader = new BinaryReader(new BufferedStream(pgFileStream)))
-                    {
-                        byte[] pgByteA = pgReader.ReadBytes(Convert.ToInt32(pgFileStream.Length));
-                        return pgByteA;
-                    }
-                }
-            }
-            catch
-            {
-                throw;
-            }
-        }
+        /* public byte[] saveImage(string productImageFilePath)
+         {
+             try
+             {
+                 using (FileStream pgFileStream = new FileStream(productImageFilePath, FileMode.Open, FileAccess.Read))
+                 {
+                     using (BinaryReader pgReader = new BinaryReader(new BufferedStream(pgFileStream)))
+                     {
+                         byte[] pgByteA = pgReader.ReadBytes(Convert.ToInt32(pgFileStream.Length));
+                         return pgByteA;
+                     }
+                 }
+             }
+             catch
+             {
+                 throw;
+             }
+         }*/
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
@@ -1142,7 +1154,6 @@ namespace SIMEDVirtual
                 if (txtTerapeutica.Text != string.Empty || txtDiagnostico.Text != string.Empty || txtObs.Text != string.Empty)
                 {
                     determinaExpediente();//metodo que da valor a parametros para el expediente
-
 
                     if (((Control)this.tabPageInfoPersonal).Enabled == false && ((Control)this.tbPageAnamnesis).Enabled == true)
                     {
@@ -1176,7 +1187,7 @@ namespace SIMEDVirtual
                             }
                             else
                             {
-                                MessageBox.Show("ERROR AL INSERTAR EL CLIENTE\nES POSIBLE QUE LA CEDULA YA EXISTA","ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                                MessageBox.Show("ERROR AL INSERTAR EL CLIENTE\nES POSIBLE QUE LA CEDULA YA EXISTA", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                             }
                         }
                         catch (Exception x)
@@ -1210,7 +1221,7 @@ namespace SIMEDVirtual
                 }
                 else
                 {
-                    MessageBox.Show("NO SE PUEDE ISNERTAR UN EXPEDIENTE CON CAMPOS VACIOS", "CAMPOS VACIOS", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                    MessageBox.Show("NO SE PUEDE INSERTAR UN EXPEDIENTE CON CAMPOS VACIOS", "CAMPOS VACIOS", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
             }
             //editar el expediente
@@ -1298,7 +1309,7 @@ namespace SIMEDVirtual
 
                         if (PersonaIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, cedula, fecha,
                         txtDireccion.Text, txtEdad.Text, sexo, estado, grupo, txtProfesion.Text, telefono, movil,
-                        txtEmail.Text, empresa, fotoBinaria, false, fecha_expediente) &&
+                        txtEmail.Text, empresa, false, fecha_expediente) &&
                             anamnesisIT.InsertaAnamnesis(cedula, tabaquismo, ingesta, alcoholismo, rehabilitacion, diabetes, hipertension, dolor_cabeza,
                         epilepsia, vertigo, depresion, falta_aire, oidos_ojos, dolor_pecho, enf_nerviosas, alergia, txtAlergias.Text, txtTratDiabetes.Text,
                         txtTratHipertension.Text, asma, txtTratAsma.Text, tiroides, txtTratTiroides.Text, txtHipertensionHeredo.Text, txtDiabetesHeredo.Text,
@@ -1316,7 +1327,6 @@ namespace SIMEDVirtual
                             this.Hide();
                             frmVerExpediente splash = new frmVerExpediente();
                             splash.ShowDialog();
-
                         }
                         else
                         {
@@ -1338,11 +1348,33 @@ namespace SIMEDVirtual
 
         public void verificaFoto()
         {
-            if (fotoBinaria == null)
+            //la imagen se guarda o reemplaza solo si se ha seleccionado una img diferente a la default
+            if (pbPaciente.ImageLocation != null)
             {
-                //MessageBox.Show("no se dijo foto");
-                //string x = pbPaciente.ImageLocation;
-                fotoBinaria = this.saveImage(rutaDefault);
+                //verifica si ya existe la img guardada y la reemplaza
+                if (File.Exists("C:\\Users\\Karen\\Desktop\\pruebafotos\\" + txtCedula.Text + ".jpg"))
+                {
+                    System.IO.File.Replace(pbPaciente.ImageLocation, "C:\\Users\\Karen\\Desktop\\pruebafotos\\" + txtCedula.Text + ".jpg", "C:\\Users\\Karen\\Desktop\\k");
+                }
+                else
+                {
+                    //si no existe lo crea y lo guarda
+                    System.IO.File.Copy(pbPaciente.ImageLocation, "C:\\Users\\Karen\\Desktop\\pruebafotos\\" + txtCedula.Text + ".jpg");
+                }
+            }
+            else
+            {
+                if (File.Exists("C:\\Users\\Karen\\Desktop\\pruebafotos\\" + txtCedula.Text + ".jpg"))
+                {
+                    try
+                    {
+                        File.Delete("C:\\Users\\Karen\\Desktop\\pruebafotos\\" + txtCedula.Text + ".jpg");
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.ToString());
+                    }
+                }
             }
         }
 
@@ -1521,7 +1553,7 @@ namespace SIMEDVirtual
             this.Hide();
             frmVerExpediente frm = new frmVerExpediente();
             frm.ShowDialog();
-            this.Dispose();
+            //this.Dispose();
         }
 
         private void frm_ExpedienteMG_Load(object sender, EventArgs e)

@@ -16,7 +16,6 @@ namespace SIMEDVirtual
     public partial class Frm_Registro_Medico : Form
     {
         private Boolean edicion = false;
-        public byte[] fotoBinaria;
         char sexo = 'f';
 
         public Frm_Registro_Medico()
@@ -60,16 +59,30 @@ namespace SIMEDVirtual
                 cbSexo.SelectedIndex = 1;
             }
 
-            var foto = PersonaIT.GetImageMedico(cedula);
+            //carga la imagen del medico si existe
+            if (File.Exists("C:\\Users\\Karen\\Desktop\\pruebafotos\\" + cedula + ".jpg"))
+            {
+                pbFotoDr.ImageLocation = "C:\\Users\\Karen\\Desktop\\pruebafotos\\" + cedula + ".jpg";
+            }
+            else
+            {
+                pbFotoDr.ImageLocation = frm_ExpedienteMG.rutaDefault;
+            }
 
-            if (foto == null)
+
+
+
+
+            // var foto = PersonaIT.GetImageMedico(cedula);
+
+            /*if (foto == null)
             {
                 pbFotoDr.ImageLocation = frm_ExpedienteMG.rutaDefault;
             }
             else
             {
                 pbFotoDr.Image = foto;
-            }
+            }*/
 
             //si lo que quiero es ver la info
             if (ver)
@@ -135,10 +148,13 @@ namespace SIMEDVirtual
                     if (comparaContrasena(txtcontrasena.Text, txtconfirmacion.Text)
                         && txtcontrasena.Text != string.Empty && txtconfirmacion.Text != string.Empty)
                     {
+
+                        this.verificaFoto();
+
                         //si se inserto bien imprime e inserta en la tabla usuario
                         if (PersonaIT.InsertaMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
               txtCedula.Text, Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text, txtEdad.Text, sexo,
-               Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text), txtCorreo.Text, fotoBinaria, Convert.ToInt32(codigo.Text),
+               Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text), txtCorreo.Text, Convert.ToInt32(codigo.Text),
                 txtU.Text, Convert.ToInt32(cbEspecialidad.SelectedValue), true))
                         {
                             //insertamos en la tabla de usuario 1 adm 2 medico
@@ -168,9 +184,10 @@ namespace SIMEDVirtual
                 }
                 else
                 {
+                    this.verificaFoto();
                     if (PersonaIT.UpdateMedico(txtNombre.Text, txtApellido1.Text, txtApellido2.Text,
                  txtCedula.Text, Convert.ToDateTime(fecha_nacimiento.Text), txtDireccion.Text, txtEdad.Text, sexo,
-                Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text), txtCorreo.Text, fotoBinaria,
+                Convert.ToInt32(telefono1.Text), Convert.ToInt32(telefono2.Text), txtCorreo.Text,
                 Convert.ToInt32(codigo.Text), txtU.Text, Convert.ToInt32(cbEspecialidad.SelectedValue)))
                     {
                         MessageBox.Show("LOS DATOS SE HAN ACTUALIZADO CON EXITO!", "EDITAR", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -186,6 +203,40 @@ namespace SIMEDVirtual
             }
         }
 
+
+        public void verificaFoto()
+        {
+            //la imagen se guarda o reemplaza solo si se ha seleccionado una img diferente a la default
+            if (pbFotoDr.ImageLocation != null)
+            {
+                //verifica si ya existe la img guardada y la reemplaza
+                if (File.Exists("C:\\Users\\Karen\\Desktop\\pruebafotos\\" + txtCedula.Text + ".jpg"))
+                {
+                    System.IO.File.Replace(pbFotoDr.ImageLocation, "C:\\Users\\Karen\\Desktop\\pruebafotos\\" + txtCedula.Text + ".jpg", "C:\\Users\\Karen\\Desktop\\k");
+                }
+                else
+                {
+                    //si no existe lo crea y lo guarda
+                    System.IO.File.Copy(pbFotoDr.ImageLocation, "C:\\Users\\Karen\\Desktop\\pruebafotos\\" + txtCedula.Text + ".jpg");
+                }
+            }
+            else
+            {
+                if (File.Exists("C:\\Users\\Karen\\Desktop\\pruebafotos\\" + txtCedula.Text + ".jpg"))
+                {
+                    try
+                    {
+                        File.Delete("C:\\Users\\Karen\\Desktop\\pruebafotos\\" + txtCedula.Text + ".jpg");
+                    }
+                    catch (Exception e)
+                    {
+                        MessageBox.Show(e.ToString());
+                    }
+                }
+            }
+        }
+
+
         private void Frm_Registro_Medico_Load(object sender, EventArgs e)
         {
             toolTip1.InitialDelay = 1;
@@ -194,7 +245,7 @@ namespace SIMEDVirtual
             toolTip1.SetToolTip(pbFotoDr, "Cargar Foto");
 
 
-            fotoBinaria = saveImage(frm_ExpedienteMG.rutaDefault);
+            // fotoBinaria = saveImage(frm_ExpedienteMG.rutaDefault);
         }
         //accion del picture Box
         private void pbFotoDr_Click(object sender, EventArgs e)
@@ -206,7 +257,7 @@ namespace SIMEDVirtual
                 //MessageBox.Show(x);
                 opFile.Dispose();
                 pbFotoDr.ImageLocation = x;
-                fotoBinaria = this.saveImage(x);
+                // fotoBinaria = this.saveImage(x);
             }
         }
 

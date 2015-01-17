@@ -81,7 +81,7 @@ namespace SIMEDVirtual
                 String edad = pts.ElementAt(0).edad.ToString();
                 int telefono1 = Convert.ToInt32(pts.ElementAt(0).telefono_fijo.ToString());
                 int telefono2 = Convert.ToInt32(pts.ElementAt(0).telefono_movil.ToString());
-                byte foto = Convert.ToByte(pts.ElementAt(0).fotoBinaria);
+               // byte foto = Convert.ToByte(pts.ElementAt(0).fotoBinaria);
 
                 this.Hide();
                 Frm_Registro_Medico frm = new Frm_Registro_Medico(nombre, ape1, ape2, ced, fecha, direccion,
