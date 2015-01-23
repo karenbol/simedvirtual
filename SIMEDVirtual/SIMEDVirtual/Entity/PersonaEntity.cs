@@ -24,7 +24,7 @@ namespace SIMEDVirtual.Entity
         public string edad { get; set; }
         public int empresa { get; set; }
 
-       // public byte[] fotoBinaria { get; set; }
+        public byte[] fotoBinaria { get; set; }
         public int codigo { get; set; }
         public string universidad { get; set; }
         public string especialidad { get; set; }

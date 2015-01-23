@@ -16,7 +16,7 @@ namespace SIMEDVirtual.DA
         public static Boolean InsertaCliente(
             string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, string edad, char sexo, string estado_civil, string grupo_sanguineo, string profesion,
-            int telefono_fijo, int movil, string correo, int empresa, bool medico, DateTime fecha_creacion)
+            int telefono_fijo, int movil, string correo, int empresa, byte[] fotoBinaria, bool medico, DateTime fecha_creacion)
         {
             int x = 0;
             string g = "";
@@ -29,9 +29,9 @@ namespace SIMEDVirtual.DA
                 {
                     command.CommandText =
                         "insert into persona(nombre,apellido1,apellido2,cedula,fecha_nacimiento,direccion,edad,sexo," +
-                    "estado_civil,grupo_sanguineo,profesion,telefono_fijo,telefono_movil,email,empresa,medico,fecha_creacion) " +
+                    "estado_civil,grupo_sanguineo,profesion,telefono_fijo,telefono_movil,email,empresa,foto, medico,fecha_creacion) " +
                     "values (@nombre,@ape1,@ape2,@cedula,@fecha,@direccion,@edad,@sexo,@estado,@grupo,@profesion,@telefono,@movil,@email," +
-                    "@empresa,@medico,@fecha_creacion)";
+                    "@empresa,@foto,@medico,@fecha_creacion)";
 
                     command.Parameters.AddWithValue("@nombre", nombre);
                     command.Parameters.AddWithValue("@ape1", apellido1);
@@ -49,7 +49,8 @@ namespace SIMEDVirtual.DA
                     command.Parameters.AddWithValue("@email", correo);
 
                     command.Parameters.AddWithValue("@empresa", empresa);
-                                        command.Parameters.AddWithValue("@medico", medico);
+                    command.Parameters.AddWithValue("@foto", fotoBinaria);
+                    command.Parameters.AddWithValue("@medico", medico);
                     command.Parameters.AddWithValue("@fecha_creacion", fecha_creacion);
 
                     x = command.ExecuteNonQuery();
@@ -370,7 +371,7 @@ namespace SIMEDVirtual.DA
 
         public static Boolean UpdateCliente(string nombre, string apellido1, string apellido2, string cedula,
             DateTime fecha, string direccion, string edad, char sexo, string estado_civil, string grupo_sanguineo, string profesion,
-            int telefono_fijo, int movil, string correo, int empresa, bool medico)
+            int telefono_fijo, int movil, string correo, int empresa, byte[] fotoBinaria, bool medico)
         {
             int x = 0;
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
@@ -383,7 +384,7 @@ namespace SIMEDVirtual.DA
                     string cadena = "update persona set nombre=@nombre, apellido1=@apellido1,apellido2=@apellido2," +
                     "fecha_nacimiento=@fecha_nacimiento,direccion=@direccion,edad=@edad,sexo=@sexo,estado_civil=@estado_civil, grupo_sanguineo=@grupo_sanguineo," +
                     "profesion=@profesion,telefono_fijo=@telefono_fijo,telefono_movil=@telefono_movil, email=@email," +
-                    "empresa=@empresa where cedula=@cedula";
+                    "empresa=@empresa, foto=@foto where cedula=@cedula";
 
                     command.CommandText = cadena;
 
@@ -402,7 +403,8 @@ namespace SIMEDVirtual.DA
                     command.Parameters.AddWithValue("@telefono_movil", movil);
                     command.Parameters.AddWithValue("@email", correo);
                     command.Parameters.AddWithValue("@empresa", empresa);
-                    
+                    command.Parameters.AddWithValue("@foto", fotoBinaria);
+
                     x = command.ExecuteNonQuery();
                 }
                 catch
@@ -473,7 +475,7 @@ namespace SIMEDVirtual.DA
         }
 
         //me muestra la imagen del cliente en la BD
-       /* public static Image GetImagePacient(string cedula)
+        public static Image GetImagePacient(string cedula)
         {
             using (NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString()))
             {
@@ -507,12 +509,12 @@ namespace SIMEDVirtual.DA
                 conn.Close();
             }
             return null;
-        }*/
+        }
 
         //////////////////////////////////////////////////////////////////////////////
         public static Boolean InsertaMedico(string nombre, string apellido1, string apellido2, string cedula,
            DateTime fecha, string direccion, string edad, char sexo, int telefono1, int telefono2, string correo,
-            int codigo, string universidad, int especialidad, bool medico)
+             byte[] foto, int codigo, string universidad, int especialidad, bool medico)
         {
             int x = 0;
             NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString());
@@ -524,8 +526,8 @@ namespace SIMEDVirtual.DA
                 {
                     command.CommandText =
                         "insert into persona(nombre,apellido1,apellido2,cedula,fecha_nacimiento,direccion,edad,sexo," +
-                    "telefono_fijo,telefono_movil,email,codigo,universidad,especialidad,medico)" +
-                        "values (@nombre,@ape1,@ape2,@cedula,@fecha,@direccion,@edad,@sexo,@telefono_fijo,@telefono_movil,@correo,@codigo,@universidad,@especialidad,@medico)";
+                    "telefono_fijo,telefono_movil,email,foto,codigo,universidad,especialidad,medico)" +
+                        "values (@nombre,@ape1,@ape2,@cedula,@fecha,@direccion,@edad,@sexo,@telefono_fijo,@telefono_movil,@correo,@foto,@codigo,@universidad,@especialidad,@medico)";
 
                     command.Parameters.AddWithValue("@nombre", nombre);
                     command.Parameters.AddWithValue("@ape1", apellido1);
@@ -538,7 +540,7 @@ namespace SIMEDVirtual.DA
                     command.Parameters.AddWithValue("@telefono_fijo", telefono1);
                     command.Parameters.AddWithValue("@telefono_movil", telefono2);
                     command.Parameters.AddWithValue("@correo", correo);
-                    
+                    command.Parameters.AddWithValue("@foto", foto);
                     command.Parameters.AddWithValue("@codigo", codigo);
                     command.Parameters.AddWithValue("@universidad", universidad);
                     command.Parameters.AddWithValue("@especialidad", especialidad);
@@ -567,7 +569,7 @@ namespace SIMEDVirtual.DA
 
 
         public static Boolean UpdateMedico(string nombre, string apellido1, string apellido2, string cedula,
-           DateTime fecha, string direccion, string edad, char sexo, int telefono1, int telefono2, string correo,
+           DateTime fecha, string direccion, string edad, char sexo, int telefono1, int telefono2, string correo, byte[] foto,
             int codigo, string universidad, int especialidad)
         {
             int x = 0;
@@ -580,7 +582,7 @@ namespace SIMEDVirtual.DA
                 {
                     string cadena = "update persona set nombre=@nombre, apellido1=@ape1,apellido2=@ape2," +
                     "fecha_nacimiento= @fecha,direccion=@direccion,edad=@edad, sexo=@sexo,codigo=@codigo,universidad=@universidad, especialidad=@especialidad,email=@correo, " +
-                    "telefono_fijo=@telefono_fijo, telefono_movil=@telefono_movil where cedula=@cedula";
+                    "telefono_fijo=@telefono_fijo, telefono_movil=@telefono_movil, foto=@foto where cedula=@cedula";
                     command.CommandText = cadena;
 
                     command.Parameters.AddWithValue("@nombre", nombre);
@@ -597,7 +599,8 @@ namespace SIMEDVirtual.DA
                     command.Parameters.AddWithValue("@correo", correo);
                     command.Parameters.AddWithValue("@telefono_fijo", telefono1);
                     command.Parameters.AddWithValue("@telefono_movil", telefono2);
-        
+                    command.Parameters.AddWithValue("@foto", foto);
+
                     x = command.ExecuteNonQuery();
                 }
                 catch
@@ -857,7 +860,7 @@ namespace SIMEDVirtual.DA
 
 
         //me muestra la imagen del cliente en la BD
-      /*  public static Image GetImageMedico(string cedula)
+        public static Image GetImageMedico(string cedula)
         {
             using (NpgsqlConnection conn = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["default"].ToString()))
             {
@@ -900,7 +903,7 @@ namespace SIMEDVirtual.DA
                 conn.Close();
             }
             return null;
-        }*/
+        }
 
     }
 

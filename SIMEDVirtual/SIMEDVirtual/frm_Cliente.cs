@@ -16,10 +16,8 @@ namespace SIMEDVirtual
     public partial class frm_Cliente : Form
     {
         public int editar;
-        //public byte[] fotoBinaria;
+        public byte[] fotoBinaria;
         public int accionArealizar = 0;
-        public int telefono = 0;
-        public int movil = 0;
 
         public frm_Cliente()
         {
@@ -39,13 +37,7 @@ namespace SIMEDVirtual
             //igualo a la variable estatica
             editar = pver;
             this.determinaCliente(cedula);
-
-            if (File.Exists("C:\\Users\\Karen\\Desktop\\pruebafotos\\" + cedula + ".jpg"))
-            {
-                pbFotoCliente.ImageLocation = "C:\\Users\\Karen\\Desktop\\pruebafotos\\" + cedula + ".jpg";
-            }
-
-            // pbFotoCliente.Image = PersonaIT.GetImagePacient(cedula);
+            pbFotoCliente.Image = PersonaIT.GetImagePacient(cedula);
             //si solo voy a ver deshabilito todo
             if (pver == 1)
             {
@@ -102,7 +94,7 @@ namespace SIMEDVirtual
         }
 
         //guardar la imagen, ocupo la ruta
-       /* public byte[] saveImage(string productImageFilePath)
+        public byte[] saveImage(string productImageFilePath)
         {
             try
             {
@@ -119,7 +111,7 @@ namespace SIMEDVirtual
             {
                 throw;
             }
-        }*/
+        }
 
         //metodo que carga TODAS LAS EMPRESAS registradas EN EL  COMBO BOX
         public void cargaComboEmpresas()
@@ -147,7 +139,7 @@ namespace SIMEDVirtual
                 string x = openFileDialog1.FileName;
                 openFileDialog1.Dispose();
                 pbFotoCliente.ImageLocation = x;
-                //fotoBinaria = this.saveImage(x);
+                fotoBinaria = this.saveImage(x);
             }
         }
 
@@ -159,8 +151,18 @@ namespace SIMEDVirtual
                 cbEstado.Text != string.Empty && cbSangre.Text != string.Empty && txtProfesion.Text != string.Empty &&
                 txtDireccion.Text != string.Empty)
             {
-                //determina los numeros de telefono
-                this.determinaTelefono();
+                int telefono = 0;
+                int movil = 0;
+
+                if (txtTelefono.Text.Length != 0)
+                {
+                    telefono = Convert.ToInt32(txtTelefono.Text);
+                }
+
+                if (txtMovil.Text.Length != 0)
+                {
+                    movil = Convert.ToInt32(txtMovil.Text);
+                }
 
                 DateTime fecha = Convert.ToDateTime(fecha_nacimiento.Text);
                 //determinar el sexo   
@@ -174,7 +176,6 @@ namespace SIMEDVirtual
                 string grupo = cbSangre.SelectedItem.ToString();
                 int empresa = Convert.ToInt32(cbEmpresa.SelectedValue);
 
-                //verifica y guarda la foto seleccionada
                 this.verificaFoto();
 
                 switch (editar)
@@ -182,12 +183,13 @@ namespace SIMEDVirtual
                     case 2:
                         //update
                         if (PersonaIT.UpdateCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, txtCedula.Text, fecha, txtDireccion.Text, txtEdad.Text, sexo,
-                            estado, grupo, txtProfesion.Text, telefono, movil, txtEmail.Text, empresa, false))
+                            estado, grupo, txtProfesion.Text, telefono, movil, txtEmail.Text, empresa, fotoBinaria, false))
                         {
                             MessageBox.Show("EL CLIENTE SE HA ACTUALIZADO CON EXITO", "ACTUALIZACION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Hide();
                             frmVerExpediente splash = new frmVerExpediente();
                             splash.ShowDialog();
+                            
                         }
                         else
                         {
@@ -200,12 +202,13 @@ namespace SIMEDVirtual
                         //si se inserto bn en el cliente y la anamnesis y el expediente
                         if (PersonaIT.InsertaCliente(txtNombre.Text, txtApe1.Text, txtApe2.Text, txtCedula.Text, fecha,
                         txtDireccion.Text, txtEdad.Text, sexo, estado, grupo, txtProfesion.Text, telefono, movil,
-                        txtEmail.Text, empresa,false, DateTime.Now))
+                        txtEmail.Text, empresa, fotoBinaria, false, DateTime.Now))
                         {
                             MessageBox.Show("CLIENTE GUARDADO CON EXITO", "INSERCION EXITOSA", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             this.Hide();
                             frmVerExpediente splash = new frmVerExpediente();
                             splash.ShowDialog();
+                            
                         }
                         //si hay campos vacios imprime error
                         else
@@ -223,21 +226,6 @@ namespace SIMEDVirtual
             }
         }
 
-
-        public void determinaTelefono()
-        {          
-            if (txtTelefono.Text.Length != 0)
-            {
-                telefono = Convert.ToInt32(txtTelefono.Text);
-            }
-
-            if (txtMovil.Text.Length != 0)
-            {
-                movil = Convert.ToInt32(txtMovil.Text);
-            }
-        }
-
-
         private void frm_Cliente_Load(object sender, EventArgs e)
         {
             toolTip1.InitialDelay = 1;
@@ -250,56 +238,22 @@ namespace SIMEDVirtual
 
         public void verificaFoto()
         {
-            /*if (fotoBinaria == null)
+            if (fotoBinaria == null)
             {
                 fotoBinaria = this.saveImage(frm_ExpedienteMG.rutaDefault);
-            }*/
-
-            //if (fotoBinaria == null)
-            //{
-            //MessageBox.Show("no se dijo foto");
-            //string x = pbPaciente.ImageLocation;
-            //fotoBinaria = this.saveImage(rutaDefault);
-
-           //la imagen se guarda o reemplaza solo si se ha seleccionado una img diferente a la default
-            if (pbFotoCliente.ImageLocation != frm_ExpedienteMG.rutaDefault)
-            {
-                //verifica si ya existe la img guardada y la reemplaza
-                if (File.Exists("C:\\Users\\Karen\\Desktop\\pruebafotos\\" + txtCedula.Text + ".jpg"))
-                {
-                    System.IO.File.Replace(pbFotoCliente.ImageLocation, "C:\\Users\\Karen\\Desktop\\pruebafotos\\" + txtCedula.Text + ".jpg", "C:\\Users\\Karen\\Desktop\\k");
-                }
-                else
-                {
-                    //si no existe lo crea y lo guarda
-                    System.IO.File.Copy(pbFotoCliente.ImageLocation, "C:\\Users\\Karen\\Desktop\\pruebafotos\\" + txtCedula.Text + ".jpg");
-                }
-            }
-            else
-            {
-                try
-                {
-                    File.Delete("C:\\Users\\Karen\\Desktop\\pruebafotos\\" + txtCedula.Text + ".jpg");
-                }
-                catch (Exception e)
-                {
-                    MessageBox.Show(e.ToString());
-                }
-                
             }
         }
 
         private void frm_Cliente_FormClosing(object sender, FormClosingEventArgs e)
-        {
+        {        
             if (Frm_Ingreso.datosUsuario[3].Equals("1") && accionArealizar == 0)
             {
                 this.Hide();
                 Frm_Splash splash = new Frm_Splash();
-                splash.ShowDialog();
+                splash.ShowDialog();                
             }
         }
 
-        //al eliminar foto pone la de la camara por defecto
         private void btnEliminarFoto_Click(object sender, EventArgs e)
         {
             pbFotoCliente.ImageLocation = frm_ExpedienteMG.rutaDefault;
